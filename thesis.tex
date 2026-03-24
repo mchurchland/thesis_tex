@@ -1,0 +1,1029 @@
+% This is the Reed College LaTeX thesis template. Most of the work 
+% for the document class was done by Sam Noble (SN), as well as this
+% template. Later comments etc. by Ben Salzberg (BTS). Additional
+% restructuring and APA support by Jess Youngberg (JY).
+% Your comments and suggestions are more than welcome; please email
+% them to cus@reed.edu
+%
+% See http://web.reed.edu/cis/help/latex.html for help. There are a 
+% great bunch of help pages there, with notes on
+% getting started, biblatex, etc. Go there and read it if you're not
+% already familiar with LaTeX.
+%
+% Any line that starts with a percent symbol is a comment. 
+% They won't show up in the document, and are useful for notes 
+% to yourself and explaining commands. 
+% Commenting also removes a line from the document; 
+% very handy for troubleshooting problems. -BTS
+
+% As far as I know, this follows the requirements laid out in 
+% the 2002-2003 Senior Handbook. Ask a librarian to check the 
+% document before binding. -SN
+
+%%
+%% Preamble
+%%
+
+% The `reedthesis' class (.cls) file has a number of options. Most of these
+% options are passed directly to the book class, but we have a number of custom options:
+% - `notocchapterdots' - disable the Table of Contents dots between chapters.
+%	This only affects the dots between the Chapter N: ... heading and their respective page numbers.
+% - `notocsectiondots' - disable the Table of Contents dots between section.
+% - `tocchaptername=false' - shows just "N" instead of "Chapter N" in each ToC entry.
+% - `headerstyle' - chooses the format in which header titles are displayed
+%	- `headerstyle=uppercase' - displays header titles in upper case
+%	- `headerstyle=smallcaps` - displays header titles in small caps.
+% - `linkstyle' - changes the style of links. by default, this is "unstyled" (black)
+%	(Note: If you go to print, and links don't show up, check your LaTeX engine! This should work fine on Overleaf, but you may need to
+%		change which LaTeX engine you use (e.g. for LaTeX Workshop on Visual Studio Code, use the recipe `pdflatex'))
+%   - `linkstyle=web` - the color of a link is always blue ("website"-style)
+% 	- `linkstyle=labelled` - the color of a link depends on its type
+% - `bibstyle` - choose the bibliography style in use. defaults to numeric
+% - `bibfile=???.bib' - the name of the bibliography file. defaults to bibliography.bib
+\documentclass[
+    12pt,
+    twoside,
+    bibstyle=authoryear,
+    bibfile=bibliography.bib,
+    headerstyle=uppercase,
+]{reedthesis}
+% Packages are extensions to the basic LaTeX functions. Whatever you
+% want to typeset, there is probably a package out there for it.
+% Chemistry (chemtex), screenplays, you name it.
+% Check out CTAN to see: http://www.ctan.org/
+\usepackage{listings}
+\usepackage{graphicx,latexsym} 
+\usepackage{amssymb,amsthm,amsmath}
+\usepackage{comment}
+\usepackage{longtable,booktabs,setspace} 
+\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
+\usepackage{rotating} 
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\definecolor{celblue}{HTML}{32a2f2}
+\definecolor{celgreen}{HTML}{127212}
+\definecolor{ergreen}{HTML}{6eb775}
+\definecolor{wsgreen}{HTML}{40FF00}
+\definecolor{connred}{HTML}{ff0e0e}
+\definecolor{teal}{HTML}{027979}
+\definecolor{shuffleorange}{HTML}{FF5100}
+\definecolor{sampledsalmon}{HTML}{ff6565}
+\definecolor{connorange}{HTML}{ff9752}
+\definecolor{deepblue}{HTML}{002CF1}
+\definecolor{purple}{HTML}{AF7DF5}
+\definecolor{lightcyan}{HTML}{8ADEF3}
+% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+
+\title{Determinants of Hyperparameter Invariance in Connectome Reservoir Computing}
+\author{Miles Walter Churchland}
+% The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
+\date{May 2026}
+\division{Mathematical and Natural Sciences}
+\advisor{Greg Anderson}
+%If you have two advisors for some reason, you can use the following
+%\altadvisor{Your Other Advisor}
+%%% Remember to use the correct department!
+\department{Mathematics}
+% if you're writing a thesis in an interdisciplinary major,
+% uncomment the line below and change the text as appropriate.
+% check the Senior Handbook if unsure.
+%\thedivisionof{The Established Interdisciplinary Committee for}
+% if you want the approval page to say "Approved for the Committee",
+% uncomment the next line
+%\approvedforthe{Committee}
+
+\setlength{\parskip}{0pt}
+%%
+%% End Preamble
+%%
+%% The fun begins:
+\begin{document}
+
+  \maketitle
+  \frontmatter % this stuff will be roman-numbered
+  \pagestyle{empty} % this removes page numbers from the frontmatter
+
+
+% Acknowledgements (Acceptable American spelling) are optional
+% So are Acknowledgments (proper English spelling)
+    \chapter*{Acknowledgements}
+	Firstly, I want to thank my parents Anne Churchland and Michael Brodesky. Their endless support, advice, and work mentality have enabled the creation of this work.\\ Secondly, I would like to thank my grandmother, Patricia Churchland\\ 
+
+
+    \chapter*{List of Abbreviations}
+
+	\begin{table}[h]
+	\centering % You could remove this to move table to the left
+	\begin{tabular}{ll}
+\textbf{ANN} & Artificial Neural Network \\
+\textbf{C.\ elegans} & \textit{Caenorhabditis elegans} \\
+\textbf{D.\ melanogaster} & \textit{Drosophila melanogaster} \\
+\textbf{Dale’s law} & Neurons are exclusively excitatory or inhibitory \\
+\textbf{E/I} & Excitatory/Inhibitory \\
+\textbf{E\:\!I ratio} & Excitatory-to-inhibitory neuron ratio \\
+\textbf{ESN} & Echo State Network \\
+\textbf{GR} & Generalisation Rank (noise robustness) \\
+\textbf{Gym} & Gymnasium RL environment toolkit \\
+\textbf{HPC} & High-Performance Computing \\
+\textbf{IPC} & Information Processing Capacity \\
+\textbf{KR} & Kernel Rank (Kernel Quality; nonlinear separability) \\
+\textbf{LSTM} & Long Short-Term Memory \\
+\textbf{MC} & Memory Capacity (linear/nonlinear) \\
+\textbf{MG} & Mackey–Glass time series \\
+\textbf{NARMA-$N$} & Nonlinear AutoRegressive Moving Average (order $N$) \\
+\textbf{NRMSE} & Normalised Root Mean Squared Error \\
+\textbf{PPO} & Proximal Policy Optimisation \\
+\textbf{RC} & Reservoir Computing \\
+\textbf{RNN} & Recurrent Neural Network \\
+\textbf{SNN} & Spiking Neural Network \\
+\textbf{SR} & Spectral radius ($\rho(W)$) \\
+\textbf{SW} & Small-World (graph property) \\
+\textbf{WS} & Watts–Strogatz small-world model \\
+\textbf{$W$} & Reservoir (recurrent) weight matrix \\
+\textbf{$W^{\mathrm{in}}$} & Input weight matrix \\
+\textbf{CAN} & canal-associated neurons; linked to the excretory canal (CANL/CANR). \\
+\textbf{L/R} & Suffixes used throughout: Left/Right\\
+
+	\end{tabular}
+	\end{table}
+	
+
+    \tableofcontents
+% if you want a list of tables, optional
+    \listoftables
+% if you want a list of figures, also optional
+    \listoffigures
+
+% The abstract is not required if you're writing a creative thesis (but aren't they all?)
+% If your abstract is longer than a page, there may be a formatting issue.
+    \chapter*{Abstract}
+Biological neural circuits remain in functional computational ranges despite substantial variability in synaptic strengths, neuron leak, and inputs. In reservoir computing, performance and stability depend sensitively on hyperparameters such as spectral radius, input scaling, and leak rate; however, it is unclear which network properties govern invariance to these parameters. In this work, we investigate the determinants of hyperparameter invariance using the \textit{C.\ elegans} connectome as a biologically grounded reservoir model.
+
+We quantify computational capability using task-agnostic metrics—Memory Capacity (MC), Information Processing Capacity (IPC), Kernel Rank (KR), and Generalization Rank (GR)—and measure invariance as the coefficient of variation of these metrics under hyperparameter sweeps. We construct controlled perturbations that independently alter connectivity topology, synaptic weight magnitude distributions, and excitatory/inhibitory sign structure while preserving other structural properties. This allows isolation of the causal contributions of topology, magnitude statistics, and global sign balance to computational invariance.
+
+Preliminary results suggest that global sign balance and weight magnitude statistics account for a large fraction of the observed invariance.
+	\chapter*{Dedication}
+	You can have a dedication here if you wish.
+
+  \mainmatter % here the regular arabic numbering starts
+  \pagestyle{fancyplain} % turns page numbering back on
+
+%The \introduction command is provided as a convenience.
+%if you want special chapter formatting, you'll probably want to avoid using it altogether
+
+\chapter{Introduction}
+Picture a pool of water, with no waves on it--this is a compute reservoir; our computational substrate. Now imagine dropping a stone into the pool--our input--observing ensuing waves--our output. One could use the pool to perform computational tasks; dropping multiple stones in the pool in order to compute. Alternatively one could measure the computational power of the pool without regard to a specific task, this is what this work explores. 
+
+
+
+
+
+
+
+
+\section{Neuroscience Terms Explained for Computer Scientists}
+\begin{itemize}
+    \item {\textbf{neuron} -- basic building block of neural circuits. In this work, neurons will be represented with a node on a graph that has both activation function and internal state (representing membrane potential).}
+    
+    \item {\textbf{synapse} -- Another basic building block of neural circuits. They will be represented by a directed edge with a weight connecting two neurons. } 
+    \item {\textbf{excitatory neuron} -- a neuron with only positive weight outgoing edges}
+    \item {\textbf{inhibitory neuron} -- a neuron with only negative weight outgoing edges }
+    \item {\textbf{E/I balance} -- the ratio of excitatory neurons to inhibitory neurons}
+   % \item {\textbf{Dale’s law} -- principle stating that a %neuron releases the same neurotransmitter at all of its %synapses. \parencite{Svensson2019} In graph terms, neurons %adhering to this principle have all positive or negative %outgoing connections    \footnote{Dale’s law is not %universally true; many neurons are now known to exhibit %cotransmission, releasing multiple neurotransmitters and %violating the single-sign assumption.\parencite{Svensson2019} }}
+
+
+    \item {\textbf{neurotransmitter} -- chemicals that allow neurons to communicate with each other--transmitted between synapses\parencite{Sheffler2023Neurotransmitters}}
+    \item {\textbf{gap junction} -- a type of synapse that connects the cytoplasm of two adjacent cells; bidirectional with the same weight for both sides. In our modeling these are either removed or treated as a two distinct positive signed edges}
+    \item {\textbf{neuromuscular junction} -- a specialized synapse where a motor neuron communicates with a muscle fiber. These directed edges are directed to non-neural cells and hence are not included in our graph}
+    \item {\textbf{connectome} -- a wiring diagram of a biological neural network. This typically contains all neurons and synapses along with edge weights}
+    \item {\textbf{sensory neuron} -- a neuron that receives sensory input. During typical biological use these can be thought of as "inputs" to the network.} 
+    \item {\textbf{motor neuron} -- a neuron that passes signal to the motor cells. During typical biological use these can be thought of as the "outputs" of the network}
+    \item {\textbf{synaptic terminals} -- bulbous endings of a neuron's axon where neurotransmitters are transferred to other cells (neurons, muscles), we use the number of these as a proxy for edge weight.}
+    \item {\textbf{membrane potential} -- The membrane potential is the difference in electrical charge between the inside and outside of a neuron, forming the basis for neural activity.\parencite{Henley_2021}  For our purposes, this is the internal state of the neuron representing how much our activation function will be saturated}
+    \item {\textbf{small-worldness} -- a property commonly observed in biological networks. A graph that exhibits the small world property has both high clustering coefficient and short average path length. It is claimed that it makes information spread more efficient, and makes the network more robust\parencite{Bassett2007,latora2001}. }
+\end{itemize}
+
+
+
+
+
+
+\chapter{Echo State Networks}
+\section{Echo State Networks: an Introduction}
+Echo state networks are discrete time recurrent reservoir computers, introduced by Jaeger \parencite{jaeger_echo_state_2001}. Due the recurrence, echo state networks and are particularly useful in time series analysis\parencite{Jaeger_Schrauwen_2012} and chaotic system prediction problems\parencite{Jager2004}. For readers unfamiliar with reservoir computing, we recommend the tutorial-style introduction\ \parencite{introtoRC} and the accompanying interactive RC Bootcamp notebooks.\parencite{rcbootcampSite}
+
+Reservoir computers have $K$ input units, $N$ internal network (more colloquially known as reservoir network or reservoir) units and L output units. Reservoir computers have 3 sets of weights; input weights$W^{in}_{ij}$ with size $K \times N$, internal weights ($W^{res}_{ij}$) with size $N\times N$, output weights, $W^{out}_{ij}$, with size $N\times L$. \parencite{jaeger_echo_state_2001}. The reservoir acts as a nonlinear expansion and as a memory of the input \parencite{Lukosevicius2012PracticalESN}.
+
+Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{out}_{ij}$, as opposed to training all weights like is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we "tap" in to the dynamics of the "reservoir" by linearly combining different neuron states. Training the recurrent weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
+
+Formally, let $u_t \in \mathbb{R}^{d}$ be input, $x_t \in \mathbb{R}^{N}$ the reservoir state, and $y_t \in \mathbb{R}^{p}$ the output. With leak $\alpha \in (0,1]$:
+\begin{align}
+\tilde{x}_{t+1} &= \tanh\!\left(W_{\mathrm{res}} x_t + W_{\mathrm{in}} u_{t+1} + b + \xi_t\right), \\
+x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
+y_t &= W_{\mathrm{out}}\,[x_t; u_t; 1],
+\end{align}
+where $\tanh$ is elementwise, $b$ is not included in our model ,$\xi_t$ is optional i.i.d.\ noise, $W_{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W_{\mathrm{out}}\in\mathbb{R}^{p\times (N+d+1)}$ is trained.
+
+For this approach to work, our internal network  must satisfy the echo-state property. This property is that asymptotically the state of a reservoir $x(n)$ is uniquely determined by the input history $u_t$ not the initial state of the network ($x_0$). A good way to explain this intuitively a house with a thermostat, imagine two identical houses with the same target temperature ($u_t$) and thermostat program ($W$). Imagine house b starts with a cold temperature ($x_0$) and house a starts with a hot temperature ($x_0'$). With time and a reasonable thermostat program both temperature states ($x_n,x_n'$) will converge and the temperature state ($x_n$) will be determined solely by the temperature target. 
+
+
+
+
+\begin{figure}
+    \centering
+\includegraphics[width=0.5\linewidth]{figs/esn.png}
+    \caption{A basic echo state network architecture. $W^{out}$ edges are trainable. $W^{in}$ and $W^{res}$ are fixed after the network architecture is created and are not updated during training.\parencite{9093897}}
+    \label{fig:esn}
+\end{figure}
+\section{Hyper-Parameters}
+Echo state networks, like most machine learning models, rely on hyperparameters— parameters specified prior to training that determine the dynamical regime in which the model operates. In reservoir computing, these parameters do not affect $W_{out}$ directly; instead they influence the intrinsic behavior of the reservoir itself, shaping recurrent feedback, external input, and temporal integration.
+
+\textbf{Spectral radius} $\rho(W_{\mathrm{res}})$: Let $W \in \mathbb{R}^{N \times N}$ be a square matrix with eigenvalues 
+$\{\lambda_i\}_{i=1}^N$. The \emph{spectral radius} of $W$ is defined as
+\[
+\rho(W) = \max_{1 \le i \le N} |\lambda_i|.
+\]
+ The spectral radius roughly controls the strength of recurrent feedback. In the common (heuristic) setting, choosing $\rho(W_{\mathrm{res}}) < 1$ fosters the echo state property by making the reservoir dynamics contractive. Values near $\rho(W_{\mathrm{res}})\approx 1$ typically yield richer, longer-lasting transients while still often preserving the echo state property. When the reservoir is driven by sufficiently strong inputs (non zero inputs in-practice), even $\rho(W_{\mathrm{res}})>1$ can remain effectively stable in practice because the nonlinearity (activation function)(e.g., $\tanh$) reduces the effective gain of the recurrence, damping feedback loops. \parencite{Lukosevicius2012PracticalESN}
+
+A reservoir that does not satisfy the echo state property is not useful for reliable computation. Without the echo state property, the reservoir state is not uniquely determined by the input history; depending largely on the initial condition. In practice, this means that recurrent feedback dominates the dynamics: internal activity grows in magnitude and persists independently of the input; the effect of new inputs is overshadowed. As a result, the reservoir ceases to act as a dynamical system and instead consistently gravitates towards magnitude increasing feedback loops.
+
+ \textbf{Leak rate} $\alpha$: The leak rate controls the intrinsic timescale of the reservoir by interpolating between the previous state and the newly computed activation. The effective recurrence is
+\[
+x_{t+1} \approx \left[(1-\alpha)x_t + \alpha \tilde{x}_{t+1} \right] ,
+\]
+ Smaller $\alpha$ increases the persistence of past inputs and extends temporal memory of the reservoir. Larger $\alpha$ causes the system to update more rapidly, reducing memory but increasing responsiveness. Thus, while the spectral radius controls the strength of recurrence, the leak rate controls how quickly that signal dissipates over time.
+ 
+ \textbf{Input scaling} $\|W_{\mathrm{in}}\|$: Input scaling determines the relative strength of external input compared to recurrent feedback. When input scaling is small, reservoir dynamics are dominated by recurrence, and the system primarily reflects its internal structure. Increasing input scaling drives neurons into the nonlinear regime of the activation function, increasing computational richness. However, excessive scaling saturates the activation function, reducing sensitivity to inputs and collapsing the effective dimensionality of the reservoir's state matrix.
+
+ \textbf{Noise} $\xi_t$: Noise introduces stochastic perturbations to the reservoir state. Noise insertion has been shown to improve attractor stability in echo state networks by preventing trajectories from collapsing into undesired fixed points or oscillatory modes, though this comes at the cost of reduced prediction precision \parencite{jaeger_echo_state_2001}. Because the present experiments focus on task-agnostic structural invariance rather than attractor training, noise is not included as a feature of our model.
+
+\chapter{Background}
+
+\section{The C. elegans Connectome}
+\subsection{Historical Justification}
+In 1966, the mathematician and psychologist Seymour Papert initiated the ``Summer Vision Project,'' an early attempt to develop programs capable of performing image-classification tasks. The project revealed that visual perception was far more difficult to formalize computationally than early researchers had anticipated, and that heuristic approaches were insufficient for the problem. \parencite{nilsson_2010}
+
+Earlier, in 1962, Hubel and Wiesel studied the visual cortex of cats and found neurons that responded selectively to oriented bars of light at specific locations, as well as more complex cells that responded to such features across a range of positions. These results suggested that biological vision achieves robust computation through layered feature extraction.\parencite{lindsay_2020}
+
+Fukushima drew directly on these biological principles in 1980 when he developed the Neocognitron, a multilayer neural architecture capable of image classification that was robust to positional shifts. The Neocognitron is widely regarded as a precursor to modern convolutional neural networks. This historical arc is instructive: when computational principles proved inadequate, progress came from studying biological systems and abstracting structural principles from them. \parencite{fukushima_1980} 
+
+The same logic motivates the present work. Biological neural networks must function reliably across noisy, variable, and changing conditions, making them natural models of robust computation. The gap between artificial and biological robustness is still visible in many domains: engineered systems often remain brittle outside their training regime\parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}, whereas animals routinely generalize behavior across unfamiliar environments \parencite{burden_libby_jayaram_sponberg_donelan_2024,pearson_2000}.
+
+For that reason, this thesis turns to a biological network not to explain the organism itself, but to study what its architecture may reveal about robust computation. We therefore use the \textit{C.\ elegans} connectome as a network architecture prior and investigate which of its structural features contribute to hyperparameter-invariant computation.
+\subsection{Connectome}
+A connectome is a comprehensive structural map of the neural wiring of an organism. It encodes which neurons are connected, the direction of said connection, and often additional biological metadata such as the number of synaptic terminals and the neurotransmitter associated with each connection.
+
+In this work, we treat the connectome as the foundation for a graph: each neuron is represented as a node, and each synapse as a directed, weighted edge. The  connectome used in our study is sourced from the c302 project\parencite{c302}, which is an initiative to model the neural network of the nematode \textit{C. elegans}.
+The network is composed of several key components:
+\begin{itemize}
+    \item \textbf{Neurons}: The database includes all 302 identified neurons in the \textit{C. elegans} nervous system.
+    Our model includes 299 neurons; CANL, CANR, VC6 are omitted (see Sec.~\ref{sec:omission}). 
+    \item \textbf{Synaptic connections}: The c302 connectome model contains 3672 synaptic connections but 564 them are neuromuscular junctions; sending neurotransmitters to muscle cells and are not included in our graph. This leaves us with 3108 synaptic connections, categorized into various types based on the nature of the synapse, including chemical synapses and gap junctions. Specifically, we assign inhibitory synapses (GABAergic) negative weights (190 synapses) and excitatory synapses--acetylcholine (394 synapses) and glutamate(962)--positive weights. All remaining transmitter (1562 synapses) are assigned positive sign. This sign assignment is a \emph{modeling prior} used to define an excitatory/inhibitory partition for the invariance experiments; it does not attempt to capture receptor-specific or context-dependent effects (e.g., cases where acetylcholine or glutamate can be inhibitory). Because our study analyzes how coarse sign structure and weight statistics affect task-agnostic reservoir metrics under hyperparameter sweeps, incorporating detailed synapse-type dynamics is outside scope. We retain the non-GABA synapses (rather than dropping them) to preserve the observed network density and recurrence, which strongly influence reservoir dynamics and the metrics studied here.
+
+    
+    The connections are represented as directed edges in the network, indicating the direction of signal transmission.
+    Gap junctions are considered to be two distinct edges with independent weights for computational simplicity.
+\item \textbf{Connection count (proxy weights)}: The dataset reports only the number of terminal contacts that neuron $i$ makes onto neuron $j$, not graded synaptic strengths. We therefore use that contact count $c_{ij}$ as an initial weight, $W_{ij}=c_{ij}$. Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020} and provides the biologically informed prior for our training.
+
+\end{itemize}
+\subsection{Omission of CANL/CANR}
+\textbf{\emph{Omission of CANL/CANR.}}
+\label{sec:omission}
+In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons and muscles but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 is a forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Under the dynamics in Sec.~\ref{sec:isolated}, isolated nodes are decoupled from the controller and cannot influence motor commands or reward; their inclusion/exclusion is therefore behaviorally invariant in this model.
+
+\subsection{Isolated nodes}
+\label{sec:isolated}
+Nodes with no incoming or outgoing synaptic connections are dynamically inert and therefore do not influence dynamics of the network. Formally, if neuron $i$ satisfies $W_{ij}=0$ and $W_{ji}=0$ for all $j$, then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining network.
+
+This condition applies to CANL, CANR, and VC6 in the c302-derived graph, as their known synaptic contacts are exclusively with excretory (CANL, CANR) and vulval muscles (VC6), which are omitted from the modeled neuron set. Consequently, these neurons are isolated within the weight matrix and do not influence the reservoir dynamics.
+
+
+
+
+\begin{comment}
+\paragraph{Noise–memory trade-off}
+Analyze the pre-activation linear regime by setting $f(z)\approx z$ and $b=0$:
+\begin{equation}
+x_{t+1} \;=\; A x_t + B u_{t+1} + \xi_t,\qquad
+A = (1-\alpha)I + \alpha W_{\mathrm{res}},\quad B = \alpha W_{\mathrm{in}}.
+\label{eq:lin}
+\end{equation}
+With no inputs ($u\equiv 0$), the homogeneous solution is $x_t = A^t x_0$. If $\rho(A)<1$, then $A^t\!\to 0$ and the contribution of initial conditions decays:
+\[
+\|x_t\| \;\le\; \|A^t\|\,\|x_0\| \;\xrightarrow[t\to\infty]{}\; 0.
+\]
+
+Additionally, as $t$ grows, the signal component inherited from $x_0$ decays geometrically like $\|A^t\|$, while the noise floor plateaus at the stationary level set by $\Sigma_\xi$. Beyond the time $t^\star$ where $\|A^{t^\star}\|\|x_0\|$ falls below the typical noise scale, linear memory about past states is dominated by noise, reducing
+
+Injecting noise during training improves generalization. In deterministic dynamics, a small error at time 
+$t$ typically amplifies at $t+1$
+and onward, causing divergence; with noise-trained models, the estimator learns to correct small perturbations so errors do not compound across steps. \parencite{jaeger_echo_state_2001}
+\end{comment}
+
+
+
+
+\section{Task Agnostic Network Statistics}
+\subsection{Motivation}
+What makes a given neural circuit computationally powerful? More precisely, how can two network architectures be compared across a suite of tasks without explicitly training them on those tasks? In reservoir computing, this question is addressed through task-agnostic statistics that quantify intrinsic dynamical properties of the network. Measures such as information processing capacity (IPC), kernel rank (KR), generalization rank (GR), and memory capacity (MC) characterize complementary functional dimensions, including nonlinearity, separability, generalization, and fading memory. Additionally, these statistics are widely used as benchmarking tools for reservoir networks \parencite{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
+
+\subsection{Kernel Rank}
+Returning to the pool described earlier, we can use this picture to build intuition for the task-agnostic network statistics considered in this work. One could also drop different sized stones sequentially at different places in the pool. They could do this experiment multiple times; observing how distinct the resulting wave states are. Kernel rank is a measure of how distinctly the pool responds to different sets of inputs; if many input sequences lead to the same wave patterns, then the kernel rank will be low. If those input sequences instead lead(\textit{map}) to distinct wave patterns then the kernel rank will be high.
+
+Kernel rank measures how effectively inputs are projected into a high-dimensional state space so they become linearly separable by a readout $W^{out}$, serving as a measurable proxy for kernel quality and the diversity of nonlinear transformations created by the reservoir\parencite{Stepney2024PRCtutorial}. Higher is better for this metric. Specifically it is a measure of the rank of the $n \times m$  matrix whose columns are the internal state ($x_{u_i}(t_0)$) at some fixed time $t_0$ for the preceding input stream $u_i$. Where $n$ is the number of units in the circuit, $m$ is the number of input streams, ($x_{u_i}(t_0)$) is the internal state at time $t_0$, we have $m$ different input streams $u_i$. This is the original definition\parencite{maass_comp_power_2004}, we will use a modified version of this also found in literature \parencite{Stepney2024PRCtutorial}. In our implementation, we use the state-matrix variant common in benchmarking: we drive the reservoir with a single i.i.d. input sequence $u_t$---rather than m input streams---and collect the post-washout state matrix $X \in \mathbb{R}^{T\times N}$ where each row is the reservoir state at each time step. Kernel Rank is computed using effective rank \parencite{roy_vetterli_2007}. Because the readout is linear, neurons with very similar activity patterns provide redundant information. We want a kernel whose neurons' activity patterns vary greatly, such that this can be utilized by our readout. Thus we need a different measure of rank, as matrix rank only detects exact linear dependence; neurons with highly similar but not identical activity patterns will still increase the rank. We want a measure of rank that measures variance across orthogonal modes. This leads us to effective rank. To compute effective rank, we perform the following steps:\\
+First we center our values with respect to time\\
+\[ X_c = X-\bar{X}\] \\
+where \[\bar{X}_{tj} = \frac{1}{T}\sum_{t'=1}^{T}X_{t'j}\] This defines an  $\mathbb{R}^{T\times N}$ matrix where every row is the mean neural activity of a neuron over time.\\
+Get the singular values from singular value decomposition
+\[
+S = [\sigma_1,\sigma_2,...\sigma_n] = \text{SVDVALS}(X_c)
+\]
+Traditionally, the values of a singular value decomposition represent the scaling in each orthogonal dimension. When we are getting the $\sigma$s, we do so by obtaining the square root of the eigen values of $X_c^TX_c$. $X_c^TX_c$ is the unnormalized covariance matrix of $X_c$. A large magnitude at $X_c^TX_c$ at index $i,j$ means that neuron $i$'s activity is closely aligned with neuron $j$'s. A low value indicates a weak linear correlation between their signals.\\
+The eigenvalues describe how much variance lies along each orthogonal activity pattern. If many neurons behave similarly, most variance lies in a small number of directions and only a few eigenvalues are large. If neurons exhibit diverse activity patterns, variance spreads across more directions and more eigenvalues become significant.\\
+
+Next, ensure that there are no $\sigma$ with value 0 by setting all that are equal to 0 to $\epsilon$, we use $\epsilon = 1e-12$.
+\[
+S'_{i} = \max(\epsilon,S_{i}) 
+\]
+Now we get the "probabilities" of each of the singular values. We divide by the sum, so that $\sum p_i = 1$ and so that we can use Shannon entropy.
+\[
+p_i = \frac{S'_{i}}{\sum^N_{k=1}{S'_{k}}}
+\]
+We are invoking Shannon entropy to tell us how much information on average we need to encode our singular values. If there is one large singular values with the rest being close to 0 then we need substantially less information to encode our distribution than if there is multiple singular values with similar sizes. 
+\[
+H= -\sum_{i=1}^{N} (p_i\ln{p_i})
+\]
+then we do $e^H$ so that we can get the effective rank of our matrix. Take $p_i =\frac{1}{k}$, then H = $\ln{{k}}$ thus $e^H = k$ which is the effective rank of our matrix.
+\[
+\text{erank} = e^{H}
+\]
+
+\subsection{Generalization Rank}
+Returning to the pool, suppose we wanted to observe how much the waves patterns change if we used slightly larger or smaller rocks. We could alter the size of our rocks slightly and drop them at slightly different places. By comparing the resulting wave pattern to the wave pattern of the unaltered rocks, we can measure how many independent wave patterns the pool produces from these nearly identical inputs. If small changes in the stones lead to many distinct wave patterns, the pool is highly sensitive and maps to a high-dimensional set of states; if small changes lead to similar wave patterns, the pool generalizes and collapses to a lower-dimensional set of states. This is measured by the Generalization Rank.
+
+Generalization Rank (GR) quantifies the sensitivity of reservoir states to small perturbations in the input. It is computed as the effective rank of the difference between state trajectories driven by clean and noise-perturbed inputs. Lower GR indicates that input perturbations induce lower-dimensional deviations in state space, reflecting greater robustness and reduced sensitivity to noise.
+\[
+u_t \overset{\text{i.i.d.}}{\sim} \mathcal{U}(-1,1)
+\]
+\[
+u'_t = u_t + \kappa \,\varepsilon_t, \qquad \varepsilon_t \overset{\text{i.i.d.}}{\sim} \mathcal{N}(0,1).
+\]
+with $\kappa$ in our version being set by 0.01.
+\\
+then we run the network with the perurbed $u'$, this network will have states $X'$ and with the unperturbed $u$, with states $X$. 
+
+\[
+\text{Generalization Rank} = \text{erank}(X'-X)
+\]
+
+if our network generalizes well, small amounts of noise on the input will not change the internal state after a set washout period.
+
+
+\subsection{Memory Capacity}
+Returning to the pool analogy, suppose we wish to infer the size of a stone after it has been dropped into the water. The stone itself is no longer visible, but its presence is encoded in the resulting wave pattern. By observing the waves, one could estimate the size of the stone. If multiple stones are dropped sequentially, their wave patterns overlap and interfere. The older a stone, the more its influence dissipates and mixes with subsequent disturbances.
+
+In reservoir computing, the input signal plays the role of the stones, and the reservoir state plays the role of the wave pattern. Memory capacity measures how well the current reservoir state can \textit{reconstruct} past inputs at varying delays.
+
+Memory capacity, introduced by Jaeger \parencite{Jaeger2002STMESN}, is a measure of the amount of linear memory a reservoir contains. Given an input $u(t)\in U[-1,1]$, the reservoir's memory capacity is determined by its ability to reproduce this input at at  varying delays ($k$). Memory capacity is originally defined by Jaeger as   
+\[\text{MC}_k=\dfrac{\big(\text{cov}\!\left(u(t-k),\hat u_k(t)\right)\big)^2}{\text{var}(u)\,\text{var}(\hat u_k)}\] \[\text{MC}=\sum_{k=1}^\infty\text{MC}_k.\]\
+
+$MC_k$ measures the correlation between the predicted signal and the original signal or how well the network "remembers" the original signal at time $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases, this is intuitive, as we are in a network that has the echo state property (the state of the network is determined by its input history and not by its initial state). Hence we try to recreate the input $u_{t-k}$ from the state $x_t$, but because our network has the echo state property, the state, $x_{t-k}$ resulting from the input $u_{t-k}$ loses influence over $x_t$ as $k$ grows. Jaeger also shows that for i.i.d. (independent and
+identically distributed) random input, $MC \leq N$ \parencite{Jaeger2002STMESN,Stepney2024PRCtutorial}.\\
+
+Let $X' = \frac{X-\bar{X}}{\text{std}(X)+\epsilon}$,
+$\xi$ is a user specified parameter denoting the strength of L2 regression,
+and
+$I \in R^{N \times N}$. $Y' = Y_{\text{train}}$\footnote{We use $Y'=Y$ the typical equation has Y = $\frac{Y-\bar{Y}}{\text{std}(Y)+\epsilon}$ we can skip this for a computational speedup by knowing that $\bar{Y}\approx0$ hence $Y' = \frac{Y}{\text{std}(Y)+\epsilon}$, however this can be written as $Y'=aY$ with $a=\frac{1}{\text{std}(Y)+\epsilon}$ we can just multiply the weight matrix found from ridge regularization by a, this is automatically done by ridge regression.}
+
+We define 
+\[
+\text{Ridge\_Regression}(X_{\text{train}},Y_{\text{train}},\xi)= ((X')^TX'+\xi I)^{-1}(X')^TY'
+\]
+
+
+
+
+Jaeger's definition of $MC$ is the Pearson correlation coefficient squared, which is equal to R-squared. R-squared or the coefficient of determination is a measure of how much of the variation in the data is explained by our predictions. The numerator is the residual sum of squares. The denominator is the total sum of squares. Here, $Y$ is the true input signal, $\hat{Y}$ is the predicted input signal, $\bar{Y}$ is the average of $Y$, and $\epsilon$ is a tiny value to ensure that we do not divide by 0.
+\[
+R^2_{\text{score}}(Y,\hat{Y}) =1- \frac{\sum_{i=1}^{T} (Y_i-\hat{Y}_i)^2}{\sum^T_{i=1}(Y_i-\bar{Y})^2+\epsilon}
+\]
+
+
+
+
+We define memory capacity as
+\[
+\mathrm{MC}
+=
+\sum_{d=1}^{D_{\max}}
+\max\!\bigl(0.0,\;R^2_{\mathrm{score}}(Y_d,\hat{Y_d})\bigr),
+\]
+where
+\[
+Y_d = u^{\mathrm{test}}_{0:T_{te}-d},
+\qquad
+\hat{Y_d}
+=
+X^{\mathrm{test}}_{d:T_{te}}
+\,\mathrm{Ridge\_Regression}\!\left(
+X^{\mathrm{train}}_{d:T_{tr}},
+\;
+u^{\mathrm{train}}_{0:T_{tr}-d}, \xi
+\right).
+\]
+
+where $D_{\max}$ is the user specified max delay (we used a value of 300). This both differs from the formal definition, we choose to not sum to infinity because this is computationally unfeasible and because $MC_k$ degrades as $k \to \infty$ hence adding $MC_k$ with high k to our sum is numerically negligible.
+
+\subsection{Information Processing Capacity}
+Returning to our pool, suppose we are no longer interested in recovering the size of individual stones, but instead in recovering combinations of stones. When multiple stones are dropped into the pool, their waves do not simply add; they interfere, overlap, and mix. The resulting wave pattern contains not only information about each stone individually, but also information about their interactions. Information Processing Capacity measures how many independent combinations of past stones simultaneously exist in the current wave pattern.
+\paragraph{Notation.}
+\begin{itemize}
+    \item $X^{\mathrm{train}}_{d:T_{tr}}$: reservoir states on training data from timestep $d$ to the end.
+    \item $X^{\mathrm{test}}_{d:T_{te}}$: reservoir states on test data from timestep $d$ to the end.
+    \item $u^{\mathrm{train}}_{0:T_{te}-d}$: training inputs from the start up to the end minus a delay $d$.
+    \item $u^{\mathrm{test}}_{0:T_{te}-d}$: test inputs from the start up to the end minus a delay $d$.
+    \item $P_k$: Legendre polynomial of degree $k$.
+\end{itemize}
+\paragraph{Let}
+\[
+Y_{d,k} = P_k(u^{\mathrm{test}}_{0:T_{te}-d}),
+\qquad
+\hat{Y}_{d,k}
+=
+X^{\mathrm{test}}_{d:T_{te}}
+\,\mathrm{Ridge\_Regression}\!\left(
+X^{\mathrm{train}}_{d:T_{tr}},
+\;
+P_k(u^{\mathrm{train}}_{0:T_{tr}-d})
+, \xi
+\right).
+\]
+Information Processing Capacity measures the ability of the reservoir state $x(t)$ to reconstruct nonlinear functions of delayed inputs.
+We start with a uniformly sampled noise sequence of length t on the bounds [-1,1]
+\[
+u_t \overset{\text{i.i.d.}}{\sim} \mathcal{U}(-1,1)
+\]
+\begin{comment}
+    
+
+First we rescale the input sequence $u$ to the range for $-1$--$1$ for both test and train data
+\[
+\frac{2(u-\min(u))}{\max(u)-\min(u)+\epsilon}-1.0
+\]
+importantly the mean of u after this rescaling is $\approx$ 0. Let $a,b = \min(u),\max(u)$. We will show $\mathbb{E}(\tilde{u}) =0$
+\begin{gather}
+  \mathbb{E}(\tilde{u}) =  \frac{2(u-a)}{b-a+\epsilon}-1.0
+ \\ 
+    \frac{2u}{b-a+\epsilon}-\frac{2a}{b-a+\epsilon}-1.0
+ \\ 
+     \frac{2u}{b-a+\epsilon}+\frac{-2a}{b-a+\epsilon}-\frac{b-a+\epsilon}{b-a+\epsilon}
+ \\ 
+      \frac{2u}{b-a+\epsilon}+\frac{-b-a-\epsilon}{b-a+\epsilon}
+ \\ 
+      \mathbb{E}(\tilde{u})=\frac{a+b}{2}\\
+            \frac{2}{b-a+\epsilon}\frac{a+b}{2}+\frac{-b-a-\epsilon}{b-a+\epsilon}\\
+              \frac{2(a+b)}{2(b-a+\epsilon)} +\frac{-b-a-\epsilon}{b-a+\epsilon}\\
+                \frac{2(a+b)}{2(b-a+\epsilon)} +\frac{-2b-2a-2\epsilon}{2(b-a+\epsilon)}\\
+                \frac{-2\epsilon}{2(b-a+\epsilon)}
+ \end{gather}
+using linearity and multiplicity of expectation. because epsilon $\approx 0$ then $\mathbb{E}(\tilde{u}) = 0$
+
+\end{comment}
+
+
+
+
+
+
+We define information processing capacity (IPC) as
+\[
+\mathrm{IPC}
+=
+\sum_{d=1}^{D_{\max}}
+\sum_{k\in K}
+\max\!\bigl(0.0,\;R^2_{\mathrm{score}}(Y_{d,k},\hat{Y}_{d,k})\bigr),
+\]
+
+
+Here $D_{\max}$ and $K$ (set to $50$ and $\{1,3,5\}$, respectively) are the maximum delay and the set of polynomial degrees. We cap $D_{\max}=50$ for two reasons: (i) evaluating all $(k,d)$ pairs requires $|K|D_{\max}$ ridge fits per model, which is expensive at our scale; and (ii) reconstructing higher-order (polynomial) functions of the input is substantially harder than linear reconstruction, large delays contributes less as $k$ increases.
+
+In the literature, IPC is often summed over all Legendre polynomial degrees. We instead truncate at $K_{\max}=3$ because contributions degrade with increasing $k$, and because our experiments require tens of thousands of IPC evaluations. 
+
+
+
+\section{Invariance across Hyper-parameters}
+Variance measures the degree of spread in a data set from its mean value. In this study we are measuring variance of key network statistics (GR,KR,IPC,MC) under hyperparameter change. It is important to note that while the values of these network statistics are important, i.e. a high IPC being an indicator of a strong network architecture, we are investigating how these values change under hyperparameter change compared between different model architecture, rather than the values themselves. Hence we will not measure variance but rather we will measure coefficient of variation, as this provides a measure of variance across different scales. \[CV = \frac{\text{std}(a)}{\bar{a}}\]
+
+Where a is the set of values of the network statistic we are measuring, i.e. IPC, MC, GR, or KR, under a set of differing hyperparameter values. It is desirable to have a low CV, as this indicates that the network statistic is invariant to hyperparameter change, meaning the network can be trained with a wide range of hyper-parameters without changing the network's ability to perform a given task.
+
+
+\chapter{Methods}
+\section{Network topology priors}
+\subsection{Small-world networks}
+
+The small-world phenomenon refers to the observation that the distance between two randomly chosen nodes in a network is surprisingly short, even when the network contains many nodes \parencite{network_science}. Small-world networks are characterized by the coexistence of two structural properties: a high clustering coefficient and a short characteristic path length.
+
+Formally, let $\overline{L}$ denote the average path length, the mean shortest paths distance between all pairs of nodes. Let $\overline{C}$ denote the average clustering coefficient of the network, defined as the mean degree to which the neighbors of a given node connect to each other. To quantify small-world structure, these quantities are typically normalized relative to an equivalent random network with the same number of nodes and edges, denoted $\overline{L}_{\mathrm{rand}}$ and $\overline{C}_{\mathrm{rand}}$, respectively. The small-worldness metric is then defined as
+\[
+S
+=
+\frac{\overline{C}/\overline{C}_{\mathrm{rand}}}
+{\overline{L}/\overline{L}_{\mathrm{rand}}}.
+\]
+A network is considered small-world when $S > 1$, indicating that it maintains higher clustering than a random network while preserving similarly short path lengths.\parencite{humphries_gurney_2008}
+
+\subsection{Small-World Topology Enhances the Echo State Property and Signal Propagation}
+
+Kawai et al. \parencite{KAWAI201915} demonstrated that networks with small-world structure~\parencite{Wssmallworld} (\(p = 0.1\)) exhibit enhanced memory capacity in reservoir computing when input and output nodes were spatially segregated. They localized input nodes in one region of the network and output nodes in a distant region. Small-world networks achieved a larger total memory capacity, quantified as
+\[
+\sum_{\rho(W_{\mathrm{res}})} \mathrm{MC},
+\] compared to networks not exhibiting the small-world property.
+
+Although fully random networks (\(p = 1\)) achieved the single highest peak memory capacity—at a spectral radius slightly below one—small-world networks maintained strong performance across a broader range of spectral radii. In contrast, the performance of fully random reservoirs fell sharply outside of a narrow band of spectral radii.
+
+This result provides conceptual motivation for the present work: a biologically inspired architecture with small-world structure can exhibit comparatively stable computational performance across spectral radii, rather than relying on precise tuning near the edge of stability, as is often assumed in traditional reservoir computing theory.\footnote{Here, "traditional" refers to the common assumption in reservoir computing that fully random connectivity maximizes dynamical diversity and therefore computational ability.}
+\section{Hyperparameter Sweeps}
+We evaluated network performance under perturbations of spectral radius, leak rate, and input scaling. To compute our coefficient of variation (CV) metric, each trial consisted of evaluating the network across all combinations of the following hyperparameters:
+
+\begin{itemize}
+    \item Spectral radius: $sr \in \{0.6,\,0.8,\,0.95,\,1.05\}$
+    \item Leak rate: $\text{leak} \in \{0.6,\,0.8,\,1.0\}$
+    \item Input scaling: $\text{input scaling} \in \{0.1,\,0.5,\,1.0,\,1.5\}$
+\end{itemize}
+
+For each trial, each metric was evaluated across all hyperparameter configurations, with every configuration using a distinct reservoir instantiation. The coefficient of variation (CV) was then computed separately for each metric as the standard deviation across configurations divided by the corresponding mean. In analyses requiring a single summary value per condition, computed CV values were averaged across trials.
+\subsection{Spectral Radius Normalization \& Scaling}
+Spectral radius normalization and rescaling is done by multiplying all weights in our weight matrix by $\frac{\rho_{target}}{\rho(W)}$. This is applied as the final step before running the architectures. Thus, normalization/scaling occur after any weight or sign perturbations.
+
+\section{Network Architectures}
+
+\label{Architectures}
+To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network—such as topology, weight distribution, sign structure, or small-world organization—while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we can assess which features are responsible for observed differences in robustness. These experiments are set of structural ablations: starting from the biological network, we selectively randomize or preserve particular attributes and measure how these changes affect performance across hyperparameter settings.
+
+\subsection{C. elegans connectome} %has fig
+This uses the biological network and biological weights. Used mostly as a comparison against other methods.
+\[
+W_{ij} = W^{cel}_{ij},
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/celegans_connectome.png}
+    \caption{The C. elegans connectome, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{Connection-Shuffle} %has fig
+\label{Connection-Shuffle}
+We do a connection shuffle on the C. elegans connectome; preserving single-point connectivity. For our connection shuffle we randomly select with distinct nodes, $a,b,c,d$, that have edges between nodes $a,b$ and $c,d$. Then we rewire the edges such that the edge between $a,b$ with edge weight $W_1$ is removed and replaced with an edge $a,d$ with edge weight $W_1$. Additionally, the edge $c,d$ with edge weight $W_2$ is removed and replaced with an edge $c,b$ with weight $W_2$. This preserves in/out-node degree, while shuffling the neighbors of each node. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/connection_shuffle_only.png}
+    \caption{The C. elegans connectome after a connection shuffle, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{Weight-Shuffle} %has fig
+
+\label{Weight-Shuffle}
+Fix all synaptic connections but shuffle their weights. This is achieved by taking getting the indices of the non zero weights of the weight matrix ($NZ$). Then we copy the weights that these indices point to, to a new matrix, $W_{nz}$. Finally we shuffle we shuffle $W_{nz}$ using \begin{lstlisting}[language=Python]
+numpy.random.shuffle \end{lstlisting} and reassign the shuffled weights back to the original indices. The probability that a given connection will change sign is 11.47\%. The expected number of connections that will change signs is 356.769.
+\begin{align*}
+N_{\text{neg}} &= \text{number of negative edge weights} \\
+N &= \text{number of weights} \\
+P_{\text{neg}} &= P(\text{negative}) = \frac{N_{\text{neg}}}{N} \\
+P(\text{neg}\to\text{pos}) 
+&= P(\text{positive})\,P(\text{negative}) \\
+&= (1-P_{\text{neg}})P_{\text{neg}} \\
+P(\text{pos}\to\text{neg}) 
+&= P(\text{negative})\,P(\text{positive}) \\
+&= P_{\text{neg}}(1-P_{\text{neg}}) \\
+P(\text{swap}) 
+&= P(\text{pos}\to\text{neg}) + P(\text{neg}\to\text{pos}) \\
+&= (1-P_{\text{neg}})P_{\text{neg}} + P_{\text{neg}}(1-P_{\text{neg}}) \\
+&= 2P_{\text{neg}}(1-P_{\text{neg}}) \\
+\mathbb{E}[\text{swap}] 
+&= N\,P(\text{swap})
+\end{align*}
+
+\begin{align}
+    P_{neg} =& \frac{190}{3108}\\
+    P(\text{swap}) =& 2(\frac{190}{3108})(1-\frac{190}{3108}) =  0.1147\\
+    \mathbb{E}(\text{swaps}) =& 2(\frac{190}{3108})(1-\frac{190}{3108}) \times 3108 = 356.7696
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/weight_shuffle.png}
+    \caption{The C. elegans connectome after a weight shuffle, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+
+\subsection{Connection-shuffle with Weight-Shuffle} %has fig
+First shuffle connections the connections of the C. elegans connectome using ~\ref{Connection-Shuffle}, then shuffle the weights of the resulting weight matrix using~\ref{Weight-Shuffle}. This method is mostly used as a control to show the effects of an additional weight shuffle after a connection shuffle.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/connection_and_weight_shuffle.png}
+    \caption{The C. elegans connectome after a connection shuffle followed by a weight shuffle, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C.~elegans Topology with Gaussian Weights} %has fig
+
+To isolate the effect of weights while preserving biological topology, we retained the adjacency matrix of the \emph{C.~elegans} connectome and resampled nonzero weights.
+
+Define the index set of existing synaptic connections as
+\[
+\Omega = \{ (i,j) \mid W_{ij} \neq 0 \}.
+\]
+We construct a new weight matrix \( W' \) such that the sparsity pattern is preserved:
+\[
+W'_{ij} = 0 \quad \text{for } (i,j) \notin \Omega.
+\]
+For each existing connection \( (i,j) \in \Omega \), weights are independently resampled from a Gaussian distribution,
+\[
+W'_{ij} \sim \mathcal{N}(0,1).
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/ce_gaussian_weights.png}
+    \caption{The C. elegans connectome with Gaussian weights, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C.~elegans--Matched Erd\H{o}s--R\'enyi Model with Gaussian Weights} %has fig
+
+As a random-graph baseline, we constructed networks using the Erd\H{o}s--R\'enyi (ER) model. In this model, each possible edge between a pair of nodes is independently included with probability \(p\).
+
+To match the scale of the \emph{C.~elegans} connectome, we generated graphs with \(N = 299\) nodes. Each potential edge was included independently with probability \(p = 0.1\). Because this procedure produces a random number of edges, we subsequently adjusted the edge count to match that of the connectome. Specifically, edges were randomly removed until the total number of connections equaled that of the \emph{C.~elegans} network. Removing an edge was implemented by setting the corresponding weight to zero.
+
+After fixing the topology, weights were independently assigned to the remaining edges by sampling from a Gaussian distribution,
+\[
+W_{ij} \sim \mathcal{N}(0,1),
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/er_p01_gaussian_weights.png}
+    \caption{The Erd\H{o}s--R\'enyi model with Gaussian weights, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights} %has fig
+
+To see if small-worldness has an effect on task-agnostic invariance we employed the model introduced by \parencite{Wssmallworld}. The procedure begins with a a lattice-like regular network of \(N\) nodes, where each node is connected to its \(k\) nearest neighbors. Each edge is then independently rewired with probability \(p\): for an edge \((u,v)\), the endpoint \(v\) is reassigned to a randomly selected vertex \(v'\), avoiding self-loops and duplicate edges.
+
+When \(p = 0\), the network remains a regular lattice, characterized by high clustering and long characteristic path length. When \(p = 1\), the network approaches a random graph, exhibiting low clustering and short path length. For intermediate values of \(p\), typically near \(p \approx 0.1\), the network displays the defining features of small-world structure: high clustering combined with short characteristic path length.
+
+To match the scale of the \emph{C.~elegans} connectome, we generated Watts--Strogatz graphs with \(N = 299\) nodes. We set the rewiring probability to \(p = 0.1\) to induce small-world structure and chose an initial neighborhood size of \(k = 10\). In the Watts--Strogatz construction the total number of edges is determined by \(N \times k\). Because \(k\) must be an integer and \(N\) is fixed at the empirical neuron count of \(299\), the Watts--Strogatz model cannot exactly reproduce the empirical connectome's edge count of \(3108\). We therefore chose \(k\) to minimize the difference in total edge count between the model and the biological network. For \(N = 299\), this gives \(k = 10\), yielding a graph with \(2990\) edges.
+
+After fixing the topology, synaptic weights were independently assigned to the remaining edges by sampling from a Gaussian distribution,
+\[
+W_{ij} \sim \mathcal{N}(0,1),
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/ws_p01_gaussian_weights.png}
+    \caption{The Watts--Strogatz model with Gaussian weights, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C. elegans architecture with Gaussian weights using original Connection Signs} %has fig
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled from a stacked gaussian distribution centered at 0 with spread 1.  
+\[
+W_{ij}' = \text{sign}(W_{ij}) (| \mathcal{N}(0,1)|),
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_gaussian.png}
+    \caption{The C. elegans architecture with Gaussian weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C. elegans architecture with uniform weights using original Connection Signs} %has fig
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled from a uniform distribution with low = 0.0 and high = 1.0.  
+\[
+W_{ij}' = \text{sign}(W_{ij}) ( \mathcal{U}(0,1)),
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_uniform.png}
+    \caption{The C. elegans architecture with uniform weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C. elegans architecture with sampled weights using original Connection Signs} %has fig
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled the C. elegans weight distribution. The negative weights are sampled from the negative weights in the C. elegans connectome. The positive weights are sampled from the positive weights in the connectome.
+\[
+POS_{\mathrm{CE}} := \{\, W^{\mathrm{CE}}_{ij} \mid W^{\mathrm{CE}}_{ij} >0 \,\}
+\]
+\[
+NEG_{\mathrm{CE}} := \{\, W^{\mathrm{CE}}_{ij} \mid W^{\mathrm{CE}}_{ij} <0 \,\}
+\]
+\[
+W_{ij}' :=
+\begin{cases}
+X^+_{ij} & W_{ij} > 0 \\
+X^-_{ij} & W_{ij} < 0 \\
+0 & W_{ij} = 0
+\end{cases}
+\quad \quad
+X^+_{ij} \sim(\mathcal{U}(POS_{\mathrm{CE}})), X^-_{ij} \sim(\mathcal{U}(NEG_{\mathrm{CE}}))
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_sampled.png}
+    \caption{The C. elegans architecture with sampled weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C. elegans architecture with +1/-1 weights using original Connection Signs} %has fig
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter.
+\[
+W_{ij}' =
+\begin{cases}
+\operatorname{sign}(W_{ij}) & \text{if } W_{ij} \neq 0 \\
+0 & \text{if } W_{ij} = 0
+\end{cases}
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_binary.png}
+    \caption{The C. elegans architecture with +1/-1 weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsection{C. elegans architecture with +1/-1 weights using original Connection Sign balance with the signs shuffled} %no figure hard to do a figure for this 
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter. Then I count the number of -1 signs ($num_{\text{neg}}$), take the absolute value of the weight matrix and randomly assign $num_{\text{neg}}$ weights to be -1.
+
+\section{Trial definition}
+A single trial of a model consists of:
+\begin{enumerate}
+    \item a reservoir instantiation for each hyperparameter combination
+    \item a performance evaluation for each hyperparameter combination. Using the following parameters \begin{itemize}
+        \item \textbf{Sequence Length} = 2000
+        \item \textbf{Washout time steps} = 500
+        \item \textbf{Perturb STD}  = 0.01 (for calculating GR)
+        \item \textbf{Train time steps} = 1500
+        \item \textbf{Test time steps} = 500
+        \item \textbf{Memory capacity Max delay}
+        \item \textbf{Information processing capacity max delay}
+        \item \textbf{Information processing capacity max polynomial order}
+        \item \textbf{Ridge Alpha} = 0.0001 (controls the strength of L2 regularization for ridge regression)
+    \end{itemize}
+\end{enumerate}
+The coefficient of variation (CV) is computed across hyperparameter combinations within a trial. Each trial uses a single fixed input sequence shared across all hyperparameter combinations to ensure comparability. Reservoir instantiations are independent across hyperparameter combinations: for each combination, the reservoir is reinitialized with a unique seed. Each reservoir instantiation in a trial uses the same input sequence, different trials use different input sequences.
+
+Number of trials for histogram experiment ~\ref{fig:arch}: 500 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 500 \times 4\times3\times4 = 24,000$. Number of trials for ~\ref{fig:binary_curves}: 250 per point. Total metric evaluations per point: $250 \times 4\times3\times4 = 12,000$. Number of trials for ~\ref{fig:weights} and ~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $50 \times 4\times3\times4 = 2,400$. 
+
+\section{Experimental Pipeline}
+\textbf{A trial}:
+\begin{enumerate}
+    \item Instanciate Reservoir Computer (Nodes and Edges)
+    \item Assign weights/signs
+    \item Scale to target spectral radius
+    \item Create an i.i.d input sequence
+    \item Run network on the input sequence, get washout/train/test
+    \item Compute task invariant metrics (KR,GR,IPC,MC)
+    \item Repeat for each combination of hyperparameters in our hyperparameter array
+\end{enumerate}
+\textbf{Analysis of Trials}:
+\begin{enumerate}
+    \item compute CV accross hyperparameter grid
+    \item Average over trials
+    \item Run equivalence tests/Graph results
+\end{enumerate}
+
+
+\section{Equivalence testing}
+We use two one-sided tests (TOST) to test whether the difference in mean CV between architectures lies within equivalence bounds. Equivalence bounds are defined as:
+
+\[
+\Delta = \eta \cdot \mathrm{median}(CV_{\mathrm{all}})
+\]
+
+We test:
+
+\[
+H_0: |\mu_1 - \mu_2| \ge \Delta
+\]
+
+\[
+H_1: |\mu_1 - \mu_2| < \Delta
+\]
+
+Equivalence is concluded if both one-sided tests reject $H_0$ at $\eta$ = 0.05.
+
+
+
+
+\chapter{Results}
+
+Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low dispersion across hyperparameter sweeps, indicating that its computational properties remain stable under variation in spectral radius, leak rate, and input scaling. This is visible in Fig.~\ref{fig:arch}, where the connectome’s coefficient-of-variation (CV) distributions for MC, IPC, KR, and GR are concentrated toward lower values relative to several perturbed architectures. We find that the interaction between sign and edge structure with the distribution of weight magnitudes determines the invariance of computational properties.
+\begin{figure}
+  \centering
+   \includegraphics[width=\linewidth]{figs/inv_arc.png}
+  \caption[Invariance dispersion across architectures]{
+  Invariance dispersion across network architectures, quantified as the coefficient of variation (CV) of each task-agnostic metric over hyperparameter sweeps. Panels show GR, IPC, KR, and MC. Curves are normalized histograms of CV (bin counts divided by the number of runs in that condition); dashed vertical lines mark medians. Lower CV indicates greater invariance to hyperparameter choice. }
+  \label{fig:arch}
+\end{figure}
+
+
+\section{Invariance to connection shuffles}
+When single point degree is preserved, and $W_in$ feeds signal to all neurons then connection shuffles do not affect task invariance. This is supported by the observation that the weight-shuffle model exhibits the same degree of invariance as both the connection-shuffle model and the combined connection- and weight-shuffle model. We therefore argue that the increase in invariance arises from the implicit weight shuffling induced by connection shuffling, rather than from the alteration of network topology. This is because if the connection shuffle provided additional invariance beyond that caused by the weight shuffle we would see an invariance gain, when we also shuffled the weights in the dual model. its not the ordering but the distribution
+\begin{comment}
+    I think for this model I need one more test to prove it its easy though, I should just take the binary model and do a connection shuffle and show that nothing changes!!!
+\end{comment}
+
+\section{Weight magnitude distribution modulates performance and hyperparameter sensitivity}
+\begin{comment}
+    I think for this I should just show that spectral radius controls this, show the negative parabolic distribution. I will ask anna which model it would be best to run this experiment on. what I show is true but is poor in quality 
+\end{comment}
+We next isolate the effect of weight magnitude distribution while holding connectivity and sign structure fixed. Specifically, we compare the local sign--preserved connectome with binary weights ($\pm 1$) to an otherwise identical model in which nonzero weights are perturbed by additive positive noise drawn from a stacked half-normal distribution. Formally, for each nonzero entry $W_{ij} \in \{\pm 1\}$, we construct
+\[
+W_{ij}' = \text{sign}(W_{ij}) ( 1 + \lambda \, | \mathcal{N}(0,1) | ),
+\]
+where $\lambda$ controls the magnitude distribution while preserving the original sparsity pattern and sign structure. This procedure alters only the distribution of weight magnitudes, allowing causal attribution of any observed changes in computational properties to magnitude alone. Note that while the magnitude of noise we are adding increases greatly, the magnitude of weight mean increases is very small. This is due to the spectral radius normalization that occurs during hyperparameter sweeps, and cannot be avoided without removing spectral radius from our hyperparameter sweeps. Regardless, even with comparatively small gains in weight magnitude, both mean coefficient of variation and performance increase as noise magnitude and weight mean increase. 
+
+Sign must be preserved for our analyses, as global sign balance infleunces invariance (see sec~\ref{balance}). Therefore, if we did not preserve sign, we would see an increase in covariance and performance from both the change in sign balance, and from the increase in wieght magnitude.
+
+Figures~\ref{fig:weights} and~\ref{fig:weights2} show the resulting relationship between weight magnitude statistics, performance, and hyperparameter sensitivity. As $\lambda$ increases, the mean absolute weight value increases monotonically. This increase is accompanied by a rise in both mean computational performance and the coefficient of variation. These results demonstrate that weight magnitude distribution independently governs computational performance, and sensitivity of that performance to hyperparameter variation.
+Notably, the increase in mean weight magnitude exhibits a clear saturation regime at large $\lambda$. This behavior is consistent with spectral radius normalization: as the overall scale of weights increases, subsequent normalization compresses differences in magnitude, limiting further increases in the mean effective weight scale. Thus, while increasing $\lambda$ initially expands the dynamical regime and improves computational capacity, normalization imposes an upper bound on the effective magnitude scale.
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/gaus_mag_cv.png}
+    \caption{Mean coefficient of variation (z) and mean weight magnitude (y) as a function of perturbation magnitude $\Lambda$ (x-axis, log scale). Nonzero binary weights are perturbed according to $W_{ij}' = \operatorname{sign}(W_{ij})(1 + \Lambda |\mathcal{N}(0,1)|)$, preserving connectivity and sign structure. Increasing $\Lambda$ increases both the mean weight magnitude and the coefficient of variation across hyperparameter settings.}
+    \label{fig:weights}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figs/gaus_mag_mean.png}
+    \caption{Mean computational performance (z) and mean weight magnitude (y) as a function of perturbation magnitude $\Lambda$ (x-axis, log scale), with connectivity and sign structure fixed. Increasing weight magnitude distribution scale increases achievable performance, followed by saturation consistent with spectral radius normalization.}
+    \label{fig:weights2}
+\end{figure}
+
+\section{Global neurotransmitter balance, not synapse-specific sign placement, infleunces invariance}
+\label{balance}
+
+We next test whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the binary model that preserves edge sign to a binary model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized.
+
+We assess equivalence using the two one-sided tests (TOST) procedure with predefined equivalence bounds. The model preserving global sign balance falls significantly within the equivalence bounds of local sign–preserved binary model across all invariance metrics (see ~\ref{tab:tost_mcipc},~\ref{tab:tost_grkr}). 
+
+This result demonstrates that the specific topological placement of excitatory and inhibitory synapses is not factor determining of task-agnostic computational invariance. 
+
+These findings indicate that invariance is governed by global dynamical constraints imposed by sign balance, rather than by micro-scale structure of individual synapse polarities.
+
+\section{Global neurotransmitter balance heavily infleunces invariance}
+
+We next test whether global neurotransmitter balance, independent of weight distribution and weight structure, causally determines task-agnostic invariance. To isolate this factor, we compare two models with identical connectivity and identical weight magnitude distributions, differing only in whether the original synaptic sign structure is preserved. Specifically, we compare the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, in which weights are resampled from a zero-centered normal distribution without preserving original signs, to the \textit{Local sign–preserved + $\mathcal{N}(0,1)$} model, in which weight magnitudes are drawn from the same distribution but original synapse signs are maintained.
+
+Despite identical connectivity and magnitude statistics, these two models exhibit markedly different invariance properties. The \textit{C.~elegans + $\mathcal{N}(0,1)$} model falls within the high-variance cluster, exhibiting some of the highest variance observed across all tested models. In contrast, the sign-preserved model lies within the low-variance cluster, closely matching the invariance properties of the original \textit{C.~elegans} connectome. Because synapse sign preservation is the only difference between these models, this establishes global neurotransmitter balance as a causal determinant of task-agnostic invariance.
+
+To further isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:binary_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.
+
+At $f = 0.0$, corresponding to the original \textit{C.~elegans} connectome, the network exhibits maximal invariance but reduced mean computational performance. As the fraction of flipped synapses increases, performance initially improves while invariance decreases. The highest mean computational performance occurs at a balanced excitatory/inhibitory regime, consistent with prior observations that weight distributions centered at zero promote richer dynamical regimes. However, this performance increase is accompanied by substantially increased sensitivity to hyperparameter variation. Within the reservoir abstraction used here (static weights, $\tanh$ nonlinearity, spectral-radius normalization, contact-count proxy weights, and a coarse neurotransmitter$\rightarrow$sign mapping), the \textit{C.~elegans} instantiation lies in a low-variance regime that does not maximize mean task-agnostic capacity.
+ \begin{comment}
+    this is most likley do to my implementation of the synapse weights, do I say this in the dicussion??? its probably higher up on the line, but certainly not at the optimium
+\end{comment}
+
+These results reveal a tradeoff imposed by neurotransmitter balance: networks with highly asymmetric sign structure exhibit reduced computational capacity but greater invariance and stability, whereas networks approaching a balanced excitatory/inhibitory regime achieve higher performance at the cost of increased variability. This explains the behavior of the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, whose zero-centered magnitude distribution disrupts the original biological sign asymmetry, shifting the network toward a high-performance but low-invariance regime.
+
+These findings demonstrate that global neurotransmitter balance has a strong impact on both task-agnostic invariance and on computational performance.  
+
+\begin{figure} % these need to be reginerated 
+    \centering
+    \includegraphics[width=1\linewidth]{figs/binary_frac.png}
+    \caption{Mean computational metrics as a function of the fraction of synapse signs flipped from the original connectome using binary weights. Increasing sign randomization shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. $N=250$ for each sign fraction}
+    \label{fig:binary_curves}
+\end{figure}
+
+
+
+
+Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and ~\ref{tab:tost_grkr} ) further clarifies these relationships. We used TOST equivalence testing on the mean dispersion (CV) between each architecture and the biological connectome. The equivalence margin was set to $\Delta = |0.05(\text{median}(\text{dispersion}))|$ computed per metric accross all runs. We concluded equivalence when both one-sided tests rejected the null that the mean difference lay outside $[-\Delta,+\Delta]$ Thus, small p-values indicate that the dispersion difference is statistically confined within the predefined practical tolerance. Under this criterion, only specific sign-preserving perturbations satisfied equivalence for selected metrics, while most architectures—including connection shuffles, weight shuffles, and random graph controls—did not satisfy equivalence across all metrics simultaneously. Failure to conclude equivalence (large $p$) does not imply non-equivalence; it indicates insufficient evidence that the mean difference is within $\pm\Delta$ under the chosen margin and sample size. 1000 obersvations for each comparison. 
+
+
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity.}
+\label{tab:tost_mcipc}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+MC & celW+connShuf vs cel-sample & 0.0208 & 9.833e-16 \\
+MC & celW+connShuf vs conn-shuf-only & 0.0208 & 7.631e-14 \\
+MC & celW+connShuf vs local-sign+sample & 0.0208 & 1.073e-14 \\
+MC & celW+connShuf vs shuffle & 0.0208 & 1.692e-10 \\
+MC & cel-sample vs conn-shuf-only & 0.0208 & 5.978e-25 \\
+MC & cel-sample vs local-sign+sample & 0.0208 & 1.066e-25 \\
+MC & cel-sample vs shuffle & 0.0208 & 3.958e-20 \\
+MC & conn-shuf-only vs local-sign+sample & 0.0208 & 1.36e-27 \\
+MC & conn-shuf-only vs shuffle & 0.0208 & 1.777e-25 \\
+MC & global-sign-pres vs local-sign & 0.0208 & 0.002338 \\
+MC & global-sign-pres vs local-sign+binary & 0.0208 & 0.0006043 \\
+MC & global-sign-pres vs local-sign+flat & 0.0208 & 9.512e-35 \\
+MC & global-sign-pres vs real & 0.0208 & 2.233e-35 \\
+MC & local-sign vs local-sign+flat & 0.0208 & 0.002803 \\
+MC & local-sign vs real & 0.0208 & 0.0002375 \\
+MC & local-sign+binary vs local-sign+flat & 0.0208 & 0.0002641 \\
+MC & local-sign+binary vs real & 0.0208 & 0.001472 \\
+MC & local-sign+flat vs real & 0.0208 & 1.385e-36 \\
+MC & local-sign+sample vs shuffle & 0.0208 & 2.628e-22 \\
+\addlinespace
+IPC & cel+randN vs er+randN & 0.01818 & 0.00879 \\
+IPC & celW+connShuf vs cel-sample & 0.01818 & 3.584e-17 \\
+IPC & celW+connShuf vs local-sign+sample & 0.01818 & 1.749e-16 \\
+IPC & celW+connShuf vs shuffle & 0.01818 & 1.425e-12 \\
+IPC & cel-sample vs conn-shuf-only & 0.01818 & 0.0001726 \\
+IPC & cel-sample vs local-sign+sample & 0.01818 & 6.629e-24 \\
+IPC & cel-sample vs shuffle & 0.01818 & 3.388e-19 \\
+IPC & conn-shuf-only vs local-sign+sample & 0.01818 & 5.014e-05 \\
+IPC & conn-shuf-only vs shuffle & 0.01818 & 4.864e-07 \\
+IPC & global-sign-pres vs local-sign+binary & 0.01818 & 7.076e-07 \\
+IPC & global-sign-pres vs local-sign+flat & 0.01818 & 2.28e-11 \\
+IPC & global-sign-pres vs real & 0.01818 & 3.488e-12 \\
+IPC & local-sign vs local-sign+flat & 0.01818 & 0.005015 \\
+IPC & local-sign vs real & 0.01818 & 0.01229 \\
+IPC & local-sign+flat vs real & 0.01818 & 6.347e-29 \\
+IPC & local-sign+sample vs shuffle & 0.01818 & 1.663e-20 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank.}
+\label{tab:tost_grkr}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+KR & celW+connShuf vs cel-sample & 0.01771 & 1.199e-37 \\
+KR & celW+connShuf vs conn-shuf-only & 0.01771 & 8.771e-17 \\
+KR & celW+connShuf vs local-sign+sample & 0.01771 & 4.682e-35 \\
+KR & celW+connShuf vs shuffle & 0.01771 & 3.27e-36 \\
+KR & cel-sample vs conn-shuf-only & 0.01771 & 4.539e-15 \\
+KR & cel-sample vs local-sign+sample & 0.01771 & 3.192e-30 \\
+KR & cel-sample vs shuffle & 0.01771 & 1.668e-31 \\
+KR & conn-shuf-only vs local-sign+sample & 0.01771 & 4.939e-13 \\
+KR & conn-shuf-only vs shuffle & 0.01771 & 2.948e-14 \\
+KR & global-sign-pres vs local-sign+binary & 0.01771 & 3.958e-32 \\
+KR & global-sign-pres vs real & 0.01771 & 6.441e-45 \\
+KR & local-sign vs local-sign+flat & 0.01771 & 0.0002516 \\
+KR & local-sign+binary vs real & 0.01771 & 8.566e-45 \\
+KR & local-sign+sample vs shuffle & 0.01771 & 6.862e-31 \\
+\addlinespace
+GR & cel+randN vs er+randN & 0.02783 & 4.631e-28 \\
+GR & celW+connShuf vs cel-sample & 0.02783 & 3.384e-45 \\
+GR & celW+connShuf vs conn-shuf-only & 0.02783 & 1.367e-37 \\
+GR & celW+connShuf vs local-sign+sample & 0.02783 & 1.007e-37 \\
+GR & celW+connShuf vs shuffle & 0.02783 & 3.483e-41 \\
+GR & cel-sample vs conn-shuf-only & 0.02783 & 8.403e-24 \\
+GR & cel-sample vs local-sign+sample & 0.02783 & 6.646e-46 \\
+GR & cel-sample vs shuffle & 0.02783 & 2.013e-49 \\
+GR & conn-shuf-only vs local-sign+sample & 0.02783 & 1.751e-19 \\
+GR & conn-shuf-only vs shuffle & 0.02783 & 1.199e-21 \\
+GR & global-sign-pres vs local-sign+binary & 0.02783 & 8.29e-38 \\
+GR & global-sign-pres vs real & 0.02783 & 7.378e-56 \\
+GR & local-sign vs local-sign+flat & 0.02783 & 4.314e-06 \\
+GR & local-sign+binary vs real & 0.02783 & 1.202e-56 \\
+GR & local-sign+sample vs shuffle & 0.02783 & 7.638e-46 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\paragraph{Architecture color legend.}
+Blue: empirical \textit{C.\ elegans} connectome with biological weights.
+Dark green: empirical topology with Gaussian-resampled weights.
+Light green: Erdős–Rényi random graph with Gaussian weights.
+Neon green: Watts–Strogatz small-world graph ($p=0.1$) with Gaussian weights.
+Red: degree-preserving connection shuffle followed by weight shuffle.
+Teal: empirical topology and signs preserved, magnitudes Gaussian.
+Orange: weight shuffle only.
+Salmon: weights resampled (with replacement) from empirical distribution.
+Light orange: connection shuffle only.
+Deep blue: empirical topology and signs preserved, magnitudes uniform.
+Purple: empirical topology and signs preserved, magnitudes sampled by sign.
+Gray: keep the same balance of excitatory--inhibitory synapses but shuffle the neurotransmitter attached to each synapse.
+Light cyan: empirical topology and signs preserved, weights all set to $\{\pm1\}$.
+\chapter{Discussion}
+
+
+\chapter{AI Usage Disclosure}
+
+Artificial intelligence tools, specifically ChatGPT (OpenAI, GPT-5 series) and Codex (OpenAI), were used as assistive tools during the course of this work.
+
+AI tools were used to review text for clarity, grammar, and structure, and to identify ambiguous or overstated claims. All text included in this manuscript was written, reviewed, and edited by the authors, and any AI-assisted edits were manually verified and revised as necessary to ensure accuracy.
+
+AI tools were also used to assist in identifying relevant literature. These tools were used in a search-assistance capacity to locate papers related to reservoir computing and recurrent biological networks. All cited papers were independently located, read, and verified by the author prior to inclusion.
+
+In addition, AI tools were used as a programming reference to identify relevant libraries, functions, and debugging strategies. They were also used to assist in generating example plotting code and suggesting implementation approaches. All code used in this project was written, reviewed, and validated by the author. Any external repositories referenced are explicitly cited.
+
+AI tools were used solely as assistive instruments. All scientific claims, analysis, interpretations, and conclusions presented in this work are the independent work of the author.
+
+%  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...
+
+% The next line forces every entry in your bibliography to be displayed, regardless of whether or not you've cited it in your thesis.
+    %\nocite{*}
+% For more details on customizing how your bibliography appears:
+% https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#Customizing_the_bibliography
+\printbibliography[heading=bibintoc]
+
+% Finally, an index would go here... but it is also optional.
+\end{document}

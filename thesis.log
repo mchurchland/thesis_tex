@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.12.14)  23 MAR 2026 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.12.14)  30 MAR 2026 23:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -856,19 +856,22 @@ Overfull \hbox (6.34769pt too wide) in paragraph at lines 16--16
  []
 
 
-Overfull \hbox (5.76396pt too wide) in paragraph at lines 20--20
+Overfull \hbox (5.76396pt too wide) in paragraph at lines 21--21
  \OT1/cmr/m/n/12 nary weights are per-turbed ac-cord-ing to $\OML/cmm/m/it/12 W[] \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 W[]\OT1/cmr/m/n/12 )(1 + ^^C\OMS/cmsy/m/n/12 jN\OT1/cmr/m/n/12 (0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 1)\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 )$, 
  []
 
-)
+
+Underfull \vbox (badness 2922) has occurred while \output is active []
+
+ [10])
 \tf@lof=\write8
 \openout8 = `thesis.lof'.
 
- [10] [11
-
-] [12
+ [11] [12
 
 ] [13] [14
+
+] [15] [16
 
 ]
 Chapter 1.
@@ -902,7 +905,7 @@ l.228
        [3
 
 ]
-<figs/esn.png, id=475, 623.32875pt x 465.74pt>
+<figs/esn.png, id=505, 623.32875pt x 465.74pt>
 File: figs/esn.png Graphic file (type png)
 <use figs/esn.png>
 Package pdftex.def Info: figs/esn.png  used on input line 234.
@@ -1017,7 +1020,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 4.
 
-Overfull \hbox (25.01271pt too wide) in paragraph at lines 532--534
+Overfull \hbox (25.01271pt too wide) in paragraph at lines 540--542
 \OT1/cmr/m/n/12 clus-ter-ing than a ran-dom net-work while pre-serv-ing sim-i-larly short path lengths.([]Humphries
  []
 
@@ -1033,15 +1036,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18]
-<figs/toplogy/celegans_connectome.png, id=601, 831.105pt x 650.43pt>
+<figs/toplogy/celegans_connectome.png, id=632, 831.105pt x 650.43pt>
 File: figs/toplogy/celegans_connectome.png Graphic file (type png)
 <use figs/toplogy/celegans_connectome.png>
-Package pdftex.def Info: figs/toplogy/celegans_connectome.png  used on input line 570.
+Package pdftex.def Info: figs/toplogy/celegans_connectome.png  used on input line 578.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
-<figs/toplogy/connection_shuffle_only.png, id=603, 831.105pt x 650.43pt>
+<figs/toplogy/connection_shuffle_only.png, id=634, 831.105pt x 650.43pt>
 File: figs/toplogy/connection_shuffle_only.png Graphic file (type png)
 <use figs/toplogy/connection_shuffle_only.png>
-Package pdftex.def Info: figs/toplogy/connection_shuffle_only.png  used on input line 579.
+Package pdftex.def Info: figs/toplogy/connection_shuffle_only.png  used on input line 587.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
 
@@ -1065,15 +1068,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20 <./figs/toplogy/connection_shuffle_only.png>]
-<figs/toplogy/weight_shuffle.png, id=617, 831.105pt x 650.43pt>
+<figs/toplogy/weight_shuffle.png, id=647, 831.105pt x 650.43pt>
 File: figs/toplogy/weight_shuffle.png Graphic file (type png)
 <use figs/toplogy/weight_shuffle.png>
-Package pdftex.def Info: figs/toplogy/weight_shuffle.png  used on input line 614.
+Package pdftex.def Info: figs/toplogy/weight_shuffle.png  used on input line 622.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
-<figs/toplogy/connection_and_weight_shuffle.png, id=620, 831.105pt x 650.43pt>
+<figs/toplogy/connection_and_weight_shuffle.png, id=650, 831.105pt x 650.43pt>
 File: figs/toplogy/connection_and_weight_shuffle.png Graphic file (type png)
 <use figs/toplogy/connection_and_weight_shuffle.png>
-Package pdftex.def Info: figs/toplogy/connection_and_weight_shuffle.png  used on input line 623.
+Package pdftex.def Info: figs/toplogy/connection_and_weight_shuffle.png  used on input line 631.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
 Underfull \vbox (badness 1320) has occurred while \output is active []
@@ -1087,10 +1090,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21 <./figs/toplogy/weight_shuffle.png>]
-<figs/toplogy/ce_gaussian_weights.png, id=629, 831.105pt x 650.43pt>
+<figs/toplogy/ce_gaussian_weights.png, id=659, 831.105pt x 650.43pt>
 File: figs/toplogy/ce_gaussian_weights.png Graphic file (type png)
 <use figs/toplogy/ce_gaussian_weights.png>
-Package pdftex.def Info: figs/toplogy/ce_gaussian_weights.png  used on input line 645.
+Package pdftex.def Info: figs/toplogy/ce_gaussian_weights.png  used on input line 653.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
 
@@ -1101,10 +1104,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22 <./figs/toplogy/connection_and_weight_shuffle.png>]
-<figs/toplogy/er_p01_gaussian_weights.png, id=635, 831.105pt x 650.43pt>
+<figs/toplogy/er_p01_gaussian_weights.png, id=665, 831.105pt x 650.43pt>
 File: figs/toplogy/er_p01_gaussian_weights.png Graphic file (type png)
 <use figs/toplogy/er_p01_gaussian_weights.png>
-Package pdftex.def Info: figs/toplogy/er_p01_gaussian_weights.png  used on input line 661.
+Package pdftex.def Info: figs/toplogy/er_p01_gaussian_weights.png  used on input line 669.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
 
@@ -1115,18 +1118,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [23 <./figs/toplogy/ce_gaussian_weights.png>]
-<figs/toplogy/ws_p01_gaussian_weights.png, id=642, 831.105pt x 650.43pt>
+<figs/toplogy/ws_p01_gaussian_weights.png, id=673, 831.105pt x 650.43pt>
 File: figs/toplogy/ws_p01_gaussian_weights.png Graphic file (type png)
 <use figs/toplogy/ws_p01_gaussian_weights.png>
-Package pdftex.def Info: figs/toplogy/ws_p01_gaussian_weights.png  used on input line 679.
+Package pdftex.def Info: figs/toplogy/ws_p01_gaussian_weights.png  used on input line 687.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
-<figs/toplogy/local_sign_gaussian.png, id=643, 831.105pt x 650.43pt>
+<figs/toplogy/local_sign_gaussian.png, id=674, 831.105pt x 650.43pt>
 File: figs/toplogy/local_sign_gaussian.png Graphic file (type png)
 <use figs/toplogy/local_sign_gaussian.png>
-Package pdftex.def Info: figs/toplogy/local_sign_gaussian.png  used on input line 690.
+Package pdftex.def Info: figs/toplogy/local_sign_gaussian.png  used on input line 698.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
-Overfull \hbox (2.22446pt too wide) in paragraph at lines 694--694
+Overfull \hbox (2.22446pt too wide) in paragraph at lines 702--702
 []\OT1/cmr/bx/n/14.4 C. el-e-gans ar-chi-tec-ture with uni-form weights us-ing orig-
  []
 
@@ -1146,15 +1149,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25 <./figs/toplogy/ws_p01_gaussian_weights.png> <./figs/toplogy/local_sign_gaussian.png>]
-<figs/toplogy/local_sign_uniform.png, id=656, 831.105pt x 650.43pt>
+<figs/toplogy/local_sign_uniform.png, id=686, 831.105pt x 650.43pt>
 File: figs/toplogy/local_sign_uniform.png Graphic file (type png)
 <use figs/toplogy/local_sign_uniform.png>
-Package pdftex.def Info: figs/toplogy/local_sign_uniform.png  used on input line 701.
+Package pdftex.def Info: figs/toplogy/local_sign_uniform.png  used on input line 709.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
-<figs/toplogy/local_sign_sampled.png, id=657, 831.105pt x 650.43pt>
+<figs/toplogy/local_sign_sampled.png, id=687, 831.105pt x 650.43pt>
 File: figs/toplogy/local_sign_sampled.png Graphic file (type png)
 <use figs/toplogy/local_sign_sampled.png>
-Package pdftex.def Info: figs/toplogy/local_sign_sampled.png  used on input line 725.
+Package pdftex.def Info: figs/toplogy/local_sign_sampled.png  used on input line 733.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
 
@@ -1165,10 +1168,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [26 <./figs/toplogy/local_sign_uniform.png>]
-<figs/toplogy/local_sign_binary.png, id=663, 831.105pt x 650.43pt>
+<figs/toplogy/local_sign_binary.png, id=693, 831.105pt x 650.43pt>
 File: figs/toplogy/local_sign_binary.png Graphic file (type png)
 <use figs/toplogy/local_sign_binary.png>
-Package pdftex.def Info: figs/toplogy/local_sign_binary.png  used on input line 740.
+Package pdftex.def Info: figs/toplogy/local_sign_binary.png  used on input line 749.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+<figs/toplogy/binary_plus_shuffle.png, id=694, 831.105pt x 650.43pt>
+File: figs/toplogy/binary_plus_shuffle.png Graphic file (type png)
+<use figs/toplogy/binary_plus_shuffle.png>
+Package pdftex.def Info: figs/toplogy/binary_plus_shuffle.png  used on input line 757.
 (pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
 
 
@@ -1186,7 +1194,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[28 <./figs/toplogy/local_sign_binary.png>]
+[28 <./figs/toplogy/local_sign_binary.png> <./figs/toplogy/binary_plus_shuffle.png>]
+
+LaTeX Warning: Reference `fig:cel_frac_curves' on page 29 undefined on input line 779.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1194,16 +1205,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29] [30
+[29]
 
-]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[30]
 Chapter 5.
-<figs/inv_arc.png, id=699, 939.51pt x 794.97pt>
+Excluding 'comment' comment.
+<figs/inv_arc.png, id=733, 939.51pt x 794.97pt>
 File: figs/inv_arc.png Graphic file (type png)
 <use figs/inv_arc.png>
-Package pdftex.def Info: figs/inv_arc.png  used on input line 813.
+Package pdftex.def Info: figs/inv_arc.png  used on input line 831.
 (pdftex.def)             Requested size: 433.62003pt x 366.90367pt.
-Excluding 'comment' comment. Excluding 'comment' comment. [31]
+
+Overfull \hbox (18.95569pt too wide) in paragraph at lines 838--838
+[]\OT1/cmr/bx/n/17.28 Invariance to de-gree pre-serv-ing topol-ogy changes 
+ []
+
+Excluding 'comment' comment.
+Overfull \hbox (5.08572pt too wide) in paragraph at lines 844--844
+[]\OT1/cmr/bx/n/17.28 Spectral ra-dius mod-u-lates per-for-mance and hy-
+ []
+
+Excluding 'comment' comment. Excluding 'comment' comment. [31
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1212,19 +1242,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [32 <./figs/inv_arc.png>]
-<figs/gaus_mag_cv.png, id=714, 219.9417pt x 83.1105pt>
+<figs/gaus_mag_cv.png, id=746, 219.9417pt x 83.1105pt>
 File: figs/gaus_mag_cv.png Graphic file (type png)
 <use figs/gaus_mag_cv.png>
-Package pdftex.def Info: figs/gaus_mag_cv.png  used on input line 845.
+Package pdftex.def Info: figs/gaus_mag_cv.png  used on input line 866.
 (pdftex.def)             Requested size: 433.62003pt x 163.85669pt.
-<figs/gaus_mag_mean.png, id=715, 219.9417pt x 83.1105pt>
+<figs/gaus_mag_mean.png, id=747, 219.9417pt x 83.1105pt>
 File: figs/gaus_mag_mean.png Graphic file (type png)
 <use figs/gaus_mag_mean.png>
-Package pdftex.def Info: figs/gaus_mag_mean.png  used on input line 852.
+Package pdftex.def Info: figs/gaus_mag_mean.png  used on input line 873.
 (pdftex.def)             Requested size: 433.62003pt x 163.85669pt.
-
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1242,9 +1269,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [34 <./figs/gaus_mag_cv.png> <./figs/gaus_mag_mean.png>] Excluding 'comment' comment.
-Underfull \vbox (badness 1019) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1253,13 +1277,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [35]
-<figs/binary_frac.png, id=733, 440.96745pt x 178.9887pt>
-File: figs/binary_frac.png Graphic file (type png)
-<use figs/binary_frac.png>
-Package pdftex.def Info: figs/binary_frac.png  used on input line 887.
-(pdftex.def)             Requested size: 433.62003pt x 176.01674pt.
+<figs/Neg_sign_curves/cel_bin_negfrac.png, id=770, 448.43535pt x 181.75905pt>
+File: figs/Neg_sign_curves/cel_bin_negfrac.png Graphic file (type png)
+<use figs/Neg_sign_curves/cel_bin_negfrac.png>
+Package pdftex.def Info: figs/Neg_sign_curves/cel_bin_negfrac.png  used on input line 918.
+(pdftex.def)             Requested size: 433.62003pt x 175.76247pt.
+<figs/Neg_sign_curves/er_negfrac.png, id=771, 448.43535pt x 181.75905pt>
+File: figs/Neg_sign_curves/er_negfrac.png Graphic file (type png)
+<use figs/Neg_sign_curves/er_negfrac.png>
+Package pdftex.def Info: figs/Neg_sign_curves/er_negfrac.png  used on input line 925.
+(pdftex.def)             Requested size: 433.62003pt x 175.76247pt.
+<figs/Neg_sign_curves/cel_og_negfrac.png, id=772, 448.43535pt x 181.75905pt>
+File: figs/Neg_sign_curves/cel_og_negfrac.png Graphic file (type png)
+<use figs/Neg_sign_curves/cel_og_negfrac.png>
+Package pdftex.def Info: figs/Neg_sign_curves/cel_og_negfrac.png  used on input line 932.
+(pdftex.def)             Requested size: 433.62003pt x 175.76247pt.
 
-Overfull \hbox (7.61246pt too wide) in paragraph at lines 992--1005
+Overfull \hbox (7.61246pt too wide) in paragraph at lines 1036--1049
 \OT1/cmr/m/n/12 green: Erd}os{R^^Senyi ran-dom graph with Gaus-sian weights. Neon green: Watts{Strogatz
  []
 
@@ -1270,7 +1304,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[36 <./figs/binary_frac.png>]
+[36 <./figs/Neg_sign_curves/cel_bin_negfrac.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1278,7 +1312,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[37]
+[37 <./figs/Neg_sign_curves/er_negfrac.png> <./figs/Neg_sign_curves/cel_og_negfrac.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1294,18 +1328,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39] [40
+[39]
 
-]
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[40]
 Chapter 6.
-[41] [42
+[41
+
+] [42
 
 ]
 Chapter 7.
 [43] [44
 
 ]
-Overfull \hbox (11.22581pt too wide) in paragraph at lines 1026--1026
+Overfull \hbox (11.22581pt too wide) in paragraph at lines 1070--1070
 \OT1/cmr/m/n/12 J., & Naka-jima, K. (2026). Reser-voir com-put-ing boot-camp|from python/numpy
  []
 
@@ -1326,17 +1368,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47] (./thesis.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3C5BC2C2BA057D069E1EA0A7E92EA8EE;11312.
+(rerunfilecheck)             Checksum: 4704AE3F0B26BF7328CE49C36171C4B4;11320.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22978 strings out of 476041
- 399161 string characters out of 5793173
- 1878388 words of memory out of 6000000
- 42927 multiletter control sequences out of 15000+600000
+ 23009 strings out of 476041
+ 400251 string characters out of 5793173
+ 1881388 words of memory out of 6000000
+ 42949 multiletter control sequences out of 15000+600000
  522786 words of font info for 75 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  78i,12n,82p,1999b,5044s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1347,10 +1392,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (65 pages, 52379393 bytes).
+Output written on thesis.pdf (67 pages, 57183512 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 813 compressed objects within 9 object streams
- 189 named destinations out of 1000 (max. 500000)
- 465 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1006 PDF objects out of 1200 (max. 8388607)
+ 847 compressed objects within 9 object streams
+ 194 named destinations out of 1000 (max. 500000)
+ 480 words of extra memory for PDF output out of 10000 (max. 10000000)
 

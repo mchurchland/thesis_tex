@@ -15,10 +15,10 @@
 \contentsline {subsection}{\numberline {3.2.2}Kernel Rank}{9}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Generalization Rank}{11}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Memory Capacity}{12}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Information Processing Capacity}{13}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.5}Information Processing Capacity}{14}{subsection.3.2.5}%
 \contentsline {paragraph}{Notation.}{14}{section*.8}%
 \contentsline {paragraph}{Let}{14}{section*.9}%
-\contentsline {section}{\numberline {3.3}Invariance across Hyper-parameters}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Invariance across Hyper-parameters}{15}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Methods}{17}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Network topology priors}{17}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Small-world networks}{17}{subsection.4.1.1}%
@@ -39,13 +39,13 @@
 \contentsline {subsection}{\numberline {4.3.11}C. elegans architecture with +1/-1 weights using original Connection Signs}{27}{subsection.4.3.11}%
 \contentsline {subsection}{\numberline {4.3.12}C. elegans architecture with +1/-1 weights using original Connection Sign balance with the signs shuffled}{27}{subsection.4.3.12}%
 \contentsline {section}{\numberline {4.4}Trial definition}{27}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Experimental Pipeline}{28}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Equivalence testing}{29}{section.4.6}%
+\contentsline {section}{\numberline {4.5}Experimental Pipeline}{29}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Equivalence testing}{30}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Results}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Invariance to connection shuffles}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Weight magnitude distribution modulates performance and hyperparameter sensitivity}{31}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Global neurotransmitter balance, not synapse-specific sign placement, infleunces invariance}{33}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Global neurotransmitter balance heavily infleunces invariance}{35}{section.5.4}%
+\contentsline {section}{\numberline {5.1}Invariance to degree preserving topology changes}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Spectral radius modulates performance and hyperparameter sensitivity}{31}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Global neurotransmitter balance, not synapse-specific sign placement, influences invariance}{33}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Global neurotransmitter balance heavily influences invariance}{35}{section.5.4}%
 \contentsline {paragraph}{Architecture color legend.}{36}{section*.10}%
 \contentsline {chapter}{\numberline {6}Discussion}{41}{chapter.6}%
 \contentsline {chapter}{\numberline {7}AI Usage Disclosure}{43}{chapter.7}%

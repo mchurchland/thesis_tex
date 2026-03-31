@@ -432,7 +432,11 @@ u^{\mathrm{train}}_{0:T_{tr}-d}, \xi
 \right).
 \]
 
-where $D_{\max}$ is the user specified max delay (we used a value of 300). This both differs from the formal definition, we choose to not sum to infinity because this is computationally unfeasible and because $MC_k$ degrades as $k \to \infty$ hence adding $MC_k$ with high k to our sum is numerically negligible.
+where $D_{\max}$ is the maximum delay included in the sum; in our experiments, we use $D_{\max}=30$. This departs from the formal definition of memory capacity, which sums over all delays, but an infinite sum is not computationally feasible in practice. Furthermore, $MC_k$ decays as $k \to \infty$, so terms at sufficiently large delays contribute negligibly.
+
+To validate this truncation, we swept $D_{\max} \in \{30,50,80\}$ across all 14 models, using 20 random seeds per model (280 evaluations in total), and treated $D_{\max}=80$ as the reference condition. Across these evaluations, $D_{\max}=30$ captured an average of $100.00\%$ of the memory capacity measured at $D_{\max}=80$, with a standard deviation of $0.02\%$, a minimum of $99.71\%$, and a 5th percentile of $100.00\%$. Model-wise agreement with the $D_{\max}=80$ reference was also perfect: for both $D_{\max}=30$ and $D_{\max}=50$, the across-model mean capture was $100.00\%$, and the corresponding model rankings were also unchanged, with Pearson $r=1.0000$ across all 14 models.
+
+We therefore use $D_{\max}=30$ throughout, since it preserves essentially the full observed memory capacity while being more computationally efficient than larger cutoffs.
 
 \subsection{Information Processing Capacity}
 Returning to our pool, suppose we are no longer interested in recovering the size of individual stones, but instead in recovering combinations of stones. When multiple stones are dropped into the pool, their waves do not simply add; they interfere, overlap, and mix. The resulting wave pattern contains not only information about each stone individually, but also information about their interactions. Information Processing Capacity measures how many independent combinations of past stones simultaneously exist in the current wave pattern.
@@ -440,7 +444,7 @@ Returning to our pool, suppose we are no longer interested in recovering the siz
 \begin{itemize}
     \item $X^{\mathrm{train}}_{d:T_{tr}}$: reservoir states on training data from timestep $d$ to the end.
     \item $X^{\mathrm{test}}_{d:T_{te}}$: reservoir states on test data from timestep $d$ to the end.
-    \item $u^{\mathrm{train}}_{0:T_{te}-d}$: training inputs from the start up to the end minus a delay $d$.
+    \item $u^{\mathrm{train}}_{0:T_{tr}-d}$: training inputs from the start up to the end minus a delay $d$.
     \item $u^{\mathrm{test}}_{0:T_{te}-d}$: test inputs from the start up to the end minus a delay $d$.
     \item $P_k$: Legendre polynomial of degree $k$.
 \end{itemize}
@@ -503,11 +507,15 @@ We define information processing capacity (IPC) as
 \sum_{k\in K}
 \max\!\bigl(0.0,\;R^2_{\mathrm{score}}(Y_{d,k},\hat{Y}_{d,k})\bigr),
 \]
+In the literature, IPC is often summed over all Legendre orders and over a large delay horizon. We truncate this computation to orders $K=\{1,3,5\}$ and maximum delay $D_{\max}=30$, since higher-order and longer-delay contributions are small, and our experiments require tens of thousands of IPC evaluations.
+
+We validated the order truncation by comparing IPC$(1,3,5)$ against IPC computed over orders $1$ through $10$ across all 14 models, using 20 random seeds per model at fixed hyperparameters ($\rho=0.95$, leak $=0.8$, input scaling $=1.0$), for 280 evaluations total. IPC$(1,3,5)$ captured an average of $99.08\%$ of the full IPC, with standard deviation $1.74\%$, minimum $90.58\%$, and 5th percentile $94.97\%$. Agreement with IPC$(1,\dots,10)$ was also extremely high, with Pearson correlation $r=0.9995$, indicating that restricting to orders $1$, $3$, and $5$ preserves both IPC magnitude and model ranking to a very high degree.
+
+We similarly validated the delay cutoff by computing IPC with $K=\{1,3,5\}$ and $D_{\max} \in \{30,50,80\}$, treating $D_{\max}=80$ as the reference. Across the same hyperparameters, models, and seeds counts per model (280 evaluations total), $D_{\max}=30$ captured an average of $100.00\%$ of the IPC measured at $D_{\max}=80$, with standard deviation $0.03\%$, minimum $99.51\%$, and 5th percentile $100.00\%$. Model-wise agreement with the $D_{\max}=80$ reference was perfect, with Pearson $r=1.0000$ for both $D_{\max}=30$ and $D_{\max}=50$.
+
+We therefore use IPC$(1,3,5)$ with $D_{\max}=30$ throughout. In our setting, this truncation preserves essentially all measured IPC while substantially reducing computational cost.
 
 
-Here $D_{\max}$ and $K$ (set to $50$ and $\{1,3,5\}$, respectively) are the maximum delay and the set of polynomial degrees. We cap $D_{\max}=50$ for two reasons: (i) evaluating all $(k,d)$ pairs requires $|K|D_{\max}$ ridge fits per model, which is expensive at our scale; and (ii) reconstructing higher-order (polynomial) functions of the input is substantially harder than linear reconstruction, large delays contributes less as $k$ increases.
-
-In the literature, IPC is often summed over all Legendre polynomial degrees. We instead truncate at $K_{\max}=3$ because contributions degrade with increasing $k$, and because our experiments require tens of thousands of IPC evaluations. 
 
 
 
@@ -727,6 +735,7 @@ X^+_{ij} \sim(\mathcal{U}(POS_{\mathrm{CE}})), X^-_{ij} \sim(\mathcal{U}(NEG_{\m
 \end{figure}
 
 \subsection{C. elegans architecture with +1/-1 weights using original Connection Signs} %has fig
+\label{plus1minus1network}
 This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter.
 \[
 W_{ij}' =
@@ -741,8 +750,13 @@ W_{ij}' =
     \caption{The C. elegans architecture with +1/-1 weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C. elegans architecture with +1/-1 weights using original Connection Sign balance with the signs shuffled} %no figure hard to do a figure for this 
+\subsection{C. elegans architecture with +1/-1 weights using original Connection Sign balance with the signs shuffled} %do a figure for this 
 This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter. Then I count the number of -1 signs ($num_{\text{neg}}$), take the absolute value of the weight matrix and randomly assign $num_{\text{neg}}$ weights to be -1.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_plus_shuffle.png}
+    \caption{The C. elegans architecture with +1/-1 weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
 
 \section{Trial definition}
 A single trial of a model consists of:
@@ -762,7 +776,7 @@ A single trial of a model consists of:
 \end{enumerate}
 The coefficient of variation (CV) is computed across hyperparameter combinations within a trial. Each trial uses a single fixed input sequence shared across all hyperparameter combinations to ensure comparability. Reservoir instantiations are independent across hyperparameter combinations: for each combination, the reservoir is reinitialized with a unique seed. Each reservoir instantiation in a trial uses the same input sequence, different trials use different input sequences.
 
-Number of trials for histogram experiment ~\ref{fig:arch}: 500 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 500 \times 4\times3\times4 = 24,000$. Number of trials for ~\ref{fig:binary_curves}: 250 per point. Total metric evaluations per point: $250 \times 4\times3\times4 = 12,000$. Number of trials for ~\ref{fig:weights} and ~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $50 \times 4\times3\times4 = 2,400$. 
+Number of trials for histogram experiment ~\ref{fig:arch}: 500 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 500 \times 4\times3\times4 = 24,000$. Number of trials for ~\ref{fig:er_frac_curves} and ~\ref{fig:cel_frac_curves}: 250 per point. Total metric evaluations per point: $250 \times 4\times3\times4 = 12,000$. Number of trials for ~\ref{fig:weights} and ~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $50 \times 4\times3\times4 = 2,400$. 
 
 \section{Experimental Pipeline}
 \textbf{A trial}:
@@ -808,24 +822,31 @@ Equivalence is concluded if both one-sided tests reject $H_0$ at $\eta$ = 0.05.
 \chapter{Results}
 
 Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low dispersion across hyperparameter sweeps, indicating that its computational properties remain stable under variation in spectral radius, leak rate, and input scaling. This is visible in Fig.~\ref{fig:arch}, where the connectome’s coefficient-of-variation (CV) distributions for MC, IPC, KR, and GR are concentrated toward lower values relative to several perturbed architectures. We find that the interaction between sign and edge structure with the distribution of weight magnitudes determines the invariance of computational properties.
+
+\begin{comment}
+    switch to 0.25
+\end{comment}
 \begin{figure}
   \centering
-   \includegraphics[width=\linewidth]{figs/inv_arc.png}
+   \includegraphics[width=\linewidth]{figs/inv_arc.png} 
   \caption[Invariance dispersion across architectures]{
-  Invariance dispersion across network architectures, quantified as the coefficient of variation (CV) of each task-agnostic metric over hyperparameter sweeps. Panels show GR, IPC, KR, and MC. Curves are normalized histograms of CV (bin counts divided by the number of runs in that condition); dashed vertical lines mark medians. Lower CV indicates greater invariance to hyperparameter choice. }
+  Invariance dispersion across network architectures, quantified as the coefficient of variation (CV) of each task-agnostic metric over hyperparameter sweeps. Panels show GR, IPC, KR, and MC. Curves are normalized histograms of CV (bin counts divided by the number of runs in that condition); dashed vertical lines mark medians. Lower CV indicates greater invariance to hyperparameter choice.}
   \label{fig:arch}
 \end{figure}
 
 
-\section{Invariance to connection shuffles}
-When single point degree is preserved, and $W_in$ feeds signal to all neurons then connection shuffles do not affect task invariance. This is supported by the observation that the weight-shuffle model exhibits the same degree of invariance as both the connection-shuffle model and the combined connection- and weight-shuffle model. We therefore argue that the increase in invariance arises from the implicit weight shuffling induced by connection shuffling, rather than from the alteration of network topology. This is because if the connection shuffle provided additional invariance beyond that caused by the weight shuffle we would see an invariance gain, when we also shuffled the weights in the dual model. its not the ordering but the distribution
+\section{Invariance to degree preserving topology changes}
+When single point degree is preserved, and $W_in$ feeds signal to all neurons, the increase in task CV observed does not appear to rise from topological changes. In the weighted network, connection shuffle, weight shuffle, and connection shuffle with weight shuffle are all TOST-equivalent in their invariance, indicating that explicit weight redistribution is sufficient to reproduce the full effect of rewiring. The binary $\pm 1$ connection control when heterogeneous weight magnitudes are removed, degree-preserving connection shuffling is TOST-equivalent to the unshuffled binary network. Together, these results indicate that the invariance gain observed in the weighted connection-shuffle models is driven primarily by redistribution of heterogeneous signed weight magnitudes across edges, rather than by the change in adjacency structure itself.
 \begin{comment}
-    I think for this model I need one more test to prove it its easy though, I should just take the binary model and do a connection shuffle and show that nothing changes!!!
+    I think for this model I need one more test to prove it its easy though, I should just take the binary model and do a connection shuffle and show that nothing changes!!! im close to this one I need more models and a specific graph just for this I need to think through this analysis carefully
 \end{comment}
 
-\section{Weight magnitude distribution modulates performance and hyperparameter sensitivity}
+\section{Spectral radius modulates performance and hyperparameter sensitivity}
 \begin{comment}
-    I think for this I should just show that spectral radius controls this, show the negative parabolic distribution. I will ask anna which model it would be best to run this experiment on. what I show is true but is poor in quality 
+    I think for this I should just show that spectral radius controls this, show the negative parabolic distribution. I will ask anna which model it would be best to run this experiment on. what I show is true but is poor in quality.
+\end{comment}
+\begin{comment}
+This is showing not the effect of weights but rather the effect of transforming into a guassian distribution I think this experiment is stupid and should be gotten rid of
 \end{comment}
 We next isolate the effect of weight magnitude distribution while holding connectivity and sign structure fixed. Specifically, we compare the local sign--preserved connectome with binary weights ($\pm 1$) to an otherwise identical model in which nonzero weights are perturbed by additive positive noise drawn from a stacked half-normal distribution. Formally, for each nonzero entry $W_{ij} \in \{\pm 1\}$, we construct
 \[
@@ -854,7 +875,7 @@ Notably, the increase in mean weight magnitude exhibits a clear saturation regim
     \label{fig:weights2}
 \end{figure}
 
-\section{Global neurotransmitter balance, not synapse-specific sign placement, infleunces invariance}
+\section{Global neurotransmitter balance, not synapse-specific sign placement, influences invariance}
 \label{balance}
 
 We next test whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the binary model that preserves edge sign to a binary model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized.
@@ -865,30 +886,53 @@ This result demonstrates that the specific topological placement of excitatory a
 
 These findings indicate that invariance is governed by global dynamical constraints imposed by sign balance, rather than by micro-scale structure of individual synapse polarities.
 
-\section{Global neurotransmitter balance heavily infleunces invariance}
+\section{Global neurotransmitter balance heavily influences invariance}
 
-We next test whether global neurotransmitter balance, independent of weight distribution and weight structure, causally determines task-agnostic invariance. To isolate this factor, we compare two models with identical connectivity and identical weight magnitude distributions, differing only in whether the original synaptic sign structure is preserved. Specifically, we compare the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, in which weights are resampled from a zero-centered normal distribution without preserving original signs, to the \textit{Local sign–preserved + $\mathcal{N}(0,1)$} model, in which weight magnitudes are drawn from the same distribution but original synapse signs are maintained.
+We next test whether global neurotransmitter balance, independent of weight distribution and weight structure, modulates task-agnostic invariance. To isolate this factor, we compare two models with identical connectivity and identical weight magnitude distributions, differing only in whether the original synaptic sign structure is preserved. Specifically, we compare the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, in which weights are resampled from a zero-centered normal distribution without preserving original signs, to the \textit{Local sign–preserved + $\mathcal{N}(0,1)$} model, in which weight magnitudes are drawn from the same distribution but original synapse signs are maintained.
 
 Despite identical connectivity and magnitude statistics, these two models exhibit markedly different invariance properties. The \textit{C.~elegans + $\mathcal{N}(0,1)$} model falls within the high-variance cluster, exhibiting some of the highest variance observed across all tested models. In contrast, the sign-preserved model lies within the low-variance cluster, closely matching the invariance properties of the original \textit{C.~elegans} connectome. Because synapse sign preservation is the only difference between these models, this establishes global neurotransmitter balance as a causal determinant of task-agnostic invariance.
 
-To further isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:binary_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.
+To further isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves},~\ref{fig:og_cel_frac_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.
 
-At $f = 0.0$, corresponding to the original \textit{C.~elegans} connectome, the network exhibits maximal invariance but reduced mean computational performance. As the fraction of flipped synapses increases, performance initially improves while invariance decreases. The highest mean computational performance occurs at a balanced excitatory/inhibitory regime, consistent with prior observations that weight distributions centered at zero promote richer dynamical regimes. However, this performance increase is accompanied by substantially increased sensitivity to hyperparameter variation. Within the reservoir abstraction used here (static weights, $\tanh$ nonlinearity, spectral-radius normalization, contact-count proxy weights, and a coarse neurotransmitter$\rightarrow$sign mapping), the \textit{C.~elegans} instantiation lies in a low-variance regime that does not maximize mean task-agnostic capacity.
+In both~\ref{fig:bin_cel_frac_curves}, and ~\ref{fig:er_frac_curves} Negative Sign $\% =0.0$, corresponds to 
+\[
+W_{ij}' =
+\begin{cases}
+1 & \text{if } W_{ij} \neq 0 \\
+0 & \text{if } W_{ij} = 0
+\end{cases}
+\]
+In this weight schema both networks exhibit maximal invariance but reduced mean computational performance. As the fraction of flipped synapses increases, performance initially improves while invariance decreases. The highest mean computational performance occurs at a balanced excitatory/inhibitory schema, consistent with prior observations that weight distributions centered at zero promote richer dynamical regimes.\begin{comment}I need a source for this \end{comment} However, this performance increase is accompanied by substantially increased sensitivity to hyperparameter variation. Revealing a fundamental tradeoff: global neurotransmitter balance computational performance at the cost of task-agnostic invariance. It is worth noting that this relationship does fully not hold in 3 cases, IPC in binary C. elegans, IPC in ER, and KR in IPC. In these three cases as the percentage of negative signs nears $50\%$ the CV decreases instead of increasing.\begin{comment}speculate on why this is\end{comment}. Overall, we have shown that disrupting negative sign equilibrium enhances invariance to hyperparameter change but reduces mean computational performance.
+
+Furthermore, in~\ref{fig:bin_cel_frac_curves}, we can observe where the C. elegans network lays on the cv-performance tradeoff. Within the reservoir abstraction used here (static weights, $\tanh$ nonlinearity, spectral-radius normalization, contact-count proxy weights, and a coarse neurotransmitter$\rightarrow$sign mapping), the \textit{C.~elegans} instantiation lies in a low-variance regime that does not maximize mean task-agnostic performance.
  \begin{comment}
     this is most likley do to my implementation of the synapse weights, do I say this in the dicussion??? its probably higher up on the line, but certainly not at the optimium
 \end{comment}
 
-These results reveal a tradeoff imposed by neurotransmitter balance: networks with highly asymmetric sign structure exhibit reduced computational capacity but greater invariance and stability, whereas networks approaching a balanced excitatory/inhibitory regime achieve higher performance at the cost of increased variability. This explains the behavior of the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, whose zero-centered magnitude distribution disrupts the original biological sign asymmetry, shifting the network toward a high-performance but low-invariance regime.
+These results reveal a tradeoff imposed by neurotransmitter balance: networks with highly asymmetric sign structure exhibit reduced computational capacity but greater invariance, whereas networks approaching a balanced excitatory/inhibitory regime achieve higher performance at the cost of increased variability to hyperparameter change. This explains the behavior of the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, whose zero-centered magnitude distribution disrupts the original biological sign asymmetry, shifting the network toward a high-performance but low-invariance regime.
 
 These findings demonstrate that global neurotransmitter balance has a strong impact on both task-agnostic invariance and on computational performance.  
 
-\begin{figure} % these need to be reginerated 
+\begin{figure} % this needs to be worked on 
     \centering
-    \includegraphics[width=1\linewidth]{figs/binary_frac.png}
-    \caption{Mean computational metrics as a function of the fraction of synapse signs flipped from the original connectome using binary weights. Increasing sign randomization shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. $N=250$ for each sign fraction}
-    \label{fig:binary_curves}
+    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/cel_bin_negfrac.png}
+    \caption{IPC denoted in orange, GR denoted in green, MC denoted in blue, KR denoted in red. Mean computational coefficient of variation and mean performance as a function of the fraction of synapse signs flipped from the original connectome using $\pm$ weights. Increasing sign flip percentage shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. 250 trials were performed for each fraction}
+    \label{fig:bin_cel_frac_curves}
 \end{figure}
 
+\begin{figure} % this needs to be worked on 
+    \centering
+    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/er_negfrac.png}
+    \caption{IPC denoted in orange, GR denoted in green, MC denoted in blue, KR denoted in red. Mean computational coefficient of variation and mean performance as a function of the fraction of synapse signs flipped from the ER random graph using binary weights. Increasing sign flip percentage shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. 250 trials were performed for each fraction}
+    \label{fig:er_frac_curves}
+\end{figure}
+
+\begin{figure} % this needs to be worked on 
+    \centering
+    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/cel_og_negfrac.png}
+    \caption{IPC denoted in orange, GR denoted in green, MC denoted in blue, KR denoted in red. Mean computational coefficient of variation and mean performance as a function of the fraction of synapse signs flipped from the absolute value of the C. elegans connectome. The black point representing the negative sign percentage observed in the original connectome.  250 trials were performed for each fraction}
+    \label{fig:og_cel_frac_curves}
+\end{figure}
 
 
 
@@ -988,7 +1032,7 @@ GR & local-sign+sample vs shuffle & 0.02783 & 7.638e-46 \\
 
 
 
-\paragraph{Architecture color legend.}
+\paragraph{Architecture color legend.} %this needs to be updated
 Blue: empirical \textit{C.\ elegans} connectome with biological weights.
 Dark green: empirical topology with Gaussian-resampled weights.
 Light green: Erdős–Rényi random graph with Gaussian weights.

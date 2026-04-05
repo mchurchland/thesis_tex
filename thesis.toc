@@ -36,17 +36,21 @@
 \contentsline {subsection}{\numberline {4.3.8}C. elegans architecture with Gaussian weights using original Connection Signs}{24}{subsection.4.3.8}%
 \contentsline {subsection}{\numberline {4.3.9}C. elegans architecture with uniform weights using original Connection Signs}{26}{subsection.4.3.9}%
 \contentsline {subsection}{\numberline {4.3.10}C. elegans architecture with sampled weights using original Connection Signs}{26}{subsection.4.3.10}%
-\contentsline {subsection}{\numberline {4.3.11}C. elegans architecture with +1/-1 weights using original Connection Signs}{27}{subsection.4.3.11}%
-\contentsline {subsection}{\numberline {4.3.12}C. elegans architecture with +1/-1 weights using original Connection Sign balance with the signs shuffled}{27}{subsection.4.3.12}%
-\contentsline {section}{\numberline {4.4}Trial definition}{27}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Experimental Pipeline}{29}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Equivalence testing}{30}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Results}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Invariance to degree preserving topology changes}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Spectral radius modulates performance and hyperparameter sensitivity}{31}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Global neurotransmitter balance, not synapse-specific sign placement, influences invariance}{33}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Global neurotransmitter balance heavily influences invariance}{35}{section.5.4}%
-\contentsline {paragraph}{Architecture color legend.}{36}{section*.10}%
-\contentsline {chapter}{\numberline {6}Discussion}{41}{chapter.6}%
-\contentsline {chapter}{\numberline {7}AI Usage Disclosure}{43}{chapter.7}%
-\contentsline {chapter}{Bibliography}{45}{chapter*.11}%
+\contentsline {subsection}{\numberline {4.3.11}C. elegans architecture with $\pm 1$ weights using original Connection Signs}{27}{subsection.4.3.11}%
+\contentsline {subsection}{\numberline {4.3.12}C. elegans architecture with $\pm 1$ weights using original Connection Sign balance with the signs shuffled}{27}{subsection.4.3.12}%
+\contentsline {subsection}{\numberline {4.3.13}C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}{27}{subsection.4.3.13}%
+\contentsline {subsection}{\numberline {4.3.14}C. elegans architecture binary $\pm 1$ weights}{29}{subsection.4.3.14}%
+\contentsline {subsection}{\numberline {4.3.15}C. elegans architecture binary $\pm 1$ weights with connection shuffle}{29}{subsection.4.3.15}%
+\contentsline {section}{\numberline {4.4}Trial definition}{29}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Experimental Pipeline}{31}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Equivalence testing}{32}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Results}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Invariance to degree-preserving topology changes}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Spectral radius modulates performance and hyperparameter sensitivity}{39}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Global neurotransmitter balance, not synapse-specific sign placement, influences invariance}{39}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Global neurotransmitter balance heavily influences invariance}{41}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Equivalence testing}{42}{section.5.5}%
+\contentsline {paragraph}{Architecture color legend.}{44}{section*.10}%
+\contentsline {chapter}{\numberline {6}Discussion}{47}{chapter.6}%
+\contentsline {chapter}{\numberline {7}AI Usage Disclosure}{49}{chapter.7}%
+\contentsline {chapter}{Bibliography}{51}{chapter*.11}%

@@ -1138,4 +1138,80 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)              
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24 <./figs/toplogy/binary_plus_connshuffle_plus_wshuffle.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[25 <./figs/toplogy/binary_base.png> <./figs/toplogy/binary_base_topology_shuffle.png>]
+<figs/toplogy/ce_gaussian_weights.png, id=699, 831.105pt x 650.43pt>
+File: figs/toplogy/ce_gaussian_weights.png Graphic file (type png)
+<use figs/toplogy/ce_gaussian_weights.png>
+Package pdftex.def Info: figs/toplogy/ce_gaussian_weights.png  used on input line 724.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[26 <./figs/toplogy/ce_gaussian_weights.png>]
+<figs/toplogy/er_p01_gaussian_weights.png, id=708, 831.105pt x 650.43pt>
+File: figs/toplogy/er_p01_gaussian_weights.png Graphic file (type png)
+<use figs/toplogy/er_p01_gaussian_weights.png>
+Package pdftex.def Info: figs/toplogy/er_p01_gaussian_weights.png  used on input line 740.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[27 <./figs/toplogy/er_p01_gaussian_weights.png>]
+<figs/toplogy/ws_p01_gaussian_weights.png, id=716, 831.105pt x 650.43pt>
+File: figs/toplogy/ws_p01_gaussian_weights.png Graphic file (type png)
+<use figs/toplogy/ws_p01_gaussian_weights.png>
+Package pdftex.def Info: figs/toplogy/ws_p01_gaussian_weights.png  used on input line 758.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+<figs/toplogy/local_sign_gaussian.png, id=717, 831.105pt x 650.43pt>
+File: figs/toplogy/local_sign_gaussian.png Graphic file (type png)
+<use figs/toplogy/local_sign_gaussian.png>
+Package pdftex.def Info: figs/toplogy/local_sign_gaussian.png  used on input line 769.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+<figs/toplogy/local_sign_uniform.png, id=718, 831.105pt x 650.43pt>
+File: figs/toplogy/local_sign_uniform.png Graphic file (type png)
+<use figs/toplogy/local_sign_uniform.png>
+Package pdftex.def Info: figs/toplogy/local_sign_uniform.png  used on input line 780.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[28 <./figs/toplogy/ws_p01_gaussian_weights.png>]
+<figs/toplogy/local_sign_sampled.png, id=726, 831.105pt x 650.43pt>
+File: figs/toplogy/local_sign_sampled.png Graphic file (type png)
+<use figs/toplogy/local_sign_sampled.png>
+Package pdftex.def Info: figs/toplogy/local_sign_sampled.png  used on input line 804.
+(pdftex.def)             Requested size: 216.81001pt x 169.67352pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[29 <./figs/toplogy/local_sign

@@ -1,0 +1,57 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Neuroscience Terms Explained for Computer Scientists}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Echo State Networks}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Echo State Networks: an Introduction}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Hyper-Parameters}{4}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Background}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The C. elegans Connectome}{7}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Historical Justification}{7}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Connectome}{8}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Omission of CANL/CANR}{9}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Isolated nodes}{9}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Task Agnostic Network Statistics}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Motivation}{9}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Kernel Rank}{9}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Generalization Rank}{11}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Memory Capacity}{12}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Information Processing Capacity}{14}{subsection.3.2.5}%
+\contentsline {paragraph}{Notation.}{14}{section*.8}%
+\contentsline {paragraph}{Let}{14}{section*.9}%
+\contentsline {section}{\numberline {3.3}Invariance across Hyper-parameters}{15}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Methods}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Network topology priors}{17}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Small-world networks}{17}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Small-World Topology Enhances the Echo State Property and Signal Propagation}{17}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Hyperparameter Sweeps}{18}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Spectral Radius Normalization \& Scaling}{18}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Network Architectures}{19}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Models Used in Shuffle Experiments}{19}{subsection.4.3.1}%
+\contentsline {subsubsection}{C. elegans connectome}{19}{section*.10}%
+\contentsline {subsubsection}{Connection-Shuffle}{19}{section*.11}%
+\contentsline {subsubsection}{Weight-Shuffle}{20}{section*.12}%
+\contentsline {subsubsection}{Connection-shuffle with Weight-Shuffle}{22}{section*.13}%
+\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights using original Connection Signs}{22}{section*.14}%
+\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights using original Connection Sign balance with the signs shuffled}{22}{section*.15}%
+\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}{24}{section*.16}%
+\contentsline {subsubsection}{C. elegans architecture binary $\pm 1$ weights}{24}{section*.17}%
+\contentsline {subsubsection}{C. elegans architecture binary $\pm 1$ weights with connection shuffle}{24}{section*.18}%
+\contentsline {subsection}{\numberline {4.3.2}Additional Architectures Used in Distribution and Topology Controls}{26}{subsection.4.3.2}%
+\contentsline {subsubsection}{C.~elegans Topology with Gaussian Weights}{26}{section*.19}%
+\contentsline {subsubsection}{C.~elegans--Matched Erd\H {o}s--R\'enyi Model with Gaussian Weights}{26}{section*.20}%
+\contentsline {subsubsection}{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights}{27}{section*.21}%
+\contentsline {subsubsection}{C. elegans architecture with Gaussian weights using original Connection Signs}{28}{section*.22}%
+\contentsline {subsubsection}{C. elegans architecture with uniform weights using original Connection Signs}{28}{section*.23}%
+\contentsline {subsubsection}{C. elegans architecture with sampled weights using original Connection Signs}{29}{section*.24}%
+\contentsline {section}{\numberline {4.4}Trial definition}{29}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Experimental Pipeline}{31}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Equivalence testing}{32}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Results}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Invariance to degree-preserving topology changes}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Half-normal weight perturbations have limited effect on invariance}{36}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Global neurotransmitter balance heavily influences invariance}{36}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Equivalence testing}{41}{section.5.4}%
+\contentsline {paragraph}{Architecture color legend.}{43}{section*.25}%
+\contentsline {chapter}{\numberline {6}Discussion}{47}{chapter.6}%
+\contentsline {chapter}{\numberline {7}AI Usage Disclosure}{49}{chapter.7}%
+\contentsline {chapter}{Bibliography}{51}{chapter*.26}%

@@ -928,40 +928,27 @@ Taken together, these three experiments show that the effect of degree-preservin
 
 
 
-\begin{comment}
-    I think for this model I need one more test to prove it its easy though, I should just take the binary model and do a connection shuffle and show that nothing changes!!! im close to this one I need more models and a specific graph just for this I need to think through this analysis carefully
-\end{comment}
-
-\section{KL divergence from Gaussian weight distribution controls invariance}
-\begin{comment}
-    I think for this I should just show that spectral radius controls this, show the negative parabolic distribution. I will ask anna which model it would be best to run this experiment on. what I show is true but is poor in quality.
-\end{comment}
-\begin{comment}
-This is showing not the effect of weights but rather the effect of transforming into a Gaussian distribution I think this experiment is stupid and should be gotten rid of
-\end{comment}
-We next isolate the effect of a Gaussian weight distribution while holding connectivity fixed. Specifically, we compare the original connectome to an otherwise identical model in which nonzero weights are perturbed by additive noise drawn from a Gaussian distribution. Formally, for each nonzero entry $W_{ij}$, we construct
+\section{Half-normal weight perturbations have limited effect on invariance}
+We next isolate the effect of weight-magnitude distribution while holding connectivity and sign structure fixed. Starting from the \textit{C.\ elegans} model, we perturb the magnitude of each nonzero weight while preserving its sign. For each nonzero entry $W_{ij}$, we construct
 \[
 W_{ij}' = \text{sign}(W_{ij}) (\lambda *  \mathcal{N}(0,1)),
 \]
-where $\lambda$ controls the magnitude of the Gaussian distribution. This procedure alters only the distribution of weight magnitudes, as topology and sign structure are held constant, allowing causal attribution of any observed changes in computational properties to magnitude alone. In 
+where $\Lambda$ controls the strength of the perturbation. As $\Lambda$ increases, the empirical distribution of $|W|$ moves closer to a half-normal target, and its KL divergence from that target decreases. Because the edge set and sign pattern are unchanged, this experiment isolates the effect of the magnitude distribution from the effects of topology and global sign balance.
 
-Sign must be preserved for our analyses, as global sign balance infleunces invariance (see sec~\ref{balance}). Therefore, we preserve sign, as if we did not we would see an increase in covariance and performance from both the change in sign balance, rather than isolating the effects of KL divergence from a half-Gaussian distribution.
+Preserving sign is necessary here because global sign balance strongly influences invariance (Section~\ref{balance}). If signs were allowed to change, any resulting change in mean performance or CV could reflect altered excitatory/inhibitory balance rather than the effect of the weight-magnitude distribution itself.
 
-Figures~\ref{fig:weights} shows the resulting relationship between KL divergence, performance, and hyperparameter sensitivity. As $\lambda$ increases, KL divergence decreases monotonically. This decrease is accompanied by slight changes in both mean computational performance and the coefficient of variation. MC and IPC show slight changes in mean CV but are almost constant in their mean metric values. KR and GR seem to be more sensative to this pertubation as they vary more than MC and IPC although the change remains limted. These results demonstrate that weight magnitude distribution's effect on computational properties is overall limited especially in the case of MC and IPC, and still limited in the case of KR and GR but less so.
-%%will want to note this is true for cel topology but not nessiarily true for other topologies
-
-
+Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. MC and IPC are nearly flat across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes. GR and KR vary somewhat more, but their changes are still limited\begin{comment}comparing it this is probably where I should bring in the guas not sign preserved\end{comment}. For the \textit{C.\ elegans} topology studied here, shifting the weight-magnitude distribution toward a half-normal form has little effect on hyperparameter invariance or performance for IPC and MC, but produces slightly larger changes in GR and KR.
+\begin{comment}will want to quantify a couple of things here but overall good, I think I want to quantify the different from the original compared to when signs are not held to show that this is relativly small
+\end{comment}
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figs/weight_to_gaus.png}
-\caption{Effect of Gaussian noise weight perturbations on metric statistics, CV and KL divergence from half-normal Gaussian distribution. Nonzero binary weights are perturbed as
+\caption{Effect of perturbing nonzero weight magnitudes toward a half-normal distribution while preserving connectivity and edge sign. Starting from the sign-preserving \textit{C.\ elegans} $\pm 1$ network, nonzero weights are transformed as
 $W'_{ij}=\mathrm{sign}(W_{ij})\!\left(1+\Lambda|\mathcal{N}(0,1)|\right)$,
-so connectivity and edge sign are preserved while KL divergence decreases with noise level $\Lambda$ (x-axis, $\log_{10}$ scale). Top row: mean metric value versus KL divergence of $|W|$ to a half-normal Gaussian distribution. Bottom row: mean CV versus of $|W|$ to a half-normal Gaussian distribution. Colored trajectories correspond to different metrics (GR: green, KR: red, IPC: orange, MC: blue), and left/right panels show the same data from two viewing angles. The transparent "walls" represnt performance of the original connectome (which is equivalent to $\Lambda=0$).}
-
+where $\Lambda$ controls perturbation strength. The x-axis shows the KL divergence between the empirical distribution of $|W|$ and a half-normal target on a $\log_{10}$ scale; increasing $\Lambda$ decreases this divergence. Top row: mean metric value versus KL divergence. Bottom row: mean CV versus KL divergence. Colored trajectories correspond to GR (green), KR (red), IPC (orange), and MC (blue). Left and right panels show the same data from two viewing angles. The transparent planes indicate the unperturbed baseline, corresponding to $\Lambda=0$.}
     \label{fig:weights}
 \end{figure}
 
-\pagebreak
 \section{Global neurotransmitter balance heavily influences invariance}
 \label{balance}
 To isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves},~\ref{fig:og_cel_frac_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.

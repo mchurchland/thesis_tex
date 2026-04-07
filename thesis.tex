@@ -568,7 +568,9 @@ Spectral radius normalization and rescaling is done by multiplying all weights i
 \label{Architectures}
 To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network—such as topology, weight distribution, sign structure, or small-world organization—while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we can assess which features are responsible for observed differences in robustness. These experiments are set of structural ablations: starting from the biological network, we selectively randomize or preserve particular attributes and measure how these changes affect performance across hyperparameter settings.
 
-\subsection{C. elegans connectome} %has fig
+\subsection{Models Used in Shuffle Experiments}
+
+\subsubsection{C. elegans connectome} %has fig
 This uses the biological network and biological weights. Used mostly as a comparison against other methods.
 \[
 W_{ij} = W^{cel}_{ij},
@@ -579,16 +581,16 @@ W_{ij} = W^{cel}_{ij},
     \caption{The C. elegans connectome, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{Connection-Shuffle} %has fig
+\subsubsection{Connection-Shuffle} %has fig
 \label{Connection-Shuffle}
-We do a connection shuffle on the C. elegans connectome; preserving single-point connectivity. For our connection shuffle we randomly select with distinct nodes, $a,b,c,d$, that have edges between nodes $a,b$ and $c,d$. Then we rewire the edges such that the edge between $a,b$ with edge weight $W_1$ is removed and replaced with an edge $a,d$ with edge weight $W_1$. Additionally, the edge $c,d$ with edge weight $W_2$ is removed and replaced with an edge $c,b$ with weight $W_2$. This preserves in/out-node degree, while shuffling the neighbors of each node. 
+We do a connection shuffle on the C. elegans connectome; preserving single-point connectivity. For our connection shuffle we randomly select with distinct nodes, $a,b,c,d$, that have edges between nodes $a,b$ and $c,d$. Then we rewire the edges such that the edge between $a,b$ with edge weight $W_1$ is removed and replaced with an edge $a,d$ with edge weight $W_1$. Additionally, the edge $c,d$ with edge weight $W_2$ is removed and replaced with an edge $c,b$ with weight $W_2$. This preserves in/out-node degree, while shuffling the neighbors of each node.
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/connection_shuffle_only.png} 
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/connection_shuffle_only.png}
     \caption{The C. elegans connectome after a connection shuffle, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{Weight-Shuffle} %has fig
+\subsubsection{Weight-Shuffle} %has fig
 
 \label{Weight-Shuffle}
 Fix all synaptic connections but shuffle their weights. This is achieved by taking getting the indices of the non zero weights of the weight matrix ($NZ$). Then we copy the weights that these indices point to, to a new matrix, $W_{nz}$. Finally we shuffle we shuffle $W_{nz}$ using \begin{lstlisting}[language=Python]
@@ -597,17 +599,17 @@ numpy.random.shuffle \end{lstlisting} and reassign the shuffled weights back to 
 N_{\text{neg}} &= \text{number of negative edge weights} \\
 N &= \text{number of weights} \\
 P_{\text{neg}} &= P(\text{negative}) = \frac{N_{\text{neg}}}{N} \\
-P(\text{neg}\to\text{pos}) 
+P(\text{neg}\to\text{pos})
 &= P(\text{positive})\,P(\text{negative}) \\
 &= (1-P_{\text{neg}})P_{\text{neg}} \\
-P(\text{pos}\to\text{neg}) 
+P(\text{pos}\to\text{neg})
 &= P(\text{negative})\,P(\text{positive}) \\
 &= P_{\text{neg}}(1-P_{\text{neg}}) \\
-P(\text{swap}) 
+P(\text{swap})
 &= P(\text{pos}\to\text{neg}) + P(\text{neg}\to\text{pos}) \\
 &= (1-P_{\text{neg}})P_{\text{neg}} + P_{\text{neg}}(1-P_{\text{neg}}) \\
 &= 2P_{\text{neg}}(1-P_{\text{neg}}) \\
-\mathbb{E}[\text{swap}] 
+\mathbb{E}[\text{swap}]
 &= N\,P(\text{swap})
 \end{align*}
 
@@ -623,8 +625,7 @@ P(\text{swap})
     \caption{The C. elegans connectome after a weight shuffle, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-
-\subsection{Connection-shuffle with Weight-Shuffle} %has fig
+\subsubsection{Connection-shuffle with Weight-Shuffle} %has fig
 First shuffle connections the connections of the C. elegans connectome using ~\ref{Connection-Shuffle}, then shuffle the weights of the resulting weight matrix using~\ref{Weight-Shuffle}. This method is mostly used as a control to show the effects of an additional weight shuffle after a connection shuffle.
 \begin{figure}
     \centering
@@ -632,7 +633,77 @@ First shuffle connections the connections of the C. elegans connectome using ~\r
     \caption{The C. elegans connectome after a connection shuffle followed by a weight shuffle, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C.~elegans Topology with Gaussian Weights} %has fig
+\subsubsection{C. elegans architecture with $\pm 1$ weights using original Connection Signs} %has fig
+\label{plus1minus1network}
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter.
+\[
+W_{ij}' =
+\begin{cases}
+\operatorname{sign}(W_{ij}) & \text{if } W_{ij} \neq 0 \\
+0 & \text{if } W_{ij} = 0
+\end{cases}
+\]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_binary.png}
+    \caption{The C. elegans architecture with $\pm 1$ weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsubsection{C. elegans architecture with $\pm 1$ weights using original Connection Sign balance with the signs shuffled}
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter. Then I count the number of -1 signs ($num_{\text{neg}}$), take the absolute value of the weight matrix and randomly assign $num_{\text{neg}}$ weights to be -1.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_plus_shuffle.png}
+    \caption{The C. elegans architecture with $\pm 1$ weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
+\end{figure}
+
+\subsubsection{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}
+
+This abalation begins with the biological \textit{C. elegans} connectivity pattern and the original excitatory/inhibitory sign balance implied by neurotransmitter identity. Each nonzero edge is first converted to a weight of $+1$ or $-1$ according to its assigned sign. The resulting $\pm 1$ connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}, and a weight shuffle is subsequently applied to the shuffled matrix as described in~\ref{Weight-Shuffle}. This condition serves as a control for testing whether an additional weight shuffle has any effect once the $\pm 1$ network has already undergone connection shuffling.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_plus_connshuffle_plus_wshuffle.png}
+    \caption{$\pm 1$ \textit{C. elegans} reservoir after connection shuffling followed by weight shuffling. Orange edges denote excitatory connections and blue edges denote inhibitory connections. Because all nonzero weights are restricted to $\pm 1$. Neurons are shown as nodes.}
+\end{figure}
+
+\subsubsection{C. elegans architecture binary $\pm 1$ weights}
+
+This abalation begins with the biological \textit{C. elegans} connectivity pattern and sets each weight as follows:
+\[
+W_{ij}' =
+\begin{cases}
+1 & \text{if } W_{ij} \neq 0 \\
+0 & \text{if } W_{ij} = 0
+\end{cases}
+\] 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_base.png}
+    \caption{Binary weight \textit{C. elegans} conenctome. Orange edges denote excitatory connections and blue edges denote inhibitory connections. Because all nonzero weights are restricted to $\pm 1$. Neurons are shown as nodes.}
+\end{figure}
+
+\subsubsection{C. elegans architecture binary $\pm 1$ weights with connection shuffle}
+
+This abalation begins with the biological \textit{C. elegans} connectivity pattern and sets each weight as follow:
+\[
+W_{ij}' =
+\begin{cases}
+1 & \text{if } W_{ij} \neq 0 \\
+0 & \text{if } W_{ij} = 0
+\end{cases}
+\] 
+The resulting binary connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_base_topology_shuffle.png}
+    \caption{Binary weight \textit{C. elegans} conenctome after a connection shuffle. Orange edges denote excitatory connections and blue edges denote inhibitory connections. Because all nonzero weights are restricted to $\pm 1$. Neurons are shown as nodes.}
+\end{figure}
+
+\subsection{Additional Architectures Used in Distribution and Topology Controls}
+
+\subsubsection{C.~elegans Topology with Gaussian Weights} %has fig
 
 To isolate the effect of weights while preserving biological topology, we retained the adjacency matrix of the \emph{C.~elegans} connectome and resampled nonzero weights.
 
@@ -654,7 +725,7 @@ W'_{ij} \sim \mathcal{N}(0,1).
     \caption{The C. elegans connectome with Gaussian weights, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C.~elegans--Matched Erd\H{o}s--R\'enyi Model with Gaussian Weights} %has fig
+\subsubsection{C.~elegans--Matched Erd\H{o}s--R\'enyi Model with Gaussian Weights} %has fig
 
 As a random-graph baseline, we constructed networks using the Erd\H{o}s--R\'enyi (ER) model. In this model, each possible edge between a pair of nodes is independently included with probability \(p\).
 
@@ -670,7 +741,7 @@ W_{ij} \sim \mathcal{N}(0,1),
     \caption{The Erd\H{o}s--R\'enyi model with Gaussian weights, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights} %has fig
+\subsubsection{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights} %has fig
 
 To see if small-worldness has an effect on task-agnostic invariance we employed the model introduced by \parencite{Wssmallworld}. The procedure begins with a a lattice-like regular network of \(N\) nodes, where each node is connected to its \(k\) nearest neighbors. Each edge is then independently rewired with probability \(p\): for an edge \((u,v)\), the endpoint \(v\) is reassigned to a randomly selected vertex \(v'\), avoiding self-loops and duplicate edges.
 
@@ -688,8 +759,8 @@ W_{ij} \sim \mathcal{N}(0,1),
     \caption{The Watts--Strogatz model with Gaussian weights, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C. elegans architecture with Gaussian weights using original Connection Signs} %has fig
-This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled from a stacked gaussian distribution centered at 0 with spread 1.  
+\subsubsection{C. elegans architecture with Gaussian weights using original Connection Signs} %has fig
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled from a stacked gaussian distribution centered at 0 with spread 1.
 \[
 W_{ij}' = \text{sign}(W_{ij}) (| \mathcal{N}(0,1)|),
 \]
@@ -699,8 +770,8 @@ W_{ij}' = \text{sign}(W_{ij}) (| \mathcal{N}(0,1)|),
     \caption{The C. elegans architecture with Gaussian weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C. elegans architecture with uniform weights using original Connection Signs} %has fig
-This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled from a uniform distribution with low = 0.0 and high = 1.0.  
+\subsubsection{C. elegans architecture with uniform weights using original Connection Signs} %has fig
+This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled from a uniform distribution with low = 0.0 and high = 1.0.
 \[
 W_{ij}' = \text{sign}(W_{ij}) ( \mathcal{U}(0,1)),
 \]
@@ -710,7 +781,7 @@ W_{ij}' = \text{sign}(W_{ij}) ( \mathcal{U}(0,1)),
     \caption{The C. elegans architecture with uniform weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsection{C. elegans architecture with sampled weights using original Connection Signs} %has fig
+\subsubsection{C. elegans architecture with sampled weights using original Connection Signs} %has fig
 This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled the C. elegans weight distribution. The negative weights are sampled from the negative weights in the C. elegans connectome. The positive weights are sampled from the positive weights in the connectome.
 \[
 POS_{\mathrm{CE}} := \{\, W^{\mathrm{CE}}_{ij} \mid W^{\mathrm{CE}}_{ij} >0 \,\}
@@ -732,74 +803,6 @@ X^+_{ij} \sim(\mathcal{U}(POS_{\mathrm{CE}})), X^-_{ij} \sim(\mathcal{U}(NEG_{\m
     \centering
     \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_sampled.png}
     \caption{The C. elegans architecture with sampled weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
-\end{figure}
-
-\subsection{C. elegans architecture with $\pm 1$ weights using original Connection Signs} %has fig
-\label{plus1minus1network}
-This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter.
-\[
-W_{ij}' =
-\begin{cases}
-\operatorname{sign}(W_{ij}) & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\]
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_binary.png}
-    \caption{The C. elegans architecture with $\pm 1$ weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
-\end{figure}
-
-\subsection{C. elegans architecture with $\pm 1$ weights using original Connection Sign balance with the signs shuffled} 
-This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it sets the weight of every connection to 1 or -1 depending on the neurotransmitter. Then I count the number of -1 signs ($num_{\text{neg}}$), take the absolute value of the weight matrix and randomly assign $num_{\text{neg}}$ weights to be -1.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_plus_shuffle.png}
-    \caption{The C. elegans architecture with $\pm 1$ weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
-\end{figure}
-
-\subsection{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}
-
-This abalation begins with the biological \textit{C. elegans} connectivity pattern and the original excitatory/inhibitory sign balance implied by neurotransmitter identity. Each nonzero edge is first converted to a weight of $+1$ or $-1$ according to its assigned sign. The resulting $\pm 1$ connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}, and a weight shuffle is subsequently applied to the shuffled matrix as described in~\ref{Weight-Shuffle}. This condition serves as a control for testing whether an additional weight shuffle has any effect once the $\pm 1$ network has already undergone connection shuffling.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_plus_connshuffle_plus_wshuffle.png}
-    \caption{$\pm 1$ \textit{C. elegans} reservoir after connection shuffling followed by weight shuffling. Orange edges denote excitatory connections and blue edges denote inhibitory connections. Because all nonzero weights are restricted to $\pm 1$. Neurons are shown as nodes.}
-\end{figure}
-
-\subsection{C. elegans architecture binary $\pm 1$ weights}
-
-This abalation begins with the biological \textit{C. elegans} connectivity pattern and sets each weight as follows:
-\[
-W_{ij}' =
-\begin{cases}
-1 & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\] 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_base.png}
-    \caption{Binary weight \textit{C. elegans} conenctome. Orange edges denote excitatory connections and blue edges denote inhibitory connections. Because all nonzero weights are restricted to $\pm 1$. Neurons are shown as nodes.}
-\end{figure}
-
-\subsection{C. elegans architecture binary $\pm 1$ weights with connection shuffle}
-
-This abalation begins with the biological \textit{C. elegans} connectivity pattern and sets each weight as follow:
-\[
-W_{ij}' =
-\begin{cases}
-1 & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\] 
-The resulting binary connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/binary_base_topology_shuffle.png}
-    \caption{Binary weight \textit{C. elegans} conenctome after a connection shuffle. Orange edges denote excitatory connections and blue edges denote inhibitory connections. Because all nonzero weights are restricted to $\pm 1$. Neurons are shown as nodes.}
 \end{figure}
 
 \section{Trial definition}
@@ -880,14 +883,21 @@ Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low di
 
 To test whether hyperparameter invariance depends on connectivity itself or on the distribution of weights carried by that connectivity, we consider three shuffling experiments. All three preserve single-node degree, but they differ in underlying weight distributions. Taken together, these experiments separate the effects of topological shuffles from the effects of weight shuffles.
 
-The first experiment, shown in Fig.~\ref{fig:realW}, uses the original \textit{C.\ elegans} weight matrix. Here, both weight shuffling and connection shuffling increase the coefficient of variation (CV), indicating reduced invariance under hyperparameter sweeps. Crucially, however, these two manipulations increase CV by nearly the same amount. The combined weight+connection shuffle serves as a control for whether these effects are additive. If weight shuffling and connection shuffling disrupted invariance through distinct mechanisms, then applying both transformations together should have produced a larger increase in CV than either transformation alone. Instead, the combined shuffle matches the weight-shuffle and connection-shuffle conditions across all four task-agnostic metrics. Consistent with this visual overlap, the pairwise comparisons among weight shuffle, connection shuffle, and weight+connection shuffle were equivalent across metrics. This suggests that the increase in CV produced by connection shuffling is not primarily a topological effect. Rather, in the real-weight setting, connection shuffling matters because it disrupts the original assignment of heterogeneous biological weights to edges. The lower CV of the unshuffled \textit{C.\ elegans} network therefore indicates that this biological weight arrangement is invariance-promoting relative to the shuffle controls tested here, though these experiments do not establish that it is globally CV-minimizing. %%though this would be an interesting question for future work.
+The first experiment, shown in Fig.~\ref{fig:realW},~\ref{tab:tost_grkr_shuffles_1}, and ~\ref{tab:tost_mcipc_shuffles_1}, uses the original \textit{C.\ elegans} weight matrix. Here, both weight shuffling and connection shuffling increase the coefficient of variation (CV), indicating reduced invariance under hyperparameter sweeps. Crucially, however, these two manipulations increase CV by nearly the same amount. The combined weight+connection shuffle serves as a control for whether these effects are additive. If weight shuffling and connection shuffling disrupted invariance through distinct mechanisms, then applying both transformations together should have produced a larger increase in CV than either transformation alone. Instead, the combined shuffle matches the weight-shuffle and connection-shuffle conditions across all four task-agnostic metrics. Consistent with this visual overlap, the pairwise comparisons among weight shuffle, connection shuffle, and weight+connection shuffle were equivalent across metrics. This suggests that the increase in CV produced by connection shuffling is not primarily a topological effect. Rather, in the real-weight setting, connection shuffling matters because it disrupts the original assignment of heterogeneous biological weights to edges. The lower CV of the unshuffled \textit{C.\ elegans} network therefore indicates that this biological weight arrangement is invariance-promoting relative to the shuffle controls tested here, though these experiments do not establish that it is globally CV-minimizing. %%though this would be an interesting question for future work.
 
-The second experiment, shown in Fig.~\ref{fig:pm1W}, repeats the same analysis after collapsing all nonzero weights to $\pm 1$. This removes magnitude heterogeneity while preserving sign structure. Under this constraint, weight shuffle, connection shuffle, and weight+connection shuffle have little effect on GR and KR, and pairwise comparisons for these metrics are equivalent. IPC is also largely stable, with 5 out of 6 pairewise comparisons being equivalent. MC behaves differently: weight shuffling increases CV, whereas connection shuffle and connection+weight shuffle reduce it relative to the baseline. Correspondingly, equivalence across the four models largely breaks down for MC. The main result of this experiment is therefore metric-specific. Once magnitude heterogeneity is removed, GR and KR remain largely invariant to both rewiring and sign redistribution, whereas MC remains sensitive both to which connections are present in the graph and to how $\pm 1$ weights are distributed across those connections. IPC lies between these cases: more stable than MC, but not as fully preserved as GR and KR.
+The second experiment, shown in Fig.~\ref{fig:pm1W},~\ref{tab:tost_grkr_shuffles_2}, and ~\ref{tab:tost_mcipc_shuffles_2}, repeats the same analysis after collapsing all nonzero weights to $\pm 1$. This removes magnitude heterogeneity while preserving sign structure. Under this constraint, weight shuffle, connection shuffle, and weight+connection shuffle have little effect on GR and KR, and pairwise comparisons for these metrics are equivalent. IPC is also largely stable, with 5 out of 6 pairewise comparisons being equivalent. MC behaves differently: weight shuffling increases CV, whereas connection shuffle and connection+weight shuffle reduce it relative to the baseline. Correspondingly, equivalence across the four models largely breaks down for MC. The main result of this experiment is therefore metric-specific. Once magnitude heterogeneity is removed, GR and KR remain largely invariant to both rewiring and sign redistribution, whereas MC remains sensitive both to which connections are present in the graph and to how $\pm 1$ weights are distributed across those connections. IPC lies between these cases: more stable than MC, but not as fully preserved as GR and KR.
 
-The third experiment, shown in Fig.~\ref{fig:bW}, isolates topology more directly by using binary weights. In this setting, all nonzero edges have the same magnitude and sign, so a weight shuffle is trivial and has no effect. The only nontrivial manipulation is therefore a degree-preserving connection shuffle. Under this perturbation, GR and KR again change very little, while IPC and MC shift more substantially, with CV decreasing after rewiring. This result is important because it rules out the explanation that the earlier effects of connection shuffling arose only because rewiring also shuffled heterogeneous weights. Even when that possibility is removed, IPC and MC still respond to topology, whereas GR and KR remain comparatively insensitive.
+This second experiment also tests whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the $\pm 1$ model that preserves edge sign to the $\pm 1$ model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized. The equivalence of these two models across 3 out of 4 metrics (see ~\ref{tab:tost_grkr_shuffles_2} and ~\ref{tab:tost_mcipc_shuffles_2}) suggests that the specific topological arrangement of excitatory and inhibitory synapses is not a key determinant of invariance. Instead, invariance appears to depend more on global dynamical constraints imposed by sign balance, rather than on the micro-scale structure of individual synapse polarities. 
+
+The third experiment, shown in Fig.~\ref{fig:bW} and ~\ref{tab:tost_grkr_shuffles_3}, isolates topology more directly by using binary weights. In this setting, all nonzero edges have identical magnitude and sign, so shuffling weights is trivial and has no effect. The only meaningful perturbation is therefore a degree-preserving connection shuffle. Under this manipulation, the shuffled-topology model and the binary base are equivalent for GR and KR, but not for IPC and MC, where CV decreases significantly after rewiring. This finding is important because it rules out the idea that the earlier effects of connection shuffling arose solely th the accompanying shuffle of heterogeneous weights. Even when that possibility is removed, IPC and MC still respond to topology, whereas GR and KR remain comparatively insensitive.
+
 
 \begin{comment}
-    I need to be careful with the wording here
+We assess equivalence using the two one-sided tests (TOST) procedure with predefined equivalence bounds. The model preserving global sign balance falls significantly within the equivalence bounds of local sign–preserved binary model across all invariance metrics (see ~\ref{tab:tost_mcipc},~\ref{tab:tost_grkr}). 
+
+This result demonstrates that the specific topological placement of excitatory and inhibitory synapses is not factor determining of task-agnostic computational invariance. 
+
+These findings indicate that invariance is governed by global dynamical constraints imposed by sign balance, rather than by micro-scale structure of individual synapse polarities.
 \end{comment}
 Taken together, these three experiments show that the effect of degree-preserving rewiring depends strongly on the metric being measured. For GR and KR, invariance is largely preserved across all three weight distributions, suggesting that these metrics are relatively insensitive to degree-preserving topological changes. For IPC and especially MC, the situation is different. In the real-weight network, rewiring acts much like weight shuffling, implying that heterogeneous weight permutation is the dominant mechanism. In the $\pm 1$ setting, IPC and especially MC differ across the weight-shuffle, connection-shuffle, and connection+weight-shuffle conditions, indicating sensitivity to topology even once weight magnitude heterogeneity has been removed. In the binary setting, rewiring can no longer shuffle either magnitudes or signs, so the persistence of this effect directly shows that topology itself can influence these metrics. Thus, degree-preserving topology changes alone are not sufficient to explain the behavior of all metrics. GR and KR are largely invariant under such changes, whereas IPC and MC depend on an interaction between topology and weight distribution.
 
@@ -922,58 +932,39 @@ Taken together, these three experiments show that the effect of degree-preservin
     I think for this model I need one more test to prove it its easy though, I should just take the binary model and do a connection shuffle and show that nothing changes!!! im close to this one I need more models and a specific graph just for this I need to think through this analysis carefully
 \end{comment}
 
-\section{Spectral radius modulates performance and hyperparameter sensitivity}
+\section{KL divergence from Gaussian weight distribution controls invariance}
 \begin{comment}
     I think for this I should just show that spectral radius controls this, show the negative parabolic distribution. I will ask anna which model it would be best to run this experiment on. what I show is true but is poor in quality.
 \end{comment}
 \begin{comment}
-This is showing not the effect of weights but rather the effect of transforming into a guassian distribution I think this experiment is stupid and should be gotten rid of
+This is showing not the effect of weights but rather the effect of transforming into a Gaussian distribution I think this experiment is stupid and should be gotten rid of
 \end{comment}
-We next isolate the effect of weight magnitude distribution while holding connectivity and sign structure fixed. Specifically, we compare the local sign--preserved connectome with $\pm 1$ weights to an otherwise identical model in which nonzero weights are perturbed by additive positive noise drawn from a stacked half-normal distribution. Formally, for each nonzero entry $W_{ij} \in \{\pm 1\}$, we construct
+We next isolate the effect of a Gaussian weight distribution while holding connectivity fixed. Specifically, we compare the original connectome to an otherwise identical model in which nonzero weights are perturbed by additive noise drawn from a Gaussian distribution. Formally, for each nonzero entry $W_{ij}$, we construct
 \[
-W_{ij}' = \text{sign}(W_{ij}) ( 1 + \lambda \, | \mathcal{N}(0,1) | ),
+W_{ij}' = \text{sign}(W_{ij}) (\lambda *  \mathcal{N}(0,1)),
 \]
-where $\lambda$ controls the magnitude distribution while preserving the original sparsity pattern and sign structure. This procedure alters only the distribution of weight magnitudes, allowing causal attribution of any observed changes in computational properties to magnitude alone. Note that while the magnitude of noise we are adding increases greatly, the magnitude of weight mean increases is very small. This is due to the spectral radius normalization that occurs during hyperparameter sweeps, and cannot be avoided without removing spectral radius from our hyperparameter sweeps. Regardless, even with comparatively small gains in weight magnitude, both mean coefficient of variation and performance increase as noise magnitude and weight mean increase. 
+where $\lambda$ controls the magnitude of the Gaussian distribution. This procedure alters only the distribution of weight magnitudes, as topology and sign structure are held constant, allowing causal attribution of any observed changes in computational properties to magnitude alone. In 
 
-Sign must be preserved for our analyses, as global sign balance infleunces invariance (see sec~\ref{balance}). Therefore, if we did not preserve sign, we would see an increase in covariance and performance from both the change in sign balance, and from the increase in wieght magnitude.
+Sign must be preserved for our analyses, as global sign balance infleunces invariance (see sec~\ref{balance}). Therefore, we preserve sign, as if we did not we would see an increase in covariance and performance from both the change in sign balance, rather than isolating the effects of KL divergence from a half-Gaussian distribution.
 
-Figures~\ref{fig:weights} and~\ref{fig:weights2} show the resulting relationship between weight magnitude statistics, performance, and hyperparameter sensitivity. As $\lambda$ increases, the mean absolute weight value increases monotonically. This increase is accompanied by a rise in both mean computational performance and the coefficient of variation. These results demonstrate that weight magnitude distribution independently governs computational performance, and sensitivity of that performance to hyperparameter variation.
-Notably, the increase in mean weight magnitude exhibits a clear saturation regime at large $\lambda$. This behavior is consistent with spectral radius normalization: as the overall scale of weights increases, subsequent normalization compresses differences in magnitude, limiting further increases in the mean effective weight scale. Thus, while increasing $\lambda$ initially expands the dynamical regime and improves computational capacity, normalization imposes an upper bound on the effective magnitude scale.
-
+Figures~\ref{fig:weights} shows the resulting relationship between KL divergence, performance, and hyperparameter sensitivity. As $\lambda$ increases, KL divergence decreases monotonically. This decrease is accompanied by slight changes in both mean computational performance and the coefficient of variation. MC and IPC show slight changes in mean CV but are almost constant in their mean metric values. KR and GR seem to be more sensative to this pertubation as they vary more than MC and IPC although the change remains limted. These results demonstrate that weight magnitude distribution's effect on computational properties is overall limited especially in the case of MC and IPC, and still limited in the case of KR and GR but less so.
+%%will want to note this is true for cel topology but not nessiarily true for other topologies
 
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{figs/gaus_mag_cv.png}
-    \caption{Mean coefficient of variation (z) and mean weight magnitude (y) as a function of perturbation magnitude $\Lambda$ (x-axis, log scale). Nonzero $\pm 1$ weights are perturbed according to $W_{ij}' = \operatorname{sign}(W_{ij})(1 + \Lambda |\mathcal{N}(0,1)|)$, preserving connectivity and sign structure. Increasing $\Lambda$ increases both the mean weight magnitude and the coefficient of variation across hyperparameter settings.}
+    \includegraphics[width=\linewidth]{figs/weight_to_gaus.png}
+\caption{Effect of Gaussian noise weight perturbations on metric statistics, CV and KL divergence from half-normal Gaussian distribution. Nonzero binary weights are perturbed as
+$W'_{ij}=\mathrm{sign}(W_{ij})\!\left(1+\Lambda|\mathcal{N}(0,1)|\right)$,
+so connectivity and edge sign are preserved while KL divergence decreases with noise level $\Lambda$ (x-axis, $\log_{10}$ scale). Top row: mean metric value versus KL divergence of $|W|$ to a half-normal Gaussian distribution. Bottom row: mean CV versus of $|W|$ to a half-normal Gaussian distribution. Colored trajectories correspond to different metrics (GR: green, KR: red, IPC: orange, MC: blue), and left/right panels show the same data from two viewing angles. The transparent "walls" represnt performance of the original connectome (which is equivalent to $\Lambda=0$).}
+
     \label{fig:weights}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{figs/gaus_mag_mean.png}
-    \caption{Mean computational performance (z) and mean weight magnitude (y) as a function of perturbation magnitude $\Lambda$ (x-axis, log scale), with connectivity and sign structure fixed. Increasing weight magnitude distribution scale increases achievable performance, followed by saturation consistent with spectral radius normalization.}
-    \label{fig:weights2}
-\end{figure}
-
-\section{Global neurotransmitter balance, not synapse-specific sign placement, influences invariance}
-\label{balance}
-
-We next test whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the binary model that preserves edge sign to a binary model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized.
-
-We assess equivalence using the two one-sided tests (TOST) procedure with predefined equivalence bounds. The model preserving global sign balance falls significantly within the equivalence bounds of local sign–preserved binary model across all invariance metrics (see ~\ref{tab:tost_mcipc},~\ref{tab:tost_grkr}). 
-
-This result demonstrates that the specific topological placement of excitatory and inhibitory synapses is not factor determining of task-agnostic computational invariance. 
-
-These findings indicate that invariance is governed by global dynamical constraints imposed by sign balance, rather than by micro-scale structure of individual synapse polarities.
-
+\pagebreak
 \section{Global neurotransmitter balance heavily influences invariance}
-
-We next test whether global neurotransmitter balance, independent of weight distribution and weight structure, modulates task-agnostic invariance. To isolate this factor, we compare two models with identical connectivity and identical weight magnitude distributions, differing only in whether the original synaptic sign structure is preserved. Specifically, we compare the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, in which weights are resampled from a zero-centered normal distribution without preserving original signs, to the \textit{Local sign–preserved + $\mathcal{N}(0,1)$} model, in which weight magnitudes are drawn from the same distribution but original synapse signs are maintained.
-
-Despite identical connectivity and magnitude statistics, these two models exhibit markedly different invariance properties. The \textit{C.~elegans + $\mathcal{N}(0,1)$} model falls within the high-variance cluster, exhibiting some of the highest variance observed across all tested models. In contrast, the sign-preserved model lies within the low-variance cluster, closely matching the invariance properties of the original \textit{C.~elegans} connectome. Because synapse sign preservation is the only difference between these models, this establishes global neurotransmitter balance as a causal determinant of task-agnostic invariance.
-
-To further isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves},~\ref{fig:og_cel_frac_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.
+\label{balance}
+To isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves},~\ref{fig:og_cel_frac_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.
 
 In both~\ref{fig:bin_cel_frac_curves}, and ~\ref{fig:er_frac_curves} Negative Sign $\% =0.0$, corresponds to 
 \[
@@ -990,9 +981,7 @@ Furthermore, in~\ref{fig:bin_cel_frac_curves}, we can observe where the C. elega
     this is most likley do to my implementation of the synapse weights, do I say this in the dicussion??? its probably higher up on the line, but certainly not at the optimium
 \end{comment}
 
-These results reveal a tradeoff imposed by neurotransmitter balance: networks with highly asymmetric sign structure exhibit reduced computational capacity but greater invariance, whereas networks approaching a balanced excitatory/inhibitory regime achieve higher performance at the cost of increased variability to hyperparameter change. This explains the behavior of the \textit{C.~elegans + $\mathcal{N}(0,1)$} model, whose zero-centered magnitude distribution disrupts the original biological sign asymmetry, shifting the network toward a high-performance but low-invariance regime.
-
-These findings demonstrate that global neurotransmitter balance has a strong impact on both task-agnostic invariance and on computational performance.  
+These results reveal a tradeoff imposed by neurotransmitter balance: networks with highly asymmetric sign structure exhibit reduced computational capacity but greater invariance, whereas networks approaching a balanced excitatory/inhibitory regime achieve higher performance at the cost of increased variability to hyperparameter change. 
 
 \begin{figure} 
     \centering
@@ -1029,42 +1018,22 @@ Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and ~\ref{tab:tost_gr
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-MC & celW+connShuf vs cel-sample & 0.0208 & 9.833e-16 \\
-MC & celW+connShuf vs conn-shuf-only & 0.0208 & 7.631e-14 \\
-MC & celW+connShuf vs local-sign+sample & 0.0208 & 1.073e-14 \\
-MC & celW+connShuf vs shuffle & 0.0208 & 1.692e-10 \\
-MC & cel-sample vs conn-shuf-only & 0.0208 & 5.978e-25 \\
-MC & cel-sample vs local-sign+sample & 0.0208 & 1.066e-25 \\
-MC & cel-sample vs shuffle & 0.0208 & 3.958e-20 \\
-MC & conn-shuf-only vs local-sign+sample & 0.0208 & 1.36e-27 \\
-MC & conn-shuf-only vs shuffle & 0.0208 & 1.777e-25 \\
-MC & global-sign-pres vs local-sign & 0.0208 & 0.002338 \\
-MC & global-sign-pres vs local-sign+binary & 0.0208 & 0.0006043 \\
-MC & global-sign-pres vs local-sign+flat & 0.0208 & 9.512e-35 \\
-MC & global-sign-pres vs real & 0.0208 & 2.233e-35 \\
-MC & local-sign vs local-sign+flat & 0.0208 & 0.002803 \\
-MC & local-sign vs real & 0.0208 & 0.0002375 \\
-MC & local-sign+binary vs local-sign+flat & 0.0208 & 0.0002641 \\
-MC & local-sign+binary vs real & 0.0208 & 0.001472 \\
-MC & local-sign+flat vs real & 0.0208 & 1.385e-36 \\
-MC & local-sign+sample vs shuffle & 0.0208 & 2.628e-22 \\
+MC & er+randN vs ws p0.1+randN & 0.02035 & 1.632e-06 \\
+MC & global sign pres vs local sign+binary & 0.02035 & 3.571e-10 \\
+MC & global sign pres vs local sign+flat & 0.02035 & 0.0001843 \\
+MC & global sign pres vs real & 0.02035 & 2.001e-06 \\
+MC & local sign vs local sign+flat & 0.02035 & 0.0001404 \\
+MC & local sign vs real & 0.02035 & 0.01103 \\
+MC & local sign+binary vs local sign+flat & 0.02035 & 0.05257 \\
+MC & local sign+binary vs real & 0.02035 & 0.002942 \\
+MC & local sign+flat vs real & 0.02035 & 1.683e-11 \\
 \addlinespace
-IPC & cel+randN vs er+randN & 0.01818 & 0.00879 \\
-IPC & celW+connShuf vs cel-sample & 0.01818 & 3.584e-17 \\
-IPC & celW+connShuf vs local-sign+sample & 0.01818 & 1.749e-16 \\
-IPC & celW+connShuf vs shuffle & 0.01818 & 1.425e-12 \\
-IPC & cel-sample vs conn-shuf-only & 0.01818 & 0.0001726 \\
-IPC & cel-sample vs local-sign+sample & 0.01818 & 6.629e-24 \\
-IPC & cel-sample vs shuffle & 0.01818 & 3.388e-19 \\
-IPC & conn-shuf-only vs local-sign+sample & 0.01818 & 5.014e-05 \\
-IPC & conn-shuf-only vs shuffle & 0.01818 & 4.864e-07 \\
-IPC & global-sign-pres vs local-sign+binary & 0.01818 & 7.076e-07 \\
-IPC & global-sign-pres vs local-sign+flat & 0.01818 & 2.28e-11 \\
-IPC & global-sign-pres vs real & 0.01818 & 3.488e-12 \\
-IPC & local-sign vs local-sign+flat & 0.01818 & 0.005015 \\
-IPC & local-sign vs real & 0.01818 & 0.01229 \\
-IPC & local-sign+flat vs real & 0.01818 & 6.347e-29 \\
-IPC & local-sign+sample vs shuffle & 0.01818 & 1.663e-20 \\
+IPC & er+randN vs ws p0.1+randN & 0.01719 & 5.917e-11 \\
+IPC & global sign pres vs local sign+binary & 0.01719 & 2.176e-09 \\
+IPC & global sign pres vs real & 0.01719 & 0.0114 \\
+IPC & local sign vs local sign+flat & 0.01719 & 0.002167 \\
+IPC & local sign vs real & 0.01719 & 0.04578 \\
+IPC & local sign+flat vs real & 0.01719 & 6.337e-10 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1077,36 +1046,116 @@ IPC & local-sign+sample vs shuffle & 0.01818 & 1.663e-20 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & celW+connShuf vs cel-sample & 0.01771 & 1.199e-37 \\
-KR & celW+connShuf vs conn-shuf-only & 0.01771 & 8.771e-17 \\
-KR & celW+connShuf vs local-sign+sample & 0.01771 & 4.682e-35 \\
-KR & celW+connShuf vs shuffle & 0.01771 & 3.27e-36 \\
-KR & cel-sample vs conn-shuf-only & 0.01771 & 4.539e-15 \\
-KR & cel-sample vs local-sign+sample & 0.01771 & 3.192e-30 \\
-KR & cel-sample vs shuffle & 0.01771 & 1.668e-31 \\
-KR & conn-shuf-only vs local-sign+sample & 0.01771 & 4.939e-13 \\
-KR & conn-shuf-only vs shuffle & 0.01771 & 2.948e-14 \\
-KR & global-sign-pres vs local-sign+binary & 0.01771 & 3.958e-32 \\
-KR & global-sign-pres vs real & 0.01771 & 6.441e-45 \\
-KR & local-sign vs local-sign+flat & 0.01771 & 0.0002516 \\
-KR & local-sign+binary vs real & 0.01771 & 8.566e-45 \\
-KR & local-sign+sample vs shuffle & 0.01771 & 6.862e-31 \\
+KR & er+randN vs ws p0.1+randN & 0.01441 & 0.05578 \\
+KR & global sign pres vs local sign+binary & 0.01441 & 7.179e-10 \\
+KR & global sign pres vs real & 0.01441 & 5.476e-17 \\
+KR & local sign+binary vs real & 0.01441 & 1.102e-20 \\
 \addlinespace
-GR & cel+randN vs er+randN & 0.02783 & 4.631e-28 \\
-GR & celW+connShuf vs cel-sample & 0.02783 & 3.384e-45 \\
-GR & celW+connShuf vs conn-shuf-only & 0.02783 & 1.367e-37 \\
-GR & celW+connShuf vs local-sign+sample & 0.02783 & 1.007e-37 \\
-GR & celW+connShuf vs shuffle & 0.02783 & 3.483e-41 \\
-GR & cel-sample vs conn-shuf-only & 0.02783 & 8.403e-24 \\
-GR & cel-sample vs local-sign+sample & 0.02783 & 6.646e-46 \\
-GR & cel-sample vs shuffle & 0.02783 & 2.013e-49 \\
-GR & conn-shuf-only vs local-sign+sample & 0.02783 & 1.751e-19 \\
-GR & conn-shuf-only vs shuffle & 0.02783 & 1.199e-21 \\
-GR & global-sign-pres vs local-sign+binary & 0.02783 & 8.29e-38 \\
-GR & global-sign-pres vs real & 0.02783 & 7.378e-56 \\
-GR & local-sign vs local-sign+flat & 0.02783 & 4.314e-06 \\
-GR & local-sign+binary vs real & 0.02783 & 1.202e-56 \\
-GR & local-sign+sample vs shuffle & 0.02783 & 7.638e-46 \\
+GR & binary base vs local sign+binary & 0.02373 & 0.0206 \\
+GR & cel+randN vs er+randN & 0.02373 & 7.889e-07 \\
+GR & cel+randN vs ws p0.1+randN & 0.02373 & 6.67e-06 \\
+GR & er+randN vs ws p0.1+randN & 0.02373 & 3.037e-67 \\
+GR & global sign pres vs local sign+binary & 0.02373 & 7.804e-23 \\
+GR & global sign pres vs real & 0.02373 & 5.724e-34 \\
+GR & local sign+binary vs real & 0.02373 & 1.696e-47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity. This is for shuffling experiment 1.}
+\label{tab:tost_mcipc_shuffles_1}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+MC & celW+connShuf vs conn shuf only & 0.0201 & 5.887e-10 \\
+MC & celW+connShuf vs shuffle & 0.0201 & 1.109e-09 \\
+MC & conn shuf only vs shuffle & 0.0201 & 3.326e-14 \\
+\addlinespace
+IPC & celW+connShuf vs conn shuf only & 0.01641 & 1.216e-08 \\
+IPC & celW+connShuf vs shuffle & 0.01641 & 1.786e-06 \\
+IPC & conn shuf only vs shuffle & 0.01641 & 2.403e-08 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank.  This is for shuffling experiment 1.}
+\label{tab:tost_grkr_shuffles_1}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+KR & celW+connShuf vs conn shuf only & 0.01722 & 3.971e-30 \\
+KR & celW+connShuf vs shuffle & 0.01722 & 3.014e-27 \\
+KR & conn shuf only vs shuffle & 0.01722 & 8.267e-21 \\
+\addlinespace
+GR & celW+connShuf vs conn shuf only & 0.02759 & 1.44e-69 \\
+GR & celW+connShuf vs shuffle & 0.02759 & 3.36e-46 \\
+GR & conn shuf only vs shuffle & 0.02759 & 4.255e-41 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity. This is for shuffling experiment 2.}
+\label{tab:tost_mcipc_shuffles_2}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+MC & binary+conshuffle+wshuffle vs binary+shuffle & 0.0174 & 4.337e-09 \\
+\addlinespace
+IPC & binary+conshuffle+wshuffle vs binary+shuffle & 0.01433 & 4.79e-07 \\
+IPC & binary+conshuffle+wshuffle vs local sign+binary & 0.01433 & 4.876e-08 \\
+IPC & binary+shuffle vs global sign pres & 0.01433 & 0.007038 \\
+IPC & binary+shuffle vs local sign+binary & 0.01433 & 2.741e-09 \\
+IPC & global sign pres vs local sign+binary & 0.01433 & 0.03575 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank.  This is for shuffling experiment 2.}
+\label{tab:tost_grkr_shuffles_2}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+KR & binary+conshuffle+wshuffle vs binary+shuffle & 0.01316 & 4.77e-12 \\
+KR & binary+conshuffle+wshuffle vs global sign pres & 0.01316 & 6.057e-08 \\
+KR & binary+conshuffle+wshuffle vs local sign+binary & 0.01316 & 2.291e-20 \\
+KR & binary+shuffle vs global sign pres & 0.01316 & 4e-16 \\
+KR & binary+shuffle vs local sign+binary & 0.01316 & 1.456e-13 \\
+KR & global sign pres vs local sign+binary & 0.01316 & 3.066e-09 \\
+\addlinespace
+GR & binary+conshuffle+wshuffle vs binary+shuffle & 0.02223 & 2.218e-30 \\
+GR & binary+conshuffle+wshuffle vs global sign pres & 0.02223 & 1.117e-47 \\
+GR & binary+conshuffle+wshuffle vs local sign+binary & 0.02223 & 1.388e-22 \\
+GR & binary+shuffle vs global sign pres & 0.02223 & 7.424e-30 \\
+GR & binary+shuffle vs local sign+binary & 0.02223 & 1.21e-09 \\
+GR & global sign pres vs local sign+binary & 0.02223 & 3.233e-20 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[t]
+\centering
+\caption{Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank.  This is for shuffling experiment 3.}
+\label{tab:tost_grkr_shuffles_3}
+\begin{tabular}{llrr}
+\toprule
+Metric & Comparison  & TOST bound  & $p$ \\
+\midrule
+KR & binary base vs binary base topology shuffle & 0.01214 & 0.002814 \\
+\addlinespace
+GR & binary base vs binary base topology shuffle & 0.02068 & 1.073e-34 \\
 \bottomrule
 \end{tabular}
 \end{table}

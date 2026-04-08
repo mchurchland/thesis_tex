@@ -781,30 +781,6 @@ W_{ij}' = \text{sign}(W_{ij}) ( \mathcal{U}(0,1)),
     \caption{The C. elegans architecture with uniform weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
 \end{figure}
 
-\subsubsection{C. elegans architecture with sampled weights using original Connection Signs} %has fig
-This uses the biological network and associated edge signs (keeps the neurotransmitter constant). Then it reassigns the edge weights to random weights sampled the C. elegans weight distribution. The negative weights are sampled from the negative weights in the C. elegans connectome. The positive weights are sampled from the positive weights in the connectome.
-\[
-POS_{\mathrm{CE}} := \{\, W^{\mathrm{CE}}_{ij} \mid W^{\mathrm{CE}}_{ij} >0 \,\}
-\]
-\[
-NEG_{\mathrm{CE}} := \{\, W^{\mathrm{CE}}_{ij} \mid W^{\mathrm{CE}}_{ij} <0 \,\}
-\]
-\[
-W_{ij}' :=
-\begin{cases}
-X^+_{ij} & W_{ij} > 0 \\
-X^-_{ij} & W_{ij} < 0 \\
-0 & W_{ij} = 0
-\end{cases}
-\quad \quad
-X^+_{ij} \sim(\mathcal{U}(POS_{\mathrm{CE}})), X^-_{ij} \sim(\mathcal{U}(NEG_{\mathrm{CE}}))
-\]
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/toplogy/local_sign_sampled.png}
-    \caption{The C. elegans architecture with sampled weights using original connection signs, with excitatory synapses in orange and inhibitory synapses in blue. The shade of edges corresponds to their magnitude with darker edges respresenting stronger synaptic connections. Neurons are represented as nodes.}
-\end{figure}
-
 \section{Trial definition}
 A single trial of a model consists of:
 \begin{enumerate}
@@ -867,8 +843,24 @@ Equivalence is concluded if both one-sided tests reject $H_0$ at $\eta$ = 0.05.
 
 
 \chapter{Results}
-
 Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low dispersion across hyperparameter sweeps, indicating that its computational properties remain stable under variation in spectral radius, leak rate, and input scaling. This is visible in Fig.~\ref{fig:arch}, where the connectome’s coefficient-of-variation (CV) distributions for MC, IPC, KR, and GR are concentrated toward lower values relative to several perturbed architectures. We find that the interaction between sign and edge structure with the distribution of weight magnitudes determines the invariance of computational properties.
+
+
+\section{C. Elegans connectome exhibits low invariance} %% need a better title for this section
+This experiment graphs the coeffient of variation of different models across hyperparameter sweeps. The results, seen in Fig.~\ref{fig:arch}, show two distinct clusters of models. The leftmost cluster, which includes the original \textit{C.\ elegans} connectome, local sign preserving models, global sign preserving models, and the binary base model, exhibits lower CV across all four task-agnostic metrics. The rightmost cluster, including the C. elegans with Gaussian weights, the ER model, and the WS model, exhibits higher CV across all four metrics. 
+
+Supporting this visual impression, pairwise equivalence reveals elucidating relationships in the left most cluster. Across all four metrics, the global sign preserving model is equivalent to the C. Elegans connectome model. This suggests that the specific topological arrangement of excitatory and inhibitory synapses is not a key determinant of invariance. Instead, invariance appears to depend more on global dynamical constraints imposed by sign balance, rather than on the micro-scale structure of individual synapse polarities. 
+
+
+The sign preserving $\pm 1$ model also performs valiantly, matching the invariance of the original connectome across three of the four metrics, only failing to match the invariance of the original connectome for IPC. This suggests that the original distribution of weight magnitudes is not a key determinant of invariance, and that the sign structure of the connectome is more important for invariance than the specific distribution of weight magnitudes. 
+
+The binary base model, which preserves topology but removes weight heterogeneity, falls in a lower CV cluster than other models tested, consistantly exhibiting some of the lowest CV values across all four metrics. This suggests that the presence of homogeneous weights can promote invariance. Although, because it of its low CV, it lays in a different cluster than the original connectome, and other comparable models, it is not equivalent to the original connectome across any of the four metrics. Additionally, it is only significantly simular to another model one time for just one of the metrics, GR, and to the model with sign preserving $\pm 1$ model. This suggests that the binary base model is not a good model of the original connectome, and that weight heterogeneity may play a role in invariance.
+
+The sign preserving gaussian model, which preserves topology and sign structure but switches the weight distribution to a guassian distribution, falls in the low CV cluster, but is only equivalent to the original connectome for non-kernel based matrics, IPC and MC. This suggests that the gaussian weight magnitude distribution alters the invariance of kernel based metrics, GR and KR, but not non-kernel based metrics, IPC and MC.
+
+The sign preserving uniform model, which preserves topology and sign structure but switches the weight distribution to a uniform distribution, falls in the low CV cluster, but is only equivalent to the original connectome for non-kernel based matrics, IPC and MC. This further supports the idea that weight magnitude distribution can alter the invariance of kernel based metrics, GR and KR, but not non-kernel based metrics, IPC and MC. This idea will be futher explored in section \ref{sec:weight_perturbation}.
+
+The er+gaussian, and ws+gaussian models are equivalent to each other across all of the four metrics, suggesting that small-world structure does not have a strong effect on invariance. The celegan topology with gaussian weights model is equivalent to the er+gaussian and ws+gaussian models for GR only, suggesting that the invariance of GR is not strongly influenced by toplogy.\footnote{Importantly for section \ref{sec:shuf} the celegans topology, you cannot go from the C. elegans toplogy to a WS or ER topology only using degree preserving weight shuffles, as these models have differing degree distributions} %would be nice to see the effect of a scale free network for comparison would be related to this footnote put in discussion
 
 \begin{figure}
   \centering
@@ -880,7 +872,7 @@ Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low di
 
 
 \section{Invariance to degree-preserving topology changes}
-
+\label{sec:shuf}
 To test whether hyperparameter invariance depends on connectivity itself or on the distribution of weights carried by that connectivity, we consider three shuffling experiments. All three preserve single-node degree, but they differ in underlying weight distributions. Taken together, these experiments separate the effects of topological shuffles from the effects of weight shuffles.
 
 The first experiment, shown in Fig.~\ref{fig:realW}, Table~\ref{tab:tost_grkr_shuffles_1}, and Table~\ref{tab:tost_mcipc_shuffles_1}, uses the original \textit{C.\ elegans} weight matrix. Here, both weight shuffling and connection shuffling increase the coefficient of variation (CV), indicating reduced invariance under hyperparameter sweeps. Crucially, however, these two manipulations increase CV by nearly the same amount. The combined weight+connection shuffle serves as a control for whether these effects are additive. If weight shuffling and connection shuffling disrupted invariance through distinct mechanisms, then applying both transformations together should have produced a larger increase in CV than either transformation alone. Instead, the combined shuffle matches the weight-shuffle and connection-shuffle conditions across all four task-agnostic metrics. Consistent with this visual overlap, the pairwise comparisons among weight shuffle, connection shuffle, and weight+connection shuffle were equivalent across metrics. This suggests that the increase in CV produced by connection shuffling is not primarily a topological effect. Rather, in the real-weight setting, connection shuffling matters because it disrupts the original assignment of heterogeneous biological weights to edges. The lower CV of the unshuffled \textit{C.\ elegans} network therefore indicates that this biological weight arrangement is invariance-promoting relative to the shuffle controls tested here, though these experiments do not establish that it is globally CV-minimizing. %%though this would be an interesting question for future work.
@@ -889,8 +881,8 @@ The second experiment, shown in Fig.~\ref{fig:pm1W}, Table~\ref{tab:tost_grkr_sh
 
 This second experiment also tests whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the $\pm 1$ model that preserves edge sign to the $\pm 1$ model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized. The equivalence of these two models across 3 out of 4 metrics (see Table~\ref{tab:tost_grkr_shuffles_2} and Table~\ref{tab:tost_mcipc_shuffles_2}) suggests that the specific topological arrangement of excitatory and inhibitory synapses is not a key determinant of invariance. Instead, invariance appears to depend more on global dynamical constraints imposed by sign balance, rather than on the micro-scale structure of individual synapse polarities. 
 
-The third experiment, shown in Fig.~\ref{fig:bW} and Table~\ref{tab:tost_grkr_shuffles_3}, isolates topology more directly by using binary weights. In this setting, all nonzero edges have identical magnitude and sign, so shuffling weights is trivial and has no effect. The only meaningful perturbation is therefore a degree-preserving connection shuffle. Under this manipulation, the shuffled-topology model and the binary base are equivalent for GR and KR, but not for IPC and MC, where CV decreases significantly after rewiring. This finding is important because it rules out the idea that the earlier effects of connection shuffling arose solely th the accompanying shuffle of heterogeneous weights. Even when that possibility is removed, IPC and MC still respond to topology, whereas GR and KR remain comparatively insensitive.
-
+The third experiment, shown in Fig.~\ref{fig:bW} and Table~\ref{tab:tost_grkr_shuffles_3}, isolates topology more directly by using binary weights. In this setting, all nonzero edges have identical magnitude and sign, so shuffling weights is trivial and has no effect. The only meaningful perturbation is therefore a degree-preserving connection shuffle. Under this manipulation, the shuffled-topology model and the binary base are equivalent for GR and KR, but not for IPC and MC, where CV decreases significantly after rewiring. This finding is important because it rules out the idea that the earlier effects of connection shuffling arose solely th the accompanying shuffle of heterogeneous weights. Even when that possibility is removed, IPC and MC still respond to topology, whereas GR and KR remain comparatively insensitive. 
+%% speculate about why these are different.
 
 \begin{comment}
 We assess equivalence using the two one-sided tests (TOST) procedure with predefined equivalence bounds. The model preserving global sign balance falls significantly within the equivalence bounds of local sign–preserved binary model across all invariance metrics (see ~\ref{tab:tost_mcipc},~\ref{tab:tost_grkr}). 
@@ -929,6 +921,7 @@ Taken together, these three experiments show that the effect of degree-preservin
 
 
 \section{Half-normal weight perturbations have limited effect on invariance}
+\label{sec:weight_perturbation}
 We next isolate the effect of weight-magnitude distribution while holding connectivity and sign structure fixed. Starting from the \textit{C.\ elegans} model, we perturb the magnitude of each nonzero weight while preserving its sign. For each nonzero entry $W_{ij}$, we construct
 \[
 W_{ij}' = \text{sign}(W_{ij}) (\lambda *  \mathcal{N}(0,1)),
@@ -938,7 +931,7 @@ where $\Lambda$ controls the strength of the perturbation. As $\Lambda$ increase
 Preserving sign is necessary here because global sign balance strongly influences invariance (Section~\ref{balance}). If signs were allowed to change, any resulting change in mean performance or CV could reflect altered excitatory/inhibitory balance rather than the effect of the weight-magnitude distribution itself.
 
 Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. MC and IPC are nearly flat across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes. GR and KR vary somewhat more, but their changes are still limited\begin{comment}comparing it this is probably where I should bring in the guas not sign preserved\end{comment}. For the \textit{C.\ elegans} topology studied here, shifting the weight-magnitude distribution toward a half-normal form has little effect on hyperparameter invariance or performance for IPC and MC, but produces slightly larger changes in GR and KR.
-\begin{comment}will want to quantify a couple of things here but overall good, I think I want to quantify the different from the original compared to when signs are not held to show that this is relativly small
+\begin{comment}will want to quantify a couple of things here but overall good, I think I want to quantify the different from the original compared to when signs are not held to show that this is relativly small just quantify dw about the comparison
 \end{comment}
 \begin{figure}
     \centering
@@ -1149,20 +1142,6 @@ GR & binary base vs binary base topology shuffle & 0.02068 & 1.073e-34 \\
 
 
 
-\paragraph{Architecture color legend.} %this needs to be updated
-Blue: empirical \textit{C.\ elegans} connectome with biological weights.
-Dark green: empirical topology with Gaussian-resampled weights.
-Light green: Erdős–Rényi random graph with Gaussian weights.
-Neon green: Watts–Strogatz small-world graph ($p=0.1$) with Gaussian weights.
-Red: degree-preserving connection shuffle followed by weight shuffle.
-Teal: empirical topology and signs preserved, magnitudes Gaussian.
-Orange: weight shuffle only.
-Salmon: weights resampled (with replacement) from empirical distribution.
-Light orange: connection shuffle only.
-Deep blue: empirical topology and signs preserved, magnitudes uniform.
-Purple: empirical topology and signs preserved, magnitudes sampled by sign.
-Gray: keep the same balance of excitatory--inhibitory synapses but shuffle the neurotransmitter attached to each synapse.
-Light cyan: empirical topology and signs preserved, weights all set to $\{\pm1\}$.
 \chapter{Discussion}
 
 

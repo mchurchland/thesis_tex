@@ -1006,11 +1006,6 @@ INPUT ./figs/toplogy/local_sign_uniform.png
 INPUT figs/toplogy/local_sign_uniform.png
 INPUT ./figs/toplogy/local_sign_uniform.png
 INPUT ./figs/toplogy/local_sign_uniform.png
-INPUT ./figs/toplogy/local_sign_sampled.png
-INPUT ./figs/toplogy/local_sign_sampled.png
-INPUT figs/toplogy/local_sign_sampled.png
-INPUT ./figs/toplogy/local_sign_sampled.png
-INPUT ./figs/toplogy/local_sign_sampled.png
 INPUT ./figs/inv_arc.png
 INPUT ./figs/inv_arc.png
 INPUT figs/inv_arc.png

@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber thesis"] 1775590825.73481 "thesis.bcf" "thesis.bbl" "thesis" 1775592091.89599 0
+["biber thesis"] 1775608710.19156 "thesis.bcf" "thesis.bbl" "thesis" 1775609236.75681 0
   "bibliography.bib" 1773014054.3199 15357 15fd6241a21cd45a0f9c93fcde4ce3aa ""
-  "thesis.bcf" 1775592091.74292 136530 9abd5955de0db7a77758380308f39ce7 "pdflatex"
+  "thesis.bcf" 1775609236.65718 136530 9abd5955de0db7a77758380308f39ce7 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1775592072.56015 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1775592091.89644 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1775592072.11488 97881 b8772d74b2fb6211fad1dbb1e7bdc500 ""
+["pdflatex"] 1775609219.87232 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1775609236.75737 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1775609219.52455 99888 1c07cc20e384ca9fdd01ec967c5ec4f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -166,7 +166,7 @@
   "figs/Shuffles/pm1W.png" 1775011607.83486 429673 bfbfa06590b46c4c15ab957c00c96d32 ""
   "figs/Shuffles/realW.png" 1775011607.84604 399158 835e523e59b335225a64ba8fd5831c0a ""
   "figs/esn.png" 1772158791.93206 31203 677b5d48b3c492eec7f77a8f0f962d36 ""
-  "figs/inv_arc.png" 1775346237.30291 559830 3e094a652a11fee80e19b99431cb2839 ""
+  "figs/inv_arc.png" 1775603962.11391 555210 58a4f61c8716f2cdc6e0b7232739331f ""
   "figs/toplogy/binary_base.png" 1775026437.94074 3214058 c421241c3652ab6a905eb411cd3c6701 ""
   "figs/toplogy/binary_base_topology_shuffle.png" 1775026437.9172 7635323 d1f34787cad0e00dcdece5e6cccfe547 ""
   "figs/toplogy/binary_plus_connshuffle_plus_wshuffle.png" 1775026437.95105 8029340 dac950604815a8e8e29d6daf0e5fafc0 ""
@@ -178,20 +178,19 @@
   "figs/toplogy/er_p01_gaussian_weights.png" 1774321621.51111 10550734 1a79fe5814e26e1fafadeab6b583c24e ""
   "figs/toplogy/local_sign_binary.png" 1774321621.54032 3421407 91d920fc0c72a78c1909f9418979e9a6 ""
   "figs/toplogy/local_sign_gaussian.png" 1774321621.5586 3503579 c6c6f6c582bc1d3ac2d1450eaf65dab4 ""
-  "figs/toplogy/local_sign_sampled.png" 1774321621.58432 3726214 ca38e64a80fe8115893fd918c4b0e0d9 ""
   "figs/toplogy/local_sign_uniform.png" 1774321621.6074 3425148 2a52b983907d8b3a576f005c8203af3e ""
   "figs/toplogy/weight_shuffle.png" 1774321621.62669 3719485 8f58690594851c2178caf62824dc82b9 ""
   "figs/toplogy/ws_p01_gaussian_weights.png" 1774321621.63598 11106505 80994a82a97c5135f83292fc7a7d0310 ""
   "figs/weight_to_gaus.png" 1775586661.48843 4330624 52e6e6d29e9b03f403e95dd387384632 ""
   "reedthesis.cls" 1772158560.85812 12141 c94ddda8542e887d4d85be1ba92df11c ""
-  "thesis.aux" 1775592091.73592 36282 77fa6cfaabd1d6b7654f01105f779f09 "pdflatex"
-  "thesis.bbl" 1775590826.85371 122152 85c7a7676eba3942d7159c63cfbbd906 "biber thesis"
-  "thesis.lof" 1775592091.74492 9978 f3c7c176c56d8cc4a8126a56eff930a2 "pdflatex"
-  "thesis.lot" 1775592091.74492 1539 364a975d98dc238ef3a19df7fad45d83 "pdflatex"
-  "thesis.out" 1775592091.74192 7318 c7e9fa8535be23f87fdc47975ca165ca "pdflatex"
-  "thesis.run.xml" 1775592091.74492 2443 0d10139694fccef14ad0686d10c355c6 "pdflatex"
-  "thesis.tex" 1775592072.11488 97881 b8772d74b2fb6211fad1dbb1e7bdc500 ""
-  "thesis.toc" 1775592091.74492 5233 85485aac84b3e6bc14e1334293d5e006 "pdflatex"
+  "thesis.aux" 1775609236.65118 35960 ddc4d23bead69348f9c648b32e3b4373 "pdflatex"
+  "thesis.bbl" 1775608710.87446 122152 85c7a7676eba3942d7159c63cfbbd906 "biber thesis"
+  "thesis.lof" 1775609236.65845 9605 9b6fafc24db80cbc10e483dab693e3b1 "pdflatex"
+  "thesis.lot" 1775609236.65845 1539 8785274c55a4b4172065879cf3e16eea "pdflatex"
+  "thesis.out" 1775609236.65618 7613 3bebc53bb8eab94d506559d984d93110 "pdflatex"
+  "thesis.run.xml" 1775609236.65845 2443 0d10139694fccef14ad0686d10c355c6 "pdflatex"
+  "thesis.tex" 1775609219.52455 99888 1c07cc20e384ca9fdd01ec967c5ec4f4 ""
+  "thesis.toc" 1775609236.65845 5141 f6548b9ba96c78ba4bcaee72c4156230 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"

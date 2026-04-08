@@ -42,16 +42,15 @@
 \contentsline {subsubsection}{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights}{27}{section*.21}%
 \contentsline {subsubsection}{C. elegans architecture with Gaussian weights using original Connection Signs}{28}{section*.22}%
 \contentsline {subsubsection}{C. elegans architecture with uniform weights using original Connection Signs}{28}{section*.23}%
-\contentsline {subsubsection}{C. elegans architecture with sampled weights using original Connection Signs}{29}{section*.24}%
 \contentsline {section}{\numberline {4.4}Trial definition}{29}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Experimental Pipeline}{31}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Equivalence testing}{32}{section.4.6}%
+\contentsline {section}{\numberline {4.5}Experimental Pipeline}{30}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Equivalence testing}{31}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Results}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Invariance to degree-preserving topology changes}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Half-normal weight perturbations have limited effect on invariance}{36}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Global neurotransmitter balance heavily influences invariance}{36}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Equivalence testing}{41}{section.5.4}%
-\contentsline {paragraph}{Architecture color legend.}{43}{section*.25}%
+\contentsline {section}{\numberline {5.1}C. Elegans connectome exhibits low invariance}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Invariance to degree-preserving topology changes}{34}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Half-normal weight perturbations have limited effect on invariance}{37}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Global neurotransmitter balance heavily influences invariance}{42}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Equivalence testing}{44}{section.5.5}%
 \contentsline {chapter}{\numberline {6}Discussion}{47}{chapter.6}%
 \contentsline {chapter}{\numberline {7}AI Usage Disclosure}{49}{chapter.7}%
-\contentsline {chapter}{Bibliography}{51}{chapter*.26}%
+\contentsline {chapter}{Bibliography}{51}{chapter*.24}%

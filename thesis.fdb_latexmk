@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber thesis"] 1775762561.60603 "thesis.bcf" "thesis.bbl" "thesis" 1775762638.73704 0
+["biber thesis"] 1775762561.60603 "thesis.bcf" "thesis.bbl" "thesis" 1775763510.77934 0
   "bibliography.bib" 1775715561.48975 17362 78ff38df7584da8b5d90780fe31ade57 ""
-  "thesis.bcf" 1775762638.5502 136970 1ac8444b8a83840727a9599005a87995 "pdflatex"
+  "thesis.bcf" 1775763510.57839 136970 1ac8444b8a83840727a9599005a87995 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1775762613.5799 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1775762638.7376 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1775762488.07106 111053 1fff6e09bf036ecca582e73d9a966eb6 ""
+["pdflatex"] 1775763484.4131 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1775763510.78024 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1775763483.98339 111025 4a84459bf3eac282a656689dbd494b28 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -185,14 +185,14 @@
   "figs/toplogy/ws_p01_gaussian_weights.png" 1774321621.63598 11106505 80994a82a97c5135f83292fc7a7d0310 ""
   "figs/weight_to_gaus.png" 1775586661.48843 4330624 52e6e6d29e9b03f403e95dd387384632 ""
   "reedthesis.cls" 1772158560.85812 12141 c94ddda8542e887d4d85be1ba92df11c ""
-  "thesis.aux" 1775762638.53771 40705 b76b32ed2007e7d34d9571cc8d96ba14 "pdflatex"
+  "thesis.aux" 1775763510.56787 40705 b76b32ed2007e7d34d9571cc8d96ba14 "pdflatex"
   "thesis.bbl" 1775762562.75464 142972 e7d8a3cbd98203110f3e49a006d8f71c "biber thesis"
-  "thesis.lof" 1775762638.55136 9597 55480f67b79d6f1ced5eab6d2720d755 "pdflatex"
-  "thesis.lot" 1775762638.55136 2963 daf53938a96858095c7caaf23f5d261b "pdflatex"
-  "thesis.out" 1775762638.54739 8243 e5c6233be18db33e6db335e1081a82a1 "pdflatex"
-  "thesis.run.xml" 1775762638.55136 2443 0d10139694fccef14ad0686d10c355c6 "pdflatex"
-  "thesis.tex" 1775762488.07106 111053 1fff6e09bf036ecca582e73d9a966eb6 ""
-  "thesis.toc" 1775762638.55136 5411 dd0bdb49e73e96ed1a32029a24585c2a "pdflatex"
+  "thesis.lof" 1775763510.57927 9597 55480f67b79d6f1ced5eab6d2720d755 "pdflatex"
+  "thesis.lot" 1775763510.57927 2963 daf53938a96858095c7caaf23f5d261b "pdflatex"
+  "thesis.out" 1775763510.57587 8243 e5c6233be18db33e6db335e1081a82a1 "pdflatex"
+  "thesis.run.xml" 1775763510.57927 2443 0d10139694fccef14ad0686d10c355c6 "pdflatex"
+  "thesis.tex" 1775763483.98339 111025 4a84459bf3eac282a656689dbd494b28 ""
+  "thesis.toc" 1775763510.57927 5411 dd0bdb49e73e96ed1a32029a24585c2a "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"

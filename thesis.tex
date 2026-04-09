@@ -847,7 +847,7 @@ Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low di
 
 
 \section{Sign structure and weight distribution shape invariance across architectures}
-Figure~\ref{fig:arch} shows the coefficient of variation of each model across hyperparameter sweeps. The results separate into two broad clusters. The leftmost cluster, which includes the original \textit{C.\ elegans} connectome, the local sign-preserving models, the global sign-preserving models, and the binary base model, exhibits lower CV across all four task-agnostic metrics. The rightmost cluster, which includes the \textit{C.\ elegans} topology with Gaussian weights, the ER$+$Gaussian model, and the WS$+$Gaussian model, exhibits higher CV across all four metrics. Lower CV corresponds to greater invariance, so the original connectome lies in the more invariant regime.
+Figure~\ref{fig:arch} shows the coefficient of variation of each model across hyperparameter sweeps. The results separate into two broad clusters. The leftmost cluster, which includes the original \textit{C.\ elegans} connectome, the sign preserving Gaussian-preserving models, the global sign-preserving models, and the binary base model, exhibits lower CV across all four task-agnostic metrics. The rightmost cluster, which includes the \textit{C.\ elegans} topology with Gaussian weights, the ER$+$Gaussian model, and the WS$+$Gaussian model, exhibits higher CV across all four metrics. Lower CV corresponds to greater invariance, so the original connectome lies in the more invariant regime.
 
 Pairwise equivalence testing clarifies the relationships within the low-CV cluster. Across all four metrics, the $\pm 1$ weight global sign-preserving model is equivalent to the original \textit{C.\ elegans} connectome. This suggests that the specific topological arrangement of excitatory and inhibitory synapses is not the primary determinant of invariance. Instead, invariance appears to depend more strongly on global dynamical constraints imposed by overall sign balance than on the micro-scale placement of individual synapse polarities. It also suggests that the specific distribution of weight magnitudes is not a main determinant of invariance, since the $\pm 1$ model collapses weight magnitude heterogeneity.
 
@@ -886,7 +886,7 @@ The third experiment, shown in Fig.~\ref{fig:bW} and Table~\ref{tab:tost_grkr_sh
 %% speculate about why these are different.
 
 \begin{comment}
-We assess equivalence using the two one-sided tests (TOST) procedure with predefined equivalence bounds. The model preserving global sign balance falls significantly within the equivalence bounds of local sign–preserved binary model across all invariance metrics (see ~\ref{tab:tost_mcipc},~\ref{tab:tost_grkr}). 
+We assess equivalence using the two one-sided tests (TOST) procedure with predefined equivalence bounds. The model preserving global sign balance falls significantly within the equivalence bounds of sign preserving Gaussian–preserved binary model across all invariance metrics (see ~\ref{tab:tost_mcipc},~\ref{tab:tost_grkr}). 
 
 This result demonstrates that the specific topological placement of excitatory and inhibitory synapses is not factor determining of task-agnostic computational invariance. 
 
@@ -931,9 +931,9 @@ where $\Lambda$ controls the strength of the perturbation. As $\Lambda$ increase
 
 Preserving sign is necessary here because global sign balance strongly influences invariance (Section~\ref{balance}). If signs were allowed to change, any resulting change in mean performance or CV could reflect altered excitatory/inhibitory balance rather than the effect of the weight-magnitude distribution itself.
 
-Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. MC and IPC are nearly flat across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes. GR and KR vary somewhat more, but their changes are still limited\begin{comment}comparing it this is probably where I should bring in the guas not sign preserved\end{comment}. For the \textit{C.\ elegans} topology studied here, shifting the weight-magnitude distribution toward a half-normal form has little effect on hyperparameter invariance or performance for IPC and MC, but produces slightly larger changes in GR and KR.
-\begin{comment}will want to quantify a couple of things here but overall good, I think I want to quantify the different from the original compared to when signs are not held to show that this is relativly small just quantify dw about the comparison
-\end{comment}
+Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. This is also reflected quantitatively in Tables~\ref{tab:sign_pres_gaus_weights} and~\ref{tab:sign_pres_gaus_metric_mean}: when sign is preserved, the average CV increases at $\alpha=10$ are 4.32\% for MC, 8.76\% for IPC, 11.6\% for KR, and 10\% for GR, while the corresponding mean metric changes are -2.48\%, -0.499\%, 9.67\%, and 13.9\%, respectively. MC and IPC change relatively little across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes, while GR and KR vary somewhat more but still remain comparatively stable.
+
+Compared with the version of the experiment in which sign is not preserved (Tables~\ref{tab:no_sign_pres_gaus_weights} and~\ref{tab:no_sign_pres_gaus_metric_mean}), the same perturbation produces much larger changes. At $\alpha=10$, CV rises by 45.6\% for MC, 55.4\% for IPC, 127\% for KR, and 70.3\% for GR, while the mean metric values increase by 75.3\%, 73.4\%, 251\%, and 348\%, respectively. This comparison supports the interpretation that the large effects seen under unconstrained perturbation are driven primarily by changes in sign balance rather than by the shift toward a half-normal magnitude distribution itself. For the \textit{C.\ elegans} topology studied here, changing the weight-magnitude distribution alone has a limited effect on hyperparameter invariance or performance, especially for MC and IPC.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figs/weight_to_gaus.png}
@@ -983,10 +983,51 @@ Taken together, these results indicate that global neurotransmitter balance is a
 \end{figure}
 
 
+\chapter{Discussion}
+
+Our results show that the \textit{C.\ elegans} connectome occupies a comparatively low-variance regime across multiple task-agnostic reservoir metrics, and that this invariance depends on an interaction between sign structure, weight magnitude distribution, and topology. Preserving global sign structure is sufficient to recover much of the invariance profile of the empirical connectome, whereas perturbing sign balance produces the largest changes in both mean performance and CV. In contrast, topology and weight magnitude do not affect all metrics equally. Topological perturbations have a larger effect on memory-based metrics, while weight-magnitude perturbations more strongly affect kernel-based metrics. Taken together, these findings suggest that hyperparameter invariance is not governed by any single coarse graph property, but instead emerges from multiple structural features that support different kinds of computation.
+
+why is this useful to the field
+
+The sign-flipping experiments indicate that global neurotransmitter balance is a major determinant of the performance--invariance tradeoff. Networks with strongly asymmetric sign structure tend to show lower mean task-agnostic computational capacity but also lower CV, whereas networks closer to excitatory/inhibitory balance achieve higher performance at the cost of greater sensitivity to hyperparameter change. Within the reservoir abstraction used here, the empirical \textit{C.\ elegans} network lies in a relatively invariant regime that does not maximize mean performance. One interpretation is that the connectome, at least under our modeling choices, is organized away from the peak-performance region and toward a regime of greater robustness to hyperparameter variation.
+
+That interpretation should be treated cautiously because connectome modeling compresses substantial biological uncertainty into a single static network. In our model, approximately $6\%$ of connections are inhibitory, but recent sign-inference work suggests the inhibitory fraction may be closer to $20\%$ \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020}. If so, the empirical connectome may lie further along the observed performance--CV curve than our current instantiation suggests, with correspondingly higher computational performance and CV. Futhermore, excitatory/inhibitory balance is not fixed across the life of the organism. Developmental and aging-related changes in inhibitory signaling imply that the effective position of the \textit{C.\ elegans} nervous system on this curve is likely not stationary, but instead varies across the lifespan \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}. Finally, our simplifying choice to coerce non-GABA, acetylcholine, and glutamate synapses to be excitatory further limits direct biological interpretation. In addition, our reservoirs deliver input to all neurons and do not segregate biologically plausible input and output populations, so the present model should be understood as a structural reservoir abstraction rather than a faithful dynamical simulation of the animal.
+
+The contrast between the topology and weight perturbation experiments also suggests a more specific mechanistic interpretation. In the binary-weighted case, kernel-based metrics appear comparatively robust to topology shuffling, whereas memory-based metrics are more strongly disrupted. A plausible explanation is that kernel-like computation depends more on coarse architectural features that survive these shuffles, such as broad degree structure, while memory depends more strongly on precise recurrent motif placement and path structure. The weight experiments suggest a complementary picture: memory-based metrics remain relatively stable under sign-preserving weight-magnitude perturbations, whereas kernel-based metrics shift more noticeably. This raises the possibility that arrangement of recurrent motifs more substancially supports memory, while kernel quality is more strongly dependent on the precise assignment of weight magnitudes. These interpretations remain speculative, but together they suggest that memory and kernel quality are influenced by distinct structural substrates.
+
+Our results also raise the possibility that the empirical ordering of weights on the \textit{C.\ elegans} topology is itself functionally meaningful. Shuffling the weights produces a noticeable increase in CV, which suggests that the empirical weight placement may lie near a local minimum of hyperparameter sensitivity. If this is correct, then it is not only the weight distribution, but the assignment of those weights to specific edges, that contributes to invariance. This would strengthen the broader conclusion that computational robustness in connectome reservoirs depends on structured organization at multiple levels, rather than on topology alone.
+
+\section{Future directions}
+
+Several extensions would help clarify these interpretations. First, the model comparisons could be strengthened by adding a degree-matched but otherwise random network with Gaussian weights, as well as a scale-free network with Gaussian weights, to compare directly against the \textit{C.\ elegans} topology with Gaussian weights. These baselines would help determine whether the effects attributed here to biological topology persist once degree structure or heavy-tailed organization are controlled more explicitly. Second, the present conclusions should be tested on downstream tasks such as NARMA and other temporal benchmarks to determine whether the same invariance relationships hold when the reservoir is evaluated by task performance rather than task-agnostic proxies alone.
+
+Third, it would be valuable to repeat these experiments with biologically segregated input and output populations. Using sensory neurons as inputs and muscles or motor-associated neurons as outputs would bring the model closer to a functional circuit interpretation and would better connect this work to prior studies of connectome-based computation \parencite{KAWAI201915}. Finally, the hypothesis that the empirical weight ordering lies near a local CV minimum deserves direct study. A natural next step would be to interpolate between the empirical assignment and progressively shuffled assignments while measuring whether CV increases smoothly or whether the connectome sits in a sharply tuned basin of low sensitivity.
+
+
+
+
+
+\chapter{AI Usage Disclosure}
+
+Artificial intelligence tools, specifically ChatGPT (OpenAI, GPT-5 series) and Codex (OpenAI), were used as assistive tools during the course of this work.
+
+AI tools were used to review text for clarity, grammar, and structure, and to identify ambiguous or overstated claims. All text included in this manuscript was written, reviewed, and edited by the authors, and any AI-assisted edits were manually verified and revised as necessary to ensure accuracy.
+
+AI tools were also used to assist in identifying relevant literature. These tools were used in a search-assistance capacity to locate papers related to reservoir computing and recurrent biological networks. All cited papers were independently located, read, and verified by the author prior to inclusion.
+
+In addition, AI tools were used as a programming reference to identify relevant libraries, functions, and debugging strategies. They were also used to assist in generating example plotting code and suggesting implementation approaches. All code used in this project was written, reviewed, and validated by the author. Any external repositories referenced are explicitly cited.
+
+AI tools were used solely as assistive instruments. All scientific claims, analysis, interpretations, and conclusions presented in this work are the independent work of the author.
+
+
+\chapter{Supplemental information}
+
+
 \section{Equivalence testing}
 Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and ~\ref{tab:tost_grkr} ) further clarifies these relationships. We used TOST equivalence testing on the mean dispersion (CV) between each architecture and the biological connectome. The equivalence margin was set to $\Delta = |0.05(\text{median}(\text{dispersion}))|$ computed per metric across all runs. We concluded equivalence when both one-sided tests rejected the null that the mean difference lay outside $[-\Delta,+\Delta]$ Thus, small p-values indicate that the dispersion difference is statistically confined within the predefined practical tolerance. Under this criterion, only specific sign-preserving perturbations satisfied equivalence for selected metrics, while most architectures—including connection shuffles, weight shuffles, and random graph controls—did not satisfy equivalence across all metrics simultaneously. Failure to conclude equivalence (large $p$) does not imply non-equivalence; it indicates insufficient evidence that the mean difference is within $\pm\Delta$ under the chosen margin and sample size. 1000 observations for each comparison. 
 
 
+\section{Tables}
 
 \begin{table}[t]
 \centering
@@ -997,21 +1038,21 @@ Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and ~\ref{tab:tost_gr
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
 MC & er+randN vs ws p0.1+randN & 0.02035 & 1.632e-06 \\
-MC & global sign pres vs local sign+binary & 0.02035 & 3.571e-10 \\
-MC & global sign pres vs local sign+flat & 0.02035 & 0.0001843 \\
-MC & global sign pres vs real & 0.02035 & 2.001e-06 \\
-MC & local sign vs local sign+flat & 0.02035 & 0.0001404 \\
-MC & local sign vs real & 0.02035 & 0.01103 \\
-MC & local sign+binary vs local sign+flat & 0.02035 & 0.05257 \\
-MC & local sign+binary vs real & 0.02035 & 0.002942 \\
-MC & local sign+flat vs real & 0.02035 & 1.683e-11 \\
+MC & sign balence preserving vs pm1 & 0.02035 & 3.571e-10 \\
+MC & sign balence preserving vs sign preserving uniform & 0.02035 & 0.0001843 \\
+MC & sign balence preserving vs real & 0.02035 & 2.001e-06 \\
+MC & sign preserving gaussian vs sign preserving uniform & 0.02035 & 0.0001404 \\
+MC & sign preserving gaussian vs real & 0.02035 & 0.01103 \\
+MC & pm1 vs sign preserving uniform & 0.02035 & 0.05257 \\
+MC & pm1 vs real & 0.02035 & 0.002942 \\
+MC & sign preserving uniform vs real & 0.02035 & 1.683e-11 \\
 \addlinespace
 IPC & er+randN vs ws p0.1+randN & 0.01719 & 5.917e-11 \\
-IPC & global sign pres vs local sign+binary & 0.01719 & 2.176e-09 \\
-IPC & global sign pres vs real & 0.01719 & 0.0114 \\
-IPC & local sign vs local sign+flat & 0.01719 & 0.002167 \\
-IPC & local sign vs real & 0.01719 & 0.04578 \\
-IPC & local sign+flat vs real & 0.01719 & 6.337e-10 \\
+IPC & sign balence preserving vs pm1 & 0.01719 & 2.176e-09 \\
+IPC & sign balence preserving vs real & 0.01719 & 0.0114 \\
+IPC & sign preserving gaussian vs sign preserving uniform & 0.01719 & 0.002167 \\
+IPC & sign preserving gaussian vs real & 0.01719 & 0.04578 \\
+IPC & sign preserving uniform vs real & 0.01719 & 6.337e-10 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1025,17 +1066,17 @@ IPC & local sign+flat vs real & 0.01719 & 6.337e-10 \\
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
 KR & er+randN vs ws p0.1+randN & 0.01441 & 0.05578 \\
-KR & global sign pres vs local sign+binary & 0.01441 & 7.179e-10 \\
-KR & global sign pres vs real & 0.01441 & 5.476e-17 \\
-KR & local sign+binary vs real & 0.01441 & 1.102e-20 \\
+KR & sign balence preserving vs pm1 & 0.01441 & 7.179e-10 \\
+KR & sign balence preserving vs real & 0.01441 & 5.476e-17 \\
+KR & pm1 vs real & 0.01441 & 1.102e-20 \\
 \addlinespace
-GR & binary base vs local sign+binary & 0.02373 & 0.0206 \\
+GR & binary base vs pm1 & 0.02373 & 0.0206 \\
 GR & cel+randN vs er+randN & 0.02373 & 7.889e-07 \\
 GR & cel+randN vs ws p0.1+randN & 0.02373 & 6.67e-06 \\
 GR & er+randN vs ws p0.1+randN & 0.02373 & 3.037e-67 \\
-GR & global sign pres vs local sign+binary & 0.02373 & 7.804e-23 \\
-GR & global sign pres vs real & 0.02373 & 5.724e-34 \\
-GR & local sign+binary vs real & 0.02373 & 1.696e-47 \\
+GR & sign balence preserving vs pm1 & 0.02373 & 7.804e-23 \\
+GR & sign balence preserving vs real & 0.02373 & 5.724e-34 \\
+GR & pm1 vs real & 0.02373 & 1.696e-47 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1048,13 +1089,13 @@ GR & local sign+binary vs real & 0.02373 & 1.696e-47 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-MC & celW+connShuf vs conn shuf only & 0.0201 & 5.887e-10 \\
-MC & celW+connShuf vs shuffle & 0.0201 & 1.109e-09 \\
-MC & conn shuf only vs shuffle & 0.0201 & 3.326e-14 \\
+MC & celW+conShuf vs conShuf & 0.0201 & 5.887e-10 \\
+MC & celW+conShuf vs weight shuffle & 0.0201 & 1.109e-09 \\
+MC & conShuf vs weight shuffle & 0.0201 & 3.326e-14 \\
 \addlinespace
-IPC & celW+connShuf vs conn shuf only & 0.01641 & 1.216e-08 \\
-IPC & celW+connShuf vs shuffle & 0.01641 & 1.786e-06 \\
-IPC & conn shuf only vs shuffle & 0.01641 & 2.403e-08 \\
+IPC & celW+conShuf vs conShuf & 0.01641 & 1.216e-08 \\
+IPC & celW+conShuf vs weight shuffle & 0.01641 & 1.786e-06 \\
+IPC & conShuf vs weight shuffle & 0.01641 & 2.403e-08 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1067,13 +1108,13 @@ IPC & conn shuf only vs shuffle & 0.01641 & 2.403e-08 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & celW+connShuf vs conn shuf only & 0.01722 & 3.971e-30 \\
-KR & celW+connShuf vs shuffle & 0.01722 & 3.014e-27 \\
-KR & conn shuf only vs shuffle & 0.01722 & 8.267e-21 \\
+KR & celW+conShuf vs conShuf & 0.01722 & 3.971e-30 \\
+KR & celW+conShuf vs weight shuffle & 0.01722 & 3.014e-27 \\
+KR & conShuf vs weight shuffle & 0.01722 & 8.267e-21 \\
 \addlinespace
-GR & celW+connShuf vs conn shuf only & 0.02759 & 1.44e-69 \\
-GR & celW+connShuf vs shuffle & 0.02759 & 3.36e-46 \\
-GR & conn shuf only vs shuffle & 0.02759 & 4.255e-41 \\
+GR & celW+conShuf vs conShuf & 0.02759 & 1.44e-69 \\
+GR & celW+conShuf vs weight shuffle & 0.02759 & 3.36e-46 \\
+GR & conShuf vs weight shuffle & 0.02759 & 4.255e-41 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1086,13 +1127,13 @@ GR & conn shuf only vs shuffle & 0.02759 & 4.255e-41 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-MC & binary+conshuffle+wshuffle vs binary+shuffle & 0.0174 & 4.337e-09 \\
+MC & pm1+conshuf+wshuf vs pm1+conshuf & 0.0174 & 4.337e-09 \\
 \addlinespace
-IPC & binary+conshuffle+wshuffle vs binary+shuffle & 0.01433 & 4.79e-07 \\
-IPC & binary+conshuffle+wshuffle vs local sign+binary & 0.01433 & 4.876e-08 \\
-IPC & binary+shuffle vs global sign pres & 0.01433 & 0.007038 \\
-IPC & binary+shuffle vs local sign+binary & 0.01433 & 2.741e-09 \\
-IPC & global sign pres vs local sign+binary & 0.01433 & 0.03575 \\
+IPC & pm1+conshuf+wshuf vs pm1+conshuf & 0.01433 & 4.79e-07 \\
+IPC & pm1+conshuf+wshuf vs pm1 & 0.01433 & 4.876e-08 \\
+IPC & pm1+conshuf vs sign balence preserving & 0.01433 & 0.007038 \\
+IPC & pm1+conshuf vs pm1 & 0.01433 & 2.741e-09 \\
+IPC & sign balence preserving vs pm1 & 0.01433 & 0.03575 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1105,19 +1146,19 @@ IPC & global sign pres vs local sign+binary & 0.01433 & 0.03575 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & binary+conshuffle+wshuffle vs binary+shuffle & 0.01316 & 4.77e-12 \\
-KR & binary+conshuffle+wshuffle vs global sign pres & 0.01316 & 6.057e-08 \\
-KR & binary+conshuffle+wshuffle vs local sign+binary & 0.01316 & 2.291e-20 \\
-KR & binary+shuffle vs global sign pres & 0.01316 & 4e-16 \\
-KR & binary+shuffle vs local sign+binary & 0.01316 & 1.456e-13 \\
-KR & global sign pres vs local sign+binary & 0.01316 & 3.066e-09 \\
+KR & pm1+conshuf+wshuf vs pm1+conshuf & 0.01316 & 4.77e-12 \\
+KR & pm1+conshuf+wshuf vs sign balence preserving & 0.01316 & 6.057e-08 \\
+KR & pm1+conshuf+wshuf vs pm1 & 0.01316 & 2.291e-20 \\
+KR & pm1+conshuf vs sign balence preserving & 0.01316 & 4e-16 \\
+KR & pm1+conshuf vs pm1 & 0.01316 & 1.456e-13 \\
+KR & sign balence preserving vs pm1 & 0.01316 & 3.066e-09 \\
 \addlinespace
-GR & binary+conshuffle+wshuffle vs binary+shuffle & 0.02223 & 2.218e-30 \\
-GR & binary+conshuffle+wshuffle vs global sign pres & 0.02223 & 1.117e-47 \\
-GR & binary+conshuffle+wshuffle vs local sign+binary & 0.02223 & 1.388e-22 \\
-GR & binary+shuffle vs global sign pres & 0.02223 & 7.424e-30 \\
-GR & binary+shuffle vs local sign+binary & 0.02223 & 1.21e-09 \\
-GR & global sign pres vs local sign+binary & 0.02223 & 3.233e-20 \\
+GR & pm1+conshuf+wshuf vs pm1+conshuf & 0.02223 & 2.218e-30 \\
+GR & pm1+conshuf+wshuf vs sign balence preserving & 0.02223 & 1.117e-47 \\
+GR & pm1+conshuf+wshuf vs pm1 & 0.02223 & 1.388e-22 \\
+GR & pm1+conshuf vs sign balence preserving & 0.02223 & 7.424e-30 \\
+GR & pm1+conshuf vs pm1 & 0.02223 & 1.21e-09 \\
+GR & sign balence preserving vs pm1 & 0.02223 & 3.233e-20 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1138,23 +1179,67 @@ GR & binary base vs binary base topology shuffle & 0.02068 & 1.073e-34 \\
 \end{tabular}
 \end{table}
 
+\begin{table}[t]
+\centering
+\caption{Changes in mean CV across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is not preserved in this version of the experiment.}
+\label{tab:no_sign_pres_gaus_weights}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+\midrule
+MC & 0.3548 & +0.00808 (+2.28\%) & +0.0851 (+24\%) & +0.162 (+45.6\%)  \\
+IPC & 0.2718 & +0.00868 (+3.19\%) & +0.0891 (+32.8\%) & +0.151 (+55.4\%) \\
+KR & 0.2634 & +0.00505 (+1.92\%) & +0.125 (+47.6\%) & +0.335 (+127\%) \\
+GR & 0.4426 & +0.00829 (+1.87\%) & +0.162 (+36.5\%) & +0.311 (+70.3\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[t]
+\centering
+\caption{Changes in mean metric value across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is not preserved in this version of the experiment.}
+\label{tab:no_sign_pres_gaus_metric_mean}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+\midrule
+MC & 4.161 & +0.00525 (+0.126\%) & +0.715 (+17.2\%) & +3.13 (+75.3\%) \\
+IPC & 5.863 & +0.0241 (+0.411\%) & +0.999 (+17\%) & +4.31 (+73.4\%)  \\
+KR & 2.99 & +0.0545 (+1.82\%) & +1.6 (+53.4\%) & +7.51 (+251\%)  \\
+GR & 4.712 & +0.12 (+2.55\%) & +3.54 (+75\%) & +16.4 (+348\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-
-\chapter{Discussion}
-
-
-\chapter{AI Usage Disclosure}
-
-Artificial intelligence tools, specifically ChatGPT (OpenAI, GPT-5 series) and Codex (OpenAI), were used as assistive tools during the course of this work.
-
-AI tools were used to review text for clarity, grammar, and structure, and to identify ambiguous or overstated claims. All text included in this manuscript was written, reviewed, and edited by the authors, and any AI-assisted edits were manually verified and revised as necessary to ensure accuracy.
-
-AI tools were also used to assist in identifying relevant literature. These tools were used in a search-assistance capacity to locate papers related to reservoir computing and recurrent biological networks. All cited papers were independently located, read, and verified by the author prior to inclusion.
-
-In addition, AI tools were used as a programming reference to identify relevant libraries, functions, and debugging strategies. They were also used to assist in generating example plotting code and suggesting implementation approaches. All code used in this project was written, reviewed, and validated by the author. Any external repositories referenced are explicitly cited.
-
-AI tools were used solely as assistive instruments. All scientific claims, analysis, interpretations, and conclusions presented in this work are the independent work of the author.
-
+\begin{table}[t]
+\centering
+\caption{Changes in mean CV across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is preserved in this version of the experiment.}
+\label{tab:sign_pres_gaus_weights}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+\midrule
+MC & 0.3623 & +0.00232 (+0.641\%) & +0.0133 (+3.67\%) & +0.0156 (+4.32\%) \\
+IPC & 0.2781 & +0.00298 (+1.07\%) & +0.0178 (+6.38\%) & +0.0244 (+8.76\%) \\
+KR & 0.2634 & +0.00294 (+1.12\%) & +0.0211 (+8.01\%) & +0.0306 (+11.6\%) \\
+GR & 0.4426 & +0.00508 (+1.15\%) & +0.0319 (+7.2\%) & +0.0444 (+10\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[t]
+\centering
+\caption{Changes in mean metric value across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is preserved in this version of the experiment.}
+\label{tab:sign_pres_gaus_metric_mean}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+\midrule
+MC & 4.096 & -0.00846 (-0.206\%) & -0.094 (-2.3\%) & -0.102 (-2.48\%) \\
+IPC & 5.733 & +0.00524 (+0.0914\%) & -0.0257 (-0.448\%) & -0.0286 (-0.499\%) \\
+KR & 2.99 & +0.0314 (+1.05\%) & +0.193 (+6.45\%) & +0.289 (+9.67\%) \\
+GR & 4.712 & +0.0731 (+1.55\%) & +0.447 (+9.49\%) & +0.655 (+13.9\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
 %  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...
 
 % The next line forces every entry in your bibliography to be displayed, regardless of whether or not you've cited it in your thesis.

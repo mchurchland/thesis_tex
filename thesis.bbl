@@ -214,6 +214,69 @@
       \verb 10.1063/5.0009709
       \endverb
     \endentry
+    \entry{fenyves_szilágyi_zsolt_vassy_csaba_2020}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=9799e438f11acb0d058bacbd312d2972}{%
+           family={Fenyves},
+           familyi={F\bibinitperiod},
+           given={Bánk\bibnamedelima G},
+           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40fecd4e5d8a2ff31950f038ca63d095}{%
+           family={Szilágyi},
+           familyi={S\bibinitperiod},
+           given={Gábor\bibnamedelima S},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=217dba75443a3e21d6c32eeab9efe08c}{%
+           family={Vassy},
+           familyi={V\bibinitperiod},
+           given={Zsolt},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4923e429a222e59323e01e76b00344c8}{%
+           family={Sőti},
+           familyi={S\bibinitperiod},
+           given={Csaba},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d54b624e57b038f5da8e8aa7d328d5f1}{%
+           family={Csermely},
+           familyi={C\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{5c82e365aa7690e08c660e6114e3d4a3}
+      \strng{fullhash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{fullhashraw}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{bibnamehash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{authorbibnamehash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{authornamehash}{5c82e365aa7690e08c660e6114e3d4a3}
+      \strng{authorfullhash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{authorfullhashraw}{94c54480fd82fe9802af06c115c1f0fb}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS Computational Biology}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Synaptic polarity and sign-balance prediction using gene expression data in the Caenorhabditis elegans chemical synapse neuronal connectome network}
+      \field{volume}{16}
+      \field{year}{2020}
+      \field{pages}{e1007974\bibrangedash e1007974}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.1371/journal.pcbi.1007974
+      \endverb
+    \endentry
     \entry{fukushima_1980}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=23d96062ed18321873ac4b8b6e2fc816}{%
@@ -1323,6 +1386,66 @@
       \verb https://doi.org/10.1007/s11047-024-09997-y
       \endverb
     \endentry
+    \entry{tanis_bellemer_moresco_forbush_koelle_2009}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=83daf2eb18dec877224677b544d3c501}{%
+           family={Tanis},
+           familyi={T\bibinitperiod},
+           given={J.\bibnamedelimi E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e6b92a1c502a3899bc513a79cfb11ef}{%
+           family={Bellemer},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=603bad8120628ab2de420f38e9db4892}{%
+           family={Moresco},
+           familyi={M\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d41804ef1293fadea484fdc83a6976d7}{%
+           family={Forbush},
+           familyi={F\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b15dc06b7d2f6f94163e0c2fcb9ca68}{%
+           family={Koelle},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5deae3404073fdf390ab3b2b1623f0d0}
+      \strng{fullhash}{1e84964440222760d62d3c440cd5b703}
+      \strng{fullhashraw}{1e84964440222760d62d3c440cd5b703}
+      \strng{bibnamehash}{1e84964440222760d62d3c440cd5b703}
+      \strng{authorbibnamehash}{1e84964440222760d62d3c440cd5b703}
+      \strng{authornamehash}{5deae3404073fdf390ab3b2b1623f0d0}
+      \strng{authorfullhash}{1e84964440222760d62d3c440cd5b703}
+      \strng{authorfullhashraw}{1e84964440222760d62d3c440cd5b703}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Neuroscience}
+      \field{month}{8}
+      \field{number}{32}
+      \field{title}{The Potassium Chloride Cotransporter KCC-2 Coordinates Development of Inhibitory Neurotransmission and Synapse Structure in Caenorhabditis elegans}
+      \field{volume}{29}
+      \field{year}{2009}
+      \field{pages}{9943\bibrangedash 9954}
+      \range{pages}{12}
+      \verb{doi}
+      \verb https://doi.org/10.1523/jneurosci.1989-09.2009
+      \endverb
+    \endentry
     \entry{Wssmallworld}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8749174d8ea73cb9cc7eda222618b353}{%
@@ -1364,6 +1487,87 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1038/30918
+      \endverb
+    \endentry
+    \entry{wirak_florman_alkema_connor_gabel_2022}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=a67940b89e0d96d547f5a5e30dfe73d9}{%
+           family={Wirak},
+           familyi={W\bibinitperiod},
+           given={Gregory\bibnamedelima S},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a4b5616a5bf3dd2c458bc8840780ba5}{%
+           family={Florman},
+           familyi={F\bibinitperiod},
+           given={Jeremy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd4edd81da367e9f275dfe0c89d3c140}{%
+           family={Alkema},
+           familyi={A\bibinitperiod},
+           given={Mark\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c76d62be57888f5a9773b53ae1859be}{%
+           family={Connor},
+           familyi={C\bibinitperiod},
+           given={Christopher\bibnamedelima W},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57d83344d5e5b486ae01594bd81936d6}{%
+           family={Gabel},
+           familyi={G\bibinitperiod},
+           given={Christopher\bibnamedelima V},
+           giveni={C\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=777130591dbd4f712e45645172222412}{%
+           family={Zimmer},
+           familyi={Z\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e04e9ecba4d65599cba6b9b6407adb73}{%
+           family={Sengupta},
+           familyi={S\bibinitperiod},
+           given={Piali},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{df76ea9456f85b93aac3b62d84593465}
+      \strng{fullhash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{fullhashraw}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{bibnamehash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{authorbibnamehash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{authornamehash}{df76ea9456f85b93aac3b62d84593465}
+      \strng{authorfullhash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{authorfullhashraw}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{editorbibnamehash}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \strng{editornamehash}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \strng{editorfullhash}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \strng{editorfullhashraw}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{eLife}
+      \field{month}{6}
+      \field{title}{Age-associated changes to neuronal dynamics involve a disruption of excitatory/inhibitory balance in C. elegans}
+      \field{volume}{11}
+      \field{year}{2022}
+      \field{pages}{e72135}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.7554/eLife.72135
+      \endverb
+      \verb{urlraw}
+      \verb https://elifesciences.org/articles/72135
+      \endverb
+      \verb{url}
+      \verb https://elifesciences.org/articles/72135
       \endverb
     \endentry
     \entry{9093897}{article}{}{}
@@ -1628,6 +1832,69 @@
       \verb 10.1063/5.0009709
       \endverb
     \endentry
+    \entry{fenyves_szilágyi_zsolt_vassy_csaba_2020}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=9799e438f11acb0d058bacbd312d2972}{%
+           family={Fenyves},
+           familyi={F\bibinitperiod},
+           given={Bánk\bibnamedelima G},
+           giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40fecd4e5d8a2ff31950f038ca63d095}{%
+           family={Szilágyi},
+           familyi={S\bibinitperiod},
+           given={Gábor\bibnamedelima S},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=217dba75443a3e21d6c32eeab9efe08c}{%
+           family={Vassy},
+           familyi={V\bibinitperiod},
+           given={Zsolt},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4923e429a222e59323e01e76b00344c8}{%
+           family={Sőti},
+           familyi={S\bibinitperiod},
+           given={Csaba},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d54b624e57b038f5da8e8aa7d328d5f1}{%
+           family={Csermely},
+           familyi={C\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{5c82e365aa7690e08c660e6114e3d4a3}
+      \strng{fullhash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{fullhashraw}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{bibnamehash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{authorbibnamehash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{authornamehash}{5c82e365aa7690e08c660e6114e3d4a3}
+      \strng{authorfullhash}{94c54480fd82fe9802af06c115c1f0fb}
+      \strng{authorfullhashraw}{94c54480fd82fe9802af06c115c1f0fb}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS Computational Biology}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Synaptic polarity and sign-balance prediction using gene expression data in the Caenorhabditis elegans chemical synapse neuronal connectome network}
+      \field{volume}{16}
+      \field{year}{2020}
+      \field{pages}{e1007974\bibrangedash e1007974}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.1371/journal.pcbi.1007974
+      \endverb
+    \endentry
     \entry{fukushima_1980}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=23d96062ed18321873ac4b8b6e2fc816}{%
@@ -2737,6 +3004,66 @@
       \verb https://doi.org/10.1007/s11047-024-09997-y
       \endverb
     \endentry
+    \entry{tanis_bellemer_moresco_forbush_koelle_2009}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=83daf2eb18dec877224677b544d3c501}{%
+           family={Tanis},
+           familyi={T\bibinitperiod},
+           given={J.\bibnamedelimi E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e6b92a1c502a3899bc513a79cfb11ef}{%
+           family={Bellemer},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=603bad8120628ab2de420f38e9db4892}{%
+           family={Moresco},
+           familyi={M\bibinitperiod},
+           given={J.\bibnamedelimi J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d41804ef1293fadea484fdc83a6976d7}{%
+           family={Forbush},
+           familyi={F\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b15dc06b7d2f6f94163e0c2fcb9ca68}{%
+           family={Koelle},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5deae3404073fdf390ab3b2b1623f0d0}
+      \strng{fullhash}{1e84964440222760d62d3c440cd5b703}
+      \strng{fullhashraw}{1e84964440222760d62d3c440cd5b703}
+      \strng{bibnamehash}{1e84964440222760d62d3c440cd5b703}
+      \strng{authorbibnamehash}{1e84964440222760d62d3c440cd5b703}
+      \strng{authornamehash}{5deae3404073fdf390ab3b2b1623f0d0}
+      \strng{authorfullhash}{1e84964440222760d62d3c440cd5b703}
+      \strng{authorfullhashraw}{1e84964440222760d62d3c440cd5b703}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Neuroscience}
+      \field{month}{8}
+      \field{number}{32}
+      \field{title}{The Potassium Chloride Cotransporter KCC-2 Coordinates Development of Inhibitory Neurotransmission and Synapse Structure in Caenorhabditis elegans}
+      \field{volume}{29}
+      \field{year}{2009}
+      \field{pages}{9943\bibrangedash 9954}
+      \range{pages}{12}
+      \verb{doi}
+      \verb https://doi.org/10.1523/jneurosci.1989-09.2009
+      \endverb
+    \endentry
     \entry{Wssmallworld}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8749174d8ea73cb9cc7eda222618b353}{%
@@ -2778,6 +3105,87 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1038/30918
+      \endverb
+    \endentry
+    \entry{wirak_florman_alkema_connor_gabel_2022}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=a67940b89e0d96d547f5a5e30dfe73d9}{%
+           family={Wirak},
+           familyi={W\bibinitperiod},
+           given={Gregory\bibnamedelima S},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a4b5616a5bf3dd2c458bc8840780ba5}{%
+           family={Florman},
+           familyi={F\bibinitperiod},
+           given={Jeremy},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd4edd81da367e9f275dfe0c89d3c140}{%
+           family={Alkema},
+           familyi={A\bibinitperiod},
+           given={Mark\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c76d62be57888f5a9773b53ae1859be}{%
+           family={Connor},
+           familyi={C\bibinitperiod},
+           given={Christopher\bibnamedelima W},
+           giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=57d83344d5e5b486ae01594bd81936d6}{%
+           family={Gabel},
+           familyi={G\bibinitperiod},
+           given={Christopher\bibnamedelima V},
+           giveni={C\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=777130591dbd4f712e45645172222412}{%
+           family={Zimmer},
+           familyi={Z\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e04e9ecba4d65599cba6b9b6407adb73}{%
+           family={Sengupta},
+           familyi={S\bibinitperiod},
+           given={Piali},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{df76ea9456f85b93aac3b62d84593465}
+      \strng{fullhash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{fullhashraw}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{bibnamehash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{authorbibnamehash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{authornamehash}{df76ea9456f85b93aac3b62d84593465}
+      \strng{authorfullhash}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{authorfullhashraw}{e4bce3ae1512c718dca438f6e70275ca}
+      \strng{editorbibnamehash}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \strng{editornamehash}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \strng{editorfullhash}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \strng{editorfullhashraw}{b683d8f0da7dcfa640a8dc79eb9c06e3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{eLife}
+      \field{month}{6}
+      \field{title}{Age-associated changes to neuronal dynamics involve a disruption of excitatory/inhibitory balance in C. elegans}
+      \field{volume}{11}
+      \field{year}{2022}
+      \field{pages}{e72135}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.7554/eLife.72135
+      \endverb
+      \verb{urlraw}
+      \verb https://elifesciences.org/articles/72135
+      \endverb
+      \verb{url}
+      \verb https://elifesciences.org/articles/72135
       \endverb
     \endentry
     \entry{9093897}{article}{}{}

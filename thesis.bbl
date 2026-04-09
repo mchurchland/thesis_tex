@@ -214,6 +214,48 @@
       \verb 10.1063/5.0009709
       \endverb
     \endentry
+    \entry{churchland_garcia-ojalvo_2026}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3fe9c2823dc083c493c7c3fef8565c41}{%
+           family={Churchland},
+           familyi={C\bibinitperiod},
+           given={Miles\bibnamedelima Walter},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d46603651ca6d2c90b6228e4727343fc}{%
+           family={Garcia-Ojalvo},
+           familyi={G\bibinithyphendelim O\bibinitperiod},
+           given={Jordi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{fullhash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{fullhashraw}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{bibnamehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authorbibnamehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authornamehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authorfullhash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authorfullhashraw}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{iScience}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Reinforcement learning in densely recurrent biological networks}
+      \field{volume}{29}
+      \field{year}{2026}
+      \field{pages}{114436}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.isci.2025.114436
+      \endverb
+    \endentry
     \entry{fenyves_szilágyi_zsolt_vassy_csaba_2020}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=9799e438f11acb0d058bacbd312d2972}{%
@@ -1830,6 +1872,48 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.1063/5.0009709
+      \endverb
+    \endentry
+    \entry{churchland_garcia-ojalvo_2026}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3fe9c2823dc083c493c7c3fef8565c41}{%
+           family={Churchland},
+           familyi={C\bibinitperiod},
+           given={Miles\bibnamedelima Walter},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d46603651ca6d2c90b6228e4727343fc}{%
+           family={Garcia-Ojalvo},
+           familyi={G\bibinithyphendelim O\bibinitperiod},
+           given={Jordi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{fullhash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{fullhashraw}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{bibnamehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authorbibnamehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authornamehash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authorfullhash}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \strng{authorfullhashraw}{d5d0f3aa24f8127eda49dfc2912ffa84}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{iScience}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{Reinforcement learning in densely recurrent biological networks}
+      \field{volume}{29}
+      \field{year}{2026}
+      \field{pages}{114436}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.isci.2025.114436
       \endverb
     \endentry
     \entry{fenyves_szilágyi_zsolt_vassy_csaba_2020}{article}{}{}

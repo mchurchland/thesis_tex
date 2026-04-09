@@ -104,45 +104,42 @@
   \pagestyle{empty} % this removes page numbers from the frontmatter
 
 
-% Acknowledgements (Acceptable American spelling) are optional
-% So are Acknowledgments (proper English spelling)
-    \chapter*{Acknowledgements}
-	Firstly, I want to thank my parents Anne Churchland and Michael Brodesky. Their endless support, advice, and work mentality have enabled the creation of this work.\\ Secondly, I would like to thank my grandmother, Patricia Churchland\\ 
-
 
     \chapter*{List of Abbreviations}
 
 	\begin{table}[h]
 	\centering % You could remove this to move table to the left
 	\begin{tabular}{ll}
-\textbf{ANN} & Artificial Neural Network \\
+\textbf{ANN} & Artificial neural network \\
+\textbf{CAN} & Canal-associated neurons (CANL/CANR) \\
 \textbf{C.\ elegans} & \textit{Caenorhabditis elegans} \\
-\textbf{D.\ melanogaster} & \textit{Drosophila melanogaster} \\
-\textbf{Dale’s law} & Neurons are exclusively excitatory or inhibitory \\
-\textbf{E/I} & Excitatory/Inhibitory \\
-\textbf{E\:\!I ratio} & Excitatory-to-inhibitory neuron ratio \\
-\textbf{ESN} & Echo State Network \\
-\textbf{GR} & Generalisation Rank (noise robustness) \\
-\textbf{Gym} & Gymnasium RL environment toolkit \\
-\textbf{HPC} & High-Performance Computing \\
-\textbf{IPC} & Information Processing Capacity \\
-\textbf{KR} & Kernel Rank (Kernel Quality; nonlinear separability) \\
-\textbf{LSTM} & Long Short-Term Memory \\
-\textbf{MC} & Memory Capacity (linear/nonlinear) \\
-\textbf{MG} & Mackey–Glass time series \\
-\textbf{NARMA-$N$} & Nonlinear AutoRegressive Moving Average (order $N$) \\
-\textbf{NRMSE} & Normalised Root Mean Squared Error \\
-\textbf{PPO} & Proximal Policy Optimisation \\
-\textbf{RC} & Reservoir Computing \\
-\textbf{RNN} & Recurrent Neural Network \\
-\textbf{SNN} & Spiking Neural Network \\
+\textbf{CV} & Coefficient of variation \\
+\textbf{Dale’s law} & Principle that a neuron's outgoing synapses share the same sign \\
+\textbf{E/I} & Excitatory/inhibitory \\
+\textbf{E\:\!I ratio} & Excitatory-to-inhibitory ratio \\
+\textbf{ER} & Erd\H{o}s--R\'enyi \\
+\textbf{ESN} & Echo state network \\
+\textbf{GR} & Generalization rank \\
+\textbf{Gym} & Gymnasium reinforcement-learning environment toolkit \\
+\textbf{HPC} & High-performance computing \\
+\textbf{IPC} & Information processing capacity \\
+\textbf{KL} & Kullback--Leibler divergence \\
+\textbf{KR} & Kernel rank \\
+\textbf{L/R} & Left/right \\
+\textbf{LSTM} & Long short-term memory \\
+\textbf{MC} & Memory capacity \\
+\textbf{MG} & Mackey--Glass time series \\
+\textbf{NARMA-$N$} & Nonlinear autoregressive moving average of order $N$ \\
+\textbf{NRMSE} & Normalized root mean squared error \\
+\textbf{PPO} & Proximal policy optimization \\
+\textbf{RC} & Reservoir computing \\
+\textbf{RNN} & Recurrent neural network \\
+\textbf{SNN} & Spiking neural network \\
 \textbf{SR} & Spectral radius ($\rho(W)$) \\
-\textbf{SW} & Small-World (graph property) \\
-\textbf{WS} & Watts–Strogatz small-world model \\
-\textbf{$W$} & Reservoir (recurrent) weight matrix \\
+\textbf{SW} & Small-world \\
+\textbf{$W$} & Reservoir weight matrix \\
 \textbf{$W^{\mathrm{in}}$} & Input weight matrix \\
-\textbf{CAN} & canal-associated neurons; linked to the excretory canal (CANL/CANR). \\
-\textbf{L/R} & Suffixes used throughout: Left/Right\\
+\textbf{WS} & Watts--Strogatz model \\
 
 	\end{tabular}
 	\end{table}
@@ -162,9 +159,8 @@ Biological neural circuits remain in functional computational ranges despite sub
 We quantify computational capability using task-agnostic metrics—Memory Capacity (MC), Information Processing Capacity (IPC), Kernel Rank (KR), and Generalization Rank (GR)—and measure invariance as the coefficient of variation of these metrics under hyperparameter sweeps. We construct controlled perturbations that independently alter connectivity topology, synaptic weight magnitude distributions, and excitatory/inhibitory sign structure while preserving other structural properties. This allows isolation of the causal contributions of topology, magnitude statistics, and global sign balance to computational invariance.
 
 Preliminary results suggest that global sign balance and weight magnitude statistics account for a large fraction of the observed invariance.
-	\chapter*{Dedication}
-	You can have a dedication here if you wish.
-
+		\chapter*{Dedication}
+		For my parents, Anne Churchland and Michael Brodesky, for my grandmother, Patricia Churchland, whose support, kindness, and love of beauty in scientific inquiry made this work possible.
   \mainmatter % here the regular arabic numbering starts
   \pagestyle{fancyplain} % turns page numbering back on
 
@@ -797,7 +793,7 @@ A single trial of a model consists of:
         \item \textbf{Ridge Alpha} = 0.0001 (controls the strength of L2 regularization for ridge regression)
     \end{itemize}
 \end{enumerate}
-The coefficient of variation (CV) is computed across hyperparameter combinations within a trial. Each trial uses a single fixed input sequence shared across all hyperparameter combinations to ensure comparability. Reservoir instantiations are independent across hyperparameter combinations: for each combination, the reservoir is reinitialized with a unique seed. Each reservoir instantiation in a trial uses the same input sequence, different trials use different input sequences.
+The coefficient of variation (CV) is computed across hyperparameter combinations within a trial. Each trial uses a single fixed input sequence shared across all hyperparameter combinations to ensure comparability. Reservoir instantiations are independent across trails: for each trial, the reservoir is reconstructed with a unique seed. Each reservoir instantiation in a trial uses the same input sequence, different trials use different input sequences.
 
 Number of trials for histogram experiment ~\ref{fig:arch}: 500 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 500 \times 4\times3\times4 = 24,000$. Number of trials for ~\ref{fig:er_frac_curves} and Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves},~\ref{fig:og_cel_frac_curves}: 250 per point. Total metric evaluations per point: $250 \times 4\times3\times4 = 12,000$. Number of trials for ~\ref{fig:weights} and ~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $50 \times 4\times3\times4 = 2,400$. 
 
@@ -985,26 +981,24 @@ Taken together, these results indicate that global neurotransmitter balance is a
 
 \chapter{Discussion}
 
-Our results show that the \textit{C.\ elegans} connectome occupies a comparatively low-variance regime across multiple task-agnostic reservoir metrics, and that this invariance depends on an interaction between sign structure, weight magnitude distribution, and topology. Preserving global sign structure is sufficient to recover much of the invariance profile of the empirical connectome, whereas perturbing sign balance produces the largest changes in both mean performance and CV. In contrast, topology and weight magnitude do not affect all metrics equally. Topological perturbations have a larger effect on memory-based metrics, while weight-magnitude perturbations more strongly affect kernel-based metrics. Taken together, these findings suggest that hyperparameter invariance is not governed by any single coarse graph property, but instead emerges from multiple structural features that support different kinds of computation.
-
-why is this useful to the field \b
+Our results show that the \textit{C.\ elegans} connectome occupies a comparatively low-variance regime across multiple task-agnostic reservoir metrics, and that this invariance depends on an interaction between sign structure, weight magnitude distribution, and topology. Preserving global sign structure is sufficient to recover much of the invariance profile of the empirical connectome, whereas perturbing sign balance produces the largest changes in both mean performance and CV, suggesting that global excitatory/inhibitory organization is a major determinant of stable computation under parameter variation. Topology and weight magnitude do not affect all metrics equally: topological perturbations have a larger effect on memory-based metrics such as MC and IPC, whereas weight-magnitude perturbations more strongly affect kernel-based metrics such as KR and GR. Taken together, these findings indicate that hyperparameter invariance is not governed by any single coarse graph property, but instead emerges from multiple structural features that support different kinds of computation. More broadly, they strengthen the connection between neuroscience and reservoir computing by suggesting that biological circuits may be organized not only for high computational performance, but also for stable computation across changing parameters.
 
 The sign-flipping experiments indicate that global neurotransmitter balance is a major determinant of the performance--invariance tradeoff. Networks with strongly asymmetric sign structure tend to show lower mean task-agnostic computational capacity but also lower CV, whereas networks closer to excitatory/inhibitory balance achieve higher performance at the cost of greater sensitivity to hyperparameter change. Within the reservoir abstraction used here, the empirical \textit{C.\ elegans} network lies in a relatively invariant regime that does not maximize mean performance. One interpretation is that the connectome, at least under our modeling choices, is organized away from the peak-performance region and toward a regime of greater robustness to hyperparameter variation.
 
-That interpretation should be treated cautiously because connectome modeling compresses substantial biological uncertainty into a single static network. In our model, approximately $6\%$ of connections are inhibitory, but recent sign-inference work suggests the inhibitory fraction may be closer to $20\%$ \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020}. If so, the empirical connectome may lie further along the observed performance--CV curve than our current instantiation suggests, with correspondingly higher computational performance and CV. Futhermore, excitatory/inhibitory balance is not fixed across the life of the organism. Developmental and aging-related changes in inhibitory signaling imply that the effective position of the \textit{C.\ elegans} nervous system on this curve is likely not stationary, but instead varies across the lifespan \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}. Finally, our simplifying choice to coerce non-GABA, acetylcholine, and glutamate synapses to be excitatory further limits direct biological interpretation. In addition, our reservoirs deliver input to all neurons and do not segregate biologically plausible input and output populations, so the present model should be understood as a structural reservoir abstraction rather than a faithful dynamical simulation of the animal.
+That interpretation should be treated cautiously because connectome modeling compresses substantial biological uncertainty into a single static network. In our model, approximately $6\%$ of connections are inhibitory, but recent sign-inference work suggests the inhibitory fraction may be closer to $20\%$ \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020}. If so, the empirical connectome may lie further along the observed performance--CV curve than our current instantiation suggests, with correspondingly higher computational performance and CV. Furthermore, excitatory/inhibitory balance is not fixed across the life of the organism. Developmental and aging-related changes in inhibitory signaling imply that the effective position of the \textit{C.\ elegans} nervous system on this curve is likely not stationary, but instead varies across the lifespan \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}. Finally, our simplifying choice to coerce non-GABA, acetylcholine, and glutamate synapses to be excitatory further limits direct biological interpretation. In addition, our reservoirs deliver input to all neurons and do not segregate biologically plausible input and output populations, so the present model should be understood as a structural reservoir abstraction rather than a faithful dynamical simulation of the animal.
 
-The contrast between the topology and weight perturbation experiments also suggests a more specific mechanistic interpretation. In the binary-weighted case, kernel-based metrics appear comparatively robust to topology shuffling, whereas memory-based metrics are more strongly disrupted. A plausible explanation is that kernel-like computation depends more on coarse architectural features that survive these shuffles, such as broad degree structure, while memory depends more strongly on precise recurrent motif placement and path structure. The weight experiments suggest a complementary picture: memory-based metrics remain relatively stable under sign-preserving weight-magnitude perturbations, whereas kernel-based metrics shift more noticeably. This raises the possibility that arrangement of recurrent motifs more substancially supports memory, while kernel quality is more strongly dependent on the precise assignment of weight magnitudes. These interpretations remain speculative, but together they suggest that memory and kernel quality are influenced by distinct structural substrates.
+The contrast between the topology and weight perturbation experiments also suggests a more specific mechanistic interpretation. In the binary-weighted case, kernel-based metrics appear comparatively robust to topology shuffling, whereas memory-based metrics are more strongly disrupted. A plausible explanation is that kernel-like computation depends more on coarse architectural features that survive these shuffles, such as broad degree structure, while memory depends more strongly on precise recurrent motif placement and path structure. The weight experiments suggest a complementary picture: memory-based metrics remain relatively stable under sign-preserving weight-magnitude perturbations, whereas kernel-based metrics shift more noticeably. This raises the possibility that arrangement of recurrent motifs more substantially supports memory, while kernel quality is more strongly dependent on the precise assignment of weight magnitudes. These interpretations remain speculative, but together they suggest that memory and kernel quality are influenced by distinct structural substrates.
 
 Our results also raise the possibility that the empirical ordering of weights on the \textit{C.\ elegans} topology is itself functionally meaningful. Shuffling the weights produces a noticeable increase in CV, which suggests that the empirical weight placement may lie near a local minimum of hyperparameter sensitivity. If this is correct, then it is not only the weight distribution, but the assignment of those weights to specific edges, that contributes to invariance. This would strengthen the broader conclusion that computational robustness in connectome reservoirs depends on structured organization at multiple levels, rather than on topology alone.
 
 \section{Future directions}
 
-Several extensions would help clarify these interpretations. First, the model comparisons could be strengthened by adding a degree-matched but otherwise random network with Gaussian weights, as well as a scale-free network with Gaussian weights, to compare directly against the \textit{C.\ elegans} topology with Gaussian weights.$ why would these be good $ \b
+Several extensions would help clarify these interpretations. First, the model comparisons could be strengthened by adding a degree-matched but otherwise random network with Gaussian weights, as well as a scale-free network with Gaussian weights, to compare directly against the \textit{C.\ elegans} topology with Gaussian weights. These models would provide useful evidence for the claim that GR and KR change only slightly under degree-preserving shuffles.
 
 
-Second, the present conclusions should be tested on downstream tasks such as NARMA and other temporal benchmarks to determine whether the same invariance relationships hold when the reservoir is evaluated by task performance rather than task-agnostic statistics alone.
+Second, the present conclusions should be tested on downstream tasks such as NARMA to determine whether the same invariance relationships hold when the reservoir is evaluated by task performance rather than task-agnostic statistics alone. The same framework could also be used to investigate how connectome optimization algorithms \parencite{churchland_garcia-ojalvo_2026} alter task-agnostic statistsics, and whether task-driven optimization moves biological reservoirs along the same performance--invariance axes identified here.
 
-Third, it would be valuable to repeat these experiments with biologically segregated input and output populations. Using sensory neurons as inputs and muscles or motor-associated neurons as outputs would bring the model closer to a functional circuit interpretation and would better connect this work to prior studies of connectome-based computation \parencite{KAWAI201915}. Finally, the hypothesis that the empirical weight ordering lies near a local CV minimum deserves direct study. A natural next step would be to $interpolate$ \b between the empirical assignment and progressively shuffled assignments while measuring whether the connectome sits in a sharply tuned basin of low sensitivity.
+Third, it would be valuable to repeat these experiments with biologically segregated input and output populations. Using sensory neurons as inputs and muscles or motor-associated neurons as outputs would bring the model closer to a functional circuit interpretation and would better connect this work to prior studies of connectome-based computation \parencite{KAWAI201915}. Finally, the hypothesis that the empirical weight ordering lies near a local CV minimum deserves direct study. A natural next step would be to interpolate between the empirical assignment and progressively shuffled assignments while measuring changes in CV and performance.
 
 
 

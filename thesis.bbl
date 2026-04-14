@@ -100,6 +100,46 @@
       \verb 10.1177/1073858406293182
       \endverb
     \endentry
+    \entry{broido_clauset_2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b2d12afe2a5731d9df81eca0f1ed633a}{%
+           family={Broido},
+           familyi={B\bibinitperiod},
+           given={Anna\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=42b12665bdf3534fb7bb76c73fc17ebe}{%
+           family={Clauset},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{fullhash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{fullhashraw}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{bibnamehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authorbibnamehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authornamehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authorfullhash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authorfullhashraw}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Scale-free networks are rare}
+      \field{volume}{10}
+      \field{year}{2019}
+      \verb{doi}
+      \verb https://doi.org/10.1038/s41467-019-08746-5
+      \endverb
+    \endentry
     \entry{burden_libby_jayaram_sponberg_donelan_2024}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=7fd132b7882bf55b4695d52e777694c6}{%
@@ -317,6 +357,45 @@
       \range{pages}{-1}
       \verb{doi}
       \verb https://doi.org/10.1371/journal.pcbi.1007974
+      \endverb
+    \endentry
+    \entry{fernando_sampsa_sojakka_2003}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d13f7f740c5221ad728bb85df930a487}{%
+           family={Fernando},
+           familyi={F\bibinitperiod},
+           given={Chrisantha},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f5aa7c561754c517beea497c08fdcab}{%
+           family={Sojakka},
+           familyi={S\bibinitperiod},
+           given={Sampsa},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{fullhash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{fullhashraw}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{bibnamehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authorbibnamehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authornamehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authorfullhash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authorfullhashraw}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Pattern Recognition in a Bucket}
+      \field{year}{2003}
+      \field{pages}{588\bibrangedash 597}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1007/978-3-540-39432-7_63
       \endverb
     \endentry
     \entry{fukushima_1980}{article}{}{}
@@ -1141,6 +1220,62 @@
       \range{pages}{31}
       \verb{doi}
       \verb https://doi.org/10.1146/annurev.physiol.62.1.723
+      \endverb
+    \endentry
+    \entry{pieters_de_swaef_stock_wyffels_2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=773c0375caa68e5201e40dcd56dacf23}{%
+           family={Pieters},
+           familyi={P\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ec77573a201ff9aa92937d95b6c4fe23}{%
+           family={De\bibnamedelima Swaef},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ca255bb7d4148777fac8166aaae2b53}{%
+           family={Stock},
+           familyi={S\bibinitperiod},
+           given={Michiel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e06c43a6d41705287b4e576de36ccc27}{%
+           family={wyffels},
+           familyi={w\bibinitperiod},
+           given={Francis},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{a66401d44cda688cfd7faea390ee47b8}
+      \strng{fullhash}{734cde98c433dfa51762c58644ceada5}
+      \strng{fullhashraw}{734cde98c433dfa51762c58644ceada5}
+      \strng{bibnamehash}{734cde98c433dfa51762c58644ceada5}
+      \strng{authorbibnamehash}{734cde98c433dfa51762c58644ceada5}
+      \strng{authornamehash}{a66401d44cda688cfd7faea390ee47b8}
+      \strng{authorfullhash}{734cde98c433dfa51762c58644ceada5}
+      \strng{authorfullhashraw}{734cde98c433dfa51762c58644ceada5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Leveraging plant physiological dynamics using physical reservoir computing}
+      \field{volume}{12}
+      \field{year}{2022}
+      \verb{doi}
+      \verb https://doi.org/10.1038/s41598-022-16874-0
       \endverb
     \endentry
     \entry{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}{article}{}{}
@@ -1760,6 +1895,46 @@
       \verb 10.1177/1073858406293182
       \endverb
     \endentry
+    \entry{broido_clauset_2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b2d12afe2a5731d9df81eca0f1ed633a}{%
+           family={Broido},
+           familyi={B\bibinitperiod},
+           given={Anna\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=42b12665bdf3534fb7bb76c73fc17ebe}{%
+           family={Clauset},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{fullhash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{fullhashraw}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{bibnamehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authorbibnamehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authornamehash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authorfullhash}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \strng{authorfullhashraw}{e35209b75348ff1c7fad28e9b3f8fbb4}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature Communications}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Scale-free networks are rare}
+      \field{volume}{10}
+      \field{year}{2019}
+      \verb{doi}
+      \verb https://doi.org/10.1038/s41467-019-08746-5
+      \endverb
+    \endentry
     \entry{burden_libby_jayaram_sponberg_donelan_2024}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=7fd132b7882bf55b4695d52e777694c6}{%
@@ -1977,6 +2152,45 @@
       \range{pages}{-1}
       \verb{doi}
       \verb https://doi.org/10.1371/journal.pcbi.1007974
+      \endverb
+    \endentry
+    \entry{fernando_sampsa_sojakka_2003}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d13f7f740c5221ad728bb85df930a487}{%
+           family={Fernando},
+           familyi={F\bibinitperiod},
+           given={Chrisantha},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f5aa7c561754c517beea497c08fdcab}{%
+           family={Sojakka},
+           familyi={S\bibinitperiod},
+           given={Sampsa},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{fullhash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{fullhashraw}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{bibnamehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authorbibnamehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authornamehash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authorfullhash}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \strng{authorfullhashraw}{30a35937baa3e6ccf4d1e1948e84fc37}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Pattern Recognition in a Bucket}
+      \field{year}{2003}
+      \field{pages}{588\bibrangedash 597}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1007/978-3-540-39432-7_63
       \endverb
     \endentry
     \entry{fukushima_1980}{article}{}{}
@@ -2801,6 +3015,62 @@
       \range{pages}{31}
       \verb{doi}
       \verb https://doi.org/10.1146/annurev.physiol.62.1.723
+      \endverb
+    \endentry
+    \entry{pieters_de_swaef_stock_wyffels_2022}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=773c0375caa68e5201e40dcd56dacf23}{%
+           family={Pieters},
+           familyi={P\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ec77573a201ff9aa92937d95b6c4fe23}{%
+           family={De\bibnamedelima Swaef},
+           familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ca255bb7d4148777fac8166aaae2b53}{%
+           family={Stock},
+           familyi={S\bibinitperiod},
+           given={Michiel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e06c43a6d41705287b4e576de36ccc27}{%
+           family={wyffels},
+           familyi={w\bibinitperiod},
+           given={Francis},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{a66401d44cda688cfd7faea390ee47b8}
+      \strng{fullhash}{734cde98c433dfa51762c58644ceada5}
+      \strng{fullhashraw}{734cde98c433dfa51762c58644ceada5}
+      \strng{bibnamehash}{734cde98c433dfa51762c58644ceada5}
+      \strng{authorbibnamehash}{734cde98c433dfa51762c58644ceada5}
+      \strng{authornamehash}{a66401d44cda688cfd7faea390ee47b8}
+      \strng{authorfullhash}{734cde98c433dfa51762c58644ceada5}
+      \strng{authorfullhashraw}{734cde98c433dfa51762c58644ceada5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Leveraging plant physiological dynamics using physical reservoir computing}
+      \field{volume}{12}
+      \field{year}{2022}
+      \verb{doi}
+      \verb https://doi.org/10.1038/s41598-022-16874-0
       \endverb
     \endentry
     \entry{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}{article}{}{}

@@ -187,16 +187,17 @@ Picture a pool of water, with no waves on it--this is a compute reservoir; our c
     \item {\textbf{E/I balance} -- the ratio of excitatory neurons to inhibitory neurons}
    % \item {\textbf{Dale’s law} -- principle stating that a %neuron releases the same neurotransmitter at all of its %synapses. \parencite{Svensson2019} In graph terms, neurons %adhering to this principle have all positive or negative %outgoing connections    \footnote{Dale’s law is not %universally true; many neurons are now known to exhibit %cotransmission, releasing multiple neurotransmitters and %violating the single-sign assumption.\parencite{Svensson2019} }}
 
-
+    
     \item {\textbf{neurotransmitter} -- chemicals that allow neurons to communicate with each other--transmitted between synapses\parencite{Sheffler2023Neurotransmitters}}
     \item {\textbf{gap junction} -- a type of synapse that connects the cytoplasm of two adjacent cells; bidirectional with the same weight for both sides. In our modeling these are either removed or treated as a two distinct positive signed edges}
     \item {\textbf{neuromuscular junction} -- a specialized synapse where a motor neuron communicates with a muscle fiber. These directed edges are directed to non-neural cells and hence are not included in our graph}
     \item {\textbf{connectome} -- a wiring diagram of a biological neural network. This typically contains all neurons and synapses along with edge weights}
-    \item {\textbf{sensory neuron} -- a neuron that receives sensory input. During typical biological use these can be thought of as "inputs" to the network.} 
-    \item {\textbf{motor neuron} -- a neuron that passes signal to the motor cells. During typical biological use these can be thought of as the "outputs" of the network}
+    \item {\textbf{sensory neuron} -- a neuron that receives sensory input. During typical biological use these can be thought of as ``inputs" to the network.} 
+    \item {\textbf{motor neuron} -- a neuron that passes signal to the motor cells. During typical biological use these can be thought of as the ``outputs" of the network}
     \item {\textbf{synaptic terminals} -- bulbous endings of a neuron's axon where neurotransmitters are transferred to other cells (neurons, muscles), we use the number of these as a proxy for edge weight.}
     \item {\textbf{membrane potential} -- The membrane potential is the difference in electrical charge between the inside and outside of a neuron, forming the basis for neural activity.\parencite{Henley_2021}  For our purposes, this is the internal state of the neuron representing how much our activation function will be saturated}
     \item {\textbf{small-worldness} -- a property commonly observed in biological networks. A graph that exhibits the small world property has both high clustering coefficient and short average path length. It is claimed that it makes information spread more efficient, and makes the network more robust\parencite{Bassett2007,latora2001}. }
+    \item {\textbf{scale-free network}} -- a network whose degree distribution follows a power law meaning the fraction of nodes with degree k follows a power law $k^{-\alpha}$ \parencite{broido_clauset_2019}.
 \end{itemize}
 
 
@@ -206,21 +207,21 @@ Picture a pool of water, with no waves on it--this is a compute reservoir; our c
 
 \chapter{Echo State Networks}
 \section{Echo State Networks: an Introduction}
-Echo state networks are discrete time recurrent reservoir computers, introduced by Jaeger \parencite{jaeger_echo_state_2001}. Due the recurrence, echo state networks and are particularly useful in time series analysis\parencite{Jaeger_Schrauwen_2012} and chaotic system prediction problems\parencite{Jager2004}. For readers unfamiliar with reservoir computing, we recommend the tutorial-style introduction\ \parencite{introtoRC} and the accompanying interactive RC Bootcamp notebooks.\parencite{rcbootcampSite}
+Echo state networks are discrete time recurrent reservoir computers, introduced by Jaeger \parencite{jaeger_echo_state_2001}. Due the recurrence, echo state networks and are particularly useful in time series analysis \parencite{Jaeger_Schrauwen_2012} and chaotic system prediction problems \parencite{Jager2004}. For readers unfamiliar with reservoir computing, we recommend the tutorial-style introduction\ \parencite{introtoRC} and the accompanying interactive RC Bootcamp notebooks. \parencite{rcbootcampSite}
 
-Reservoir computers have $K$ input units, $N$ internal network (more colloquially known as reservoir network or reservoir) units and L output units. Reservoir computers have 3 sets of weights; input weights$W^{in}_{ij}$ with size $K \times N$, internal weights ($W^{res}_{ij}$) with size $N\times N$, output weights, $W^{out}_{ij}$, with size $N\times L$. \parencite{jaeger_echo_state_2001}. The reservoir acts as a nonlinear expansion and as a memory of the input \parencite{Lukosevicius2012PracticalESN}.
+Reservoir computers have $K$ input units, $N$ internal network (more colloquially known as reservoir network or reservoir) units and L output units. These units are most commonly nodes of a network.\footnote{We must say units here, as researchers implement reservoir computing with all sorts of mediums of computation such as water \parencite{fernando_sampsa_sojakka_2003} and plants. \parencite{pieters_de_swaef_stock_wyffels_2022}} Reservoir computers have 3 sets of weights; input weights $W^{in}_{ij}$ with size $K \times N$, internal weights $W^{res}_{ij}$ with size $N\times N$, output weights, $W^{out}_{ij}$, with size $N\times L$. \parencite{jaeger_echo_state_2001}. The reservoir acts as a nonlinear expansion and as a memory of the input \parencite{Lukosevicius2012PracticalESN}.
 
-Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{out}_{ij}$, as opposed to training all weights like is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we "tap" in to the dynamics of the "reservoir" by linearly combining different neuron states. Training the recurrent weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
+Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{out}_{ij}$, as opposed to training all weights like is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we ``tap" in to the dynamics of the ``reservoir" by linearly combining different neuron states. Training the reservoir's weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
 
 Formally, let $u_t \in \mathbb{R}^{d}$ be input, $x_t \in \mathbb{R}^{N}$ the reservoir state, and $y_t \in \mathbb{R}^{p}$ the output. With leak $\alpha \in (0,1]$:
 \begin{align}
-\tilde{x}_{t+1} &= \tanh\!\left(W_{\mathrm{res}} x_t + W_{\mathrm{in}} u_{t+1} + b + \xi_t\right), \\
+\tilde{x}_{t+1} &= \tanh\!\left(W^{\mathrm{res}} x_t + W^{\mathrm{in}} u_{t+1} + b + \xi_t\right), \\
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
-y_t &= W_{\mathrm{out}}\,[x_t; u_t; 1],
+y_t &= W^{\mathrm{out}}\,[x_t; u_t; 1],
 \end{align}
-where $\tanh$ is elementwise, $b$ is not included in our model ,$\xi_t$ is optional i.i.d.\ noise, $W_{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W_{\mathrm{out}}\in\mathbb{R}^{p\times (N+d+1)}$ is trained.
+where $\tanh$ is elementwise, $b$ is an optional bias term and is not included in our model, $\xi_t$ is optional i.i.d.\ noise and is not included in our model, $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W^{\mathrm{out}}\in\mathbb{R}^{p\times (|W^{\mathrm{res}}|)}$ is trained. The parameter $p$ is set to 3 for IPC (Section~\ref{sec:ipc}) to solve for different orders in a single batch; in all other cases, it is set to 1.
 
-For this approach to work, our internal network  must satisfy the echo-state property. This property is that asymptotically the state of a reservoir $x(n)$ is uniquely determined by the input history $u_t$ not the initial state of the network ($x_0$). A good way to explain this intuitively a house with a thermostat, imagine two identical houses with the same target temperature ($u_t$) and thermostat program ($W$). Imagine house b starts with a cold temperature ($x_0$) and house a starts with a hot temperature ($x_0'$). With time and a reasonable thermostat program both temperature states ($x_n,x_n'$) will converge and the temperature state ($x_n$) will be determined solely by the temperature target. 
+The literature emphaizses the importance our internal network satisfying the echo-state property \parencite{Stepney2024PRCtutorial,jaeger_echo_state_2001}. The echo state property states that asymptotically, the state of a reservoir $x(n)$ is uniquely determined by the input history $u_t$, rather than by the initial state of the network $x_0$. An elucidating example of this peroperty is a house with a thermostat. Pircutre two identical houses with the same target temperature $u_t$ and thermostat program $W$. Imagine house b starts with a cold temperature $x_0$ and house a starts with a hot temperature $x_0'$. With time and a reasonable thermostat program both temperature states $x_n,x_n'$ will converge and the temperature state $x_n$ will be determined solely by the temperature target. 
 
 
 
@@ -231,17 +232,19 @@ For this approach to work, our internal network  must satisfy the echo-state pro
     \caption{A basic echo state network architecture. $W^{out}$ edges are trainable. $W^{in}$ and $W^{res}$ are fixed after the network architecture is created and are not updated during training.\parencite{9093897}}
     \label{fig:esn}
 \end{figure}
-\section{Hyper-Parameters}
-Echo state networks, like most machine learning models, rely on hyperparameters— parameters specified prior to training that determine the dynamical regime in which the model operates. In reservoir computing, these parameters do not affect $W_{out}$ directly; instead they influence the intrinsic behavior of the reservoir itself, shaping recurrent feedback, external input, and temporal integration.
+\section{Hyperparameters}
+Echo state networks, like most machine learning models, rely on hyperparameters— parameters specified prior to training that determine  global properties of the model and influence how its neurons behave. In reservoir computing, these parameters do not affect $W_{out}$ directly; instead they influence the intrinsic behavior of the reservoir itself, shaping recurrent feedback, external input, and temporal integration.
 
 \textbf{Spectral radius} $\rho(W_{\mathrm{res}})$: Let $W \in \mathbb{R}^{N \times N}$ be a square matrix with eigenvalues 
 $\{\lambda_i\}_{i=1}^N$. The \emph{spectral radius} of $W$ is defined as
 \[
 \rho(W) = \max_{1 \le i \le N} |\lambda_i|.
 \]
- The spectral radius roughly controls the strength of recurrent feedback. In the common (heuristic) setting, choosing $\rho(W_{\mathrm{res}}) < 1$ fosters the echo state property by making the reservoir dynamics contractive. Values near $\rho(W_{\mathrm{res}})\approx 1$ typically yield richer, longer-lasting transients while still often preserving the echo state property. When the reservoir is driven by sufficiently strong inputs (non zero inputs in-practice), even $\rho(W_{\mathrm{res}})>1$ can remain effectively stable in practice because the nonlinearity (activation function)(e.g., $\tanh$) reduces the effective gain of the recurrence, damping feedback loops. \parencite{Lukosevicius2012PracticalESN}
+ The spectral radius \textit{roughly} controls the strength of recurrent feedback. Choosing $\rho(W_{\mathrm{res}}) < 1$ fosters the echo state property by making the reservoir dynamics contractive. Values near $\rho(W_{\mathrm{res}})\approx 1$ typically yield richer, longer-lasting transients while still often preserving the echo state property. Choosing $\rho(W_{\mathrm{res}})>1$ is uncommon as often this will result in a network that does not satisfy the echo state property.  However, when the reservoir is driven by sufficiently strong inputs (non zero inputs in-practice), $\rho(W_{\mathrm{res}})>1$ can satify the echo state property. This is due to the nonlinearity (activation function, in our case $\tanh$) which reduces the effective gain of the recurrence, damping feedback loops. \parencite{Lukosevicius2012PracticalESN}
+ 
+ A reservoir that does not satisfy the echo state property is generally it unsuitable for computation. Without the echo state property, the reservoir state is not uniquely determined by the input history; depending largely on the initial condition. In practice, this means that recurrent feedback dominates the dynamics: internal activity grows in magnitude and persists independently of the input; the effect of new inputs is overshadowed. As a result, the reservoir ceases to act as a dynamical system and instead consistently gravitates towards magnitude increasing feedback loops.
 
-A reservoir that does not satisfy the echo state property is not useful for reliable computation. Without the echo state property, the reservoir state is not uniquely determined by the input history; depending largely on the initial condition. In practice, this means that recurrent feedback dominates the dynamics: internal activity grows in magnitude and persists independently of the input; the effect of new inputs is overshadowed. As a result, the reservoir ceases to act as a dynamical system and instead consistently gravitates towards magnitude increasing feedback loops.
+
 
  \textbf{Leak rate} $\alpha$: The leak rate controls the intrinsic timescale of the reservoir by interpolating between the previous state and the newly computed activation. The effective recurrence is
 \[
@@ -285,7 +288,7 @@ The network is composed of several key components:
 \subsection{Omission of CANL/CANR}
 \textbf{\emph{Omission of CANL/CANR.}}
 \label{sec:omission}
-In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons and muscles but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 is a forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Under the dynamics in Sec.~\ref{sec:isolated}, isolated nodes are decoupled from the controller and cannot influence motor commands or reward; their inclusion/exclusion is therefore behaviorally invariant in this model.
+In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons and muscles but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 is a forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Under the dynamics in Sec.~\ref{sec:isolated}, isolated nodes are disconnected from the graph and therefore cannot influence global dynamics. Their inclusion/exclusion is therefore behaviorally invariant in this model.
 
 \subsection{Isolated nodes}
 \label{sec:isolated}
@@ -341,7 +344,7 @@ Next, ensure that there are no $\sigma$ with value 0 by setting all that are equ
 \[
 S'_{i} = \max(\epsilon,S_{i}) 
 \]
-Now we get the "probabilities" of each of the singular values. We divide by the sum, so that $\sum p_i = 1$ and so that we can use Shannon entropy.
+Now we get the ``probabilities" of each of the singular values. We divide by the sum, so that $\sum p_i = 1$ and so that we can use Shannon entropy.
 \[
 p_i = \frac{S'_{i}}{\sum^N_{k=1}{S'_{k}}}
 \]
@@ -383,7 +386,7 @@ In reservoir computing, the input signal plays the role of the stones, and the r
 Memory capacity, introduced by Jaeger \parencite{Jaeger2002STMESN}, is a measure of the amount of linear memory a reservoir contains. Given an input $u(t)\in U[-1,1]$, the reservoir's memory capacity is determined by its ability to reproduce this input at at  varying delays ($k$). Memory capacity is originally defined by Jaeger as   
 \[\text{MC}_k=\dfrac{\big(\text{cov}\!\left(u(t-k),\hat u_k(t)\right)\big)^2}{\text{var}(u)\,\text{var}(\hat u_k)}\] \[\text{MC}=\sum_{k=1}^\infty\text{MC}_k.\]\
 
-$MC_k$ measures the correlation between the predicted signal and the original signal or how well the network "remembers" the original signal at time $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases, this is intuitive, as we are in a network that has the echo state property (the state of the network is determined by its input history and not by its initial state). Hence we try to recreate the input $u_{t-k}$ from the state $x_t$, but because our network has the echo state property, the state, $x_{t-k}$ resulting from the input $u_{t-k}$ loses influence over $x_t$ as $k$ grows. Jaeger also shows that for i.i.d. (independent and
+$MC_k$ measures the correlation between the predicted signal and the original signal or how well the network ``remembers" the original signal at time $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases, this is intuitive, as we are in a network that has the echo state property (the state of the network is determined by its input history and not by its initial state). Hence we try to recreate the input $u_{t-k}$ from the state $x_t$, but because our network has the echo state property, the state, $x_{t-k}$ resulting from the input $u_{t-k}$ loses influence over $x_t$ as $k$ grows. Jaeger also shows that for i.i.d. (independent and
 identically distributed) random input, $MC \leq N$ \parencite{Jaeger2002STMESN,Stepney2024PRCtutorial}.\\
 
 Let $X' = \frac{X-\bar{X}}{\text{std}(X)+\epsilon}$,
@@ -435,6 +438,7 @@ To validate this truncation, we swept $D_{\max} \in \{30,50,80\}$ across all 14 
 We therefore use $D_{\max}=30$ throughout, since it preserves essentially the full observed memory capacity while being more computationally efficient than larger cutoffs.
 
 \subsection{Information Processing Capacity}
+\label{sec:ipc}
 Returning to our pool, suppose we are no longer interested in recovering the size of individual stones, but instead in recovering combinations of stones. When multiple stones are dropped into the pool, their waves do not simply add; they interfere, overlap, and mix. The resulting wave pattern contains not only information about each stone individually, but also information about their interactions. Information Processing Capacity measures how many independent combinations of past stones simultaneously exist in the current wave pattern.
 \paragraph{Notation.}
 \begin{itemize}
@@ -515,10 +519,10 @@ We therefore use IPC$(1,3,5)$ with $D_{\max}=30$ throughout. In our setting, thi
 
 
 
-\section{Invariance across Hyper-parameters}
+\section{Invariance across Hyperparameters}
 Variance measures the degree of spread in a data set from its mean value. In this study we are measuring variance of key network statistics (GR,KR,IPC,MC) under hyperparameter change. It is important to note that while the values of these network statistics are important, i.e. a high IPC being an indicator of a strong network architecture, we are investigating how these values change under hyperparameter change compared between different model architecture, rather than the values themselves. Hence we will not measure variance but rather we will measure coefficient of variation, as this provides a measure of variance across different scales. \[CV = \frac{\text{std}(a)}{\bar{a}}\]
 
-Where a is the set of values of the network statistic we are measuring, i.e. IPC, MC, GR, or KR, under a set of differing hyperparameter values. It is desirable to have a low CV, as this indicates that the network statistic is invariant to hyperparameter change, meaning the network can be trained with a wide range of hyper-parameters without changing the network's ability to perform a given task.
+Where a is the set of values of the network statistic we are measuring, i.e. IPC, MC, GR, or KR, under a set of differing hyperparameter values. It is desirable to have a low CV, as this indicates that the network statistic is invariant to hyperparameter change, meaning the network can be trained with a wide range of hyperparameters without changing the network's ability to perform a given task.
 
 
 \chapter{Methods}
@@ -545,7 +549,7 @@ Kawai et al. \parencite{KAWAI201915} demonstrated that networks with small-world
 
 Although fully random networks (\(p = 1\)) achieved the single highest peak memory capacity—at a spectral radius slightly below one—small-world networks maintained strong performance across a broader range of spectral radii. In contrast, the performance of fully random reservoirs fell sharply outside of a narrow band of spectral radii.
 
-This result provides conceptual motivation for the present work: a biologically inspired architecture with small-world structure can exhibit comparatively stable computational performance across spectral radii, rather than relying on precise tuning near the edge of stability, as is often assumed in traditional reservoir computing theory.\footnote{Here, "traditional" refers to the common assumption in reservoir computing that fully random connectivity maximizes dynamical diversity and therefore computational ability.}
+This result provides conceptual motivation for the present work: a biologically inspired architecture with small-world structure can exhibit comparatively stable computational performance across spectral radii, rather than relying on precise tuning near the edge of stability, as is often assumed in traditional reservoir computing theory.\footnote{Here, ``traditional" refers to the common assumption in reservoir computing that fully random connectivity maximizes dynamical diversity and therefore computational ability.}
 \section{Hyperparameter Sweeps}
 We evaluated network performance under perturbations of spectral radius, leak rate, and input scaling. To compute our coefficient of variation (CV) metric, each trial consisted of evaluating the network across all combinations of the following hyperparameters:
 
@@ -998,7 +1002,7 @@ Several extensions would help clarify these interpretations. First, the model co
 
 Second, the present conclusions should be tested on downstream tasks such as NARMA to determine whether the same invariance relationships hold when the reservoir is evaluated by task performance rather than task-agnostic statistics alone. The same framework could also be used to investigate how connectome optimization algorithms \parencite{churchland_garcia-ojalvo_2026} alter task-agnostic statistsics, and whether task-driven optimization moves biological reservoirs along the same performance--invariance axes identified here.
 
-Third, it would be valuable to repeat these experiments with biologically segregated input and output populations. Using sensory neurons as inputs and muscles or motor-associated neurons as outputs would bring the model closer to a functional circuit interpretation and would better connect this work to prior studies of connectome-based computation \parencite{KAWAI201915}. Finally, the hypothesis that the empirical weight ordering lies near a local CV minimum deserves direct study. A natural next step would be to interpolate between the empirical assignment and progressively shuffled assignments while measuring changes in CV and performance.
+Third, it would be valuable to repeat these experiments with biologically segregated input and output populations. Using sensory neurons as inputs and muscles or motor neurons as outputs would bring the model closer to a functional circuit interpretation and would better connect this work to prior studies of connectome-based computation \parencite{KAWAI201915}. Finally, the hypothesis that the empirical weight ordering lies near a local CV minimum deserves direct study. A natural next step would be to interpolate between the empirical assignment and progressively shuffled assignments while measuring changes in CV and performance.
 
 
 

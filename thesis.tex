@@ -155,7 +155,7 @@
 % The abstract is not required if you're writing a creative thesis (but aren't they all?)
 % If your abstract is longer than a page, there may be a formatting issue.
     \chapter*{Abstract}
-Biological neural circuits maintain functional computation despite substantial variation in synaptic strengths, membrane properties, and inputs. Reservoir computers, by contrast, can be highly sensitive to hyperparameters such as spectral radius, input scaling, and leak rate. This thesis asks which structural features of a network support invariance to those parameter changes. Using the \textit{C.\ elegans} connectome as a biologically grounded reservoir, I measure computational capability with four task-agnostic metrics---Memory Capacity (MC), Information Processing Capacity (IPC), Kernel Rank (KR), and Generalization Rank (GR)---and define hyperparameter invariance as the coefficient of variation of these metrics across sweeps of spectral radius, input scaling, and leak rate.
+Biological neural circuits maintain functional computation despite substantial variation in synaptic strengths, membrane properties, and inputs. Reservoir computing provides a useful artificial framework for studying this robustness: input signals are projected into a high-dimensional space by a fixed nonlinear dynamical system, called the reservoir. Unlike biological circuits, however, these systems can be highly sensitive to hyperparameters such as spectral radius, input scaling, and leak rate. This thesis asks which structural features of a network support invariance to those parameter changes. Using the \textit{C.\ elegans} connectome as a biologically grounded reservoir, I measure computational capability with four task-agnostic metrics---Memory Capacity (MC), Information Processing Capacity (IPC), Kernel Rank (KR), and Generalization Rank (GR)---and define hyperparameter invariance as the coefficient of variation of these metrics across sweeps of spectral radius, input scaling, and leak rate.
 
 To isolate the structural determinants of invariance, I construct controlled perturbations that separately modify connectivity topology, weight-magnitude distributions, and excitatory/inhibitory sign structure while preserving the remaining properties. Across these experiments, the empirical connectome consistently occupies a relatively low-variance regime. Preserving global sign structure recovers much of this invariance even when weight magnitude heterogeneity is removed, whereas perturbing sign balance produces the largest changes in both mean performance and hyperparameter sensitivity.
 
@@ -169,50 +169,29 @@ The dominant pattern is a performance--invariance tradeoff. Moving the reservoir
 %if you want special chapter formatting, you'll probably want to avoid using it altogether
 
 \chapter{Introduction}
-Picture a pool of water, with no waves on it--this is a compute reservoir; our computational substrate. Now imagine dropping a stone into the pool--our input--observing ensuing waves--our output. One could use the pool to perform computational tasks; dropping multiple stones in the pool in order to compute. Alternatively one could measure the computational power of the pool without regard to a specific task, this is what this work explores.\footnote{This has actually been done in \textit{Pattern Recognition in a Bucket} \parencite{fernando_sampsa_sojakka_2003}}
+In 1966, the mathematician and psychologist Seymour Papert initiated the ``Summer Vision Project,'' an early attempt to develop programs capable of performing image-classification tasks. The project revealed that visual perception was far more difficult to formalize computationally than early researchers had anticipated, and that heuristic approaches were insufficient for the problem. \parencite{nilsson_2010}
+
+Earlier, in 1962, Hubel and Wiesel studied the visual cortex of cats and found neurons that responded selectively to oriented bars of light at specific locations, as well as more complex cells that responded to such features across a range of positions. These results suggested that biological vision achieves robust computation through layered feature extraction.\parencite{lindsay_2020}
+
+Fukushima drew directly on these biological principles in 1980 when he developed the Neocognitron, a multilayer neural architecture capable of image classification that was robust to positional shifts. The Neocognitron is widely regarded as a precursor to modern convolutional neural networks. This historical arc is illustrative: when computational principles proved inadequate, progress came from studying biological systems and abstracting structural principles from them. \parencite{fukushima_1980} 
+
+The same logic motivates the present work. Biological neural networks must function reliably across noisy, variable, and changing conditions, making them natural models of robust computation. The gap between artificial and biological robustness is still visible in many domains: engineered systems often remain brittle outside their training regime\parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}, whereas animals routinely generalize behavior across unfamiliar environments \parencite{burden_libby_jayaram_sponberg_donelan_2024,pearson_2000}.
+
+This thesis turns to a biological network not to explain the organism itself, but to study what its architecture may reveal about robust computation. Thus, the \textit{C.\ elegans} connectome is used as a network prior to investigate which of its structural features contribute to hyperparameter-invariant computation.
 
 
 
 
 
+\chapter{Reservoir Computers and Echo State Networks}
+\section{Reservoir Computers: an Introduction}
+Picture a pool of water, with no waves on it--this is a compute reservoir; our computational substrate. Now imagine dropping a stone into the pool--our input--observing ensuing waves--our output. One could use the pool to perform computational tasks; dropping multiple stones in the pool in order to compute. Alternatively one could measure the computational power of the pool without regard to a specific task, this is what this work explores.\footnote{This has actually been done in \textit{Pattern Recognition in a Bucket} \parencite{fernando_sampsa_sojakka_2003}} In this analogy, the input sequence corresponds to the sequence of stones, the nonlinear high-dimensional expansion corresponds to the pool dynamics, and the output sequence corresponds to an observer interpreting the evolving wave patterns. Echo state networks are a class of reservoir computers in which the reservoir state is uniquely determined by the input history.
 
-
-
-\section{Neuroscience Terms Explained for Computer Scientists}
-\begin{itemize}
-    \item {\textbf{neuron} -- basic building block of neural circuits. In this work, neurons will be represented with a node on a graph that has both activation function and internal state (representing membrane potential).}
-    
-    \item {\textbf{synapse} -- Another basic building block of neural circuits. They will be represented by a directed edge with a weight connecting two neurons. } 
-    \item {\textbf{excitatory neuron} -- a neuron with only positive weight outgoing edges}
-    \item {\textbf{inhibitory neuron} -- a neuron with only negative weight outgoing edges }
-    \item {\textbf{E/I balance} -- the ratio of excitatory neurons to inhibitory neurons}
-   % \item {\textbf{Dale’s law} -- principle stating that a %neuron releases the same neurotransmitter at all of its %synapses. \parencite{Svensson2019} In graph terms, neurons %adhering to this principle have all positive or negative %outgoing connections    \footnote{Dale’s law is not %universally true; many neurons are now known to exhibit %cotransmission, releasing multiple neurotransmitters and %violating the single-sign assumption.\parencite{Svensson2019} }}
-
-    
-    \item {\textbf{neurotransmitter} -- chemicals that allow neurons to communicate with each other--transmitted between synapses\parencite{Sheffler2023Neurotransmitters}}
-    \item {\textbf{gap junction} -- a type of synapse that connects the cytoplasm of two adjacent cells; bidirectional with the same weight for both sides. In our modeling these are either removed or treated as a two distinct positive signed edges}
-    \item {\textbf{neuromuscular junction} -- a specialized synapse where a motor neuron communicates with a muscle fiber. These directed edges are directed to non-neural cells and hence are not included in our graph}
-    \item {\textbf{connectome} -- a wiring diagram of a biological neural network. This typically contains all neurons and synapses along with edge weights}
-    \item {\textbf{sensory neuron} -- a neuron that receives sensory input. During typical biological use these can be thought of as ``inputs" to the network.} 
-    \item {\textbf{motor neuron} -- a neuron that passes signal to the motor cells. During typical biological use these can be thought of as the ``outputs" of the network}
-    \item {\textbf{synaptic terminals} -- bulbous endings of a neuron's axon where neurotransmitters are transferred to other cells (neurons, muscles), we use the number of these as a proxy for edge weight.}
-    \item {\textbf{membrane potential} -- The membrane potential is the difference in electrical charge between the inside and outside of a neuron, forming the basis for neural activity.\parencite{Henley_2021}  For our purposes, this is the internal state of the neuron representing how much our activation function will be saturated}
-    \item {\textbf{small-worldness} -- a property commonly observed in biological networks. A graph that exhibits the small world property has both high clustering coefficient and short average path length. It is claimed that it makes information spread more efficient, and makes the network more robust\parencite{Bassett2007,latora2001}. }
-    \item {\textbf{scale-free network}} -- a network whose degree distribution follows a power law meaning the fraction of nodes with degree k follows a power law $k^{-\alpha}$ \parencite{broido_clauset_2019}.
-\end{itemize}
-
-
-
-
-
-
-\chapter{Echo State Networks}
-\section{Echo State Networks: an Introduction}
+\section{Echo State Networks}
+%%need a new section defining reservoir computers
 Echo state networks are discrete time recurrent reservoir computers, introduced by Jaeger \parencite{jaeger_echo_state_2001}. Due the recurrence, echo state networks and are particularly useful in time series analysis \parencite{Jaeger_Schrauwen_2012} and chaotic system prediction problems \parencite{Jager2004}. For readers unfamiliar with reservoir computing, we recommend the tutorial-style introduction\ \parencite{introtoRC} and the accompanying interactive RC Bootcamp notebooks. \parencite{rcbootcampSite}
 
 Reservoir computers have $K$ input units, $N$ internal network (more colloquially known as reservoir network or reservoir) units and L output units. These units are most commonly nodes of a network.\footnote{We must say units here, as researchers implement reservoir computing with all sorts of mediums of computation such as water \parencite{fernando_sampsa_sojakka_2003} and plants. \parencite{pieters_de_swaef_stock_wyffels_2022}} Reservoir computers have 3 sets of weights; input weights $W^{in}_{ij}$ with size $K \times N$, internal weights $W^{res}_{ij}$ with size $N\times N$, output weights, $W^{out}_{ij}$, with size $N\times L$. \parencite{jaeger_echo_state_2001}. The reservoir acts as a nonlinear expansion and as a memory of the input \parencite{Lukosevicius2012PracticalESN}.
-
-Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{out}_{ij}$, as opposed to training all weights like is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we ``tap" in to the dynamics of the ``reservoir" by linearly combining different neuron states. Training the reservoir's weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
 
 Formally, let $u_t \in \mathbb{R}^{d}$ be input, $x_t \in \mathbb{R}^{N}$ the reservoir state, and $y_t \in \mathbb{R}^{p}$ the output. With leak $\alpha \in (0,1]$:
 \begin{align}
@@ -222,8 +201,13 @@ y_t &= W^{\mathrm{out}}\,[x_t; u_t; 1],
 \end{align}
 where $\tanh$ is elementwise, $b$ is an optional bias term and is not included in our model, $\xi_t$ is optional i.i.d.\ noise and is not included in our model, $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W^{\mathrm{out}}\in\mathbb{R}^{p\times (|W^{\mathrm{res}}|)}$ is trained. The parameter $p$ is set to 3 for IPC (Section~\ref{sec:ipc}) to solve for different orders in a single batch; in all other cases, it is set to 1.
 
-The literature emphaizses the importance our internal network satisfying the echo-state property \parencite{Stepney2024PRCtutorial,jaeger_echo_state_2001}. The echo state property states that asymptotically, the state of a reservoir $x(n)$ is uniquely determined by the input history $u_t$, rather than by the initial state of the network $x_0$. An elucidating example of this peroperty is a house with a thermostat. Pircutre two identical houses with the same target temperature $u_t$ and thermostat program $W$. Imagine house b starts with a cold temperature $x_0$ and house a starts with a hot temperature $x_0'$. With time and a reasonable thermostat program both temperature states $x_n,x_n'$ will converge and the temperature state $x_n$ will be determined solely by the temperature target. 
+Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{out}_{ij}$, as opposed to training all weights like is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we ``tap" in to the dynamics of the ``reservoir" by linearly combining different neuron states. Training the reservoir's weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
 
+
+
+The literature emphaizses the importance our internal network satisfying the echo state property \parencite{Stepney2024PRCtutorial,jaeger_echo_state_2001}. The echo state property states that asymptotically, the state of a reservoir $x(n)$ is uniquely determined by the input history $u_t$, rather than by the initial state of the network $x_0$. An elucidating example of this peroperty is a house with a thermostat. Pircutre two identical houses with the same target temperature $u_t$ and thermostat program $W$. Imagine house b starts with a cold temperature $x_0$ and house a starts with a hot temperature $x_0'$. With time and a reasonable thermostat program both temperature states $x_n,x_n'$ will converge and the temperature state $x_n$ will be determined solely by the temperature target. 
+
+A reservoir that does not satisfy the echo state property is generally it unsuitable for computation. Without the echo state property, the reservoir state is not uniquely determined by the input history; depending largely on the initial condition. In practice, this means that recurrent feedback dominates the dynamics: internal activity grows in magnitude and persists independently of the input; the effect of new inputs is overshadowed. As a result, the reservoir no longer functions as a reliably input-driven dynamical system and instead tends toward self-sustaining or unstable feedback patterns.
 
 
 
@@ -243,7 +227,6 @@ $\{\lambda_i\}_{i=1}^N$. The \emph{spectral radius} of $W$ is defined as
 \]
  The spectral radius roughly controls the strength of recurrent feedback. Choosing $\rho(W_{\mathrm{res}}) < 1$ promotes the echo state property by making the reservoir dynamics contractive. Values near $\rho(W_{\mathrm{res}}) \approx 1$ typically produce richer, longer-lasting transients while often still preserving the echo state property. Values with $\rho(W_{\mathrm{res}}) > 1$ are less common, since they often lead to reservoirs that do not satisfy the echo state property. However, if the reservoir is driven by sufficiently strong inputs, reservoirs with $\rho(W_{\mathrm{res}}) > 1$ can still satisfy the echo state property. This is due to the nonlinearity of the activation function, in our case $\tanh$, which reduces the effective gain of the recurrence and damps feedback loops. \parencite{Lukosevicius2012PracticalESN}
  
- A reservoir that does not satisfy the echo state property is generally it unsuitable for computation. Without the echo state property, the reservoir state is not uniquely determined by the input history; depending largely on the initial condition. In practice, this means that recurrent feedback dominates the dynamics: internal activity grows in magnitude and persists independently of the input; the effect of new inputs is overshadowed. As a result, the reservoir no longer functions as a reliably input-driven dynamical system and instead tends toward self-sustaining or unstable feedback patterns.
 
 
 
@@ -259,16 +242,6 @@ x_{t+1} \approx \left[(1-\alpha)x_t + \alpha \tilde{x}_{t+1} \right] ,
 
 \chapter{Background}
 \section{The C. elegans Connectome} %maybe put this at the start instead
-\subsection{Historical Justification}
-In 1966, the mathematician and psychologist Seymour Papert initiated the ``Summer Vision Project,'' an early attempt to develop programs capable of performing image-classification tasks. The project revealed that visual perception was far more difficult to formalize computationally than early researchers had anticipated, and that heuristic approaches were insufficient for the problem. \parencite{nilsson_2010}
-
-Earlier, in 1962, Hubel and Wiesel studied the visual cortex of cats and found neurons that responded selectively to oriented bars of light at specific locations, as well as more complex cells that responded to such features across a range of positions. These results suggested that biological vision achieves robust computation through layered feature extraction.\parencite{lindsay_2020}
-
-Fukushima drew directly on these biological principles in 1980 when he developed the Neocognitron, a multilayer neural architecture capable of image classification that was robust to positional shifts. The Neocognitron is widely regarded as a precursor to modern convolutional neural networks. This historical arc is illustrative: when computational principles proved inadequate, progress came from studying biological systems and abstracting structural principles from them. \parencite{fukushima_1980} 
-
-The same logic motivates the present work. Biological neural networks must function reliably across noisy, variable, and changing conditions, making them natural models of robust computation. The gap between artificial and biological robustness is still visible in many domains: engineered systems often remain brittle outside their training regime\parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}, whereas animals routinely generalize behavior across unfamiliar environments \parencite{burden_libby_jayaram_sponberg_donelan_2024,pearson_2000}.
-
-This thesis turns to a biological network not to explain the organism itself, but to study what its architecture may reveal about robust computation. Thus, the \textit{C.\ elegans} connectome is used as a network prior to investigate which of its structural features contribute to hyperparameter-invariant computation.
 \subsection{Connectome}
 A connectome is a description of the neural wiring of an organism. It encodes which neurons are connected, the direction of said connection, and often additional biological metadata such as the number of synaptic terminals and the neurotransmitter associated with each connection.
 
@@ -286,18 +259,8 @@ The network is composed of several key components:
 
 \end{itemize}
 \subsection{Omission of CANL/CANR}
-\textbf{\emph{Omission of CANL/CANR.}}
 \label{sec:omission}
-In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 is a forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Under the dynamics described in Sec.~\ref{sec:isolated}, such isolated nodes are disconnected from the recurrent network and therefore do not affect the dynamics of the remaining reservoir. Their inclusion or omission is therefore irrelevant in this model.
-
-\subsection{Isolated nodes}
-\label{sec:isolated}
-Nodes with no incoming or outgoing synaptic connections are dynamically inert and therefore do not influence dynamics of the network. Formally, if neuron $i$ satisfies $W_{ij}=0$ and $W_{ji}=0$ for all $j$, then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining network. They would still have an internal signal influenced by the input. This internal signal provides no additional useful features to the readout layer, since its temporal activity is linearly dependent with respect to the four neurons with in-degree zero already present in the network.\footnote{Importantly, these four neurons do not have non-zero out-degree and thus influence network dynamics.}
-
-
-  This internal signal offers no useful features to be tapped by the reservoir as their internal signal throughout time is linearly redundent with respect to neurons with in-degree 0, of which there are 4 of in our network. 
-
-This condition applies to CANL, CANR, and VC6 in the c302-derived graph, as their known synaptic contacts are exclusively with excretory (CANL, CANR) and vulval muscles (VC6), which are omitted from the modeled neuron set. Consequently, these neurons are isolated within the weight matrix and do not influence the reservoir dynamics.
+In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 is a forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Nodes with no incoming or outgoing synaptic connections are dynamically inert and therefore do not influence dynamics of the network. Formally, if neuron $i$ satisfies $W_{ij}=0$ and $W_{ji}=0$ for all $j$, then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining network. They would still have an internal signal influenced by the input. This internal signal provides no additional useful features to the readout layer, since its temporal activity is linearly dependent with respect to the four neurons with in-degree zero already present in the network.\footnote{Importantly, these four neurons do not have non-zero out-degree and thus influence network dynamics.} The inclusion or omission of these isolated nodes is therefore irrelevant in this model.
 
 
 
@@ -330,7 +293,7 @@ and onward, causing divergence; with noise-trained models, the estimator learns 
 What makes a given neural circuit computationally powerful? More precisely, how can two network architectures be compared across a suite of tasks without explicitly training them on those tasks? In reservoir computing, this question is addressed through task-agnostic statistics that quantify intrinsic dynamical properties of the network. Measures such as information processing capacity (IPC), kernel rank (KR), generalization rank (GR), and memory capacity (MC) characterize functional dimensions, including nonlinearity, separability, generalization, and fading memory. Additionally, these statistics are widely used as benchmarking tools for reservoir networks \parencite{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
 
 \subsection{Kernel Rank}
-Returning to the earlier pool analogy, in which inputs are modeled as stones dropped into still water and reservoir states as the resulting wave patterns, we can use this picture to build intuition for the task-agnostic network statistics considered in this work Imagine dropping stones of different sizes into the pool, one after another, in the same place each time, and repeating this process for many input sequences. Each sequence produces a pattern of waves, corresponding to a reservoir state. Kernel rank is a measure of how distinctly the pool responds to different sets of inputs; if many input sequences lead to the same wave patterns, then the kernel rank will be low. If those input sequences instead map to distinct wave patterns then the kernel rank will be high.
+Returning to the earlier pool analogy, in which input sequences are modeled as stones dropped into water and reservoir states as the resulting wave patterns, we can use this picture to build intuition for the task-agnostic network statistics considered in this work. Imagine dropping stones of different sizes into the pool, one after another, in the same place each time, and repeating this process for many input sequences. Each sequence produces a pattern of waves, corresponding to a reservoir state. Kernel rank is a measure of how distinctly the pool responds to different sets of inputs; if many input sequences lead to the same wave patterns, then the kernel rank will be low. If those input sequences instead map to distinct wave patterns then the kernel rank will be high.
 
 Kernel rank measures how effectively inputs are projected into a high-dimensional state space so they become linearly separable by a readout $W^{out}$, serving as a measurable proxy for kernel quality and the diversity of nonlinear transformations created by the reservoir\parencite{Stepney2024PRCtutorial}. Higher is better for this metric. Specifically it is a measure of the rank of the $n \times m$  matrix whose columns are the internal state ($x_{u_i}(t_0)$) at some fixed time $t_0$ for the preceding input stream $u_i$. Where $n$ is the number of units in the circuit, $m$ is the number of input streams, ($x_{u_i}(t_0)$) is the internal state at time $t_0$, we have $m$ different input streams $u_i$. This is the original definition\parencite{maass_comp_power_2004}, we will use a modified version of this also found in literature \parencite{Stepney2024PRCtutorial}. In our implementation, we use the state-matrix variant common in benchmarking: we drive the reservoir with a single i.i.d. input sequence $u_t$---rather than m input streams---and collect the post-washout state matrix $X \in \mathbb{R}^{T\times N}$ where each row is the reservoir state at each time step. Kernel Rank is computed using effective rank \parencite{roy_vetterli_2007}. Because the readout is linear, neurons with very similar activity patterns provide redundant information. We want a kernel whose neurons' activity patterns vary greatly, such that this can be utilized by our readout. Thus we need a different measure of rank, as matrix rank only detects exact linear dependence; neurons with highly similar but not identical activity patterns will still increase the rank. We want a measure of rank that measures variance across orthogonal modes. This leads us to effective rank. To compute effective rank, we perform the following steps:\\
 First we center our values with respect to time\\
@@ -359,7 +322,7 @@ Then we do $e^H$ so that we can get the effective rank of our matrix.
 \[
 \text{erank} = e^{H}
 \]
-An illustrative example is that of $p_i =\frac{1}{k}$. This case is ahcieved when we have k eigen values of the same magnitude. In this case  $H = \ln{{k}}$ thus $e^H = k$ which is the effective rank of our matrix.
+%An illustrative example is that of $p_i =\frac{1}{k}$. This case is ahcieved when we have k eigen values of the same magnitude. In this case  $H = \ln{{k}}$ thus $e^H = k$ which is the effective rank of our matrix.
 
 \subsection{Generalization Rank}
 Returning to the pool, suppose we wanted to observe how much the waves patterns change if we used slightly larger or smaller rocks. We could alter the size of our rocks slightly and drop them sequentially into the same location in the pool. By comparing the resulting wave pattern to the wave pattern of the unaltered rocks, we can measure how many independent wave patterns the pool produces from these nearly identical inputs. If small changes in the stones lead to many distinct wave patterns, the pool is highly sensitive and maps to a high-dimensional set of states; if small changes lead to similar wave patterns, the pool generalizes and collapses to a lower-dimensional set of states. This is measured by the Generalization Rank.
@@ -444,6 +407,7 @@ We therefore use $D_{\max}=30$ throughout, since it preserves essentially the fu
 
 \subsection{Information Processing Capacity}
 \label{sec:ipc}
+
 Returning to our pool, suppose we are no longer interested in recovering the size of individual stones, but instead in recovering combinations of stones. When multiple stones are dropped into the pool, their waves do not simply add; they interfere, overlap, and mix. The resulting wave pattern contains not only information about each stone individually, but also information about their interactions. Information Processing Capacity measures how many independent combinations of past stones simultaneously exist in the current wave pattern.
 \paragraph{Notation.}
 \begin{itemize}
@@ -886,11 +850,11 @@ To test whether hyperparameter invariance depends on connectivity itself or on t
 
 The first experiment, shown in Fig.~\ref{fig:realW}, Table~\ref{tab:tost_grkr_shuffles_1}, and Table~\ref{tab:tost_mcipc_shuffles_1}, uses the original \textit{C.\ elegans} weight matrix. Here, both weight shuffling and connection shuffling increase the coefficient of variation (CV), indicating reduced invariance under hyperparameter sweeps. Crucially, however, these two manipulations increase CV by nearly the same amount. The combined weight+connection shuffle serves as a control for whether these effects are additive. If weight shuffling and connection shuffling disrupted invariance through distinct mechanisms, then applying both transformations together should have produced a larger increase in CV than either transformation alone. Instead, the combined shuffle matches the weight-shuffle and connection-shuffle conditions across all four task-agnostic metrics. Consistent with this visual overlap, the pairwise comparisons among weight shuffle, connection shuffle, and weight+connection shuffle were equivalent across metrics. This suggests that the increase in CV produced by connection shuffling is not primarily a topological effect. Rather, in the real-weight setting, connection shuffling matters because it disrupts the original assignment of heterogeneous biological weights to edges. The lower CV of the unshuffled \textit{C.\ elegans} network therefore indicates that this biological weight arrangement is invariance-promoting relative to the shuffle controls tested here, though these experiments do not establish that it is globally CV-minimizing. %%though this would be an interesting question for future work.
 
-The second experiment, shown in Fig.~\ref{fig:pm1W}, Table~\ref{tab:tost_grkr_shuffles_2}, and Table~\ref{tab:tost_mcipc_shuffles_2}, repeats the same analysis after collapsing all nonzero weights to $\pm 1$. This removes magnitude heterogeneity while preserving sign structure. Under this constraint, weight shuffle, connection shuffle, and weight+connection shuffle have little effect on GR and KR, and pairwise comparisons for these metrics are equivalent. IPC is also largely stable, with 5 out of 6 pairwise comparisons being equivalent. MC behaves differently: weight shuffling increases CV, whereas connection shuffle and connection+weight shuffle reduce it relative to the baseline. Correspondingly, equivalence across the four models largely breaks down for MC. The main result of this experiment is therefore metric-specific. Once magnitude heterogeneity is removed, GR and KR remain largely invariant to both rewiring and sign redistribution, whereas MC remains sensitive both to which connections are present in the graph and to how $\pm 1$ weights are distributed across those connections. IPC lies between these cases: more stable than MC, but not as fully preserved as GR and KR.
+The second experiment, shown in Fig.~\ref{fig:pm1W}, Table~\ref{tab:tost_grkr_shuffles_2}, and Table~\ref{tab:tost_mcipc_shuffles_2}, repeats the same analysis after collapsing all nonzero weights to $\pm 1$. This removes magnitude heterogeneity while preserving sign structure. Under this constraint, weight shuffle, connection shuffle, and weight+connection shuffle have little effect on GR and KR, IPC and all pairwise comparisons for these metrics are equivalent. Mc is also largely stable, with 4 out of 6 pairwise comparisons being equivalent. In MC topological shuffles reduce CV relative to the baseline producing 2 inequivalencies. Correspondingly, equivalence across the four models largely breaks down for MC. The main result of this experiment is therefore metric-specific. Once magnitude heterogeneity is removed, GR and KR remain largely invariant to both rewiring and sign redistribution, whereas MC remains sensitive both to which connections are present in the graph and to how $\pm 1$ weights are distributed across those connections. IPC lies between these cases: more stable than MC, but not as fully preserved as GR and KR.
 
-This second experiment also tests whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the $\pm 1$ model that preserves edge sign to the $\pm 1$ model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized. The equivalence of these two models across 3 out of 4 metrics (see Table~\ref{tab:tost_grkr_shuffles_2} and Table~\ref{tab:tost_mcipc_shuffles_2}) suggests that the specific topological arrangement of excitatory and inhibitory synapses is not a key determinant of invariance. Instead, invariance appears to depend more on global dynamical constraints imposed by sign balance, rather than on the micro-scale structure of individual synapse polarities. 
+This second experiment also tests whether invariance depends on the topological placement of excitatory and inhibitory synapses, or instead on the global balance of neurotransmitter signs. To isolate this factor, we compare the $\pm 1$ model that preserves edge sign to the $\pm 1$ model that preserves the global sign distribution. In this model, the overall proportion of excitatory and inhibitory weights is preserved, but their locations are randomized. These two models are equivalent accross all metrics (see Table~\ref{tab:tost_grkr_shuffles_2} and Table~\ref{tab:tost_mcipc_shuffles_2}) suggests that the specific topological arrangement of excitatory and inhibitory synapses is not a key determinant of invariance. Instead, invariance appears to depend more on global dynamical constraints imposed by sign balance, rather than on the micro-scale structure of individual synapse polarities. 
 
-The third experiment, shown in Fig.~\ref{fig:bW} and Table~\ref{tab:tost_grkr_shuffles_3}, isolates topology more directly by using binary weights. In this setting, all nonzero edges have identical magnitude and sign, so shuffling weights is trivial and has no effect. The only meaningful perturbation is therefore a degree-preserving connection shuffle. Under this manipulation, the shuffled-topology model and the binary base are equivalent for GR and KR, but not for IPC and MC, where CV decreases significantly after rewiring. This finding is important because it rules out the idea that the earlier effects of connection shuffling arose solely through the accompanying shuffle of heterogeneous weights. Even when that possibility is removed, IPC and MC still respond to topology, whereas GR and KR remain comparatively insensitive. 
+The third experiment, shown in Fig.~\ref{fig:bW} and Table~\ref{tab:tost_grkr_shuffles_3}, isolates topology more directly by using binary weights. In this setting, all nonzero edges have identical magnitude and sign, so shuffling weights is trivial and has no effect. The only meaningful perturbation is therefore a degree-preserving connection shuffle. Under this manipulation, the shuffled-topology model and the binary base are equivalent for  GR, KR, and IPC but not for MC, where CV decreases significantly after rewiring. This finding is important because it rules out the idea that the earlier effects of connection shuffling arose solely through the accompanying shuffle of heterogeneous weights. Even when that possibility is removed, MC still responds to topology, whereas  GR, KR, and IPC remain comparatively insensitive. 
 %% speculate about why these are different.
 
 \begin{comment}
@@ -900,7 +864,7 @@ This result demonstrates that the specific topological placement of excitatory a
 
 These findings indicate that invariance is governed by global dynamical constraints imposed by sign balance, rather than by micro-scale structure of individual synapse polarities.
 \end{comment}
-Taken together, these three experiments show that the effect of degree-preserving rewiring depends strongly on the metric being measured. For GR and KR, invariance is largely preserved across all three weight distributions, suggesting that these metrics are relatively insensitive to degree-preserving topological changes. For IPC and especially MC, the situation is different. In the real-weight network, rewiring acts much like weight shuffling, implying that heterogeneous weight permutation is the dominant mechanism. In the $\pm 1$ setting, IPC and especially MC differ across the weight-shuffle, connection-shuffle, and connection+weight-shuffle conditions, indicating sensitivity to topology even once weight magnitude heterogeneity has been removed. In the binary setting, rewiring can no longer shuffle either magnitudes or signs, so the persistence of this effect directly shows that topology itself can influence these metrics. Thus, degree-preserving topology changes alone are not sufficient to explain the behavior of all metrics. GR and KR are largely invariant under such changes, whereas IPC and MC depend on an interaction between topology and weight distribution.
+Taken together, these three experiments show that the effect of degree-preserving rewiring depends strongly on the metric being measured. For GR, KR, and IPC, invariance is largely preserved across all three weight distributions, suggesting that these metrics are relatively insensitive to degree-preserving topological changes. For MC, the situation is different. In the real-weight network, rewiring acts much like weight shuffling, implying that heterogeneous weight permutation is the dominant mechanism. In the $\pm 1$ setting, MC differs on the connection-shuffle, and connection+weight-shuffle conditions, indicating sensitivity to topology even once weight magnitude heterogeneity has been removed. In the binary setting, rewiring can no longer shuffle either magnitudes or signs, so the persistence of this effect directly shows that topology itself can influence these metrics. Thus, degree-preserving topology changes alone are not sufficient to explain the behavior of all metrics. GR, KR, and IPC are largely invariant under such changes, whereas MC depends on the interaction between topology and weight distribution.
 
 \begin{figure}
     \centering
@@ -1032,6 +996,33 @@ AI tools were used solely as assistive instruments. All scientific claims, analy
 \chapter{Supplemental information}
 
 
+
+
+\section{Neuroscience Terms Explained for Computer Scientists}
+\begin{itemize}
+    \item {\textbf{neuron} -- basic building block of neural circuits. In this work, neurons will be represented with a node on a graph that has both activation function and internal state (representing membrane potential).}
+    
+    \item {\textbf{synapse} -- Another basic building block of neural circuits. They will be represented by a directed edge with a weight connecting two neurons. } 
+    \item {\textbf{excitatory neuron} -- a neuron with only positive weight outgoing edges}
+    \item {\textbf{inhibitory neuron} -- a neuron with only negative weight outgoing edges }
+    \item {\textbf{E/I balance} -- the ratio of excitatory neurons to inhibitory neurons}
+   % \item {\textbf{Dale’s law} -- principle stating that a %neuron releases the same neurotransmitter at all of its %synapses. \parencite{Svensson2019} In graph terms, neurons %adhering to this principle have all positive or negative %outgoing connections    \footnote{Dale’s law is not %universally true; many neurons are now known to exhibit %cotransmission, releasing multiple neurotransmitters and %violating the single-sign assumption.\parencite{Svensson2019} }}
+
+    
+    \item {\textbf{neurotransmitter} -- chemicals that allow neurons to communicate with each other--transmitted between synapses\parencite{Sheffler2023Neurotransmitters}}
+    \item {\textbf{gap junction} -- a type of synapse that connects the cytoplasm of two adjacent cells; bidirectional with the same weight for both sides. In our modeling these are either removed or treated as a two distinct positive signed edges}
+    \item {\textbf{neuromuscular junction} -- a specialized synapse where a motor neuron communicates with a muscle fiber. These directed edges are directed to non-neural cells and hence are not included in our graph}
+    \item {\textbf{connectome} -- a wiring diagram of a biological neural network. This typically contains all neurons and synapses along with edge weights}
+    \item {\textbf{sensory neuron} -- a neuron that receives sensory input. During typical biological use these can be thought of as ``inputs" to the network.} 
+    \item {\textbf{motor neuron} -- a neuron that passes signal to the motor cells. During typical biological use these can be thought of as the ``outputs" of the network}
+    \item {\textbf{synaptic terminals} -- bulbous endings of a neuron's axon where neurotransmitters are transferred to other cells (neurons, muscles), we use the number of these as a proxy for edge weight.}
+    \item {\textbf{membrane potential} -- The membrane potential is the difference in electrical charge between the inside and outside of a neuron, forming the basis for neural activity.\parencite{Henley_2021}  For our purposes, this is the internal state of the neuron representing how much our activation function will be saturated}
+    \item {\textbf{small-worldness} -- a property commonly observed in biological networks. A graph that exhibits the small world property has both high clustering coefficient and short average path length. It is claimed that it makes information spread more efficient, and makes the network more robust\parencite{Bassett2007,latora2001}. }
+    \item {\textbf{scale-free network}} -- a network whose degree distribution follows a power law meaning the fraction of nodes with degree k follows a power law $k^{-\alpha}$ \parencite{broido_clauset_2019}.
+\end{itemize}
+
+
+
 \section{Equivalence testing}
 Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and ~\ref{tab:tost_grkr} ) further clarifies these relationships. We used TOST equivalence testing on the mean dispersion (CV) between each architecture and the biological connectome. The equivalence margin was set to $\Delta = |0.05(\text{median}(\text{dispersion}))|$ computed per metric across all runs. We concluded equivalence when both one-sided tests rejected the null that the mean difference lay outside $[-\Delta,+\Delta]$ Thus, small p-values indicate that the dispersion difference is statistically confined within the predefined practical tolerance. Under this criterion, only specific sign-preserving perturbations satisfied equivalence for selected metrics, while most architectures—including connection shuffles, weight shuffles, and random graph controls—did not satisfy equivalence across all metrics simultaneously. Failure to conclude equivalence (large $p$) does not imply non-equivalence; it indicates insufficient evidence that the mean difference is within $\pm\Delta$ under the chosen margin and sample size. 1000 observations for each comparison. 
 
@@ -1046,22 +1037,26 @@ Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and ~\ref{tab:tost_gr
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-MC & er+randN vs ws p0.1+randN & 0.02035 & 1.632e-06 \\
-MC & sign balence preserving vs pm1 & 0.02035 & 3.571e-10 \\
-MC & sign balence preserving vs sign preserving uniform & 0.02035 & 0.0001843 \\
-MC & sign balence preserving vs real & 0.02035 & 2.001e-06 \\
-MC & sign preserving gaussian vs sign preserving uniform & 0.02035 & 0.0001404 \\
-MC & sign preserving gaussian vs real & 0.02035 & 0.01103 \\
-MC & pm1 vs sign preserving uniform & 0.02035 & 0.05257 \\
-MC & pm1 vs real & 0.02035 & 0.002942 \\
-MC & sign preserving uniform vs real & 0.02035 & 1.683e-11 \\
+MC & Binary wt. vs pm1 sign-pres. + wt. shuf. & 0.0151 & 0.007238 \\
+MC & Binary wt. vs pm1 sign-pres. wt. & 0.0151 & 5.5e-05 \\
+MC & CE Gaussian wt. vs WS Gaussian wt. & 0.0151 & 0.02401 \\
+MC & ER Gaussian wt. vs WS Gaussian wt. & 0.0151 & 5.706e-16 \\
+MC & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.0151 & 3.329e-16 \\
+MC & pm1 sign-pres. + wt. shuf. vs Sign-pres. uniform & 0.0151 & 0.04148 \\
+MC & Sign-pres. Gaussian vs Sign-pres. uniform & 0.0151 & 0.0001002 \\
+MC & Sign-pres. Gaussian vs C. elegans & 0.0151 & 9.184e-12 \\
+MC & Sign-pres. uniform vs C. elegans & 0.0151 & 9.91e-09 \\
 \addlinespace
-IPC & er+randN vs ws p0.1+randN & 0.01719 & 5.917e-11 \\
-IPC & sign balence preserving vs pm1 & 0.01719 & 2.176e-09 \\
-IPC & sign balence preserving vs real & 0.01719 & 0.0114 \\
-IPC & sign preserving gaussian vs sign preserving uniform & 0.01719 & 0.002167 \\
-IPC & sign preserving gaussian vs real & 0.01719 & 0.04578 \\
-IPC & sign preserving uniform vs real & 0.01719 & 6.337e-10 \\
+IPC & Binary wt. vs pm1 sign-pres. + wt. shuf. & 0.01138 & 6.972e-05 \\
+IPC & Binary wt. vs pm1 sign-pres. wt. & 0.01138 & 2.129e-08 \\
+IPC & Binary wt. vs C. elegans & 0.01138 & 5.563e-14 \\
+IPC & ER Gaussian wt. vs WS Gaussian wt. & 0.01138 & 8.612e-08 \\
+IPC & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.01138 & 2.079e-11 \\
+IPC & pm1 sign-pres. + wt. shuf. vs Sign-pres. uniform & 0.01138 & 1.807e-05 \\
+IPC & pm1 sign-pres. + wt. shuf. vs C. elegans & 0.01138 & 1.779e-06 \\
+IPC & Sign-pres. Gaussian vs Sign-pres. uniform & 0.01138 & 5.499e-06 \\
+IPC & pm1 sign-pres. wt. vs Sign-pres. uniform & 0.01138 & 0.01166 \\
+IPC & pm1 sign-pres. wt. vs C. elegans & 0.01138 & 1.938e-10 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1074,18 +1069,19 @@ IPC & sign preserving uniform vs real & 0.01719 & 6.337e-10 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & er+randN vs ws p0.1+randN & 0.01441 & 0.05578 \\
-KR & sign balence preserving vs pm1 & 0.01441 & 7.179e-10 \\
-KR & sign balence preserving vs real & 0.01441 & 5.476e-17 \\
-KR & pm1 vs real & 0.01441 & 1.102e-20 \\
+KR & ER Gaussian wt. vs WS Gaussian wt. & 0.01441 & 5.98e-05 \\
+KR & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.01441 & 1.116e-11 \\
+KR & pm1 sign-pres. + wt. shuf. vs C. elegans & 0.01441 & 3.929e-21 \\
+KR & pm1 sign-pres. wt. vs C. elegans & 0.01441 & 2.716e-20 \\
 \addlinespace
-GR & binary base vs pm1 & 0.02373 & 0.0206 \\
-GR & cel+randN vs er+randN & 0.02373 & 7.889e-07 \\
-GR & cel+randN vs ws p0.1+randN & 0.02373 & 6.67e-06 \\
-GR & er+randN vs ws p0.1+randN & 0.02373 & 3.037e-67 \\
-GR & sign balence preserving vs pm1 & 0.02373 & 7.804e-23 \\
-GR & sign balence preserving vs real & 0.02373 & 5.724e-34 \\
-GR & pm1 vs real & 0.02373 & 1.696e-47 \\
+GR & Binary wt. vs pm1 sign-pres. wt. & 0.02375 & 0.0459 \\
+GR & CE Gaussian wt. vs ER Gaussian wt. & 0.02375 & 3.902e-06 \\
+GR & CE Gaussian wt. vs WS Gaussian wt. & 0.02375 & 3.849e-08 \\
+GR & ER Gaussian wt. vs WS Gaussian wt. & 0.02375 & 5.565e-65 \\
+GR & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.02375 & 1.613e-24 \\
+GR & pm1 sign-pres. + wt. shuf. vs C. elegans & 0.02375 & 4.416e-41 \\
+GR & Sign-pres. Gaussian vs Sign-pres. uniform & 0.02375 & 0.03561 \\
+GR & pm1 sign-pres. wt. vs C. elegans & 0.02375 & 9.945e-45 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1098,13 +1094,13 @@ GR & pm1 vs real & 0.02373 & 1.696e-47 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-MC & celW+conShuf vs conShuf & 0.0201 & 5.887e-10 \\
-MC & celW+conShuf vs weight shuffle & 0.0201 & 1.109e-09 \\
-MC & conShuf vs weight shuffle & 0.0201 & 3.326e-14 \\
+MC & Conn. + wt. shuf. vs Conn. shuf. & 0.01656 & 7.926e-20 \\
+MC & Conn. + wt. shuf. vs Weight shuf. & 0.01656 & 1.844e-14 \\
+MC & Conn. shuf. vs Weight shuf. & 0.01656 & 1.615e-15 \\
 \addlinespace
-IPC & celW+conShuf vs conShuf & 0.01641 & 1.216e-08 \\
-IPC & celW+conShuf vs weight shuffle & 0.01641 & 1.786e-06 \\
-IPC & conShuf vs weight shuffle & 0.01641 & 2.403e-08 \\
+IPC & Conn. + wt. shuf. vs Conn. shuf. & 0.01213 & 6.19e-07 \\
+IPC & Conn. + wt. shuf. vs Weight shuf. & 0.01213 & 4.58e-09 \\
+IPC & Conn. shuf. vs Weight shuf. & 0.01213 & 2.501e-12 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1117,13 +1113,13 @@ IPC & conShuf vs weight shuffle & 0.01641 & 2.403e-08 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & celW+conShuf vs conShuf & 0.01722 & 3.971e-30 \\
-KR & celW+conShuf vs weight shuffle & 0.01722 & 3.014e-27 \\
-KR & conShuf vs weight shuffle & 0.01722 & 8.267e-21 \\
+KR & Conn. + wt. shuf. vs Conn. shuf. & 0.01722 & 4.406e-30 \\
+KR & Conn. + wt. shuf. vs Weight shuf. & 0.01722 & 2.781e-27 \\
+KR & Conn. shuf. vs Weight shuf. & 0.01722 & 8.019e-21 \\
 \addlinespace
-GR & celW+conShuf vs conShuf & 0.02759 & 1.44e-69 \\
-GR & celW+conShuf vs weight shuffle & 0.02759 & 3.36e-46 \\
-GR & conShuf vs weight shuffle & 0.02759 & 4.255e-41 \\
+GR & Conn. + wt. shuf. vs Conn. shuf. & 0.02759 & 4.394e-70 \\
+GR & Conn. + wt. shuf. vs Weight shuf. & 0.02759 & 7.459e-46 \\
+GR & Conn. shuf. vs Weight shuf. & 0.02759 & 4.201e-41 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1136,13 +1132,17 @@ GR & conShuf vs weight shuffle & 0.02759 & 4.255e-41 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-MC & pm1+conshuf+wshuf vs pm1+conshuf & 0.0174 & 4.337e-09 \\
+MC & pm1 sign-pres. + shuf. vs pm1 + conn. shuf. & 0.01368 & 7.998e-12 \\
+MC & pm1 sign-pres. + shuf. vs pm1 sign-pres. + wt. shuf. & 0.01368 & 0.04546 \\
+MC & pm1 + conn. shuf. vs pm1 sign-pres. + wt. shuf. & 0.01368 & 7.225e-05 \\
+MC & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.01368 & 2.114e-05 \\
 \addlinespace
-IPC & pm1+conshuf+wshuf vs pm1+conshuf & 0.01433 & 4.79e-07 \\
-IPC & pm1+conshuf+wshuf vs pm1 & 0.01433 & 4.876e-08 \\
-IPC & pm1+conshuf vs sign balence preserving & 0.01433 & 0.007038 \\
-IPC & pm1+conshuf vs pm1 & 0.01433 & 2.741e-09 \\
-IPC & sign balence preserving vs pm1 & 0.01433 & 0.03575 \\
+IPC & pm1 sign-pres. + shuf. vs pm1 + conn. shuf. & 0.0106 & 8.308e-10 \\
+IPC & pm1 sign-pres. + shuf. vs pm1 sign-pres. + wt. shuf. & 0.0106 & 2.293e-11 \\
+IPC & pm1 sign-pres. + shuf. vs pm1 sign-pres. wt. & 0.0106 & 7.678e-11 \\
+IPC & pm1 + conn. shuf. vs pm1 sign-pres. + wt. shuf. & 0.0106 & 1.491e-07 \\
+IPC & pm1 + conn. shuf. vs pm1 sign-pres. wt. & 0.0106 & 3.382e-07 \\
+IPC & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.0106 & 7.407e-15 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1155,19 +1155,19 @@ IPC & sign balence preserving vs pm1 & 0.01433 & 0.03575 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & pm1+conshuf+wshuf vs pm1+conshuf & 0.01316 & 4.77e-12 \\
-KR & pm1+conshuf+wshuf vs sign balence preserving & 0.01316 & 6.057e-08 \\
-KR & pm1+conshuf+wshuf vs pm1 & 0.01316 & 2.291e-20 \\
-KR & pm1+conshuf vs sign balence preserving & 0.01316 & 4e-16 \\
-KR & pm1+conshuf vs pm1 & 0.01316 & 1.456e-13 \\
-KR & sign balence preserving vs pm1 & 0.01316 & 3.066e-09 \\
+KR & pm1 sign-pres. + shuf. vs pm1 + conn. shuf. & 0.01317 & 4.991e-12 \\
+KR & pm1 sign-pres. + shuf. vs pm1 sign-pres. + wt. shuf. & 0.01317 & 6.44e-08 \\
+KR & pm1 sign-pres. + shuf. vs pm1 sign-pres. wt. & 0.01317 & 2.063e-20 \\
+KR & pm1 + conn. shuf. vs pm1 sign-pres. + wt. shuf. & 0.01317 & 4.512e-16 \\
+KR & pm1 + conn. shuf. vs pm1 sign-pres. wt. & 0.01317 & 1.584e-13 \\
+KR & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.01317 & 3.403e-09 \\
 \addlinespace
-GR & pm1+conshuf+wshuf vs pm1+conshuf & 0.02223 & 2.218e-30 \\
-GR & pm1+conshuf+wshuf vs sign balence preserving & 0.02223 & 1.117e-47 \\
-GR & pm1+conshuf+wshuf vs pm1 & 0.02223 & 1.388e-22 \\
-GR & pm1+conshuf vs sign balence preserving & 0.02223 & 7.424e-30 \\
-GR & pm1+conshuf vs pm1 & 0.02223 & 1.21e-09 \\
-GR & sign balence preserving vs pm1 & 0.02223 & 3.233e-20 \\
+GR & pm1 sign-pres. + shuf. vs pm1 + conn. shuf. & 0.02224 & 3.981e-30 \\
+GR & pm1 sign-pres. + shuf. vs pm1 sign-pres. + wt. shuf. & 0.02224 & 1.419e-47 \\
+GR & pm1 sign-pres. + shuf. vs pm1 sign-pres. wt. & 0.02224 & 9.588e-23 \\
+GR & pm1 + conn. shuf. vs pm1 sign-pres. + wt. shuf. & 0.02224 & 7.492e-30 \\
+GR & pm1 + conn. shuf. vs pm1 sign-pres. wt. & 0.02224 & 9.344e-10 \\
+GR & pm1 sign-pres. + wt. shuf. vs pm1 sign-pres. wt. & 0.02224 & 1.875e-20 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1181,9 +1181,11 @@ GR & sign balence preserving vs pm1 & 0.02223 & 3.233e-20 \\
 \toprule
 Metric & Comparison  & TOST bound  & $p$ \\
 \midrule
-KR & binary base vs binary base topology shuffle & 0.01214 & 0.002814 \\
+IPC & Binary wt. vs Binary wt. + shuf. & 0.01039 & 2.887e-08 \\
 \addlinespace
-GR & binary base vs binary base topology shuffle & 0.02068 & 1.073e-34 \\
+KR & Binary wt. vs Binary wt. + shuf. & 0.01215 & 0.002745 \\
+\addlinespace
+GR & Binary wt. vs Binary wt. + shuf. & 0.02068 & 5.831e-35 \\
 \bottomrule
 \end{tabular}
 \end{table}

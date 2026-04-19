@@ -14,7 +14,9 @@
 \contentsline {subsection}{\numberline {3.2.3}Generalization Rank}{10}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Memory Capacity}{11}{subsection.3.2.4}%
 \contentsline {paragraph}{Notation.}{12}{section*.7}%
-\contentsline {section}{\numberline {3.3}Invariance across Hyperparameters}{13}{section.3.3}%
+\contentsline {subsection}{\numberline {3.2.5}Information Processing Capacity}{13}{subsection.3.2.5}%
+\contentsline {paragraph}{Notation.}{13}{section*.8}%
+\contentsline {section}{\numberline {3.3}Invariance across Hyperparameters}{14}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Methods}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Network topology priors}{15}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Small-world networks}{15}{subsection.4.1.1}%
@@ -23,29 +25,29 @@
 \contentsline {subsection}{\numberline {4.2.1}Spectral Radius Normalization \& Scaling}{16}{subsection.4.2.1}%
 \contentsline {section}{\numberline {4.3}Network Architectures}{17}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Models Used in Shuffle Experiments}{17}{subsection.4.3.1}%
-\contentsline {subsubsection}{C. elegans connectome}{17}{section*.8}%
-\contentsline {subsubsection}{Connection-Shuffle}{17}{section*.9}%
-\contentsline {subsubsection}{Weight-Shuffle}{18}{section*.10}%
-\contentsline {subsubsection}{Connection-shuffle with Weight-Shuffle}{20}{section*.11}%
-\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights using original Connection Signs}{20}{section*.12}%
-\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights using original Connection Sign balance with the signs shuffled}{20}{section*.13}%
-\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}{22}{section*.14}%
-\contentsline {subsubsection}{C. elegans architecture binary $\pm 1$ weights}{22}{section*.15}%
-\contentsline {subsubsection}{C. elegans architecture binary $\pm 1$ weights with connection shuffle}{22}{section*.16}%
+\contentsline {subsubsection}{C. elegans connectome}{17}{section*.9}%
+\contentsline {subsubsection}{Connection-Shuffle}{17}{section*.10}%
+\contentsline {subsubsection}{Weight-Shuffle}{18}{section*.11}%
+\contentsline {subsubsection}{Connection-shuffle with Weight-Shuffle}{20}{section*.12}%
+\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights using original Connection Signs}{20}{section*.13}%
+\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights using original Connection Sign balance with the signs shuffled}{20}{section*.14}%
+\contentsline {subsubsection}{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}{22}{section*.15}%
+\contentsline {subsubsection}{C. elegans architecture binary $\pm 1$ weights}{22}{section*.16}%
+\contentsline {subsubsection}{C. elegans architecture binary $\pm 1$ weights with connection shuffle}{22}{section*.17}%
 \contentsline {subsection}{\numberline {4.3.2}Additional Architectures Used in Distribution and Topology Controls}{24}{subsection.4.3.2}%
-\contentsline {subsubsection}{C.~elegans Topology with Gaussian Weights}{24}{section*.17}%
-\contentsline {subsubsection}{C.~elegans--Matched Erd\H {o}s--R\'enyi Model with Gaussian Weights}{24}{section*.18}%
-\contentsline {subsubsection}{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights}{25}{section*.19}%
-\contentsline {subsubsection}{C. elegans architecture with Gaussian weights using original Connection Signs}{26}{section*.20}%
-\contentsline {subsubsection}{C. elegans architecture with uniform weights using original Connection Signs}{26}{section*.21}%
+\contentsline {subsubsection}{C.~elegans Topology with Gaussian Weights}{24}{section*.18}%
+\contentsline {subsubsection}{C.~elegans--Matched Erd\H {o}s--R\'enyi Model with Gaussian Weights}{24}{section*.19}%
+\contentsline {subsubsection}{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights}{25}{section*.20}%
+\contentsline {subsubsection}{C. elegans architecture with Gaussian weights using original Connection Signs}{26}{section*.21}%
+\contentsline {subsubsection}{C. elegans architecture with uniform weights using original Connection Signs}{26}{section*.22}%
 \contentsline {section}{\numberline {4.4}Trial definition}{27}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Experimental Pipeline}{28}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Equivalence testing}{29}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Results}{31}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Sign structure and weight distribution shape invariance across architectures}{31}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Invariance to degree-preserving topology changes}{32}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Half-normal weight perturbations have limited effect on invariance}{35}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Global neurotransmitter balance shapes the performance--invariance tradeoff}{39}{section.5.4}%
+\contentsline {section}{\numberline {5.3}Half-normal weight perturbations have limited effect on invariance}{34}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Global neurotransmitter balance shapes the performance--invariance tradeoff}{38}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Discussion}{43}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Future directions}{44}{section.6.1}%
 \contentsline {chapter}{\numberline {7}AI Usage Disclosure}{47}{chapter.7}%
@@ -53,4 +55,4 @@
 \contentsline {section}{\numberline {8.1}Neuroscience Terms Explained for Computer Scientists}{49}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Equivalence testing}{50}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Tables}{50}{section.8.3}%
-\contentsline {chapter}{Bibliography}{55}{chapter*.22}%
+\contentsline {chapter}{Bibliography}{55}{chapter*.23}%

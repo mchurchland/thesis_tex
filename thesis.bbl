@@ -595,59 +595,6 @@
       \field{title}{Foundations of neuroscience Casey Henley}
       \field{year}{2021}
     \endentry
-    \entry{humphries_gurney_2008}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=32d45fe1b0dd4f4cba4939cd5d37def6}{%
-           family={Humphries},
-           familyi={H\bibinitperiod},
-           given={Mark\bibnamedelima D.},
-           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5fd79101950d60c82fe4d9f0111f6e91}{%
-           family={Gurney},
-           familyi={G\bibinitperiod},
-           given={Kevin},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=45ad603551aca6e1246f0e73c18c6eed}{%
-           family={Sporns},
-           familyi={S\bibinitperiod},
-           given={Olaf},
-           giveni={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{163756b8c54da8a43d71104e31727532}
-      \strng{fullhash}{163756b8c54da8a43d71104e31727532}
-      \strng{fullhashraw}{163756b8c54da8a43d71104e31727532}
-      \strng{bibnamehash}{163756b8c54da8a43d71104e31727532}
-      \strng{authorbibnamehash}{163756b8c54da8a43d71104e31727532}
-      \strng{authornamehash}{163756b8c54da8a43d71104e31727532}
-      \strng{authorfullhash}{163756b8c54da8a43d71104e31727532}
-      \strng{authorfullhashraw}{163756b8c54da8a43d71104e31727532}
-      \strng{editorbibnamehash}{45ad603551aca6e1246f0e73c18c6eed}
-      \strng{editornamehash}{45ad603551aca6e1246f0e73c18c6eed}
-      \strng{editorfullhash}{45ad603551aca6e1246f0e73c18c6eed}
-      \strng{editorfullhashraw}{45ad603551aca6e1246f0e73c18c6eed}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{PLoS ONE}
-      \field{month}{4}
-      \field{number}{4}
-      \field{title}{Network “Small-World-Ness”: A Quantitative Method for Determining Canonical Network Equivalence}
-      \field{volume}{3}
-      \field{year}{2008}
-      \field{pages}{e0002051}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb https://doi.org/10.1371/journal.pone.0002051
-      \endverb
-    \endentry
     \entry{introtoRC}{article}{}{}
       \name{author}{8}{}{%
         {{un=0,uniquepart=base,hash=36c68a2f930f5d748bbe4f7b77fe10ac}{%
@@ -2389,59 +2336,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Foundations of neuroscience Casey Henley}
       \field{year}{2021}
-    \endentry
-    \entry{humphries_gurney_2008}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=32d45fe1b0dd4f4cba4939cd5d37def6}{%
-           family={Humphries},
-           familyi={H\bibinitperiod},
-           given={Mark\bibnamedelima D.},
-           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5fd79101950d60c82fe4d9f0111f6e91}{%
-           family={Gurney},
-           familyi={G\bibinitperiod},
-           given={Kevin},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=45ad603551aca6e1246f0e73c18c6eed}{%
-           family={Sporns},
-           familyi={S\bibinitperiod},
-           given={Olaf},
-           giveni={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{163756b8c54da8a43d71104e31727532}
-      \strng{fullhash}{163756b8c54da8a43d71104e31727532}
-      \strng{fullhashraw}{163756b8c54da8a43d71104e31727532}
-      \strng{bibnamehash}{163756b8c54da8a43d71104e31727532}
-      \strng{authorbibnamehash}{163756b8c54da8a43d71104e31727532}
-      \strng{authornamehash}{163756b8c54da8a43d71104e31727532}
-      \strng{authorfullhash}{163756b8c54da8a43d71104e31727532}
-      \strng{authorfullhashraw}{163756b8c54da8a43d71104e31727532}
-      \strng{editorbibnamehash}{45ad603551aca6e1246f0e73c18c6eed}
-      \strng{editornamehash}{45ad603551aca6e1246f0e73c18c6eed}
-      \strng{editorfullhash}{45ad603551aca6e1246f0e73c18c6eed}
-      \strng{editorfullhashraw}{45ad603551aca6e1246f0e73c18c6eed}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{PLoS ONE}
-      \field{month}{4}
-      \field{number}{4}
-      \field{title}{Network “Small-World-Ness”: A Quantitative Method for Determining Canonical Network Equivalence}
-      \field{volume}{3}
-      \field{year}{2008}
-      \field{pages}{e0002051}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb https://doi.org/10.1371/journal.pone.0002051
-      \endverb
     \endentry
     \entry{introtoRC}{article}{}{}
       \name{author}{8}{}{%

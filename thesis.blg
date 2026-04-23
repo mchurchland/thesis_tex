@@ -1,29 +1,29 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'thesis.blg'
-[40] biber:342> INFO - === Sat Apr 18, 2026, 15:03:49
-[49] Biber.pm:421> INFO - Reading 'thesis.bcf'
-[98] Biber.pm:1002> INFO - Found 36 citekeys in bib section 0
-[109] Biber.pm:4487> INFO - Processing section 0
-[115] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[116] bibtex.pm:1713> INFO - LaTeX decoding ...
-[135] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[353] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[353] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[353] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[353] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[443] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[443] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[443] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[443] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[468] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[492] bbl.pm:779> INFO - Output to thesis.bbl
-[493] Biber.pm:132> WARN - legacy month field 'Nov' in entry 'geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Jan' in entry 'pearson_2000' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Jan' in entry 'fernando_sampsa_sojakka_2003' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Jul' in entry 'pieters_de_swaef_stock_wyffels_2022' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Dec' in entry 'fenyves_szilágyi_zsolt_vassy_csaba_2020' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Jun' in entry 'wirak_florman_alkema_connor_gabel_2022' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Aug' in entry 'tanis_bellemer_moresco_forbush_koelle_2009' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Jan' in entry 'churchland_garcia-ojalvo_2026' is not an integer - this will probably not sort properly.
-[493] Biber.pm:132> WARN - legacy month field 'Mar' in entry 'broido_clauset_2019' is not an integer - this will probably not sort properly.
-[493] Biber.pm:134> INFO - WARNINGS: 9
+[31] biber:342> INFO - === Thu Apr 23, 2026, 13:44:55
+[40] Biber.pm:421> INFO - Reading 'thesis.bcf'
+[81] Biber.pm:1002> INFO - Found 35 citekeys in bib section 0
+[92] Biber.pm:4487> INFO - Processing section 0
+[98] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[99] bibtex.pm:1713> INFO - LaTeX decoding ...
+[115] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[292] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[292] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[292] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[292] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[328] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[328] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[328] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[347] bbl.pm:676> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[364] bbl.pm:779> INFO - Output to thesis.bbl
+[365] Biber.pm:132> WARN - legacy month field 'Nov' in entry 'geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Jan' in entry 'pearson_2000' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Jan' in entry 'fernando_sampsa_sojakka_2003' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Jul' in entry 'pieters_de_swaef_stock_wyffels_2022' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Dec' in entry 'fenyves_szilágyi_zsolt_vassy_csaba_2020' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Jun' in entry 'wirak_florman_alkema_connor_gabel_2022' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Aug' in entry 'tanis_bellemer_moresco_forbush_koelle_2009' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Jan' in entry 'churchland_garcia-ojalvo_2026' is not an integer - this will probably not sort properly.
+[365] Biber.pm:132> WARN - legacy month field 'Mar' in entry 'broido_clauset_2019' is not an integer - this will probably not sort properly.
+[365] Biber.pm:134> INFO - WARNINGS: 9

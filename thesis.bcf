@@ -3105,20 +3105,19 @@
     <bcf:citekey order="30" intorder="1">Jaeger2002STMESN</bcf:citekey>
     <bcf:citekey order="30" intorder="2">Stepney2024PRCtutorial</bcf:citekey>
     <bcf:citekey order="31" intorder="1">network_science</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">humphries_gurney_2008</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">KAWAI201915</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">KAWAI201915</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">Wssmallworld</bcf:citekey>
     <bcf:citekey order="34" intorder="1">Wssmallworld</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">Wssmallworld</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">fenyves_szilágyi_zsolt_vassy_csaba_2020</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">wirak_florman_alkema_connor_gabel_2022</bcf:citekey>
-    <bcf:citekey order="37" intorder="2">tanis_bellemer_moresco_forbush_koelle_2009</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">churchland_garcia-ojalvo_2026</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">KAWAI201915</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">Sheffler2023Neurotransmitters</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">Henley_2021</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">Bassett2007</bcf:citekey>
-    <bcf:citekey order="42" intorder="2">latora2001</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">broido_clauset_2019</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">fenyves_szilágyi_zsolt_vassy_csaba_2020</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">wirak_florman_alkema_connor_gabel_2022</bcf:citekey>
+    <bcf:citekey order="36" intorder="2">tanis_bellemer_moresco_forbush_koelle_2009</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">churchland_garcia-ojalvo_2026</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">KAWAI201915</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">Sheffler2023Neurotransmitters</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">Henley_2021</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">Bassett2007</bcf:citekey>
+    <bcf:citekey order="41" intorder="2">latora2001</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">broido_clauset_2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

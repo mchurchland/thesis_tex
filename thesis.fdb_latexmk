@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber thesis"] 1776977095.10771 "thesis.bcf" "thesis.bbl" "thesis" 1776977118.64188 0
+["biber thesis"] 1777066892.94361 "thesis.bcf" "thesis.bbl" "thesis" 1777069949.1092 0
   "bibliography.bib" 1776544409.4599 18250 ce002e4b0967dc303e94b0594c511e00 ""
-  "thesis.bcf" 1776977118.55895 137382 7facde31ff0cb19274fc4cfb88b89bda "pdflatex"
+  "thesis.bcf" 1777069948.99 137382 7facde31ff0cb19274fc4cfb88b89bda "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1776977111.16784 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1776977118.64217 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1776977071.49149 109243 ca3d9dfdcd2da30a4f227ca7dab3e32e ""
+["pdflatex"] 1777069939.56163 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1777069949.10977 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1777069929.92308 110691 91a7cefc69563499c1c87b5e6b566307 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -190,14 +190,14 @@
   "figs/toplogy/model_grid_I_to_O.png" 1776967869.72679 7755832 017e404949bf1499028bfd27bbd4b865 ""
   "figs/weight_to_gaus.png" 1776450839.87624 4288011 4ca307a9172129fbad383ebd3cf9a8a9 ""
   "reedthesis.cls" 1772158560.85812 12141 c94ddda8542e887d4d85be1ba92df11c ""
-  "thesis.aux" 1776977118.55406 38856 e6cfdd02bffc40c4ad72f23ad997caa0 "pdflatex"
-  "thesis.bbl" 1776977095.79158 149428 581eeca74474522daa6a149cc8480525 "biber thesis"
-  "thesis.lof" 1776977118.56046 5979 fb7beebde1bf4bfdfe5d1de424ca2e1c "pdflatex"
-  "thesis.lot" 1776977118.56046 2963 28db5ac780c423b96956bb73a2c0feb2 "pdflatex"
-  "thesis.out" 1776977118.55795 13962 876d2e819c6ee7f86ca63127aa210b88 "pdflatex"
-  "thesis.run.xml" 1776977118.56046 2443 0d10139694fccef14ad0686d10c355c6 "pdflatex"
-  "thesis.tex" 1776977071.49149 109243 ca3d9dfdcd2da30a4f227ca7dab3e32e ""
-  "thesis.toc" 1776977118.56046 5973 800a7cdd015509a6cbc16b208f1c37c4 "pdflatex"
+  "thesis.aux" 1777069948.984 39172 3a2d388ef3a8e7cfa3aa273032578ef6 "pdflatex"
+  "thesis.bbl" 1777066893.86434 149428 581eeca74474522daa6a149cc8480525 "biber thesis"
+  "thesis.lof" 1777069948.99138 5979 69d00824063185436631b803773da249 "pdflatex"
+  "thesis.lot" 1777069948.99138 2963 a2181d060d186bb8e24619dc5eac6f23 "pdflatex"
+  "thesis.out" 1777069948.989 13963 77ab0a06b9f992cd2536df55bda5677e "pdflatex"
+  "thesis.run.xml" 1777069948.99138 2443 0d10139694fccef14ad0686d10c355c6 "pdflatex"
+  "thesis.tex" 1777069929.92308 110691 91a7cefc69563499c1c87b5e6b566307 ""
+  "thesis.toc" 1777069948.99138 6166 30e3850d09ca59b0bfda5654fb2ea84c "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"

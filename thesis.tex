@@ -185,7 +185,7 @@ This thesis turns to a biological network not to explain the organism itself, bu
 
 \chapter{Reservoir Computers and Echo State Networks}
 \section{Reservoir Computers: an Introduction}
-Picture a pool of water, with no waves on it--this is a computational reservoir, our computational substrate. Now imagine dropping a stone into the pool--our input--and observing the ensuing waves--our output. One could use the pool to perform computational tasks by dropping multiple stones into it in sequence. Alternatively, one could measure the computational power of the pool without regard to a specific task; this is what this work explores.\footnote{This has actually been done in \textit{Pattern Recognition in a Bucket} \parencite{fernando_sampsa_sojakka_2003}} In this analogy, the input sequence corresponds to the sequence of stones, the nonlinear high-dimensional expansion corresponds to the pool dynamics, and the output sequence corresponds to an observer interpreting the evolving wave patterns. Echo state networks are a class of reservoir computers in which the reservoir state is uniquely determined by the input history.
+Picture a pool of water, with no waves on it--this is a computational reservoir, our computational substrate. Now imagine dropping a stone into the pool--our input--and observing the ensuing waves--our output. One could use the pool to perform computational tasks by dropping multiple stones into it in sequence.\footnote{This has actually been done in \textit{Pattern Recognition in a Bucket} \parencite{fernando_sampsa_sojakka_2003}} Alternatively, one could measure the computational power of the pool without regard to a specific task; this is what this work explores. In this analogy, the input sequence corresponds to the sequence of stones, the nonlinear high-dimensional expansion corresponds to the pool dynamics, and the output sequence corresponds to an observer interpreting the evolving wave patterns. Echo state networks are a class of reservoir computers in which the reservoir state is uniquely determined by the input history.
 
 \section{Echo State Networks}
 %%need a new section defining reservoir computers
@@ -197,9 +197,9 @@ Formally, let $u_t \in \mathbb{R}^{d}$ be input, $x_t \in \mathbb{R}^{N}$ the re
 \begin{align}
 \tilde{x}_{t+1} &= \tanh\!\left(W^{\mathrm{res}} x_t + s_{\mathrm{in}}W^{\mathrm{in}} u_{t+1} + b + \xi_t\right), \\
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
-y_t &= W^{\mathrm{out}}\,[x_t; u_t; 1],
+y_t &= W^{\mathrm{out}}\,x_t,
 \end{align}
-where $\tanh$ is elementwise, $b$ is an optional bias term and is not included in our model, $\xi_t$ is optional i.i.d.\ noise and is not included in our model, $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W^{\mathrm{out}}\in\mathbb{R}^{p\times (|W^{\mathrm{res}}|)}$ is trained. The parameter $p$ is set to 3 for IPC (Section~\ref{sec:ipc}) to solve for different orders in a single batch; in all other cases, it is set to 1.
+where $\tanh$ is elementwise, $b$ is an optional bias term and is not included in our model, $\xi_t$ is optional i.i.d.\ noise and is not included in our model, $W^{\mathrm{in}}$ is input weights scaled by $s_{\mathrm{in}}$, $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W^{\mathrm{out}}\in\mathbb{R}^{p\times N}$ is trained.  The parameter $p$ is set to 3 for IPC (Section~\ref{sec:ipc}) to solve for different orders in a single batch; in all other cases, it is set to 1.
 
 Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{out}_{ij}$, as opposed to training all weights as is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we ``tap'' into the dynamics of the ``reservoir'' by linearly combining different neuron states. Training the reservoir's weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
 
@@ -236,7 +236,7 @@ x_{t+1} \approx \left[(1-\alpha)x_t + \alpha \tilde{x}_{t+1} \right] ,
 \]
  Smaller $\alpha$ increases the persistence of past inputs and extends temporal memory of the reservoir. Larger $\alpha$ causes the system to update more rapidly, reducing memory but increasing responsiveness. Thus, while the spectral radius controls the strength of recurrence, the leak rate controls how quickly that signal dissipates over time.
  
- \textbf{Input scaling} $s_{\mathrm{in}}$: Input scaling determines the magnitude of the input stream. When input scaling is small, the influence of external input on the reservoir state is reduced relative to that of recurrent feedback. Increasing input scaling drives neurons into the nonlinear regime of the activation function, increasing computational richness. However, excessive scaling saturates the activation function, reducing sensitivity to inputs and collapsing the effective dimensionality of the reservoir's state matrix.
+ \textbf{Input scaling} $s_{\mathrm{in}}$: Input scaling determines the magnitude of the input weights. When input scaling is small, the influence of external input on the reservoir state is reduced relative to that of recurrent feedback. Increasing input scaling drives neurons into the nonlinear regime of the activation function, increasing computational richness. However, excessive scaling saturates the activation function, reducing sensitivity to inputs and collapsing the effective dimensionality of the reservoir's state matrix.
 
  \textbf{Noise} $\xi_t$: Noise introduces stochastic perturbations to the reservoir state. Noise insertion has been shown to improve attractor stability in echo state networks by preventing trajectories from collapsing into undesired fixed points or oscillatory modes, though this comes at the cost of reduced prediction precision \parencite{jaeger_echo_state_2001}. Because the present experiments focus on task-agnostic structural invariance rather than optimizing performance on a specific task, noise is omitted from our study. %%further work, discussion
 
@@ -247,20 +247,15 @@ A connectome is a description of the neural wiring of an organism. It encodes wh
 
 In this work, we treat the connectome as the foundation for a graph: each neuron is represented as a node, and each synapse as a directed, weighted edge. The connectome used in our study is sourced from the c302 project\parencite{c302}, which is an initiative to model the neural network of the nematode \textit{C. elegans}.
 The network is composed of several key components:
-\begin{itemize}
-    \item \textbf{Neurons}: The database includes all 302 identified neurons in the \textit{C. elegans} nervous system.
-    Our model includes 299 neurons; CANL, CANR, VC6 are omitted (see Sec.~\ref{sec:omission}). 
-    \item \textbf{Synaptic connections}: The c302 connectome model contains 3672 synaptic connections, but 564 of them are neuromuscular junctions; they send neurotransmitters to muscle cells and are not included in our graph. This leaves us with 3108 synaptic connections, categorized into various types based on the nature of the synapse, including chemical synapses and gap junctions. Specifically, we assign inhibitory synapses (GABAergic) negative weights (190 synapses) and excitatory synapses--acetylcholine (394 synapses) and glutamate (962)--positive weights. All remaining transmitters (1562 synapses) are assigned positive sign. This sign assignment is a \emph{working assumption} used to define an excitatory/inhibitory partition for the invariance experiments; it does not attempt to capture receptor-specific or context-dependent effects (e.g., cases where acetylcholine or glutamate can be inhibitory). Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is both beyond the scope of the analysis and computationally infeasible at the scale of experiments required. We retain the non-GABA synapses (rather than dropping them) to preserve the observed network density and recurrence, which strongly influence reservoir dynamics and the metrics studied here. This modeling choice undoubtedly affects our results and should be considered when interpreting them; it is discussed further in our conclusion section \ref{sec:results}.
-
-    
-    The connections are represented as directed edges in the network, indicating the direction of signal transmission.
+    \paragraph{Neurons}: The database includes all 302 identified neurons in the \textit{C. elegans} nervous system.
+    Our model includes 299 neurons; CANL, CANR, VC6 are omitted (see Sec.~\ref{sec:omission}).
+    \paragraph{Synaptic connections}: The c302 connectome model contains 3672 synaptic connections, but 564 of them are neuromuscular junctions; they send neurotransmitters to muscle cells and are not included in our graph. This leaves us with 3108 synaptic connections, categorized into various types based on the nature of the synapse, including chemical synapses and gap junctions. Specifically, we assign inhibitory synapses (GABAergic) negative weights (190 synapses) and excitatory synapses--acetylcholine (394 synapses) and glutamate (962)--positive weights. All remaining transmitters (1562 synapses) are assigned positive sign. This sign assignment is a \emph{working assumption} used to define an excitatory/inhibitory partition for the invariance experiments; it does not attempt to capture receptor-specific or context-dependent effects (e.g., cases where acetylcholine or glutamate can be inhibitory). Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is both beyond the scope of the analysis and computationally infeasible at the scale of experiments required. We retain the non-GABA synapses (rather than dropping them) to preserve the observed network density and recurrence, which strongly influence reservoir dynamics and the metrics studied here. This modeling choice undoubtedly affects our results and should be considered when interpreting them; it is discussed further in our conclusion section \ref{sec:results}. The connections are represented as directed edges in the network, indicating the direction of signal transmission.
     Gap junctions are considered to be two distinct edges with independent weights for computational simplicity.
-\item \textbf{Connection count (proxy weights)}: The dataset reports only the number of terminal contacts that neuron $i$ makes onto neuron $j$, not graded synaptic strengths. We therefore use that contact count $c_{ij}$ as an initial weight, $W_{ij}=c_{ij}$. Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020} and provides the biologically informed prior for our training.
+\paragraph{Connection count (weight proxy)}: The dataset reports only the number of terminal contacts that neuron $i$ makes onto neuron $j$, not graded synaptic strengths. We therefore use that contact count $c_{ij}$ as an initial weight, $W_{ij}=c_{ij}$. Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020} and provides the biologically informed prior for our training.
 
-\end{itemize}
 \subsection{Omission of CANL/CANR}
 \label{sec:omission}
-In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 is a forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Nodes with no incoming or outgoing synaptic connections are dynamically inert and therefore do not influence dynamics of the network. Formally, if neuron $i$ satisfies $W_{ij}=0$ and $W_{ji}=0$ for all $j$, then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining network. They would still have an internal signal influenced by the input. This internal signal provides no additional useful features to the readout layer, since its temporal activity is linearly dependent with respect to the four neurons with in-degree zero already present in the network.\footnote{Importantly, these four neurons do not have non-zero out-degree and thus influence network dynamics.} The inclusion or omission of these isolated nodes is therefore irrelevant in this model.
+In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Nodes with no incoming or outgoing synaptic connections are dynamically inert and therefore do not influence dynamics of the network. Formally, if neuron $i$ satisfies $W_{ij}=0$ and $W_{ji}=0$ for all $j$, then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining network. They would still have an internal signal influenced by the input. This internal signal provides no additional useful features to the readout layer, since its temporal activity is linearly dependent with respect to the four neurons with in-degree zero already present in the network.\footnote{Importantly, these four neurons do not have non-zero out-degree and thus influence network dynamics.} The inclusion or omission of these isolated nodes is therefore irrelevant in this model.
 
 
 
@@ -295,7 +290,7 @@ What makes a given neural circuit computationally powerful? More precisely, how 
 \subsection{Kernel Rank}
 Returning to the earlier pool analogy, in which input sequences are modeled as stones dropped into water and reservoir states as the resulting wave patterns, we can use this picture to build intuition for the task-agnostic network statistics considered in this work. Imagine dropping stones of different sizes into the pool, one after another, in the same place each time, and repeating this process for many input sequences. Each sequence produces a pattern of waves, corresponding to a reservoir state. Kernel rank is a measure of how distinctly the pool responds to different sets of inputs; if many input sequences lead to the same wave patterns, then the kernel rank will be low. If those input sequences instead map to distinct wave patterns then the kernel rank will be high.
 
-Kernel rank measures how effectively inputs are projected into a high-dimensional state space so they become linearly separable by a readout $W^{out}$, serving as a measurable proxy for kernel quality and the diversity of nonlinear transformations created by the reservoir\parencite{Stepney2024PRCtutorial}. Higher is better for this metric. Specifically it is a measure of the rank of the $n \times m$  matrix whose columns are the internal state ($x_{u_i}(t_0)$) at some fixed time $t_0$ for the preceding input stream $u_i$. Where $n$ is the number of units in the circuit, $m$ is the number of input streams, ($x_{u_i}(t_0)$) is the internal state at time $t_0$, we have $m$ different input streams $u_i$. This is the original definition\parencite{maass_comp_power_2004}, we will use a modified version of this also found in literature \parencite{Stepney2024PRCtutorial}. In our implementation, we use the state-matrix variant common in benchmarking: we drive the reservoir with a single i.i.d. input sequence $u_t$---rather than m input streams---and collect the post-washout state matrix $X \in \mathbb{R}^{T\times N}$ where each row is the reservoir state at each time step. Kernel Rank is computed using effective rank \parencite{roy_vetterli_2007}. Because the readout is linear, neurons with very similar activity patterns provide redundant information. We want a kernel whose neurons' activity patterns vary greatly, such that this can be utilized by our readout. Thus we need a different measure of rank, as matrix rank only detects exact linear dependence; neurons with highly similar but not identical activity patterns will still increase the rank. We want a measure of rank that measures variance across orthogonal modes. This leads us to effective rank. To compute effective rank, we perform the following steps:\\
+Kernel rank measures how effectively inputs are projected into a high-dimensional state space so they become linearly separable by a readout $W^{out}$, serving as a measurable proxy for kernel quality and the diversity of nonlinear transformations created by the reservoir\parencite{Stepney2024PRCtutorial}. Higher is better for this metric. Specifically it is a measure of the rank of the $n \times m$  matrix whose columns are the internal state ($x_{u_i}(t_0)$) at some fixed time $t_0$ for the preceding input stream $u_i$. Where $n$ is the number of units in the circuit, $m$ is the number of input streams, ($x_{u_i}(t_0)$) is the internal state at time $t_0$, we have $m$ different input streams $u_i$. This is the original definition\parencite{maass_comp_power_2004}, we will use a modified version of this also found in literature \parencite{Stepney2024PRCtutorial}. In our implementation, we use the state-matrix variant common in benchmarking: we drive the reservoir with a single i.i.d. input sequence $u_t$---rather than m input streams---and collect the post-washout\footnote{A washout period is an initial set of timesteps discarded so the reservoir has moves away from its arbitrary starting state before the states used for training and testing are collected.} state matrix $X \in \mathbb{R}^{T\times N}$ where each row is the reservoir state at each time step. Kernel Rank is computed using effective rank \parencite{roy_vetterli_2007}. Because the readout is linear, neurons with very similar activity patterns provide redundant information. We want a kernel whose neurons' activity patterns vary greatly, such that this can be utilized by our readout. Thus we need a different measure of rank, as matrix rank only detects exact linear dependence; neurons with highly similar but not identical activity patterns will still increase the rank. We want a measure of rank that measures variance across orthogonal modes. This leads us to effective rank. To compute effective rank, we perform the following steps:\\
 First we center our values with respect to time\\
 \[ X_c = X-\bar{X}\] \\Where \[\bar{X} = \bar{X}_{tj} = \frac{1}{T}\sum_{t'=1}^{T}X_{t'j}\] 
 Here, $\bar{X} \in \mathbb{R}^{T \times N}$ is the matrix obtained by repeating, in each row, the mean activity of each neuron over time. Subtracting $\bar{X}$ from $X$ therefore centers each neuron's activity across time.
@@ -345,15 +340,46 @@ If the network generalizes well, small input perturbations produce only low-dime
 \subsection{Memory Capacity}
 Returning to the pool analogy, suppose we wish to infer the size of a stone after it has been dropped into the water. The stone itself is no longer visible, but its presence is encoded in the resulting wave pattern. By observing the waves, one could estimate the size of the stone. If multiple stones are dropped sequentially, their wave patterns overlap and interfere. The older a stone, the more its influence dissipates and mixes with subsequent wave patterns. Memory capacity measures how well the current reservoir state can \textit{reconstruct} past inputs at varying delays.
 
-Memory capacity, introduced by Jaeger \parencite{Jaeger2002STMESN}, is a measure of the amount of linear memory a reservoir contains. Given an input $u(t)\in U[-1,1]$, the reservoir's memory capacity is determined by its ability to reproduce this input at varying delays ($k$). Memory capacity is originally defined by Jaeger as
+Memory capacity, introduced by Jaeger \parencite{Jaeger2002STMESN}, measures how much linear memory a reservoir retains about past inputs. Given an input sequence $u(t)\in U(-1,1)$, the reservoir is trained to reconstruct delayed versions of that input, denoted $\hat u_k(t)$, where $k$ is the delay. A high value of $\mathrm{MC}_k$ indicates that the reservoir state at time $t$ contains enough information to accurately recover the input from time $t-k$. Jaeger defines memory capacity as
 \[\text{MC}_k=\dfrac{\big(\text{cov}\!\left(u(t-k),\hat u_k(t)\right)\big)^2}{\text{var}(u)\,\text{var}(\hat u_k)}\] \[\text{MC}=\sum_{k=1}^\infty\text{MC}_k.\]\
 
-$MC_k$ measures the correlation between the predicted signal and the original signal or how well the network ``remembers" the original signal at delays $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases. This is intuitive, as we are in a network that has the echo state property and thus the state of the network is determined by its input history and not by its initial state.\footnote{Jaeger also shows that for i.i.d. random input, $MC \leq N$ where $N$ is the number of reservoir units in the graph. \parencite{Jaeger2002STMESN,Stepney2024PRCtutorial}} Hence we try to recreate the input vector $\bm{u}_{T-k:T}$ from the states $X_{0:k}$.
+$MC_k$ measures the correlation between the predicted signal and the original signal or how well the network ``remembers" the original signal at delays $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases. This is intuitive, as we are in a network that has the echo state property and thus the state of the network is determined by its input history and not by its initial state.\footnote{Jaeger also shows that for i.i.d. random input, $MC \leq N$ where $N$ is the number of reservoir units in the graph. \parencite{Jaeger2002STMESN,Stepney2024PRCtutorial}} For each delay \(k\), we train a linear readout from the reservoir state
+\(\bm{x}(t)\) to reconstruct the delayed input \(u(t-k)\).
 
-Jaeger's definition of $MC$ uses the Pearson correlation coefficient squared. Here, $Y$ is the true input signal, $X$ is the predicted input signal, and $\epsilon$ is a constant set to $1 \times 10^{-12}$ to ensure that we do not divide by 0.
+We follow Jaeger's definition of $MC$, but evaluate each delayed reconstruction using the squared Pearson correlation between the target input sequence and the reservoir's prediction. This form is algebraically equivalent to Jaeger's covariance--variance ratio, while avoiding the explicit computation of separate sample covariance and variance terms. In the equations below, $Y$ denotes the true delayed input sequence, $X$ denotes the predicted delayed input sequence, and $\epsilon=1\times 10^{-12}$ is added to the denominator for numerical stability.
+
 \[
-r_{\text{score}}(X,Y) =1- \frac{\sum_{i=1}^{T} (X_i-\bar{X})(Y_i-\bar{Y})}{\sqrt{\sum^T_{i=1}(X_i-\bar{X})^2\sum^T_{i=1} (Y_i-\bar{Y})^2}+\epsilon}
+\begin{aligned}
+\mathrm{MC}_k
+&= r_{\mathrm{score}}(X,Y)^2 \\[0.5em]
+&=
+\frac{
+\left(\operatorname{cov}(X,Y)\right)^2
+}{
+\operatorname{var}(X)\operatorname{var}(Y)
+} \\[0.5em]
+&=
+\frac{
+\left(\dfrac{1}{T-1}\sum_{i=1}^{T}(X_i-\bar X)(Y_i-\bar Y)\right)^2
+}{
+\left(\dfrac{1}{T-1}\sum_{i=1}^{T}(X_i-\bar X)^2\right)
+\left(\dfrac{1}{T-1}\sum_{i=1}^{T}(Y_i-\bar Y)^2\right)
+} \\[0.5em]
+&=
+\left(
+\frac{
+\sum_{i=1}^{T}(X_i-\bar X)(Y_i-\bar Y)
+}{
+\sqrt{
+\left(\sum_{i=1}^{T}(X_i-\bar X)^2\right)
+\left(\sum_{i=1}^{T}(Y_i-\bar Y)^2\right)
+}
++\epsilon
+}
+\right)^2 .
+\end{aligned}
 \]
+
 We define Ridge regression as follows
 \[
 \text{Ridge\_Regression}(X,Y,\xi)= ((X)^TX+\xi I)^{-1}(X)^TY 
@@ -495,7 +521,7 @@ Where $a$ denotes the set of values of the network statistic of interest---such 
 
 
 \chapter{Methods}
-
+To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network—such as topology, weight distribution, sign structure, while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we can assess which features are responsible for observed variation across hyperparameter settings. %These experiments are set of structural ablations: starting from the biological network, we selectively randomize or preserve particular attributes and measure how these changes affect performance across hyperparameter settings.
 
 
 \section{Graph Perturbations}
@@ -550,6 +576,8 @@ P(\text{swap})
 \end{align}
 }
 \end{comment}
+\subsection{Spectral Radius Normalization \& Scaling}
+Spectral radius normalization and rescaling is done by scaling all weights in our weight matrix by $\frac{\rho_{target}}{\rho(W)}$. This is applied as the final step before running the architectures. Thus, normalization/scaling occur after any weight or sign perturbations.
 
 \section{Small-world networks}
 \subsection{Small-world networks}
@@ -570,14 +598,14 @@ Kawai et al. \parencite{KAWAI201915} demonstrate that networks with small-world 
 
 Small-world networks maintained strong performance across a broader range of spectral radii. In contrast, the performance of fully random reservoirs fell sharply outside of a narrow band of spectral radii. Though, notably, fully random networks (\(p = 1\)) achieved the single highest peak memory capacity—at a spectral radius slightly below one
 
-This result provides conceptual motivation for the present work: a biologically inspired architecture with small-world structure can exhibit comparatively stable computational performance across spectral radii. This is surprising because it is often assumed in reservoir computing that fully random connectivity maximizes dynamical diversity and therefore computational ability. 
+This result provides conceptual motivation for the present work: a biologically inspired architecture with small-world structure can exhibit comparatively stable computational performance across spectral radii. This is notable because random connectivity is often used in reservoir computing to promote dynamical diversity and high task performance. However, performance and hyperparameter invariance are distinct: the architectures that achieve the highest computational scores may also be the most sensitive to parameter changes. The biological network's stability therefore does not contradict the usefulness of random reservoirs, but instead suggests a tradeoff between performance and robustness.
 
-\subsection{Spectral Radius Normalization \& Scaling}
-Spectral radius normalization and rescaling is done by scaling all weights in our weight matrix by $\frac{\rho_{target}}{\rho(W)}$. This is applied as the final step before running the architectures. Thus, normalization/scaling occur after any weight or sign perturbations.
+
+
 
 \section{Network Architectures}
 \label{Architectures}
-To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network—such as topology, weight distribution, sign structure, while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we can assess which features are responsible for observed variation across hyperparameter settings. %These experiments are set of structural ablations: starting from the biological network, we selectively randomize or preserve particular attributes and measure how these changes affect performance across hyperparameter settings.
+
 
 
 \begin{figure}

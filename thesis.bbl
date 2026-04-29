@@ -131,7 +131,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nature Communications}
-      \field{month}{3}
+      \field{month}{03}
       \field{number}{1}
       \field{title}{Scale-free networks are rare}
       \field{volume}{10}
@@ -285,7 +285,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{iScience}
-      \field{month}{1}
+      \field{month}{01}
       \field{number}{1}
       \field{title}{Reinforcement learning in densely recurrent biological networks}
       \field{volume}{29}
@@ -294,6 +294,59 @@
       \range{pages}{1}
       \verb{doi}
       \verb https://doi.org/10.1016/j.isci.2025.114436
+      \endverb
+    \endentry
+    \entry{dambre_ipc_2012}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=cac93fec16d5579287f9caabe60b8360}{%
+           family={Dambre},
+           familyi={D\bibinitperiod},
+           given={Joni},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7541bc49ab8a6ccc2a7d076ee9f27c52}{%
+           family={Verstraeten},
+           familyi={V\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f119220171795798e2647a3018867a}{%
+           family={Schrauwen},
+           familyi={S\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7cb9e0ebc2152a0a707732e77044376f}{%
+           family={Massar},
+           familyi={M\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ea770e264a1e84c56b3fc9ff399c7c03}
+      \strng{fullhash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{fullhashraw}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{bibnamehash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{authorbibnamehash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{authornamehash}{ea770e264a1e84c56b3fc9ff399c7c03}
+      \strng{authorfullhash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{authorfullhashraw}{569b84cd9e299ccb119d0ebf88018b3a}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{title}{Information Processing Capacity of Dynamical Systems}
+      \field{volume}{2}
+      \field{year}{2012}
+      \true{nocite}
+      \field{pages}{514}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/srep00514
       \endverb
     \endentry
     \entry{fenyves_szilágyi_zsolt_vassy_csaba_2020}{article}{}{}
@@ -389,7 +442,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{1}
+      \field{month}{01}
       \field{title}{Pattern Recognition in a Bucket}
       \field{year}{2003}
       \field{pages}{588\bibrangedash 597}
@@ -594,6 +647,60 @@
       \field{labeltitlesource}{title}
       \field{title}{Foundations of neuroscience Casey Henley}
       \field{year}{2021}
+    \endentry
+    \entry{humphries_gurney_2008}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=32d45fe1b0dd4f4cba4939cd5d37def6}{%
+           family={Humphries},
+           familyi={H\bibinitperiod},
+           given={Mark\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5fd79101950d60c82fe4d9f0111f6e91}{%
+           family={Gurney},
+           familyi={G\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=45ad603551aca6e1246f0e73c18c6eed}{%
+           family={Sporns},
+           familyi={S\bibinitperiod},
+           given={Olaf},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{163756b8c54da8a43d71104e31727532}
+      \strng{fullhash}{163756b8c54da8a43d71104e31727532}
+      \strng{fullhashraw}{163756b8c54da8a43d71104e31727532}
+      \strng{bibnamehash}{163756b8c54da8a43d71104e31727532}
+      \strng{authorbibnamehash}{163756b8c54da8a43d71104e31727532}
+      \strng{authornamehash}{163756b8c54da8a43d71104e31727532}
+      \strng{authorfullhash}{163756b8c54da8a43d71104e31727532}
+      \strng{authorfullhashraw}{163756b8c54da8a43d71104e31727532}
+      \strng{editorbibnamehash}{45ad603551aca6e1246f0e73c18c6eed}
+      \strng{editornamehash}{45ad603551aca6e1246f0e73c18c6eed}
+      \strng{editorfullhash}{45ad603551aca6e1246f0e73c18c6eed}
+      \strng{editorfullhashraw}{45ad603551aca6e1246f0e73c18c6eed}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{Network “Small-World-Ness”: A Quantitative Method for Determining Canonical Network Equivalence}
+      \field{volume}{3}
+      \field{year}{2008}
+      \true{nocite}
+      \field{pages}{e0002051}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.1371/journal.pone.0002051
+      \endverb
     \endentry
     \entry{introtoRC}{article}{}{}
       \name{author}{8}{}{%
@@ -1158,7 +1265,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Annual Review of Physiology}
-      \field{month}{1}
+      \field{month}{01}
       \field{number}{1}
       \field{title}{Neural Adaptation in the Generation of Rhythmic Behavior}
       \field{volume}{62}
@@ -1216,7 +1323,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Scientific Reports}
-      \field{month}{7}
+      \field{month}{01}
       \field{number}{1}
       \field{title}{Leveraging plant physiological dynamics using physical reservoir computing}
       \field{volume}{12}
@@ -1290,6 +1397,31 @@
       \verb{doi}
       \verb https://doi.org/10.1088/2634-4386/ae441f
       \endverb
+    \endentry
+    \entry{orca_accelerator}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9ef1f6854d901ef038ed94ded6224f7f}{%
+           family={{Portland State University}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{fullhash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{fullhashraw}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{bibnamehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authorbibnamehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authornamehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authorfullhash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authorfullhashraw}{9ef1f6854d901ef038ed94ded6224f7f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://orca.pdx.edu/}}
+      \field{note}{Accessed: 2026-04-08}
+      \field{title}{Orca Accelerator}
+      \true{nocite}
     \endentry
     \entry{rcbootcampSite}{online}{}{}
       \field{sortinit}{R}
@@ -1367,6 +1499,48 @@
       \verb https://arxiv.org/abs/1902.10811
       \endverb
     \endentry
+    \entry{roy_effective_rank_2007}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e963ebbeb84e66462245bfe8e4b6639a}{%
+           family={Roy},
+           familyi={R\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75e722dac26b8548b09550c9c47606ab}{%
+           family={Vetterli},
+           familyi={V\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Poznań, Poland}%
+      }
+      \strng{namehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{fullhash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{fullhashraw}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{bibnamehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authorbibnamehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authornamehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authorfullhash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authorfullhashraw}{e78fcf735a64042e77a1183b36ad5ee7}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 15th European Signal Processing Conference (EUSIPCO)}
+      \field{title}{The Effective Rank: A Measure of Effective Dimensionality}
+      \field{year}{2007}
+      \true{nocite}
+      \field{pages}{606\bibrangedash 610}
+      \range{pages}{5}
+    \endentry
     \entry{roy_vetterli_2007}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=e963ebbeb84e66462245bfe8e4b6639a}{%
@@ -1390,8 +1564,10 @@
       \strng{authornamehash}{e78fcf735a64042e77a1183b36ad5ee7}
       \strng{authorfullhash}{e78fcf735a64042e77a1183b36ad5ee7}
       \strng{authorfullhashraw}{e78fcf735a64042e77a1183b36ad5ee7}
+      \field{extraname}{2}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1510,6 +1686,71 @@
       \verb https://doi.org/10.1007/s11047-024-09997-y
       \endverb
     \endentry
+    \entry{Svensson2019}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=a4927cb6473f0e765b2b595752ec6a54}{%
+           family={Svensson},
+           familyi={S\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=487bae90d4b125d188b874d9ba7d18f3}{%
+           family={Apergis-Schoute},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5465d438d9e598b2e6fcd2b9e6714cdd}{%
+           family={Burnstock},
+           familyi={B\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85c610a130e5d8ba7b394040b157caf2}{%
+           family={Nusbaum},
+           familyi={N\bibinitperiod},
+           given={M.\bibnamedelimi P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f917e59f9bcb671f7f68671bf759fe7}{%
+           family={Parker},
+           familyi={P\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=319b78209c8cbb77eda3552ea58aee51}{%
+           family={Schiöth},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c7c3e60e6544e87976fb2e36315d6f30}
+      \strng{fullhash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{fullhashraw}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{bibnamehash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{authorbibnamehash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{authornamehash}{c7c3e60e6544e87976fb2e36315d6f30}
+      \strng{authorfullhash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{authorfullhashraw}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Neural Circuits}
+      \field{title}{General Principles of Neuronal Co-transmission: Insights From Multiple Model Systems}
+      \field{volume}{12}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{117}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fncir.2018.00117
+      \endverb
+    \endentry
     \entry{tanis_bellemer_moresco_forbush_koelle_2009}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=83daf2eb18dec877224677b544d3c501}{%
@@ -1559,7 +1800,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Neuroscience}
-      \field{month}{8}
+      \field{month}{08}
       \field{number}{32}
       \field{title}{The Potassium Chloride Cotransporter KCC-2 Coordinates Development of Inhibitory Neurotransmission and Synapse Structure in Caenorhabditis elegans}
       \field{volume}{29}
@@ -1678,7 +1919,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{eLife}
-      \field{month}{6}
+      \field{month}{1}
       \field{title}{Age-associated changes to neuronal dynamics involve a disruption of excitatory/inhibitory balance in C. elegans}
       \field{volume}{11}
       \field{year}{2022}
@@ -1873,7 +2114,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nature Communications}
-      \field{month}{3}
+      \field{month}{03}
       \field{number}{1}
       \field{title}{Scale-free networks are rare}
       \field{volume}{10}
@@ -2027,7 +2268,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{iScience}
-      \field{month}{1}
+      \field{month}{01}
       \field{number}{1}
       \field{title}{Reinforcement learning in densely recurrent biological networks}
       \field{volume}{29}
@@ -2036,6 +2277,59 @@
       \range{pages}{1}
       \verb{doi}
       \verb https://doi.org/10.1016/j.isci.2025.114436
+      \endverb
+    \endentry
+    \entry{dambre_ipc_2012}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=cac93fec16d5579287f9caabe60b8360}{%
+           family={Dambre},
+           familyi={D\bibinitperiod},
+           given={Joni},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7541bc49ab8a6ccc2a7d076ee9f27c52}{%
+           family={Verstraeten},
+           familyi={V\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0f119220171795798e2647a3018867a}{%
+           family={Schrauwen},
+           familyi={S\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7cb9e0ebc2152a0a707732e77044376f}{%
+           family={Massar},
+           familyi={M\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ea770e264a1e84c56b3fc9ff399c7c03}
+      \strng{fullhash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{fullhashraw}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{bibnamehash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{authorbibnamehash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{authornamehash}{ea770e264a1e84c56b3fc9ff399c7c03}
+      \strng{authorfullhash}{569b84cd9e299ccb119d0ebf88018b3a}
+      \strng{authorfullhashraw}{569b84cd9e299ccb119d0ebf88018b3a}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{title}{Information Processing Capacity of Dynamical Systems}
+      \field{volume}{2}
+      \field{year}{2012}
+      \true{nocite}
+      \field{pages}{514}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/srep00514
       \endverb
     \endentry
     \entry{fenyves_szilágyi_zsolt_vassy_csaba_2020}{article}{}{}
@@ -2131,7 +2425,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{month}{1}
+      \field{month}{01}
       \field{title}{Pattern Recognition in a Bucket}
       \field{year}{2003}
       \field{pages}{588\bibrangedash 597}
@@ -2336,6 +2630,60 @@
       \field{labeltitlesource}{title}
       \field{title}{Foundations of neuroscience Casey Henley}
       \field{year}{2021}
+    \endentry
+    \entry{humphries_gurney_2008}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=32d45fe1b0dd4f4cba4939cd5d37def6}{%
+           family={Humphries},
+           familyi={H\bibinitperiod},
+           given={Mark\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5fd79101950d60c82fe4d9f0111f6e91}{%
+           family={Gurney},
+           familyi={G\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=45ad603551aca6e1246f0e73c18c6eed}{%
+           family={Sporns},
+           familyi={S\bibinitperiod},
+           given={Olaf},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{163756b8c54da8a43d71104e31727532}
+      \strng{fullhash}{163756b8c54da8a43d71104e31727532}
+      \strng{fullhashraw}{163756b8c54da8a43d71104e31727532}
+      \strng{bibnamehash}{163756b8c54da8a43d71104e31727532}
+      \strng{authorbibnamehash}{163756b8c54da8a43d71104e31727532}
+      \strng{authornamehash}{163756b8c54da8a43d71104e31727532}
+      \strng{authorfullhash}{163756b8c54da8a43d71104e31727532}
+      \strng{authorfullhashraw}{163756b8c54da8a43d71104e31727532}
+      \strng{editorbibnamehash}{45ad603551aca6e1246f0e73c18c6eed}
+      \strng{editornamehash}{45ad603551aca6e1246f0e73c18c6eed}
+      \strng{editorfullhash}{45ad603551aca6e1246f0e73c18c6eed}
+      \strng{editorfullhashraw}{45ad603551aca6e1246f0e73c18c6eed}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{Network “Small-World-Ness”: A Quantitative Method for Determining Canonical Network Equivalence}
+      \field{volume}{3}
+      \field{year}{2008}
+      \true{nocite}
+      \field{pages}{e0002051}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb https://doi.org/10.1371/journal.pone.0002051
+      \endverb
     \endentry
     \entry{introtoRC}{article}{}{}
       \name{author}{8}{}{%
@@ -2900,7 +3248,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Annual Review of Physiology}
-      \field{month}{1}
+      \field{month}{01}
       \field{number}{1}
       \field{title}{Neural Adaptation in the Generation of Rhythmic Behavior}
       \field{volume}{62}
@@ -2958,7 +3306,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Scientific Reports}
-      \field{month}{7}
+      \field{month}{01}
       \field{number}{1}
       \field{title}{Leveraging plant physiological dynamics using physical reservoir computing}
       \field{volume}{12}
@@ -3032,6 +3380,31 @@
       \verb{doi}
       \verb https://doi.org/10.1088/2634-4386/ae441f
       \endverb
+    \endentry
+    \entry{orca_accelerator}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9ef1f6854d901ef038ed94ded6224f7f}{%
+           family={{Portland State University}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{fullhash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{fullhashraw}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{bibnamehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authorbibnamehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authornamehash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authorfullhash}{9ef1f6854d901ef038ed94ded6224f7f}
+      \strng{authorfullhashraw}{9ef1f6854d901ef038ed94ded6224f7f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://orca.pdx.edu/}}
+      \field{note}{Accessed: 2026-04-08}
+      \field{title}{Orca Accelerator}
+      \true{nocite}
     \endentry
     \entry{rcbootcampSite}{online}{}{}
       \field{sortinit}{R}
@@ -3109,6 +3482,48 @@
       \verb https://arxiv.org/abs/1902.10811
       \endverb
     \endentry
+    \entry{roy_effective_rank_2007}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e963ebbeb84e66462245bfe8e4b6639a}{%
+           family={Roy},
+           familyi={R\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75e722dac26b8548b09550c9c47606ab}{%
+           family={Vetterli},
+           familyi={V\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Poznań, Poland}%
+      }
+      \strng{namehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{fullhash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{fullhashraw}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{bibnamehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authorbibnamehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authornamehash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authorfullhash}{e78fcf735a64042e77a1183b36ad5ee7}
+      \strng{authorfullhashraw}{e78fcf735a64042e77a1183b36ad5ee7}
+      \field{extraname}{1}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 15th European Signal Processing Conference (EUSIPCO)}
+      \field{title}{The Effective Rank: A Measure of Effective Dimensionality}
+      \field{year}{2007}
+      \true{nocite}
+      \field{pages}{606\bibrangedash 610}
+      \range{pages}{5}
+    \endentry
     \entry{roy_vetterli_2007}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=e963ebbeb84e66462245bfe8e4b6639a}{%
@@ -3132,8 +3547,10 @@
       \strng{authornamehash}{e78fcf735a64042e77a1183b36ad5ee7}
       \strng{authorfullhash}{e78fcf735a64042e77a1183b36ad5ee7}
       \strng{authorfullhashraw}{e78fcf735a64042e77a1183b36ad5ee7}
+      \field{extraname}{2}
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -3252,6 +3669,71 @@
       \verb https://doi.org/10.1007/s11047-024-09997-y
       \endverb
     \endentry
+    \entry{Svensson2019}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=a4927cb6473f0e765b2b595752ec6a54}{%
+           family={Svensson},
+           familyi={S\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=487bae90d4b125d188b874d9ba7d18f3}{%
+           family={Apergis-Schoute},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5465d438d9e598b2e6fcd2b9e6714cdd}{%
+           family={Burnstock},
+           familyi={B\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=85c610a130e5d8ba7b394040b157caf2}{%
+           family={Nusbaum},
+           familyi={N\bibinitperiod},
+           given={M.\bibnamedelimi P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f917e59f9bcb671f7f68671bf759fe7}{%
+           family={Parker},
+           familyi={P\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=319b78209c8cbb77eda3552ea58aee51}{%
+           family={Schiöth},
+           familyi={S\bibinitperiod},
+           given={H.\bibnamedelimi B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c7c3e60e6544e87976fb2e36315d6f30}
+      \strng{fullhash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{fullhashraw}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{bibnamehash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{authorbibnamehash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{authornamehash}{c7c3e60e6544e87976fb2e36315d6f30}
+      \strng{authorfullhash}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \strng{authorfullhashraw}{be7506ff0a5fae7e78e2dd609eb763e5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Neural Circuits}
+      \field{title}{General Principles of Neuronal Co-transmission: Insights From Multiple Model Systems}
+      \field{volume}{12}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{117}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3389/fncir.2018.00117
+      \endverb
+    \endentry
     \entry{tanis_bellemer_moresco_forbush_koelle_2009}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=83daf2eb18dec877224677b544d3c501}{%
@@ -3301,7 +3783,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Neuroscience}
-      \field{month}{8}
+      \field{month}{08}
       \field{number}{32}
       \field{title}{The Potassium Chloride Cotransporter KCC-2 Coordinates Development of Inhibitory Neurotransmission and Synapse Structure in Caenorhabditis elegans}
       \field{volume}{29}
@@ -3420,7 +3902,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{eLife}
-      \field{month}{6}
+      \field{month}{1}
       \field{title}{Age-associated changes to neuronal dynamics involve a disruption of excitatory/inhibitory balance in C. elegans}
       \field{volume}{11}
       \field{year}{2022}

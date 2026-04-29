@@ -3118,6 +3118,7 @@
     <bcf:citekey order="41" intorder="1">Bassett2007</bcf:citekey>
     <bcf:citekey order="41" intorder="2">latora2001</bcf:citekey>
     <bcf:citekey order="42" intorder="1">broido_clauset_2019</bcf:citekey>
+    <bcf:citekey order="43" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

@@ -8,12 +8,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {8.1}{\ignorespaces Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity.}}{47}{table.8.1}%
-\contentsline {table}{\numberline {8.2}{\ignorespaces Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank.}}{47}{table.8.2}%
-\contentsline {table}{\numberline {8.3}{\ignorespaces Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity. This is for shuffling experiment 1.}}{48}{table.8.3}%
-\contentsline {table}{\numberline {8.4}{\ignorespaces Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank. This is for shuffling experiment 1.}}{48}{table.8.4}%
-\contentsline {table}{\numberline {8.5}{\ignorespaces Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity. This is for shuffling experiment 2.}}{48}{table.8.5}%
-\contentsline {table}{\numberline {8.6}{\ignorespaces Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank. This is for shuffling experiment 2.}}{49}{table.8.6}%
-\contentsline {table}{\numberline {8.7}{\ignorespaces Pairwise equivalence tests (TOST) across modes within Kernel Rank and Generalization rank. This is for shuffling experiment 3.}}{49}{table.8.7}%
+\contentsline {table}{\numberline {8.2}{\ignorespaces Pairwise equivalence tests (TOST) across modes within kernel rank and generalization rank.}}{47}{table.8.2}%
+\contentsline {table}{\numberline {8.3}{\ignorespaces Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity for shuffling experiment 1.}}{48}{table.8.3}%
+\contentsline {table}{\numberline {8.4}{\ignorespaces Pairwise equivalence tests (TOST) across modes within kernel rank and generalization rank for shuffling experiment 1.}}{48}{table.8.4}%
+\contentsline {table}{\numberline {8.5}{\ignorespaces Pairwise equivalence tests (TOST) across modes within information processing capacity and memory capacity for shuffling experiment 2.}}{48}{table.8.5}%
+\contentsline {table}{\numberline {8.6}{\ignorespaces Pairwise equivalence tests (TOST) across modes within kernel rank and generalization rank for shuffling experiment 2.}}{49}{table.8.6}%
+\contentsline {table}{\numberline {8.7}{\ignorespaces Pairwise equivalence tests (TOST) across modes within kernel rank and generalization rank for shuffling experiment 3.}}{49}{table.8.7}%
 \contentsline {table}{\numberline {8.8}{\ignorespaces Changes in mean CV across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is not preserved in this version of the experiment.}}{49}{table.8.8}%
 \contentsline {table}{\numberline {8.9}{\ignorespaces Changes in mean metric value across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is not preserved in this version of the experiment.}}{50}{table.8.9}%
 \contentsline {table}{\numberline {8.10}{\ignorespaces Changes in mean CV across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is preserved in this version of the experiment.}}{50}{table.8.10}%

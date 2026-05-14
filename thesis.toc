@@ -7,18 +7,18 @@
 \contentsline {chapter}{\numberline {3}Background}{7}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The C. elegans Connectome}{7}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Connectome}{7}{subsection.3.1.1}%
-\contentsline {paragraph}{Neurons}{7}{section*.7}%
-\contentsline {paragraph}{Synaptic connections}{7}{section*.8}%
-\contentsline {paragraph}{Connection count (weight proxy)}{8}{section*.9}%
+\contentsline {paragraph}{Neurons}{7}{section*.8}%
+\contentsline {paragraph}{Synaptic connections}{7}{section*.9}%
+\contentsline {paragraph}{Connection count (weight proxy)}{8}{section*.10}%
 \contentsline {subsection}{\numberline {3.1.2}Omission of CANL/CANR}{8}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Task Agnostic Network Statistics}{8}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Motivation}{8}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Kernel Rank}{9}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Generalization Rank}{10}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Memory Capacity}{11}{subsection.3.2.4}%
-\contentsline {paragraph}{Notation.}{12}{section*.10}%
+\contentsline {paragraph}{Notation.}{12}{section*.11}%
 \contentsline {subsection}{\numberline {3.2.5}Information Processing Capacity}{13}{subsection.3.2.5}%
-\contentsline {paragraph}{Notation.}{13}{section*.11}%
+\contentsline {paragraph}{Notation.}{13}{section*.12}%
 \contentsline {section}{\numberline {3.3}Invariance across Hyperparameters}{15}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Methods}{17}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Graph Perturbations}{17}{section.4.1}%
@@ -60,4 +60,4 @@
 \contentsline {section}{\numberline {8.1}Neuroscience Terms Explained for Computer Scientists}{45}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Equivalence testing}{46}{section.8.2}%
 \contentsline {section}{\numberline {8.3}Tables}{46}{section.8.3}%
-\contentsline {chapter}{Bibliography}{51}{chapter*.12}%
+\contentsline {chapter}{Bibliography}{51}{chapter*.13}%

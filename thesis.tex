@@ -104,7 +104,16 @@
   \frontmatter % this stuff will be roman-numbered
   \pagestyle{empty} % this removes page numbers from the frontmatter
 
+    \chapter*{Acknowledgements}
+I am deeply grateful to my advisor, Greg Anderson, for his mentorship, support, and guidance throughout this project. His thoughtful revisions, consistent kindness, and help getting me access to ORCA were invaluable in shaping this work.
 
+I am also deeply grateful to Jordi Garcia-Ojalvo. Our previous work together shaped my interest in both connectomics and reservoir computing, and his mentorship helped make this project possible.
+
+I am grateful to Anna Ritz for suggesting valuable experiments, pushing back on ideas, and supporting me through the inevitable failures that come with modeling complex systems.
+
+Thank you to my partners, Remi Cannon and Autumn Aabram, for putting up with long ramblings about connectomes and reservoir computers. Remi, thank you for your love, humor, and the many long study sessions in the library. Autumn, thank you for your warmth, kindness, and love, which gave me steadiness when this work felt impossible. I am deeply grateful to both of you.
+
+I am also grateful to my friends, who made this process quite joyful: Tara, Sabine, Alta, Enzo, Marley, Rosa, Benny, Kiana, Claire, Nana, Henry, Lumen. Their friendship, humor, and support helped carry me through this thesis.
 
     \chapter*{List of Abbreviations}
 
@@ -340,7 +349,7 @@ If the network generalizes well, small input perturbations produce only low-dime
 Returning to the pool analogy, suppose we wish to infer the size of a stone after it has been dropped into the water. The stone itself is no longer visible, but its presence is encoded in the resulting wave pattern. By observing the waves, one could estimate the size of the stone. If multiple stones are dropped sequentially, their wave patterns overlap and interfere. The older a stone, the more its influence dissipates and mixes with subsequent wave patterns. Memory capacity measures how well the current reservoir state can \textit{reconstruct} past inputs at varying delays.
 
 Memory capacity, introduced by Jaeger \parencite{Jaeger2002STMESN}, measures how much linear memory a reservoir retains about past inputs. Given an input sequence $u(t){\sim} \mathcal{U}(-1,1)$, the reservoir is trained to reconstruct delayed versions of that input, denoted $\hat u_k(t)$, where $k$ is the delay. A high value of $\mathrm{MC}_k$ indicates that the reservoir state at time $t$ contains enough information to accurately recover the input from time $t-k$. Jaeger defines memory capacity as
-\[\text{MC}_k=\dfrac{\big(\text{cov}\!\left(u(t-k),\hat u_k(t)\right)\big)^2}{\text{var}(u)\,\text{var}(\hat u_k)}\] \[\text{MC}=\sum_{k=1}^\infty\text{MC}_k.\]\
+\[\text{MC}_k=\dfrac{\big(\text{cov}\!\left(u(t-k),\hat u_k(t)\right)\big)^2}{\text{var}(u)\,\text{var}(\hat u_k)}\] \[\text{MC}=\sum_{k=1}^\infty\text{MC}_k.\]
 
 $MC_k$ measures the correlation between the predicted signal and the original signal or how well the network ``remembers" the original signal at delays $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases. This is intuitive, as we are in a network that has the echo state property and thus the state of the network is determined by its input history and not by its initial state.\footnote{Jaeger also shows that for i.i.d. random input, $MC \leq N$ where $N$ is the number of reservoir units in the graph. \parencite{Jaeger2002STMESN,Stepney2024PRCtutorial}} For each delay \(k\), we train a linear readout from the reservoir state
 \(\bm{x}(t)\) to reconstruct the delayed input \(u(t-k)\).
@@ -499,7 +508,7 @@ We define information processing capacity (IPC) as
 =
 \sum_{d=1}^{D_{\max}}
 \sum_{k\in K}
-\max\!\bigl(0.0, r_{\mathrm{score}}(Y_{d,k},\hat{Y}_{d,k})\bigr),
+\max\!\bigl(0.0, r_{\mathrm{score}}(Y_{d,k},\hat{Y}_{d,k})^2\bigr),
 \]
 In the literature, IPC is often summed over all Legendre orders and over a large delay horizon. We truncate this computation to orders $K=\{1,3,5\}$ and maximum delay $D_{\max}=30$, since higher-order and longer-delay contributions are small and our experiments require tens of thousands of IPC evaluations.
 
@@ -747,14 +756,14 @@ A single trial of a model consists of:
 \begin{enumerate}
     \item A reservoir instantiation for each trial, reset between hyperparameter combinations
     \item A performance evaluation for each hyperparameter combination, using the following parameters: \begin{itemize}
-        \item \textbf{Sequence length} = 2000
+        \item \textbf{Sequence length} = 2500
         \item \textbf{Washout time steps} = 500
         \item \textbf{Perturbation standard deviation}  = 0.01 (for calculating GR)
         \item \textbf{Train time steps} = 1500
         \item \textbf{Test time steps} = 500
         \item \textbf{Memory capacity max delay} = 30
         \item \textbf{Information processing capacity max delay} = 30
-        \item \textbf{Information processing capacity max polynomial order} = {1,2,5}
+        \item \textbf{Information processing capacity max polynomial order} = {1,3,5}
         \item \textbf{Ridge alpha} = 0.0001 (controls the strength of L2 regularization for ridge regression)
     \end{itemize}
 \end{enumerate}
@@ -885,21 +894,19 @@ Taken together, these three experiments show that the consequences of degree-pre
 \label{sec:weight_perturbation}
 We next isolate the effect of weight-magnitude distribution while holding connectivity and sign structure fixed. Starting from the \textit{C.\ elegans} model, we perturb the magnitude of each nonzero weight while preserving its sign. For each nonzero entry $W_{ij}$, we construct
 \[
-W_{ij}' = \text{sign}(W_{ij}) (\Lambda *  \mathcal{N}(0,1)) + W_{ij}
+W'_{ij}=\operatorname{sign}(W_{ij})\left|W_{ij}+\Lambda Z_{ij}\right|,\qquad Z_{ij}\sim\mathcal{N}(0,1).
 \]
 where $\Lambda$ controls the strength of the perturbation. As $\Lambda$ increases, the empirical distribution of $|W|$ moves closer to a fitted shifted half-normal target, and its KL divergence from that target (Section~\ref{sec:kl_metric}) decreases. Because the edge set and sign pattern are unchanged, this experiment isolates the effect of the magnitude distribution from the effects of topology and global sign balance.
 
 Preserving sign is necessary here because global sign balance strongly influences invariance (Section~\ref{balance}). If signs were allowed to change, any resulting change in mean performance or CV could reflect altered excitatory/inhibitory balance rather than the effect of the weight-magnitude distribution itself.
 
-Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. This is also reflected quantitatively in Tables~\ref{tab:sign_pres_gaus_weights} and~\ref{tab:sign_pres_gaus_metric_mean}: when sign is preserved, the average CV increases at $\alpha=10$ are 1.17\% for MC, 6.79\% for IPC, 11.7\% for KR, and 10.1\% for GR, while the corresponding mean metric changes are -0.879\%, -1.77\%, 9.66\%, and 13.8\%, respectively. MC and IPC change relatively little across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes, while GR and KR vary somewhat more but still remain comparatively stable.
+Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. This is also reflected quantitatively in Tables~\ref{tab:sign_pres_gaus_weights} and~\ref{tab:sign_pres_gaus_metric_mean}: when sign is preserved, the average CV increases at $\Lambda=10$ are 4.32\% for MC, 8.76\% for IPC, 11.6\% for KR, and 10\% for GR, while the corresponding mean metric changes are -2.48\%, -0.499\%, 9.67\%, and 13.9\%, respectively. MC and IPC change relatively little across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes, while GR and KR vary somewhat more but still remain comparatively stable.
 
-Compared with the version of the experiment in which sign is not preserved (Tables~\ref{tab:no_sign_pres_gaus_weights} and~\ref{tab:no_sign_pres_gaus_metric_mean}), the same perturbation produces much larger changes. At $\alpha=10$, CV rises by 55.9\% for MC, 62.5\% for IPC, 127\% for KR, and 70.3\% for GR, while the mean metric values increase by 72.0\%, 68.5\%, 251\%, and 348\%, respectively. This comparison supports the interpretation that the large effects seen under unconstrained perturbation are driven primarily by changes in sign balance rather than by the shift toward a half-normal magnitude distribution itself. For the \textit{C.\ elegans} topology studied here, changing the weight-magnitude distribution alone has a limited effect on hyperparameter invariance or performance, especially for MC and IPC.
+Compared with the version of the experiment in which sign is not preserved (Tables~\ref{tab:no_sign_pres_gaus_weights} and~\ref{tab:no_sign_pres_gaus_metric_mean}), the same perturbation produces much larger changes. At \(\Lambda=10\), CV rises by 45.6\% for MC, 55.4\% for IPC, 127\% for KR, and 70.3\% for GR, while the mean metric values increase by 75.3\%, 73.4\%, 251\%, and 348\%, respectively. This comparison supports the interpretation that the large effects seen under unconstrained perturbation are driven primarily by changes in sign balance rather than by the shift toward a half-normal magnitude distribution itself. For the \textit{C.\ elegans} topology studied here, changing the weight-magnitude distribution alone has a limited effect on hyperparameter invariance or performance, especially for MC and IPC.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figs/weight_to_gaus.png}
-\caption{Effect of perturbing nonzero weight magnitudes toward a half-normal distribution while preserving connectivity and edge sign. Starting from the \textit{C.\ elegans} network, nonzero weights are transformed as
-$W'_{ij}=\mathrm{sign}(W_{ij})\!\left(\Lambda* \mathcal{N}(0,1)\right)$,
-where $\Lambda$ controls perturbation strength. The x-axis shows the KL divergence between the empirical distribution of $|W|$ and a fitted shifted half-normal target on a $\log_{10}$ scale; increasing $\Lambda$ decreases this divergence. Top row: mean metric value versus KL divergence. Bottom row: mean CV versus KL divergence. Colored trajectories correspond to GR (green), KR (red), IPC (orange), and MC (blue). Left and right panels show the same data from two viewing angles. The transparent planes indicate the unperturbed baseline, corresponding to $\Lambda=0$.}
+\caption{Effect of perturbing nonzero weight magnitudes toward a half-normal distribution while preserving connectivity and edge sign. Starting from the \textit{C.\ elegans} network, nonzero weights are transformed as $W'_{ij}=\operatorname{sign}(W_{ij})\left|W_{ij}+\Lambda Z_{ij}\right|,\qquad Z_{ij}\sim\mathcal{N}(0,1)$, where $\Lambda$ controls perturbation strength. The x-axis shows the KL divergence between the empirical distribution of $|W|$ and a fitted shifted half-normal target on a $\log_{10}$ scale; increasing $\Lambda$ decreases this divergence. Top row: mean metric value versus KL divergence. Bottom row: mean CV versus KL divergence. Colored trajectories correspond to GR (green), KR (red), IPC (orange), and MC (blue). Left and right panels show the same data from two viewing angles. The transparent planes indicate the unperturbed baseline, corresponding to $\Lambda=0$.}
     \label{fig:weights}
 \end{figure}
 
@@ -1188,7 +1195,7 @@ GR & Binary wt. vs Binary wt. + shuf. & 0.02068 & 5.831e-35 \\
 \label{tab:no_sign_pres_gaus_weights}
 \begin{tabular}{lcccc}
 \toprule
-Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
 \midrule
 MC & 0.3548 & +0.00808 (+2.28\%) & +0.0851 (+24\%) & +0.162 (+45.6\%)  \\
 IPC & 0.2718 & +0.00868 (+3.19\%) & +0.0891 (+32.8\%) & +0.151 (+55.4\%) \\
@@ -1203,7 +1210,7 @@ GR & 0.4426 & +0.00829 (+1.87\%) & +0.162 (+36.5\%) & +0.311 (+70.3\%) \\
 \label{tab:no_sign_pres_gaus_metric_mean}
 \begin{tabular}{lcccc}
 \toprule
-Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
 \midrule
 MC & 4.161 & +0.00525 (+0.126\%) & +0.715 (+17.2\%) & +3.13 (+75.3\%) \\
 IPC & 5.863 & +0.0241 (+0.411\%) & +0.999 (+17\%) & +4.31 (+73.4\%)  \\
@@ -1219,7 +1226,7 @@ GR & 4.712 & +0.12 (+2.55\%) & +3.54 (+75\%) & +16.4 (+348\%) \\
 \label{tab:sign_pres_gaus_weights}
 \begin{tabular}{lcccc}
 \toprule
-Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
 \midrule
 MC & 0.3623 & +0.00232 (+0.641\%) & +0.0133 (+3.67\%) & +0.0156 (+4.32\%) \\
 IPC & 0.2781 & +0.00298 (+1.07\%) & +0.0178 (+6.38\%) & +0.0244 (+8.76\%) \\
@@ -1234,7 +1241,7 @@ GR & 0.4426 & +0.00508 (+1.15\%) & +0.0319 (+7.2\%) & +0.0444 (+10\%) \\
 \label{tab:sign_pres_gaus_metric_mean}
 \begin{tabular}{lcccc}
 \toprule
-Metric & Baseline & $\alpha=1$ & $\alpha=5$ & $\alpha=10$ \\
+Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
 \midrule
 MC & 4.096 & -0.00846 (-0.206\%) & -0.094 (-2.3\%) & -0.102 (-2.48\%) \\
 IPC & 5.733 & +0.00524 (+0.0914\%) & -0.0257 (-0.448\%) & -0.0286 (-0.499\%) \\

@@ -1,66 +1,21 @@
-% This is the Reed College LaTeX thesis template. Most of the work 
-% for the document class was done by Sam Noble (SN), as well as this
-% template. Later comments etc. by Ben Salzberg (BTS). Additional
-% restructuring and APA support by Jess Youngberg (JY).
-% Your comments and suggestions are more than welcome; please email
-% them to cus@reed.edu
-%
-% See http://web.reed.edu/cis/help/latex.html for help. There are a 
-% great bunch of help pages there, with notes on
-% getting started, biblatex, etc. Go there and read it if you're not
-% already familiar with LaTeX.
-%
-% Any line that starts with a percent symbol is a comment. 
-% They won't show up in the document, and are useful for notes 
-% to yourself and explaining commands. 
-% Commenting also removes a line from the document; 
-% very handy for troubleshooting problems. -BTS
-
-% As far as I know, this follows the requirements laid out in 
-% the 2002-2003 Senior Handbook. Ask a librarian to check the 
-% document before binding. -SN
-
-%%
-%% Preamble
-%%
-
-% The `reedthesis' class (.cls) file has a number of options. Most of these
-% options are passed directly to the book class, but we have a number of custom options:
-% - `notocchapterdots' - disable the Table of Contents dots between chapters.
-%	This only affects the dots between the Chapter N: ... heading and their respective page numbers.
-% - `notocsectiondots' - disable the Table of Contents dots between section.
-% - `tocchaptername=false' - shows just "N" instead of "Chapter N" in each ToC entry.
-% - `headerstyle' - chooses the format in which header titles are displayed
-%	- `headerstyle=uppercase' - displays header titles in upper case
-%	- `headerstyle=smallcaps` - displays header titles in small caps.
-% - `linkstyle' - changes the style of links. by default, this is "unstyled" (black)
-%	(Note: If you go to print, and links don't show up, check your LaTeX engine! This should work fine on Overleaf, but you may need to
-%		change which LaTeX engine you use (e.g. for LaTeX Workshop on Visual Studio Code, use the recipe `pdflatex'))
-%   - `linkstyle=web` - the color of a link is always blue ("website"-style)
-% 	- `linkstyle=labelled` - the color of a link depends on its type
-% - `bibstyle` - choose the bibliography style in use. defaults to numeric
-% - `bibfile=???.bib' - the name of the bibliography file. defaults to bibliography.bib
-\documentclass[
-    12pt,
-    twoside,
-    bibstyle=authoryear,
-    bibfile=bibliography.bib,
-    headerstyle=uppercase,
-]{reedthesis}
-% Packages are extensions to the basic LaTeX functions. Whatever you
-% want to typeset, there is probably a package out there for it.
-% Chemistry (chemtex), screenplays, you name it.
-% Check out CTAN to see: http://www.ctan.org/
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
 \usepackage{listings}
-\usepackage{graphicx,latexsym} 
+\usepackage{graphicx,latexsym}
 \usepackage{amssymb,amsthm,amsmath}
 \usepackage{comment}
-\usepackage{longtable,booktabs,setspace} 
-\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
-\usepackage{rotating} 
+\usepackage{longtable,booktabs,setspace}
+\usepackage{chemarr}
+\usepackage{rotating}
 \usepackage[english]{babel}
 \usepackage{bm}
 \usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
 \definecolor{celblue}{HTML}{32a2f2}
 \definecolor{celgreen}{HTML}{127212}
 \definecolor{ergreen}{HTML}{6eb775}
@@ -73,113 +28,26 @@
 \definecolor{deepblue}{HTML}{002CF1}
 \definecolor{purple}{HTML}{AF7DF5}
 \definecolor{lightcyan}{HTML}{8ADEF3}
-% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
 
 \title{Determinants of Hyperparameter Invariance in Connectome Reservoir Computing}
-\author{Miles Walter Churchland}
-% The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
+\author{Miles Walter Churchland\Department of Computer Science, Reed College}
 \date{May 2026}
-\division{Mathematical and Natural Sciences}
-\advisor{Greg Anderson}
-%If you have two advisors for some reason, you can use the following
-%\altadvisor{Your Other Advisor}
-%%% Remember to use the correct department!
-\department{Computer Science}
-% if you're writing a thesis in an interdisciplinary major,
-% uncomment the line below and change the text as appropriate.
-% check the Senior Handbook if unsure.
-%\thedivisionof{The Established Interdisciplinary Committee for}
-% if you want the approval page to say "Approved for the Committee",
-% uncomment the next line
-%\approvedforthe{Committee}
 
-\setlength{\parskip}{0pt}
-%%
-%% End Preamble
-%%
-%% The fun begins:
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
 \begin{document}
+\maketitle
 
-  \maketitle
-  \frontmatter % this stuff will be roman-numbered
-  \pagestyle{empty} % this removes page numbers from the frontmatter
+\begin{abstract}
+Biological neural circuits maintain functional computation despite substantial variation in synaptic strengths, membrane properties, and inputs. Reservoir computing provides an artificial framework for studying this robustness: input signals are projected into a high-dimensional space by a fixed nonlinear dynamical system, called the reservoir. Unlike biological circuits, these systems can be highly sensitive to hyperparameters such as spectral radius, input scaling, and leak rate. This paper asks which structural features of a network support invariance to those parameter changes. Using the \textit{C.\ elegans} connectome as a biologically grounded reservoir, we measure computational capability with four task-agnostic metrics---memory capacity (MC), information processing capacity (IPC), kernel rank (KR), and generalization rank (GR)---and define hyperparameter invariance as the coefficient of variation of these metrics across sweeps of spectral radius, input scaling, and leak rate.
 
-    \chapter*{Acknowledgements}
-I am deeply grateful to my advisor, Greg Anderson, for his mentorship, support, and guidance throughout this project. His thoughtful revisions, consistent kindness, and help getting me access to ORCA were invaluable in shaping this work.
+To isolate the structural determinants of invariance, we construct controlled perturbations that separately modify connectivity topology, weight-magnitude distributions, magnitude placement, and excitatory/inhibitory sign structure while preserving the remaining properties. Across these experiments, the empirical connectome consistently occupies a relatively low-variance regime. Preserving the empirical global sign ratio recovers much of this invariance even when weight magnitude heterogeneity is removed, whereas perturbing sign balance produces the largest changes in both mean performance and hyperparameter sensitivity.
 
-I am also deeply grateful to Jordi Garcia-Ojalvo. Our previous work together shaped my interest in both connectomics and reservoir computing, and his mentorship helped make this project possible.
+The dominant pattern is a performance--invariance tradeoff. Moving the reservoir toward greater excitatory/inhibitory balance generally increases mean computational performance but also increases variability under hyperparameter change. Topological perturbations most clearly affect memory capacity, while sign-preserving magnitude interpolation shows that reassigning empirical magnitudes across fixed signed edges especially affects kernel-based metrics. These results support a hierarchy of causes: \textit{C.\ elegans} connectome invariance is explained primarily by global excitatory/inhibitory sign imbalance, while topology and empirical weight magnitudes provide secondary, metric-specific effects.
+\end{abstract}
 
-I am grateful to Anna Ritz for suggesting valuable experiments, pushing back on ideas, and supporting me through the inevitable failures that come with modeling complex systems.
-
-Thank you to my partners, Remi Cannon and Autumn Aabram, for putting up with long ramblings about connectomes and reservoir computers. Remi, thank you for your love, humor, and the many long study sessions in the library. Autumn, thank you for your warmth, kindness, and love, which gave me steadiness when this work felt challenging. I am deeply grateful to both of you.
-
-I am also deeply grateful to my family: Anne, Michael, Paul, Patricia, Dr. Huk, Val, Wren, and Alex. Their love, encouragement, intellectual influence, and support gave me the foundation that made this work possible.
-
-I am also grateful to my friends, who made this process quite joyful: Tara, Sabine, Alta, Enzo, Marley, Rosa, Benny, Kiana, Claire, Nana, Henry, Lumen. Their friendship, humor, and support helped carry me through this thesis.
-
-    \chapter*{List of Abbreviations}
-
-	\begin{table}[h]
-	\centering % You could remove this to move table to the left
-	\begin{tabular}{ll}
-\textbf{ANN} & Artificial neural network \\
-\textbf{CAN} & Canal-associated neurons (CANL/CANR) \\
-\textbf{C.\ elegans} & \textit{Caenorhabditis elegans} \\
-\textbf{CV} & Coefficient of variation \\
-\textbf{Dale’s law} & Principle that a neuron's outgoing synapses share the same sign \\
-\textbf{E/I} & Excitatory/inhibitory \\
-\textbf{E\:\!I ratio} & Excitatory-to-inhibitory ratio \\
-\textbf{ER} & Erd\H{o}s--R\'enyi \\
-\textbf{ESN} & Echo state network \\
-\textbf{GR} & Generalization rank \\
-\textbf{Gym} & Gymnasium reinforcement-learning environment toolkit \\
-\textbf{HPC} & High-performance computing \\
-\textbf{IPC} & Information processing capacity \\
-\textbf{KL} & Kullback--Leibler divergence \\
-\textbf{KR} & Kernel rank \\
-\textbf{L/R} & Left/right \\
-\textbf{LSTM} & Long short-term memory \\
-\textbf{MC} & Memory capacity \\
-\textbf{MG} & Mackey--Glass time series \\
-\textbf{NARMA-$N$} & Nonlinear autoregressive moving average of order $N$ \\
-\textbf{NRMSE} & Normalized root mean squared error \\
-\textbf{PPO} & Proximal policy optimization \\
-\textbf{RC} & Reservoir computing \\
-\textbf{RNN} & Recurrent neural network \\
-\textbf{SNN} & Spiking neural network \\
-\textbf{SR} & Spectral radius ($\rho(W)$) \\
-\textbf{SW} & Small-world \\
-\textbf{$W$} & Reservoir weight matrix \\
-\textbf{$W^{\mathrm{in}}$} & Input weight matrix \\
-\textbf{WS} & Watts--Strogatz model \\
-
-	\end{tabular}
-	\end{table}
-	
-
-    \tableofcontents
-% if you want a list of tables, optional
-    \listoftables
-% if you want a list of figures, also optional
-    \listoffigures
-
-% The abstract is not required if you're writing a creative thesis (but aren't they all?)
-% If your abstract is longer than a page, there may be a formatting issue.
-    \chapter*{Abstract}
-Biological neural circuits maintain functional computation despite substantial variation in synaptic strengths, membrane properties, and inputs. Reservoir computing provides a useful artificial framework for studying this robustness: input signals are projected into a high-dimensional space by a fixed nonlinear dynamical system, called the reservoir. Unlike biological circuits, however, these systems can be highly sensitive to hyperparameters such as spectral radius, input scaling, and leak rate. This thesis asks which structural features of a network support invariance to those parameter changes. Using the \textit{C.\ elegans} connectome as a biologically grounded reservoir, I measure computational capability with four task-agnostic metrics---Memory Capacity (MC), Information Processing Capacity (IPC), Kernel Rank (KR), and Generalization Rank (GR)---and define hyperparameter invariance as the coefficient of variation of these metrics across sweeps of spectral radius, input scaling, and leak rate.
-
-To isolate the structural determinants of invariance, I construct controlled perturbations that separately modify connectivity topology, weight-magnitude distributions, magnitude placement, and excitatory/inhibitory sign structure while preserving the remaining properties. Across these experiments, the empirical connectome consistently occupies a relatively low-variance regime. Preserving global sign structure recovers much of this invariance even when weight magnitude heterogeneity is removed, whereas perturbing sign balance produces the largest changes in both mean performance and hyperparameter sensitivity.
-
-The dominant pattern is a performance--invariance tradeoff. Moving the reservoir toward greater excitatory/inhibitory balance generally increases mean computational performance but also increases variability under hyperparameter change. Topological perturbations most clearly affect memory capacity, while sign-preserving magnitude interpolation shows that reassigning empirical magnitudes across fixed signed edges especially affects kernel-based metrics (KR and GR). These results suggest that hyperparameter invariance in connectome reservoirs emerges from the interaction of global sign balance, weight magnitude distribution, magnitude placement, and topological structure.
-		\chapter*{Dedication}
-		For my parents, Anne Churchland and Michael Brodesky, for my grandmother, Patricia Churchland, whose support, kindness, and love of beauty in scientific inquiry made this work possible.
-  \mainmatter % here the regular arabic numbering starts
-  \pagestyle{fancyplain} % turns page numbering back on
-
-%The \introduction command is provided as a convenience.
-%if you want special chapter formatting, you'll probably want to avoid using it altogether
-
-\chapter{Introduction}
+\section{Introduction}
 In 1966, the mathematician and psychologist Seymour Papert initiated the ``Summer Vision Project,'' an early attempt to develop programs capable of performing image-classification tasks. The project revealed that visual perception was far more difficult to formalize computationally than early researchers had anticipated, and that heuristic approaches were insufficient for the problem. \parencite{nilsson_2010}
 
 Earlier, in 1962, Hubel and Wiesel studied the visual cortex of cats and found neurons that responded selectively to oriented bars of light at specific locations, as well as more complex cells that responded to such features across a range of positions. These results suggested that biological vision achieves robust computation through layered feature extraction.\parencite{lindsay_2020}
@@ -194,11 +62,11 @@ This thesis turns to a biological network not to explain the organism itself, bu
 
 
 
-\chapter{Reservoir Computers and Echo State Networks}
-\section{Reservoir Computers: an Introduction}
+\section{Reservoir Computers and Echo State Networks}
+\subsection{Reservoir Computers: an Introduction}
 Picture a pool of water, with no waves on it--this is a computational reservoir, our computational substrate. Now imagine dropping a stone into the pool--our input--and observing the ensuing waves--our output. One could use the pool to perform computational tasks by dropping multiple stones into it in sequence.\footnote{This has actually been done in \textit{Pattern Recognition in a Bucket} \parencite{fernando_sampsa_sojakka_2003}} Alternatively, one could measure the computational power of the pool without regard to a specific task; this is what this work explores. In this analogy, the input sequence corresponds to the sequence of stones, the nonlinear high-dimensional expansion corresponds to the pool dynamics, and the output sequence corresponds to an observer interpreting the evolving wave patterns. Echo state networks are a class of reservoir computers in which the reservoir state is uniquely determined by the input history.
 
-\section{Echo State Networks}
+\subsection{Echo State Networks}
 Echo state networks are discrete-time recurrent reservoir computers, introduced by Jaeger \parencite{jaeger_echo_state_2001}. Due to their recurrence, echo state networks are particularly useful in time series analysis \parencite{Jaeger_Schrauwen_2012} and chaotic system prediction problems \parencite{Jager2004}. For readers unfamiliar with reservoir computing, we recommend the tutorial-style introduction\ \parencite{introtoRC} and the accompanying interactive RC Bootcamp notebooks. \parencite{rcbootcampSite}
 
 Reservoir computers have $d$ input units, $N$ internal network (more colloquially known as reservoir network or reservoir) units, and $p$ output units. These units are most commonly nodes of a network.\footnote{We must say units here, as researchers implement reservoir computing with all sorts of computational media, such as water \parencite{fernando_sampsa_sojakka_2003} and plants \parencite{pieters_de_swaef_stock_wyffels_2022}.} Reservoir computers have three weight matrices: input weights $W^{\mathrm{in}}\in\mathbb{R}^{N\times d}$, internal weights $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$, and output weights $W^{\mathrm{out}}\in\mathbb{R}^{p\times N}$ \parencite{jaeger_echo_state_2001}. The reservoir acts as a nonlinear expansion and as a memory of the input \parencite{Lukosevicius2012PracticalESN}.
@@ -227,7 +95,7 @@ A reservoir that does not satisfy the echo state property is generally unsuitabl
     \caption{A basic echo state network architecture. $W^{\mathrm{out}}$ edges are trainable. $W^{\mathrm{in}}$ and $W^{\mathrm{res}}$ are fixed after the network architecture is created and are not updated during training.\parencite{9093897}}
     \label{fig:esn}
 \end{figure}
-\section{Hyperparameters}
+\subsection{Hyperparameters}
 Echo state networks, like most machine learning models, rely on hyperparameters---parameters specified prior to training that determine global properties of the model and influence how its neurons behave. In reservoir computing, these parameters do not affect $W^{\mathrm{out}}$ directly; instead they influence the intrinsic behavior of the reservoir itself, shaping recurrent feedback, external input, and temporal integration.
 
 \textbf{Spectral radius} $\rho(W^{\mathrm{res}})$: Let $W \in \mathbb{R}^{N \times N}$ be a square matrix with eigenvalues 
@@ -250,20 +118,20 @@ Smaller $\alpha$ increases the persistence of past inputs and extends temporal m
 
 \textbf{Noise} $\xi_t$: Noise introduces stochastic perturbations to the reservoir state. Noise insertion has been shown to improve attractor stability in echo state networks by preventing trajectories from collapsing into undesired fixed points or oscillatory modes, though this comes at the cost of reduced prediction precision \parencite{jaeger_echo_state_2001}. Because the present experiments focus on task-agnostic structural invariance rather than optimizing performance on a specific task, noise is omitted from our study.
 
-\chapter{Background}
-\section{The C. elegans Connectome} %maybe put this at the start instead
-\subsection{Connectome}
+\section{Background}
+\subsection{The C. elegans Connectome} %maybe put this at the start instead
+\subsubsection{Connectome}
 A connectome is a description of the neural wiring of an organism. It encodes which neurons are connected, the direction of each connection, and often additional biological metadata such as the number of synaptic terminals and the neurotransmitter associated with each connection.
 
 In this work, we treat the connectome as the foundation for a graph: each neuron is represented as a node, and each synapse as a directed, weighted edge. The connectome used in our study is sourced from the c302 project \parencite{c302}, which is an initiative to model the neural network of the nematode \textit{C.\ elegans}.
 The network is composed of several key components:
     \paragraph{Neurons}: The database includes all 302 identified neurons in the \textit{C.\ elegans} nervous system.
     Our model includes 299 neurons; CANL, CANR, and VC6 are omitted (see Sec.~\ref{sec:omission}).
-    \paragraph{Synaptic connections}: The c302 connectome model contains 3672 synaptic connections, but 564 of them are neuromuscular junctions; they send neurotransmitters to muscle cells and are not included in our graph. This leaves us with 3108 synaptic connections, categorized into various types based on the nature of the synapse, including chemical synapses and gap junctions. Specifically, we assign inhibitory synapses (GABAergic) negative weights (190 synapses) and excitatory synapses--acetylcholine (394 synapses) and glutamate (962)--positive weights. All remaining transmitters (1562 synapses) are assigned positive sign. This sign assignment is a \emph{working assumption} used to define an excitatory/inhibitory partition for the invariance experiments; it does not attempt to capture receptor-specific or context-dependent effects (e.g., cases where acetylcholine or glutamate can be inhibitory). Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is both beyond the scope of the analysis and computationally infeasible at the scale of experiments required. We retain the non-GABA synapses (rather than dropping them) to preserve the observed network density and recurrence, which strongly influence reservoir dynamics and the metrics studied here. This modeling choice undoubtedly affects our results and should be considered when interpreting them; it is discussed further in our conclusion section \ref{sec:results}. The connections are represented as directed edges in the network, indicating the direction of signal transmission.
+    \paragraph{Synaptic connections}: The c302 connectome model contains 3672 synaptic connections, but 564 of them are neuromuscular junctions; they send neurotransmitters to muscle cells and are not included in our graph. This leaves us with 3108 synaptic connections, categorized into various types based on the nature of the synapse, including chemical synapses and gap junctions. Specifically, we assign inhibitory synapses (GABAergic) negative weights (190 synapses) and excitatory synapses--acetylcholine (394 synapses) and glutamate (962)--positive weights. All remaining transmitters (1562 synapses) are assigned positive sign. This sign assignment is a \emph{working assumption} used to define an excitatory/inhibitory partition for the invariance experiments; it does not attempt to capture receptor-specific or context-dependent effects (e.g., cases where acetylcholine or glutamate can be inhibitory). Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is both beyond the scope of the analysis and computationally infeasible at the scale of experiments required. We retain the non-GABA synapses (rather than dropping them) to preserve the observed network density and recurrence, which strongly influence reservoir dynamics and the metrics studied here. This modeling choice affects the interpretation of the sign-balance results and is discussed further in the Discussion. The connections are represented as directed edges in the network, indicating the direction of signal transmission.
     Gap junctions are considered to be two distinct edges with independent weights for computational simplicity.
 \paragraph{Connection count (weight proxy)}: The dataset reports only the number of terminal contacts that neuron $i$ makes onto neuron $j$, not graded synaptic strengths. We therefore use that contact count $c_{ij}$ as an initial weight, $W_{ij}=c_{ij}$. Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020} and provides the biologically informed prior for our training.
 
-\subsection{Omission of CANL/CANR}
+\subsubsection{Omission of CANL/CANR}
 \label{sec:omission}
 In the c302 wiring used here, CANL and CANR form gap-junction contacts only with excretory tissues and have no neuronal synapses. Because our node set includes neurons but not excretory cells, including CANL/CANR would produce two isolated vertices (no neuronal in- or out-edges and no neuromuscular outputs). Additionally, VC6 forms an outgoing connection to a muscle, but has no incoming or outgoing synapses to or from other neurons. Nodes with no incoming or outgoing synaptic connections are dynamically inert and therefore do not influence dynamics of the network. Formally, if neuron $i$ satisfies $W_{ij}=0$ and $W_{ji}=0$ for all $j$, then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining network. They would still have an internal signal influenced by the input. This internal signal provides no additional useful features to the readout layer, since its temporal activity is linearly dependent with respect to the four neurons with in-degree zero already present in the network.\footnote{Importantly, these four neurons have non-zero out-degree and thus influence network dynamics.} The inclusion or omission of these isolated nodes is therefore irrelevant in this model.
 
@@ -293,238 +161,56 @@ and onward, causing divergence; with noise-trained models, the estimator learns 
 
 
 
-\section{Task Agnostic Network Statistics}
-\subsection{Motivation}
-What makes a given neural circuit computationally powerful? More precisely, how can two network architectures be compared across a suite of tasks without explicitly training them on those tasks? In reservoir computing, this question is addressed through task-agnostic statistics that quantify intrinsic dynamical properties of the network. Measures such as information processing capacity (IPC), kernel rank (KR), generalization rank (GR), and memory capacity (MC) characterize functional dimensions, including nonlinearity, separability, generalization, and fading memory. Additionally, these statistics are widely used as benchmarking tools for reservoir networks \parencite{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
+\subsection{Task Agnostic Network Statistics}
+\subsubsection{Motivation}
+Task-agnostic reservoir statistics measure computational properties of the reservoir before training it on a specific downstream task. This thesis uses four such metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and information processing capacity (IPC). For each architecture and hyperparameter setting, the reservoir is driven by an i.i.d. input sequence and the resulting state matrix is used to compute these metrics. Higher MC, IPC, and KR indicate greater task-agnostic computational capability. GR measures sensitivity to small input perturbations; throughout the Results it is analyzed alongside the other metrics as a reservoir response statistic.
 
-\subsection{Kernel Rank}
-Returning to the earlier pool analogy, in which input sequences are modeled as stones dropped into water and reservoir states as the resulting wave patterns, we can use this picture to build intuition for the task-agnostic network statistics considered in this work. Imagine dropping stones of different sizes into the pool, one after another, in the same place each time, and repeating this process for many input sequences. Each sequence produces a pattern of waves, corresponding to a reservoir state. Kernel rank is a measure of how distinctly the pool responds to different sets of inputs; if many input sequences lead to the same wave patterns, then the kernel rank will be low. If those input sequences instead map to distinct wave patterns, then the kernel rank will be high.
+\subsubsection{Kernel Rank}
+Kernel rank measures how many effectively independent reservoir activity dimensions are produced by the input drive. We collect the post-washout state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute effective rank:
+\[
+\mathrm{KR}
+=
+\exp\left(-\sum_i p_i\ln p_i\right).
+\]
+This effective-rank formulation captures the spread of activity across orthogonal modes rather than exact linear independence alone.
 
-Kernel rank measures how effectively inputs are projected into a high-dimensional state space so they become linearly separable by a readout $W^{\mathrm{out}}$, serving as a measurable proxy for kernel quality and the diversity of nonlinear transformations created by the reservoir \parencite{Stepney2024PRCtutorial}. Higher is better for this metric. Specifically, kernel rank is a measure of the rank of the $n \times m$ matrix whose columns are the internal states $x_{u_i}(t_0)$ at some fixed time $t_0$ for the preceding input streams $u_i$, where $n$ is the number of units in the circuit and $m$ is the number of input streams. This is the original definition \parencite{maass_comp_power_2004}; we use a modified version that is also found in the literature \parencite{Stepney2024PRCtutorial}. In our implementation, we use the state-matrix variant common in benchmarking: we drive the reservoir with a single i.i.d. input sequence $u_t$---rather than $m$ input streams---and collect the post-washout\footnote{A washout period is an initial set of timesteps discarded so the reservoir moves away from its arbitrary starting state before the states used for training and testing are collected.} state matrix $X \in \mathbb{R}^{T\times N}$, where each row is the reservoir state at each time step. Kernel rank is computed using effective rank \parencite{roy_vetterli_2007}. Because the readout is linear, neurons with very similar activity patterns provide redundant information. We want a kernel whose neurons' activity patterns vary greatly, such that this can be utilized by our readout. Thus, we need a different measure of rank, since matrix rank only detects exact linear dependence; neurons with highly similar but not identical activity patterns will still increase the rank. We want a measure of rank that captures variance across orthogonal modes. This leads us to effective rank. To compute effective rank, we perform the following steps:\\
-First, we center our values with respect to time:\\
-\[ X_c = X-\bar{X}\] \\where \[\bar{X} = \bar{X}_{tj} = \frac{1}{T}\sum_{t'=1}^{T}X_{t'j}\] 
-Here, $\bar{X} \in \mathbb{R}^{T \times N}$ is the matrix obtained by repeating, in each row, the mean activity of each neuron over time. Subtracting $\bar{X}$ from $X$ therefore centers each neuron's activity across time.
-We then get the singular values from the singular value decomposition:
+\subsubsection{Generalization Rank}
+Generalization rank measures how reservoir states change under small input perturbations. Let \(u_t\sim\mathcal{U}(-1,1)\) be the clean input and \(u'_t=u_t+\kappa\varepsilon_t\), where \(\varepsilon_t\sim\mathcal{N}(0,1)\) and \(\kappa=0.01\). If \(X\) and \(X'\) are the corresponding post-washout state matrices, then
 \[
-S = [\sigma_1,\sigma_2,...\sigma_n] = \text{SVDVALS}(X_c)
-\]
-The values of a singular value decomposition represent the scaling in each orthogonal dimension. When we compute the $\sigma$s, we do so by obtaining the square root of the eigenvalues of $X_c^TX_c$. $X_c^TX_c$ is the unnormalized covariance matrix of $X_c$. A large magnitude at index $i,j$ in $X_c^TX_c$ means that neuron $i$'s activity is closely aligned with neuron $j$'s. A low value indicates a weak linear correlation between their signals.\\
-The eigenvalues describe how much variance lies along each orthogonal activity pattern. If many neurons behave similarly, most variance lies in a small number of directions and only a few eigenvalues are large. If neurons exhibit diverse activity patterns, variance spreads across more directions and more eigenvalues become significant.\\
-
-Next, we ensure that there are no $\sigma$ values equal to 0 by setting all zero values to $\epsilon$, where $\epsilon = 1e-12$.
-\[
-S'_{i} = \max(\epsilon,S_{i}) 
-\]
-We now convert the singular values into a probability distribution by normalizing them by their sum. This yields a distribution over the $p_i$ suitable for computing Shannon entropy.
-\[
-p_i = \frac{S'_{i}}{\sum^N_{k=1}{S'_{k}}}
-\]
-We invoke Shannon entropy to quantify how much information, on average, is needed to encode our singular values. If there is one large singular value and the rest are close to 0, then we need substantially less information to encode the distribution than if there are multiple singular values with similar sizes.
-\[
-H= -\sum_{i=1}^{N} (p_i\ln{p_i})
-\]
-We then compute $e^H$ to obtain the effective rank of our matrix.
-\[
-\text{erank} = e^{H}
-\]
-%An illustrative example is that of $p_i =\frac{1}{k}$. This case is achieved when we have k eigenvalues of the same magnitude. In this case, $H = \ln{{k}}$, so $e^H = k$, which is the effective rank of our matrix.
-
-\subsection{Generalization Rank}
-Returning to the pool, suppose we wanted to observe how much the wave patterns change if we used slightly larger or smaller rocks. We could alter the size of our rocks slightly and drop them sequentially into the same location in the pool. By comparing the resulting wave pattern to the wave pattern of the unaltered rocks, we can measure how many independent wave patterns the pool produces from these nearly identical inputs. If small changes in the stones lead to many distinct wave patterns, the pool is highly sensitive and maps to a high-dimensional set of states; if small changes lead to similar wave patterns, the pool generalizes and collapses to a lower-dimensional set of states. This is measured by the Generalization Rank.
-
-Generalization Rank (GR) quantifies the sensitivity of reservoir states to small perturbations in the input. It is computed as the effective rank of the difference between state trajectories driven by clean and noise-perturbed inputs. Lower GR indicates that input perturbations induce lower-dimensional deviations in state space, reflecting a reduced sensitivity to noise. Our unperturbed input is
-\[
-u_t \overset{\text{i.i.d.}}{\sim} \mathcal{U}(-1,1)
-\]
-Our perturbed input is
-\[
-u'_t = u_t + \kappa \,\varepsilon_t, \qquad \varepsilon_t \overset{\text{i.i.d.}}{\sim} \mathcal{N}(0,1).
-\]
-With $\kappa$ set to 0.01, we run the network on the perturbed $u'$ and collect the states over time $X'$. We also run the network on the unperturbed input $u$ and collect the states over time $X$. 
-
-\[
-\text{Generalization Rank} = \text{erank}(X'-X)
+\mathrm{GR}
+=
+\mathrm{erank}(X'-X).
 \]
 
-If the network generalizes well, small input perturbations produce only low-dimensional changes in the reservoir state after the washout period.
-\subsection{Memory Capacity}
-Returning to the pool analogy, suppose we wish to infer the size of a stone after it has been dropped into the water. The stone itself is no longer visible, but its presence is encoded in the resulting wave pattern. By observing the waves, one could estimate the size of the stone. If multiple stones are dropped sequentially, their wave patterns overlap and interfere. The older a stone, the more its influence dissipates and mixes with subsequent wave patterns. Memory capacity measures how well the current reservoir state can \textit{reconstruct} past inputs at varying delays.
-
-Memory capacity, introduced by Jaeger \parencite{Jaeger2002STMESN}, measures how much linear memory a reservoir retains about past inputs. Given an input sequence $u(t){\sim} \mathcal{U}(-1,1)$, the reservoir is trained to reconstruct delayed versions of that input, denoted $\hat u_k(t)$, where $k$ is the delay. A high value of $\mathrm{MC}_k$ indicates that the reservoir state at time $t$ contains enough information to accurately recover the input from time $t-k$. Jaeger defines memory capacity as
-\[\text{MC}_k=\dfrac{\big(\text{cov}\!\left(u(t-k),\hat u_k(t)\right)\big)^2}{\text{var}(u)\,\text{var}(\hat u_k)}\] \[\text{MC}=\sum_{k=1}^\infty\text{MC}_k.\]
-
-$MC_k$ measures the correlation between the predicted signal and the original signal or how well the network ``remembers" the original signal at delays $k$. Summing over $k$ gives us how well the network can remember a signal over all delays $k$. As $k$ increases the $MC_k$ typically decreases. This is intuitive, as we are in a network that has the echo state property and thus the state of the network is determined by its input history and not by its initial state.\footnote{Jaeger also shows that for i.i.d. random input, $MC \leq N$ where $N$ is the number of reservoir units in the graph. \parencite{Jaeger2002STMESN,Stepney2024PRCtutorial}} For each delay \(k\), we train a linear readout from the reservoir state
-\(\bm{x}(t)\) to reconstruct the delayed input \(u(t-k)\).
-
-We follow Jaeger's definition of $MC$, but evaluate each delayed reconstruction using the squared Pearson correlation between the target input sequence and the reservoir's prediction. This form is algebraically equivalent to Jaeger's covariance--variance ratio, while avoiding the explicit computation of separate sample covariance and variance terms. In the equations below, $Y$ denotes the true delayed input sequence, $X$ denotes the predicted delayed input sequence, and $\epsilon=1\times 10^{-12}$ is added to the denominator for numerical stability.
-
-\[
-\begin{aligned}
-\mathrm{MC}_k
-&= r_{\mathrm{score}}(X,Y)^2 \\[0.5em]
-&=
-\frac{
-\left(\operatorname{cov}(X,Y)\right)^2
-}{
-\operatorname{var}(X)\operatorname{var}(Y)
-} \\[0.5em]
-&=
-\frac{
-\left(\dfrac{1}{T-1}\sum_{i=1}^{T}(X_i-\bar X)(Y_i-\bar Y)\right)^2
-}{
-\left(\dfrac{1}{T-1}\sum_{i=1}^{T}(X_i-\bar X)^2\right)
-\left(\dfrac{1}{T-1}\sum_{i=1}^{T}(Y_i-\bar Y)^2\right)
-} \\[0.5em]
-&=
-\left(
-\frac{
-\sum_{i=1}^{T}(X_i-\bar X)(Y_i-\bar Y)
-}{
-\sqrt{
-\left(\sum_{i=1}^{T}(X_i-\bar X)^2\right)
-\left(\sum_{i=1}^{T}(Y_i-\bar Y)^2\right)
-}
-+\epsilon
-}
-\right)^2 .
-\end{aligned}
-\]
-
-We define Ridge regression as follows
-\[
-\text{Ridge\_Regression}(X,Y,\xi)= ((X)^TX+\xi I)^{-1}(X)^TY 
-\]
-
-
-
-\paragraph{Notation.}
-\begin{itemize}
-    \item $X^{\mathrm{train}}_{d:T_{tr}}$: reservoir states on training data from timestep $d$ to the end.
-    \item $X^{\mathrm{test}}_{d:T_{te}}$: reservoir states on test data from timestep $d$ to the end.
-    \item $u^{\mathrm{train}}_{0:T_{tr}-d}$: training inputs from the start up to the end minus a delay $d$.
-    \item $u^{\mathrm{test}}_{0:T_{te}-d}$: test inputs from the start up to the end minus a delay $d$.
-    \item $I$: the identity matrix of size $N \times N$
-    \item $\xi$: user-specified parameter denoting the strength of L2 regression. We used 0.0001.
-\end{itemize}
-%$I \in R^{N \times N}$. $Y' = Y_{\text{train}}$ \footnote{We use $Y'=Y$ the typical equation has Y = $\frac{Y-\bar{Y}}{\text{std}(Y)+\epsilon}$ we can skip this for a computational speedup by knowing that $\bar{Y}\approx0$ hence $Y' = \frac{Y}{\text{std}(Y)+\epsilon}$, however this can be written as $Y'=aY$ with $a=\frac{1}{\text{std}(Y)+\epsilon}$ we can just multiply the weight matrix found from ridge regularization by a, this is automatically done by ridge regression.}
-
-
-
-
-In our experiments, we approximate memory capacity by summing this same per-delay score over a finite delay window:
+\subsubsection{Memory Capacity}
+Memory capacity measures how well a linear readout can reconstruct past inputs from the current reservoir state. For each delay \(d\), a ridge-regression readout is trained to predict \(u(t-d)\) from \(x(t)\), and the squared Pearson correlation between predicted and true delayed input is recorded. We approximate total memory capacity by summing over delays:
 \[
 \mathrm{MC}
 =
 \sum_{d=1}^{D_{\max}}
-\mathrm{MC}_d
-=
-\sum_{d=1}^{D_{\max}}
-r_{\mathrm{score}}(Y_d,\hat{Y_d})^2,
+r_{\mathrm{score}}(u(t-d),\hat{u}_d(t))^2.
 \]
-where
-\[
-Y_d = u^{\mathrm{test}}_{0:T_{te}-d},
-\qquad
-\hat{Y_d}
-=
-X^{\mathrm{test}}_{d:T_{te}}
-\,\mathrm{Ridge\_Regression}\!\left(
-X^{\mathrm{train}}_{d:T_{tr}},
-\;
-u^{\mathrm{train}}_{0:T_{tr}-d}, \xi
-\right).
-\]
+We use \(D_{\max}=30\). Validation sweeps over \(D_{\max}\in\{30,50,80\}\) showed that this cutoff preserved essentially the full measured MC in the models tested.
 
-Here $D_{\max}$ is the maximum delay included in the sum; in our experiments, we use $D_{\max}=30$. This departs from the formal definition of memory capacity, which sums over all delays, but an infinite sum is not computationally feasible. Furthermore, $MC_k$ decays as $k \to \infty$, so terms at sufficiently large delays contribute negligibly.
-
-To validate this truncation, we swept $D_{\max} \in \{30,50,80\}$ across 14 models used in our experiments, using 20 random seeds per model at fixed hyperparameters ($\rho=0.95$, leak $=0.8$, input scaling $=1.0$), for 280 evaluations total. We treat $D_{\max}=80$ as the reference condition. Across these evaluations, $D_{\max}=30$ captured an average of $100.00\%$\footnote{This value rounds to $100.00\%$. The underlying mean was slightly below $100\%$, as reflected by the nonzero standard deviation and minimum.} of the memory capacity measured at $D_{\max}=80$, with a standard deviation of $0.02\%$, a minimum of $99.71\%$, and a 5th percentile of $100.00\%$. The corresponding model values were in perfect agreement across all 14 models, with Pearson $r = 1.0000$.
-
-We therefore use $D_{\max}=30$ throughout, since it preserves essentially the full observed memory capacity while being more computationally efficient than larger cutoffs. The results also suggest that this cutoff could likely be reduced further without materially affecting the approximated memory capacity.
-
-\subsection{Information Processing Capacity}
+\subsubsection{Information Processing Capacity}
 \label{sec:ipc}
-
-Returning to our pool, suppose we are no longer interested in recovering the size of individual stones, but instead in recovering combinations of stones. When multiple stones are dropped into the pool, their waves do not simply add; they interfere, overlap, and mix. The resulting wave pattern contains not only information about each stone individually, but also information about their interactions. Information Processing Capacity measures how many independent combinations of past stones simultaneously exist in the current wave pattern.
-\paragraph{Notation.}
-\begin{itemize}
-    \item $X^{\mathrm{train}}_{d:T_{tr}}$: reservoir states on training data from timestep $d$ to the end.
-    \item $X^{\mathrm{test}}_{d:T_{te}}$: reservoir states on test data from timestep $d$ to the end.
-    \item $u^{\mathrm{train}}_{0:T_{tr}-d}$: training inputs from the start up to the end minus a delay $d$.
-    \item $u^{\mathrm{test}}_{0:T_{te}-d}$: test inputs from the start up to the end minus a delay $d$.
-    \item $P_k$ is a function applying an elementwise Legendre polynomial of degree $k$. 
-\end{itemize}
-Let
-\[
-Y_{d,k} = P_k(u^{\mathrm{test}}_{0:T_{te}-d}),
-\qquad
-\hat{Y}_{d,k}
-=
-X^{\mathrm{test}}_{d:T_{te}}
-\,\mathrm{Ridge\_Regression}\!\left(
-X^{\mathrm{train}}_{d:T_{tr}},
-\;
-P_k(u^{\mathrm{train}}_{0:T_{tr}-d})
-, \xi
-\right).
-\]
-Information Processing Capacity measures the ability of the reservoir state $x(t)$ to reconstruct nonlinear functions of delayed input sequences.
-We start with a uniformly sampled noise sequence of length $T$ on the interval $[-1,1]$:
-\[
-u_t \overset{\text{i.i.d.}}{\sim} \mathcal{U}(-1,1)
-\]
-\begin{comment}
-    
-
-First we rescale the input sequence $u$ to the range for $-1$--$1$ for both test and train data
-\[
-\frac{2(u-\min(u))}{\max(u)-\min(u)+\epsilon}-1.0
-\]
-importantly the mean of u after this rescaling is $\approx$ 0. Let $a,b = \min(u),\max(u)$. We will show $\mathbb{E}(\tilde{u}) =0$
-\begin{gather}
-  \mathbb{E}(\tilde{u}) =  \frac{2(u-a)}{b-a+\epsilon}-1.0
- \\ 
-    \frac{2u}{b-a+\epsilon}-\frac{2a}{b-a+\epsilon}-1.0
- \\ 
-     \frac{2u}{b-a+\epsilon}+\frac{-2a}{b-a+\epsilon}-\frac{b-a+\epsilon}{b-a+\epsilon}
- \\ 
-      \frac{2u}{b-a+\epsilon}+\frac{-b-a-\epsilon}{b-a+\epsilon}
- \\ 
-      \mathbb{E}(\tilde{u})=\frac{a+b}{2}\\
-            \frac{2}{b-a+\epsilon}\frac{a+b}{2}+\frac{-b-a-\epsilon}{b-a+\epsilon}\\
-              \frac{2(a+b)}{2(b-a+\epsilon)} +\frac{-b-a-\epsilon}{b-a+\epsilon}\\
-                \frac{2(a+b)}{2(b-a+\epsilon)} +\frac{-2b-2a-2\epsilon}{2(b-a+\epsilon)}\\
-                \frac{-2\epsilon}{2(b-a+\epsilon)}
- \end{gather}
-using linearity and multiplicity of expectation. because epsilon $\approx 0$ then $\mathbb{E}(\tilde{u}) = 0$
-
-\end{comment}
-
-
-
-
-
-
-We define information processing capacity (IPC) as
+Information processing capacity measures how well the reservoir can reconstruct nonlinear functions of delayed inputs. For Legendre polynomial orders \(K=\{1,3,5\}\), we compute
 \[
 \mathrm{IPC}
 =
 \sum_{d=1}^{D_{\max}}
 \sum_{k\in K}
-\max\!\bigl(0.0, r_{\mathrm{score}}(Y_{d,k},\hat{Y}_{d,k})^2\bigr),
+\max\!\left(0,\,
+r_{\mathrm{score}}\!\left(P_k(u(t-d)),\widehat{P_k(u(t-d))}\right)^2
+\right).
 \]
-In the literature, IPC is often summed over all Legendre orders and over a large delay horizon. We truncate this computation to orders $K=\{1,3,5\}$ and maximum delay $D_{\max}=30$, since higher-order and longer-delay contributions are small and our experiments require tens of thousands of IPC evaluations.
-
-We validated the degree truncation by comparing $K= (1,3,5)$ against IPC computed over degrees $1$ through $10$, across 14 models used in our experiments, using 20 random seeds per model at fixed hyperparameters ($\rho=0.95$, leak $=0.8$, input scaling $=1.0$), for 280 evaluations total. IPC$(1,3,5)$ captured an average of $99.08\%$ of the full IPC, with standard deviation $1.74\%$, minimum $90.58\%$, and 5th percentile $94.97\%$. Agreement with IPC$(1,\dots,10)$ was also extremely high, with Pearson correlation $r=0.9995$. Thus, restricting our computation to orders $1$, $3$, and $5$ preserves the IPC value to a high degree.
-
-We similarly validated the delay cutoff by computing IPC with $K=\{1,3,5\}$ and $D_{\max} \in \{30,50,80\}$, treating $D_{\max}=80$ as the reference. Across the same hyperparameters, models, and number of seeds per model, $D_{\max}=30$ captured an average of $100.00\%$ of the IPC measured at $D_{\max}=80$, with standard deviation $0.03\%$, minimum $99.51\%$, and 5th percentile $100.00\%$. Model-wise agreement with the $D_{\max}=80$ reference was perfect, with Pearson $r=1.0000$ for both $D_{\max}=30$ and $D_{\max}=50$.
-
-Thus, we use IPC$(1,3,5)$ with $D_{\max}=30$ throughout. In our setting, this truncation preserves essentially all measured IPC while substantially reducing computational cost.
+We use \(D_{\max}=30\). Validation against longer delay windows and polynomial orders \(1\) through \(10\) showed that this truncated IPC closely matched the larger computation while reducing runtime.
 
 
 
 
 
-\section{Invariance across Hyperparameters}
+\subsection{Invariance across Hyperparameters}
 Variance measures the degree of spread in a data set from its mean value. In this study, we measure variation in task-agnostic statistics (GR, KR, IPC, MC) under hyperparameter change. While the values of these task-agnostic statistics are themselves meaningful---for example, high IPC can indicate a useful network architecture---we are also interested in how these values change under hyperparameter variation across different architectures, rather than considering the values alone. Hence, we measure the coefficient of variation rather than raw variance, since CV provides a measure of variation across different scales.
 
 \[CV = \frac{\text{std}(a)}{\bar{a}}\]
@@ -532,13 +218,13 @@ Variance measures the degree of spread in a data set from its mean value. In thi
 where $a$ denotes the set of values of the network statistic of interest---such as IPC, MC, GR, or KR---across the evaluated hyperparameter settings. It is desirable to have a low CV, as this indicates that the network statistic is invariant to hyperparameter change, meaning the network can be trained with a wide range of hyperparameters without changing the network's ability to perform a given task.
 
 
-\chapter{Methods}
+\section{Methods}
 To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network---such as topology, weight distribution, or sign structure---while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we can assess which features are responsible for observed variation across hyperparameter settings. %These experiments are set of structural ablations: starting from the biological network, we selectively randomize or preserve particular attributes and measure how these changes affect performance across hyperparameter settings.
 
 
-\section{Graph Perturbations}
+\subsection{Graph Perturbations}
 
-\subsection{Connection-Shuffle} %has fig
+\subsubsection{Connection-Shuffle} %has fig
 \label{Connection-Shuffle}
 We define a connection shuffle as a directed degree-preserving edge swap. Let \(W\) be the weighted adjacency matrix. We randomly select two existing directed edges \((a,b)\) and \((c,d)\), where \(a,b,c,d\) are distinct and the proposed edges \((a,d)\) and \((c,b)\) do not already exist. We then form a new matrix \(W'\) by setting
 \[
@@ -548,7 +234,7 @@ W'_{ab}=0, \qquad
 W'_{cd}=0,
 \]
 with all other entries unchanged. In this operation, the weights are carried with the original edges as they are reassigned to new targets. This preserves each node's in-degree and out-degree while shuffling the neighborhood structure.
-\subsection{Weight-Shuffle} %has fig
+\subsubsection{Weight-Shuffle} %has fig
 
 \label{Weight-Shuffle}
 Fix the synaptic connectivity pattern and randomly permute the weights assigned to existing connections. Let
@@ -589,7 +275,7 @@ P(\text{swap})
 }
 \end{comment}
 
-\subsection{Sign-preserving magnitude interpolation}
+\subsubsection{Sign-preserving magnitude interpolation}
 \label{sec:magnitude_interpolation_methods}
 To separate the effect of weight magnitudes from the effect of excitatory/inhibitory sign balance, we also use sign-preserving magnitude interpolation. These experiments keep the biological topological and synapse signs fixed. Only the nonzero magnitudes are changed.
 
@@ -618,171 +304,44 @@ m^{0}_{ij}=|W^{\mathrm{cel}}_{ij}|,\qquad m^{1}_{ij}=m^{\pi}_{ij}.
 \]
 In all three cases, topology and signs are fixed, so changes in CV or mean metric value reflect magnitude perturbation rather than sign perturbation.
 
-\subsection{Spectral Radius Normalization \& Scaling}
+\subsubsection{Spectral Radius Normalization \& Scaling}
 Spectral radius normalization and rescaling is done by scaling all weights in our weight matrix by $\frac{\rho_{target}}{\rho(W)}$. This is applied as the final step before running the architectures. Thus, normalization/scaling occur after any weight or sign perturbations.
 
-\section{Small-world networks}
-The small-world phenomenon refers to the observation that the distance between two randomly chosen nodes in a network is surprisingly small, even when the network contains many nodes \parencite{network_science}. Small-world networks are characterized by the coexistence of two structural properties: a high clustering coefficient and a short characteristic path length.
-\begin{comment}
-Formally, let $\overline{L}$ denote the average path length, the mean shortest paths distance between all pairs of nodes. Let $\overline{C}$ denote the average clustering coefficient of the network, defined as the mean degree to which the neighbors of a given node connect to each other. To quantify small-world structure, these quantities are typically normalized relative to an equivalent random network with the same number of nodes and edges, denoted $\overline{L}_{\mathrm{rand}}$ and $\overline{C}_{\mathrm{rand}}$, respectively. The small-worldness metric is then defined as
-\[
-S
-=
-\frac{\overline{C}/\overline{C}_{\mathrm{rand}}}
-{\overline{L}/\overline{L}_{\mathrm{rand}}}.
-\]
-A network is considered small-world when $S > 1$, indicating that it maintains higher clustering than a random network while preserving similarly short path lengths.\parencite{humphries_gurney_2008}
-\end{comment}
-\subsection{Small-World Topology Enhances the Echo State Property and Signal Propagation}
-
-Kawai et al. \parencite{KAWAI201915} demonstrate that networks with small-world structure~\parencite{Wssmallworld} (\(p = 0.1\)) exhibit enhanced memory capacity in reservoir computing when input and output nodes were spatially segregated. They localized input nodes in one region of the network and output nodes in a separate distant region. Small-world networks achieved greater total memory capacity across different spectral radii than networks that did not exhibit small-world properties.
-
-Small-world networks maintained strong performance across a broader range of spectral radii. In contrast, the performance of fully random reservoirs fell sharply outside of a narrow band of spectral radii. Though, notably, fully random networks (\(p = 1\)) achieved the single highest peak memory capacity—at a spectral radius slightly below one
-
-This result provides conceptual motivation for the present work: a biologically inspired architecture with small-world structure can exhibit comparatively stable computational performance across spectral radii. This is notable because random connectivity is often used in reservoir computing to promote dynamical diversity and high task performance. However, performance and hyperparameter invariance are distinct: the architectures that achieve the highest computational scores may also be the most sensitive to parameter changes. The biological network's stability therefore does not contradict the usefulness of random reservoirs, but instead suggests a tradeoff between performance and robustness.
+\subsection{Small-world networks}
+Small-world networks combine relatively high clustering with short path lengths \parencite{network_science}. They are relevant here because prior reservoir-computing work found that small-world reservoirs can maintain memory performance across a broader range of spectral radii than fully random reservoirs when input and output nodes are spatially segregated \parencite{KAWAI201915,Wssmallworld}. In this thesis, the small-world model is used only as a topology control: it tests whether a generic clustered-and-short-path architecture reproduces the invariance profile of the \textit{C.\ elegans} reservoir once empirical signs and magnitudes are removed.
 
 
 
 
-\section{Network Architectures}
+\subsection{Network Architectures}
 \label{Architectures}
+The experiments use controlled architecture families that isolate sign balance, topology, magnitude distribution, and magnitude placement. The main text groups these controls by the structural feature they manipulate; full architecture definitions and visualizations are provided in Supplemental Section~\ref{supp:architectures}.
+
+\begin{table}[t]
+\centering
+\caption{Architecture families used in the reservoir ablations.}
+\label{tab:architecture_groups}
+\begin{tabular}{p{0.24\textwidth}p{0.36\textwidth}p{0.30\textwidth}}
+\toprule
+Architecture family & Manipulation & Main comparison \\
+\midrule
+Empirical baseline & Original \textit{C.\ elegans} topology, signs, and contact-count magnitudes & Defines the low-variance reference regime \\
+\addlinespace
+Sign-preserving simplifications & Replace magnitudes with signed unit, half-Gaussian, or uniform magnitudes while preserving the empirical sign ratio & Tests whether global E/I sign imbalance is sufficient for invariance \\
+\addlinespace
+Sign-removing simplifications & Collapse all nonzero weights to positive binary values & Tests the effect of removing inhibitory signs \\
+\addlinespace
+Magnitude-placement controls & Shuffle empirical magnitudes across fixed edges or interpolate toward shuffled magnitudes while preserving signs & Tests whether empirical magnitudes matter through their placement \\
+\addlinespace
+Degree-preserving topology controls & Rewire edges using directed degree-preserving connection shuffles, with or without magnitude shuffling & Tests topology and its interaction with heterogeneous weights \\
+\addlinespace
+Random-topology baselines & Use Gaussian-weight \textit{C.\ elegans}-topology, ER, and WS controls & Tests whether topology alone explains the low-variance regime \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth]{figs/toplogy/model_grid_A_to_H.png}
-    \caption{Network visualizations for architectures A--H. In all panels, nodes represent neurons, orange edges are excitatory synapses, blue edges are inhibitory synapses, and darker edges indicate stronger synaptic weights. A: original \emph{C.~elegans} connectome. B: original connectome with shuffled weights. C: connection-shuffled \emph{C.~elegans} connectome. D: connection-shuffled connectome with an additional weight shuffle. E: original topology with signed binary ($\pm 1$) weights determined by the original edge signs. F: panel E after sign shuffling. G: connection-shuffled version of panel E. H: panel G after sign shuffling.}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth]{figs/toplogy/model_grid_I_to_O.png}
-    \caption{Additional control architectures I--O. I: \emph{C.~elegans} connectome with binary weights. J: binary-weight \emph{C.~elegans} connectome after connection shuffling. K: \emph{C.~elegans} topology with Gaussian weights. L: \emph{C.~elegans}-matched Erd\H{o}s--R\'enyi network with Gaussian weights. M: small-world network with $p = 0.1$ and Gaussian weights. N: sign-preserving Gaussian model. O: sign-preserving uniform model.}
-\end{figure}
-
-\subsection{C. elegans connectome} %has fig
-This uses the biological network and biological weights. Used as a comparison against other methods.
-\[
-W_{ij} = W^{cel}_{ij},
-\]
-
-
-
-\subsection{Original \textit{C.\ elegans} connectome with weight shuffle} %has fig
-\label{sec:original_weight_shuffle}
-Starting from the original \textit{C.\ elegans} connectome, this architecture preserves biological topology but shuffles the weights across existing connections using the weight-shuffle procedure in Section~\ref{Weight-Shuffle}. 
-
-
-
-\subsection{Original \textit{C.\ elegans} connectome with connection shuffle} %has fig
-\label{sec:original_connection_shuffle}
-Starting from the original \textit{C.\ elegans} connectome, this architecture applies the degree-preserving connection-shuffle procedure in Section~\ref{Connection-Shuffle}. 
-
-
-
-\subsection{Connection-shuffle with Weight-Shuffle} %has fig
-First shuffle the connections of the \textit{C.\ elegans} connectome using Section~\ref{Connection-Shuffle}, then shuffle the weights of the resulting weight matrix using Section~\ref{Weight-Shuffle}. This method is used as a control to show the effects of an additional weight shuffle after a connection shuffle.
-
-
-\subsection{C. elegans architecture with $\pm 1$ weights using original connection signs} %has fig
-\label{sec:plus1minus1network}
-This uses the biological network and associated edge signs (keeps the neurotransmitter constant). It sets the weight of every connection to 1 or -1 depending on the neurotransmitter.
-\[
-W_{ij}' =
-\begin{cases}
-\operatorname{sign}(W_{ij}) & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\]
-
-
-\subsection{C. elegans architecture with $\pm 1$ weights and shuffled signs preserving sign balance}
-This control keeps the biological connectivity fixed but randomizes which edges carry inhibitory signs. Starting from the signed binary network in Section~\ref{sec:plus1minus1network}, let
-\[
-N_- = \#\{(i,j): W'_{ij} = -1\}
-\]
-denote the number of negative entries. A random subset of size $N_-$ of nonzero entries of $|W'|$ is assigned sign $-1$, and all remaining nonzero entries are assigned sign $+1$. This preserves the original excitatory/inhibitory balance while shuffling the sign associated to each edge. Shuffling the signs is equivalent to a weight shuffle in this setting.
-
-\subsection{C. elegans architecture with $\pm 1$ weights under connection shuffling}
-Start with \ref{sec:plus1minus1network}. The resulting $\pm 1$ connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}.
-
-\subsection{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}
-Start with \ref{sec:plus1minus1network}. The resulting $\pm 1$ connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}, and a weight shuffle is subsequently applied to the shuffled matrix as described in~\ref{Weight-Shuffle}. This condition serves as a control for testing whether an additional weight shuffle has any effect once the $\pm 1$ network has already undergone connection shuffling.
-
-
-
-\subsection{C. elegans architecture with binary weights}
-
-This ablation begins with the biological \textit{C.\ elegans} connectivity pattern and sets each weight as follows:
-\[
-W_{ij}' =
-\begin{cases}
-1 & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\] 
-
-
-
-\subsection{C. elegans architecture with binary weights and connection shuffle}
-
-This ablation begins with the biological \textit{C.\ elegans} connectivity pattern and sets each weight as follows:
-\[
-W_{ij}' =
-\begin{cases}
-1 & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\] 
-The resulting binary connectome is then connection-shuffled as described in~\ref{Connection-Shuffle}.
-
-
-\subsection{C.~elegans Topology with Gaussian Weights} %has fig
-
-This control keeps the biological connectivity pattern of the \emph{C.~elegans} connectome, but replaces the weight on each existing connection with an independent Gaussian sample:
-\[
-W'_{ij} =
-\begin{cases}
-X_{ij} & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0,
-\end{cases}
-\quad
-X_{ij} \sim \mathcal{N}(0,1).
-\]
-
-\subsection{C.~elegans--Matched Erd\H{o}s--R\'enyi Model with Gaussian Weights} %has fig
-
-As a random-graph baseline, we constructed networks using the Erd\H{o}s--R\'enyi (ER) model. In this model, each possible edge between a pair of nodes is independently included with probability \(p\).
-
-To match the scale of the \emph{C.~elegans} connectome, we generated graphs with \(N = 299\) nodes. Each potential edge was included independently with probability \(p = 0.1\). Because this procedure produces a random number of edges, we subsequently adjusted the edge count to match that of the connectome. Specifically, edges were randomly removed until the total number of connections equaled that of the \emph{C.~elegans} network. Removing an edge was implemented by setting the corresponding weight to zero. After fixing the topology, weights were independently assigned to the remaining edges by sampling from a Gaussian distribution. 
-
-
-\subsection{C.~elegans--Matched Watts--Strogatz Model with Gaussian Weights} %has fig
-To test whether small-world organization affects task-agnostic invariance, we used a directed Watts--Strogatz-like control adapted from \parencite{Wssmallworld}. The graph has the same number of neurons and synaptic connections as the \emph{C.~elegans} connectome: \(N = 299\) nodes and \(3108\) directed edges.
-
-The construction begins with a directed ring lattice. Since \(3108 = 299 \times 10 + 118\), every node is assigned 10 local outgoing edges, and 118 randomly chosen nodes receive one additional local outgoing edge. This gives exactly 3108 edges before rewiring.
-
-Each outgoing edge is then rewired independently with probability \(p = 0.1\). Rewiring changes the target of an edge while preserving its source, so each node's out-degree is unchanged. New targets are chosen to avoid self-loops and duplicate edges. Thus, the final graph preserves the exact edge count of the biological network while introducing a small-world-like topology. After fixing the topology, weights were independently assigned to the remaining edges by sampling from a Gaussian distribution. 
-
-
-
-\subsection{C. elegans architecture with half Gaussian weights using original connection signs} %has fig
-Start with Section~\ref{sec:plus1minus1network}. Then reassign the edge weights to random weights sampled from a half-Gaussian distribution centered at 0 with standard deviation 1.
-\[
-W_{ij}' = \text{sign}(W_{ij}) (| \mathcal{N}(0,1)|),
-\]
-
-
-\subsection{C. elegans architecture with uniform weights using original connection signs} %has fig
-Starting from the signed binary network in Section~\ref{sec:plus1minus1network}, this control preserves each edge's original sign while replacing its magnitude with an independent draw from a uniform distribution on \([0,1]\):
-\[
-W_{ij}' = \operatorname{sign}(W_{ij})X_{ij},
-\quad
-X_{ij} \sim \mathcal{U}(0,1).
-\]
-
-
-\section{Trial definition}
+\subsection{Trial definition}
 \label{sec:trial_def}
 A single trial of a model consists of:
 \begin{enumerate}
@@ -799,7 +358,7 @@ A single trial of a model consists of:
         \item \textbf{Ridge alpha} = 0.0001 (controls the strength of L2 regularization for ridge regression)
     \end{itemize}
 \end{enumerate}
-\section{Hyperparameter Sweeps}
+\subsection{Hyperparameter Sweeps}
 We evaluated network performance across a full factorial sweep of spectral radius, leak rate, and input scaling. To compute our coefficient of variation (CV) metric, each trial evaluates a given network's performance across all combinations of the following hyperparameters:
 
 \begin{itemize}
@@ -811,7 +370,7 @@ The coefficient of variation (CV) is computed across hyperparameter combinations
 
 Number of trials for histogram experiment~\ref{fig:arch}: 500 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 24,000$. Number of trials for Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}: 250 per point. Total metric evaluations per point: $12,000$. Number of trials for Figure~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $2,400$. The interpolation experiments in Figures~\ref{fig:bin_to_cel_interp},~\ref{fig:bin_to_cel_shuf_interp}, and~\ref{fig:cel_to_cel_shuf_interp} use the same hyperparameter grid and compute CV independently at each interpolation fraction \(f\in\{0,0.25,0.5,0.75,1\}\).
 
-\section{Experimental Pipeline}
+\subsection{Experimental Pipeline}
 \textbf{For each trial}:
 \begin{enumerate}
     \item Instantiate reservoir computer (nodes and edges)
@@ -829,12 +388,12 @@ Number of trials for histogram experiment~\ref{fig:arch}: 500 per model. Total m
     \item Run equivalence tests and plot results
 \end{enumerate}
 
-\section{KL divergence to a fitted shifted half-normal target}
+\subsection{KL divergence to a fitted shifted half-normal target}
 \label{sec:kl_metric}
 For the weight-perturbation experiment, we quantify changes in the nonzero weight-magnitude distribution using a binned KL divergence between the empirical distribution of $|W|$ and a fitted shifted half-normal target. The magnitudes of finite nonzero weights are shifted so that the minimum value is 0 and then partitioned into $64$ equal-width bins over the observed range. The target distribution is fit by setting the location parameter to the minimum observed magnitude and the scale to the standard deviation of the shifted magnitudes. KL divergence is then computed between the empirical bin frequencies and the corresponding model bin probabilities, after clipping empty-bin probabilities by a small constant ($1 \times 10^{-12}$) and renormalizing. Smaller values indicate closer agreement with the fitted shifted half-normal target.
 
 
-\section{Equivalence testing}
+\subsection{Equivalence testing}
 We use two one-sided tests (TOST) to test whether the difference in mean CV between architectures lies within equivalence bounds. $\Delta$ is calculated independently across experiments and metrics. Equivalence bounds are defined as:
 
 \[
@@ -855,24 +414,14 @@ Equivalence is concluded if both one-sided tests reject $H_0$ at $\eta$ = 0.05.
 
 
 
-\chapter{Results}
+\section{Results}
 \label{sec:results}
-Our modeling of the \textit{C.\ elegans} connectome exhibits consistently low dispersion across hyperparameter sweeps, indicating that its computational properties remain stable under variation in spectral radius, leak rate, and input scaling. This is visible in Fig.~\ref{fig:arch}, where the connectome’s coefficient-of-variation (CV) distributions for MC, IPC, KR, and GR are concentrated toward lower values relative to several perturbed architectures. We find that the interaction between sign and edge structure with the distribution of weight magnitudes determines the invariance of computational properties.
+\textit{C.\ elegans} reservoirs are relatively insensitive to reservoir hyperparameter choices, but the experiments below do not support a flat list of equally important causes. The dominant effect is global excitatory/inhibitory (E/I) sign imbalance: preserving the empirical sign ratio recovers much of the connectome's invariance for IPC, KR, and GR, even when exact sign placement or empirical magnitudes are simplified. Topology, heterogeneous magnitudes, and magnitude placement then explain metric-specific residuals, most notably the distinct behavior of MC.
 
+\subsection[The empirical connectome occupies a low-variance reservoir regime]{The empirical connectome\\occupies a low-variance reservoir regime}
+Figure~\ref{fig:arch} establishes the basic phenomenon. Across sweeps of spectral radius, leak rate, and input scaling, the empirical \textit{C.\ elegans} connectome lies in a low-CV regime for the four task-agnostic metrics considered here. Low CV means that the metric changes relatively little as hyperparameters vary, so this regime corresponds to hyperparameter invariance rather than high absolute performance.
 
-\section{Sign structure and weight distribution shape invariance across architectures}
-Figure~\ref{fig:arch} shows the coefficient of variation (CV) of each model across hyperparameter sweeps. Lower CV corresponds to greater invariance. The original \textit{C.\ elegans} connectome lies among the lower-dispersion architectures, whereas the Gaussian-weight architectures without preserved biological sign structure---the \textit{C.\ elegans}+Gaussian, ER$+$Gaussian, and WS$+$Gaussian models---occupy a distinctly higher-CV regime. This separation suggests that invariance depends on more than topology alone; preserving some combination of biological sign structure and constrained weight statistics is important.
-
-Pairwise equivalence testing, seen in tables~\ref{tab:tost_mcipc} and~\ref{tab:tost_grkr}, sharpens this interpretation. The two sign-preserving $\pm 1$ models, one that preserves the original edge signs exactly and one that preserves only the global sign balance while randomizing sign placement, are both equivalent to the original connectome for IPC, KR, and GR, but not for MC. Collapsing all nonzero weights to $\pm 1$ therefore preserves much of the connectome's invariance profile. Moreover, the global sign-balance-preserving model is equivalent to the local sign-preserving model across these metrics, which suggests that exact edge-by-edge sign placement is less important than maintaining the overall excitatory/inhibitory balance. For IPC, KR, and GR, sign structure matters more than the detailed distribution of weight magnitudes.
-
-The binary base model, which preserves topology but removes both sign structure and weight heterogeneity, also falls in the low-CV cluster and has among the smallest mean CV values across metrics. However, Table~\ref{tab:tost_mcipc} shows that it is equivalent to the original connectome only for IPC. Thus, although homogeneous weights decrease CV, they do not reproduce the invariance profile of the original connectome.
-
-The sign-preserving Gaussian and sign-preserving uniform models show a different pattern. These two models are equivalent to one another for MC, IPC, and GR, but not for KR, and each is equivalent to the original connectome only for MC. Thus, once topology and sign are fixed, replacing the empirical magnitude distribution with either Gaussian or uniform samples produces similar behavior across several metrics, but neither reproduces the full biological invariance profile. This indicates that weight-magnitude distribution still matters, especially for KR and, relative to the original connectome, for IPC and GR. At the same time, these are the only models equivalent to the connectome for MC, which suggests that MC depends more strongly on heterogeneous weights and their placement than do the other metrics. This question is examined further in Sections~\ref{sec:weight_perturbation} and~\ref{sec:magnitude_interpolation}.
-
-Finally, the ER$+$Gaussian and WS$+$Gaussian models are equivalent to one another across all four metrics, suggesting that small-world structure alone does not strongly affect invariance in this setting. The \textit{C.\ elegans}+Gaussian model joins this group only partially: it is equivalent to WS$+$Gaussian for MC and GR, and to ER$+$Gaussian for GR. Once empirical sign structure and weight magnitudes are discarded, topology still influences invariance, with IPC and KR showing the strongest topological dependence.\footnote{Importantly for Section~\ref{sec:shuf}, one cannot move from the \textit{C.\ elegans} topology to a WS or ER topology using only degree-preserving weight shuffles, because these models have different degree distributions.}
-
-Taken together, these comparisons suggest a layered picture of invariance across architectures. Global excitatory/inhibitory balance is sufficient to recover much of the connectome's low-variance behavior for IPC, KR, and GR, whereas MC appears to depend more strongly on heterogeneous weights. Topology is not irrelevant, but its effect becomes most apparent after biological sign structure and weight statistics are removed. The invariance profile of the \textit{C.\ elegans} reservoir is therefore not explained by any single coarse architectural property, but by the interaction of sign balance, weight heterogeneity, and topology.
-
+The architecture comparison also gives an initial ordering of possible causes. Gaussian-weight controls that do not preserve the empirical sign structure occupy a higher-CV regime than the empirical connectome and the sign-preserving controls. This separation indicates that topology alone is not enough to explain the connectome's invariance. Conversely, collapsing nonzero weights to signed unit magnitudes preserves much of the low-variance profile, suggesting that the detailed empirical magnitude distribution is not the first-order explanation for IPC, KR, and GR invariance. These comparisons motivate the central claim tested in the following sections: the connectome's low-variance behavior is explained primarily by global E/I sign imbalance, with topology and weight magnitudes contributing secondary, metric-specific effects.
 
 \begin{figure}
   \centering
@@ -882,18 +431,44 @@ Taken together, these comparisons suggest a layered picture of invariance across
   \label{fig:arch}
 \end{figure}
 
+\subsection[Global sign balance explains the main performance-invariance tradeoff]{Global sign balance explains the main\\performance--invariance tradeoff}
+\label{balance}
+To isolate global sign balance, we flipped the signs of randomly selected synapses while preserving the remaining structure of each network. This manipulation changes the inhibitory fraction while holding connectivity and, where applicable, magnitudes fixed. It therefore tests whether the low-variance regime in Figure~\ref{fig:arch} is primarily a consequence of the empirical network's strongly imbalanced E/I sign ratio.
 
-\section{Invariance to degree-preserving topology changes}
+The result is a clear performance--invariance tradeoff. In the all-positive or strongly sign-imbalanced regime, reservoirs have low CV but reduced mean computational performance. As the inhibitory fraction increases toward a more balanced E/I regime, mean metric values generally rise, but CV rises as well (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}). Thus, the same manipulation that increases computational capability also makes the reservoir more sensitive to spectral radius, leak rate, and input scaling.
+
+This pattern explains why preserving the empirical sign ratio recovers much of the connectome's invariance in the architecture comparison. The empirical connectome, under the coarse neurotransmitter-to-sign mapping used here, sits on the low-variance side of the tradeoff rather than near the peak-performance region. This does not show that the biological circuit is optimized for low CV; it shows that, in this reservoir abstraction, global E/I sign imbalance is the main control parameter governing the observed invariance.
+
+\begin{figure} 
+    \centering
+    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/cel_bin_negfrac.png}
+    \caption{IPC is denoted in orange, GR in green, MC in blue, and KR in red. Mean computational coefficient of variation and mean performance are shown as a function of the fraction of synapse signs flipped from the original connectome using $\pm$ weights. Increasing sign flip percentage shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. A total of 250 trials were performed for each fraction.}
+    \label{fig:bin_cel_frac_curves}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/er_negfrac.png}
+    \caption{IPC is denoted in orange, GR in green, MC in blue, and KR in red. Mean computational coefficient of variation and mean performance are shown as a function of the fraction of synapse signs flipped from the ER random graph using binary weights. Increasing sign flip percentage shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. A total of 250 trials were performed for each fraction.}
+    \label{fig:er_frac_curves}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/cel_og_negfrac.png}
+    \caption{IPC is denoted in orange, GR in green, MC in blue, and KR in red. Mean computational coefficient of variation and mean performance are shown as a function of the fraction of synapse signs flipped from the absolute value of the \textit{C.\ elegans} connectome. The black point represents the negative sign percentage observed in the original connectome. A total of 250 trials were performed for each fraction.}
+    \label{fig:og_cel_frac_curves}
+\end{figure}
+
+\subsection{Topology and heterogeneous magnitudes explain metric-specific residuals}
 \label{sec:shuf}
-To test whether hyperparameter invariance depends on connectivity itself or on the weights assigned to that connectivity, we consider three degree-preserving shuffling experiments. Each experiment holds node degree fixed but changes a different combination of topology, sign placement, and weight magnitude. Together, they separate the effect of rewiring from the effect of redistributing weights across edges.
+The sign-balance result explains the main architecture-level separation, but it does not explain every metric equally. The residual structure is most visible in MC. In the architecture comparison, sign-preserving $\pm 1$ controls recover much of the empirical connectome's invariance for IPC, KR, and GR, but not for MC. By contrast, the sign-preserving Gaussian and uniform controls are closest to the empirical connectome for MC. This indicates that MC depends more strongly on heterogeneous weights and their organization on the graph than the other three metrics do.
 
-The first experiment, shown in Fig.~\ref{fig:realW}, Table~\ref{tab:tost_grkr_shuffles_1}, and Table~\ref{tab:tost_mcipc_shuffles_1}, uses the original real-valued \textit{C.\ elegans} weight matrix. In Fig.~\ref{fig:realW}, all three shuffled conditions lie to the right of the unshuffled connectome, indicating higher CV and therefore lower invariance. However, the three shuffled conditions are equivalent to one another for all four metrics. Weight shuffle, connection shuffle, and connection+weight shuffle therefore produce essentially the same dispersion profile once the original mapping between biological weights and edges has been disrupted. This suggests that, in the real-weight setting, much of the effect of connection shuffling is mediated through the reassignment of heterogeneous weights rather than through degree-preserving topology change by itself.
-The second experiment, shown in Fig.~\ref{fig:pm1W}, Table~\ref{tab:tost_grkr_shuffles_2}, and Table~\ref{tab:tost_mcipc_shuffles_2}, repeats the analysis after collapsing all nonzero weights to $\pm 1$ while preserving the original sign assignment. In this setting, weight shuffle no longer changes magnitudes; it only redistributes positive and negative signs across the fixed topology. For GR, KR, and IPC, all four conditions are pairwise equivalent, indicating that once magnitude heterogeneity is removed these metrics are largely insensitive to both rewiring and sign redistribution. MC behaves differently. Four of the six MC comparisons satisfy equivalence, but the two topology-changing conditions are not equivalent to the unshuffled $\pm 1$ baseline. Thus, after removing magnitude heterogeneity, MC still responds to rewiring, whereas GR, KR, and IPC do not.
+The degree-preserving shuffle experiments sharpen this interpretation. With the original real-valued \textit{C.\ elegans} weights, weight shuffling, connection shuffling, and connection-plus-weight shuffling all move the reservoir away from the unshuffled empirical connectome (Figure~\ref{fig:realW}). Because all three shuffled conditions are similar to one another, the main effect in this setting appears to be disruption of the empirical assignment of heterogeneous weights to edges, rather than degree-preserving rewiring alone.
 
-The third experiment, shown in Fig.~\ref{fig:bW} and Table~\ref{tab:tost_grkr_shuffles_3}, isolates topology most directly by using binary weights. Here all nonzero edges have the same sign and magnitude, so weight shuffling is trivial and the only nontrivial perturbation is a degree-preserving connection shuffle. Under this manipulation, the binary base model and its shuffled counterpart are equivalent for IPC, KR, and GR. MC is absent from Table~\ref{tab:tost_grkr_shuffles_3} because it does not satisfy the equivalence criterion; in Fig.~\ref{fig:bW}, rewiring shifts MC to a lower-CV regime. In this binary setting, rewiring can no longer alter either magnitudes or signs, so the remaining MC effect provides direct evidence that topology itself can influence invariance.
+When all nonzero weights are collapsed to $\pm 1$ while preserving the empirical sign ratio, the picture changes (Figure~\ref{fig:pm1W}). IPC, KR, and GR become largely insensitive to both sign redistribution and degree-preserving rewiring, consistent with the conclusion that global sign balance is sufficient for much of their invariance. MC remains more sensitive to topology-changing perturbations. The binary-weight experiment isolates this residual topology effect still further: once every nonzero edge has the same positive sign and magnitude, degree-preserving rewiring still changes MC more clearly than it changes IPC, KR, or GR (Figure~\ref{fig:bW}).
 
-Taken together, these three experiments show that the consequences of degree-preserving rewiring are strongly metric-dependent. For GR, KR, and IPC, most of the effect of rewiring in the real-weight network appears to come from disrupting the original placement of heterogeneous weights, because equivalence is largely restored once weights are collapsed to $\pm 1$ or to a single binary value. MC is different. In the real-weight network, rewiring behaves much like weight shuffling, but in the $\pm 1$ and binary settings MC remains sensitive to topology itself. The low CV of the empirical connectome therefore cannot be attributed to topology alone or to weight statistics alone; it reflects their interaction, with MC showing the clearest dependence on the detailed organization of the graph.
-%is the original connectome at the lowest point do the weights place it at a cv minimum?
+These results give the hierarchy its second level. Global E/I sign imbalance is the primary determinant of the low-variance regime, especially for IPC, KR, and GR. Topology and heterogeneous magnitudes are not irrelevant, but their clearest effects are residual and metric-specific. MC is the main exception to the sign-balance story: it depends more on graph organization and heterogeneous weights than the other metrics do.
 
 \begin{figure}
     \centering
@@ -919,40 +494,18 @@ Taken together, these three experiments show that the consequences of degree-pre
     \label{fig:bW}
 \end{figure}
 
-
-
-
-\section{Half-normal weight perturbations have limited effect on invariance}
-\label{sec:weight_perturbation}
-We next isolate the effect of weight-magnitude distribution while holding connectivity and sign structure fixed. Starting from the \textit{C.\ elegans} model, we perturb the magnitude of each nonzero weight while preserving its sign. For each nonzero entry $W_{ij}$, we construct
-\[
-W'_{ij}=\operatorname{sign}(W_{ij})\left|W_{ij}+\Lambda Z_{ij}\right|,\qquad Z_{ij}\sim\mathcal{N}(0,1).
-\]
-where $\Lambda$ controls the strength of the perturbatfion. As $\Lambda$ increases, the empirical distribution of $|W|$ moves closer to a fitted shifted half-normal target, and its KL divergence from that target (Section~\ref{sec:kl_metric}) decreases. Because the edge set and sign pattern are unchanged, this experiment isolates the effect of the magnitude distribution from the effects of topology and global sign balance.
-
-Preserving sign is necessary here because global sign balance strongly influences invariance (Section~\ref{balance}). If signs were allowed to change, any resulting change in mean performance or CV could reflect altered excitatory/inhibitory balance rather than the effect of the weight-magnitude distribution itself.
-
-Figure~\ref{fig:weights} shows the relationship between KL divergence, mean performance, and hyperparameter sensitivity. As $\Lambda$ increases, KL divergence decreases monotonically, but the resulting changes in both mean metric value and CV are modest. This is also reflected quantitatively in Tables~\ref{tab:sign_pres_gaus_weights} and~\ref{tab:sign_pres_gaus_metric_mean}: when sign is preserved, the average CV increases at $\Lambda=10$ are 4.32\% for MC, 8.76\% for IPC, 11.6\% for KR, and 10\% for GR, while the corresponding mean metric changes are -2.48\%, -0.499\%, 9.67\%, and 13.9\%, respectively. MC and IPC change relatively little across the perturbation range, indicating that these metrics are largely insensitive to this transformation of weight magnitudes, while GR and KR vary somewhat more but still remain comparatively stable.
-
-Compared with the version of the experiment in which sign is not preserved (Tables~\ref{tab:no_sign_pres_gaus_weights} and~\ref{tab:no_sign_pres_gaus_metric_mean}), the same perturbation produces much larger changes. At \(\Lambda=10\), CV rises by 45.6\% for MC, 55.4\% for IPC, 127\% for KR, and 70.3\% for GR, while the mean metric values increase by 75.3\%, 73.4\%, 251\%, and 348\%, respectively. This comparison supports the interpretation that the large effects seen under unconstrained perturbation are driven primarily by changes in sign balance rather than by the shift toward a half-normal magnitude distribution itself. For the \textit{C.\ elegans} topology studied here, this sign-preserving deformation toward a half-normal magnitude distribution has a limited effect on hyperparameter invariance or performance, especially for MC and IPC.
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{figs/weight_to_gaus.png}
-\caption{Effect of perturbing nonzero weight magnitudes toward a half-normal distribution while preserving connectivity and edge sign. Starting from the \textit{C.\ elegans} network, nonzero weights are transformed as $W'_{ij}=\operatorname{sign}(W_{ij})\left|W_{ij}+\Lambda Z_{ij}\right|,\qquad Z_{ij}\sim\mathcal{N}(0,1)$, where $\Lambda$ controls perturbation strength. The x-axis shows the KL divergence between the empirical distribution of $|W|$ and a fitted shifted half-normal target on a $\log_{10}$ scale; increasing $\Lambda$ decreases this divergence. Top row: mean metric value versus KL divergence. Bottom row: mean CV versus KL divergence. Colored trajectories correspond to GR (green), KR (red), IPC (orange), and MC (blue). Left and right panels show the same data from two viewing angles. The transparent planes indicate the unperturbed baseline, corresponding to $\Lambda=0$.}
-    \label{fig:weights}
-\end{figure}
-
-\section{Magnitude placement matters}
+\subsection{Magnitude placement matters, but only after sign structure is fixed}
 \label{sec:magnitude_interpolation}
-The half-normal perturbation above changes the empirical magnitude distribution, but it does not directly test whether the observed placement of empirical magnitudes on specific signed edges matters. To test this, we performed the sign-preserving magnitude interpolation experiments defined in Section~\ref{sec:magnitude_interpolation_methods}. In these experiments the topology and signs are fixed for every interpolation fraction; only magnitudes are perturbed.
+\label{sec:weight_perturbation}
+The preceding sections show that sign structure must be fixed before magnitude effects can be interpreted cleanly. The sign-preserving interpolation experiments therefore ask a narrower question: once topology and edge signs are held constant, does the placement of empirical magnitudes across signed edges matter?
 
-The first interpolation moves from unit magnitudes to the empirical \textit{C.\ elegans} magnitudes while preserving the original sign on every edge (Figure~\ref{fig:bin_to_cel_interp}; Tables~\ref{tab:bin_to_cel_interp_cv} and~\ref{tab:bin_to_cel_interp_perf}). This produces only modest changes. At \(f=1\), CV changes by \(+7.39\%\) for MC, \(-0.635\%\) for IPC, \(+0.929\%\) for KR, and \(+0.775\%\) for GR. Mean metric values also change modestly, increasing by \(7.5\%\) for MC, \(4.4\%\) for IPC, \(3.31\%\) for KR, and \(3.42\%\) for GR. This should not be read as evidence that magnitudes are generally unimportant. Instead, it shows that adding empirical magnitudes in their original \textit{C.\ elegans} ordering does not strongly disrupt invariance once the original signs are fixed.
+Interpolating from signed unit magnitudes to the empirical \textit{C.\ elegans} magnitudes produces only modest changes (Figure~\ref{fig:bin_to_cel_interp}). At \(f=1\), CV changes by \(+7.39\%\) for MC, \(-0.635\%\) for IPC, \(+0.929\%\) for KR, and \(+0.775\%\) for GR. Mean metric values also change modestly. Thus, adding empirical magnitudes in their original locations does not substantially disrupt the low-variance regime once the empirical sign structure is already fixed.
 
-The second interpolation uses the same signed unit-magnitude baseline but moves toward shuffled empirical magnitudes (Figure~\ref{fig:bin_to_cel_shuf_interp}; Tables~\ref{tab:bin_to_cel_shuf_interp_cv} and~\ref{tab:bin_to_cel_shuf_interp_perf}). Here the effect is much larger. At \(f=1\), CV increases by \(17.5\%\) for MC, \(14.3\%\) for IPC, \(32.1\%\) for KR, and \(24.4\%\) for GR. Mean metric values increase by \(14.4\%\), \(12.8\%\), \(37.3\%\), and \(49.9\%\), respectively. Because signs are preserved throughout this sweep, these increases cannot be attributed to changes in excitatory/inhibitory balance. They instead show that the placement of heterogeneous magnitudes can move the reservoir toward a higher-performance but less invariant regime.
+The shuffled-magnitude interpolations behave differently. Moving from signed unit magnitudes to shuffled empirical magnitudes increases CV by \(17.5\%\) for MC, \(14.3\%\) for IPC, \(32.1\%\) for KR, and \(24.4\%\) for GR at \(f=1\) (Figure~\ref{fig:bin_to_cel_shuf_interp}). Directly interpolating from empirical magnitudes to shuffled empirical magnitudes produces a similar pattern, with especially large effects for KR and GR (Figure~\ref{fig:cel_to_cel_shuf_interp}). Because signs are preserved throughout these sweeps, the increase in CV cannot be attributed to altered E/I balance. It reflects the placement of heterogeneous magnitudes on the fixed signed topology.
 
-The third interpolation directly connects the empirical magnitude assignment to a shuffled empirical magnitude assignment while preserving the original signs (Figure~\ref{fig:cel_to_cel_shuf_interp}; Tables~\ref{tab:cel_to_cel_shuf_interp_cv} and~\ref{tab:cel_to_cel_shuf_interp_perf}). This experiment isolates the effect of reassigning empirical magnitudes after the network is already heterogeneous. At \(f=1\), CV increases by \(9.43\%\) for MC, \(15\%\) for IPC, \(30.8\%\) for KR, and \(23.4\%\) for GR. Mean metric values increase by \(6.43\%\), \(8.03\%\), \(32.9\%\), and \(45\%\), respectively. The largest effects occur for KR and GR, indicating that magnitude placement particularly affects the diversity and separability of reservoir states.
+The half-normal perturbation is best interpreted as a control rather than a main discovery. When connectivity and signs are preserved, moving the magnitude distribution toward a fitted shifted half-normal target produces only modest changes in both mean metric value and CV (Figure~\ref{fig:weights}). When sign is not preserved in the corresponding control, the changes are much larger. This confirms the ordering of causes: large effects attributed to magnitude perturbation can be dominated by sign-balance changes unless sign structure is explicitly fixed.
 
-Together, these interpolation experiments refine the interpretation of the weight-perturbation results. Magnitude heterogeneity by itself is not sufficient to explain large changes in invariance: moving from unit magnitudes to empirical magnitudes on the original signed topology has a small effect, but this appears to be a special case created by the empirical ordering of \textit{C.\ elegans} magnitudes on the graph. Magnitude distribution alone is therefore not sufficient to explain invariance; the important factor is the interaction between the distribution of magnitudes and how that distribution is placed on signed edges. Reassigning the same  magnitudes across edges, even while preserving every sign, substantially increases both CV and mean performance. The organization of weight magnitudes across the signed topology therefore contributes to the performance--invariance tradeoff independently of global sign balance, and the empirical \textit{C.\ elegans} magnitude ordering appears to prioritize  invariance rather than task-agnostic performance.
+Together, the magnitude experiments complete the hierarchy. Magnitude placement can move the reservoir toward higher mean performance and higher CV, particularly for KR and GR, but this effect appears after the sign structure has already set the main performance--invariance regime. Empirical \textit{C.\ elegans} magnitudes are therefore not irrelevant; they tune metric-specific behavior within a regime primarily established by global E/I sign imbalance.
 
 \begin{figure}
     \centering
@@ -975,64 +528,28 @@ Together, these interpolation experiments refine the interpretation of the weigh
     \label{fig:cel_to_cel_shuf_interp}
 \end{figure}
 
-\section{Global neurotransmitter balance shapes the performance--invariance tradeoff}
-\label{balance}
-To isolate the effect of neurotransmitter balance, we performed a controlled sign-flipping experiment in which a fraction $f$ of randomly selected synapses had their signs flipped while preserving connectivity and weight magnitudes (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves},~\ref{fig:og_cel_frac_curves}). This procedure continuously perturbs the global excitatory/inhibitory balance while holding all other structural properties fixed.
-
-In Figures~\ref{fig:bin_cel_frac_curves} and~\ref{fig:er_frac_curves}, the endpoint with negative sign fraction $= 0$ corresponds to
-\[
-W_{ij}' =
-\begin{cases}
-1 & \text{if } W_{ij} \neq 0 \\
-0 & \text{if } W_{ij} = 0
-\end{cases}
-\]
-In this binary-positive limit, both networks exhibit maximal invariance but reduced mean computational performance. As the fraction of flipped synapses increases, both performance and CV generally increase. Mean computational performance is typically highest near a balanced excitatory/inhibitory regime, but this gain is accompanied by substantially increased sensitivity to hyperparameter variation. The dominant pattern is therefore a tradeoff: moving toward global sign balance increases mean performance at the cost of task-agnostic invariance. This relationship is not perfectly monotonic in every metric, but the overall trend is consistent across the experiments shown here.
-
-Figure~\ref{fig:og_cel_frac_curves} also shows where the original \textit{C.\ elegans} network lies on this CV--performance curve. Within the reservoir abstraction used here (static weights, $\tanh$ nonlinearity, spectral-radius normalization, contact-count proxy weights, and a coarse neurotransmitter-to-sign mapping), the \textit{C.\ elegans} instantiation occupies a relatively low-variance regime but does not maximize mean task-agnostic performance. Notably, the original connectome also reaches a substantially lower performance peak than the topology-matched $\pm 1$ network.
-
-Taken together, these results indicate that global neurotransmitter balance is a major determinant of the performance invariance tradeoff. Networks with highly asymmetric sign structure exhibit reduced computational capacity but greater invariance, whereas networks approaching a balanced excitatory/inhibitory regime achieve higher performance at the cost of increased variability under hyperparameter change.
-
-
-\begin{figure} 
-    \centering
-    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/cel_bin_negfrac.png}
-    \caption{IPC is denoted in orange, GR in green, MC in blue, and KR in red. Mean computational coefficient of variation and mean performance are shown as a function of the fraction of synapse signs flipped from the original connectome using $\pm$ weights. Increasing sign flip percentage shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. A total of 250 trials were performed for each fraction.}
-    \label{fig:bin_cel_frac_curves}
-\end{figure}
-
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/er_negfrac.png}
-    \caption{IPC is denoted in orange, GR in green, MC in blue, and KR in red. Mean computational coefficient of variation and mean performance are shown as a function of the fraction of synapse signs flipped from the ER random graph using binary weights. Increasing sign flip percentage shifts the network from a low-variance, invariant regime toward a higher-performance but less invariant regime. A total of 250 trials were performed for each fraction.}
-    \label{fig:er_frac_curves}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{figs/Neg_sign_curves/cel_og_negfrac.png}
-    \caption{IPC is denoted in orange, GR in green, MC in blue, and KR in red. Mean computational coefficient of variation and mean performance are shown as a function of the fraction of synapse signs flipped from the absolute value of the \textit{C.\ elegans} connectome. The black point represents the negative sign percentage observed in the original connectome. A total of 250 trials were performed for each fraction.}
-    \label{fig:og_cel_frac_curves}
+    \includegraphics[width=\linewidth]{figs/weight_to_gaus.png}
+\caption{Effect of perturbing nonzero weight magnitudes toward a half-normal distribution while preserving connectivity and edge sign. Starting from the \textit{C.\ elegans} network, nonzero weights are transformed as $W'_{ij}=\operatorname{sign}(W_{ij})\left|W_{ij}+\Lambda Z_{ij}\right|,\qquad Z_{ij}\sim\mathcal{N}(0,1)$, where $\Lambda$ controls perturbation strength. The x-axis shows the KL divergence between the empirical distribution of $|W|$ and a fitted shifted half-normal target on a $\log_{10}$ scale; increasing $\Lambda$ decreases this divergence. Top row: mean metric value versus KL divergence. Bottom row: mean CV versus KL divergence. Colored trajectories correspond to GR (green), KR (red), IPC (orange), and MC (blue). Left and right panels show the same data from two viewing angles. The transparent planes indicate the unperturbed baseline, corresponding to $\Lambda=0$.}
+    \label{fig:weights}
 \end{figure}
 
 
-\chapter{Discussion}
-%I suspect weight magnidude should be mentioned more here
-Our results place the \textit{C.\ elegans} connectome in a comparatively low-variance regime across multiple task-agnostic reservoir metrics, ablations show that this regime is not explained by any single coarse architectural property. Across the architecture-level controls, preserving global excitatory/inhibitory balance is sufficient to recover much of the connectome's invariance profile for IPC, KR, and GR, even when exact sign placement or empirical weight magnitudes are simplified. MC behaves differently: it is not recovered by the sign-preserving $\pm 1$ controls and is matched only by architectures with heterogeneous weights while preserving topology and sign. The overall picture is therefore layered, with different metrics depending on different combinations of sign balance, weight magnitude heterogeneity, and topology.
+\section{Discussion}
+The central result of this thesis is not that every structural feature contributes equally to hyperparameter invariance. The \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime, and the ablations point to a hierarchy of causes. Global E/I sign imbalance is the primary explanation: preserving the empirical sign ratio recovers much of the connectome's invariance for IPC, KR, and GR, even when exact sign placement and empirical weight magnitudes are simplified.
 
-Our results place the \textit{C.\ elegans} connectome in a comparatively low-variance regime across multiple task-agnostic reservoir metrics, but the updated ablations show that this regime is not explained by any single coarse architectural property. Across the architecture-level controls, preserving global excitatory/inhibitory balance is sufficient to recover much of the connectome's invariance profile for IPC, KR, and GR, even when exact sign placement or empirical weight magnitudes are simplified. MC behaves differently: it is not recovered by the sign-preserving $\pm 1$ controls and is matched only by architectures that retain heterogeneous weights while preserving topology and sign. The overall picture is therefore layered, with different metrics depending on different combinations of sign balance, weight heterogeneity, and topology.
+The sign-flipping experiments place this result in a performance--invariance tradeoff. Moving toward a more balanced E/I regime generally increases mean task-agnostic performance, but it also increases CV across spectral radius, leak rate, and input scaling. Under the present modeling choices, the empirical \textit{C.\ elegans} instantiation lies on the low-variance side of this curve rather than at the peak-performance region. This does not show that the biological network is optimized for invariance; it shows that global sign imbalance is the dominant control parameter in this reservoir abstraction.
 
-The weight-distribution experiments refine this interpretation. At the architecture level, replacing the empirical magnitude distribution with sign-preserving Gaussian or uniform samples changes the equivalence pattern relative to the original connectome, especially for KR, IPC, and GR. Continuously perturbing magnitudes toward a half-normal target while preserving topology and sign produces only modest changes in CV and mean performance, and interpolating from unit magnitudes to empirical magnitudes on the original edges is similarly modest. In contrast, interpolating toward shuffled empirical magnitudes produces substantially larger changes. Taken together, these results suggest that neither magnitude distribution nor magnitude placement alone explains invariance; instead, invariance depends on the interaction between the empirical distribution and its placement on signed edges.
+The secondary effects are metric-specific. MC is the clearest exception to the sign-balance account: it is not recovered by the sign-preserving $\pm 1$ controls and remains sensitive to topology and heterogeneous weights. The shuffle experiments support the same conclusion. Once magnitudes are collapsed, IPC, KR, and GR are largely recovered by preserving sign balance, while MC retains a stronger dependence on graph organization.
 
-The weight-distribution experiments refine this interpretation. At the architecture level, replacing the empirical magnitude distribution with sign-preserving Gaussian or uniform samples changes the equivalence pattern relative to the original connectome, especially for KR, IPC, and GR. In contrast, continuously perturbing the magnitude distribution toward a half-normal target while preserving topology and sign produces only modest changes in CV and mean performance. Taken together, these results suggest that large changes in invariance arise primarily when sign balance is altered or, for MC, when heterogeneous weights are reassigned across edges, whereas deforming the magnitude distribution on a fixed signed topology has a much smaller effect.
+Magnitude effects become interpretable only after sign structure is fixed. Perturbing the empirical magnitude distribution toward a half-normal target has limited effect when signs and topology are preserved, so that experiment is best understood as a control against over-attributing the result to weight-distribution shape. By contrast, sign-preserving interpolation toward shuffled empirical magnitudes increases both mean performance and CV, especially for KR and GR. Magnitude placement therefore tunes the performance--invariance tradeoff within the sign-defined regime; it does not replace sign imbalance as the first-order explanation.
 
-The sign-flipping experiments place these structural results in a broader performance--invariance context. Moving toward a more balanced excitatory/inhibitory regime generally increases mean task-agnostic performance but also increases CV, whereas strongly asymmetric sign structure yields lower-performance but more invariant reservoirs. Under the present modeling choices, the empirical \textit{C.\ elegans} instantiation lies on the lower-variance side of this tradeoff rather than at the peak-performance region. This does not show that the biological network is optimized for invariance, but suggests that stable computation under parameter variation is a constraint shaping the excitatory/inhibitory organization of biological circuits.
+Direct biological interpretation should be cautious because the connectome model compresses substantial uncertainty into a static signed network. In our instantiation, approximately $6\%$ of connections are inhibitory, but recent sign-inference work suggests the inhibitory fraction may be closer to $20\%$ \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020}. If so, the empirical connectome may lie further along the observed performance--CV curve than our current model suggests. In addition, E/I balance varies across development and aging \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}, and our model uses a coarse neurotransmitter-to-sign mapping, treats non-GABA synapses as excitatory, and delivers inputs to all neurons rather than to biologically segregated populations. The present work should therefore be read as a structural reservoir analysis, not a faithful dynamical simulation of the animal.
 
-That interpretation should be treated cautiously because the connectome model compresses substantial biological uncertainty into a static signed network. In our instantiation, approximately $6\%$ of connections are inhibitory, but recent sign-inference work suggests the inhibitory fraction may be closer to $20\%$ \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020}. If so, the empirical connectome may lie further along the observed performance--CV curve than our current model suggests, with correspondingly higher performance and CV. In addition, excitatory/inhibitory balance is not fixed across the life of the organism: developmental and aging-related changes in inhibitory signaling imply that the effective location of the \textit{C.\ elegans} nervous system on this tradeoff may vary across the lifespan \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}. Direct biological interpretation is also limited by our coarse neurotransmitter-to-sign mapping, by the treatment of non-GABA synapses as excitatory, and by the fact that inputs are delivered to all neurons without biologically segregated input and output populations. The present model should therefore be understood as a structural reservoir abstraction rather than a faithful dynamical simulation of the animal.
+For reservoir computing, the practical implication is that E/I sign ratio should be treated as a primary design parameter for controlling the tradeoff between robustness and task-agnostic performance. Topology and magnitude placement remain useful tuning dimensions, but their effects are more metric-specific: topology and heterogeneous weights matter most for MC, while magnitude placement especially affects KR and GR after sign structure is fixed.
 
-Taken together, these results suggest that computational invariance in connectome reservoirs is distributed across multiple structural scales. Global sign balance, which appears to be the dominant control parameter in these experiments, explains much of the low-variance behavior of IPC, KR, and GR, whereas heterogeneous weight organization appears especially important for MC. Topology has its clearest independent effect on MC once the effects of weight heterogeneity and, in the binary control, sign variation have been removed. Magnitude placement has a separate effect: preserving signs while shuffling empirical magnitudes moves the reservoir toward higher performance and higher CV, especially for KR and GR. This pattern suggests that the empirical ordering of \textit{C.\ elegans} magnitudes is aligned more with invariance than with maximizing mean task-agnostic performance. For reservoir computing, this implies that sign balance is especially important, while topology and magnitude placement can tune the tradeoff between performance and invariance. For neuroscience, the results suggest that connectome structure may support stable computation through the coordinated interaction of sign organization, weight heterogeneity, magnitude placement, and recurrent wiring.
-
-\section{Future directions}
+\subsection{Future directions}
 
 Several extensions would help clarify these interpretations. First, the model comparisons could be strengthened by adding additional topology controls that match degree and sign statistics more tightly, including degree-matched random and scale-free networks. Such controls would help determine which residual effects are genuinely topological and whether the distinctive sensitivity of MC persists outside the \textit{C.\ elegans} degree distribution.
 
@@ -1044,7 +561,7 @@ Third, it would be valuable to repeat these experiments with biologically segreg
 
 
 
-\chapter{AI Usage Disclosure}
+\section*{AI Usage Disclosure}
 
 Artificial intelligence tools, specifically ChatGPT (OpenAI, GPT-5 series) and Codex (OpenAI), were used as assistive tools during the course of this work.
 
@@ -1057,19 +574,122 @@ In addition, AI tools were used as a programming reference to identify relevant 
 AI tools were used solely as assistive instruments. All scientific claims, analysis, interpretations, and conclusions presented in this work are the independent work of the author.
 
 
-\chapter{Supplemental information}
+\appendix
+\section{Supplemental Information}
+
+
+\subsection{Architecture details}
+\label{supp:architectures}
+This section gives the full architecture definitions summarized in Table~\ref{tab:architecture_groups}.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/toplogy/model_grid_A_to_H.png}
+    \caption{Network visualizations for architectures A--H. In all panels, nodes represent neurons, orange edges are excitatory synapses, blue edges are inhibitory synapses, and darker edges indicate stronger synaptic weights. A: original \emph{C.~elegans} connectome. B: original connectome with shuffled weights. C: connection-shuffled \emph{C.~elegans} connectome. D: connection-shuffled connectome with an additional weight shuffle. E: original topology with signed binary ($\pm 1$) weights determined by the original edge signs. F: panel E after sign shuffling. G: connection-shuffled version of panel E. H: panel G after sign shuffling.}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/toplogy/model_grid_I_to_O.png}
+    \caption{Additional control architectures I--O. I: \emph{C.~elegans} connectome with binary weights. J: binary-weight \emph{C.~elegans} connectome after connection shuffling. K: \emph{C.~elegans} topology with Gaussian weights. L: \emph{C.~elegans}-matched Erd\H{o}s--R\'enyi network with Gaussian weights. M: small-world network with $p = 0.1$ and Gaussian weights. N: sign-preserving Gaussian model. O: sign-preserving uniform model.}
+\end{figure}
+
+\subsubsection{C. elegans connectome}
+This uses the biological network and contact-count weights:
+\[
+W_{ij}=W^{cel}_{ij}.
+\]
+
+\subsubsection{Original \textit{C.\ elegans} connectome with weight shuffle}
+\label{sec:original_weight_shuffle}
+Starting from the original \textit{C.\ elegans} connectome, this architecture preserves biological topology but shuffles the weights across existing connections using the weight-shuffle procedure in Section~\ref{Weight-Shuffle}.
+
+\subsubsection{Original \textit{C.\ elegans} connectome with connection shuffle}
+\label{sec:original_connection_shuffle}
+Starting from the original \textit{C.\ elegans} connectome, this architecture applies the degree-preserving connection-shuffle procedure in Section~\ref{Connection-Shuffle}.
+
+\subsubsection{Connection shuffle with weight shuffle}
+The \textit{C.\ elegans} connectome is first connection-shuffled as described in Section~\ref{Connection-Shuffle}, and the resulting nonzero weights are then shuffled as described in Section~\ref{Weight-Shuffle}.
+
+\subsubsection[C. elegans architecture with signed unit weights using original connection signs]{C. elegans architecture with $\pm 1$ weights using original connection signs}
+\label{sec:plus1minus1network}
+This architecture preserves the biological topology and edge signs while setting every nonzero magnitude to one:
+\[
+W_{ij}' =
+\begin{cases}
+\operatorname{sign}(W_{ij}) & \text{if } W_{ij} \neq 0,\\
+0 & \text{if } W_{ij} = 0.
+\end{cases}
+\]
+
+\subsubsection[C. elegans architecture with signed unit weights and shuffled signs preserving sign balance]{C. elegans architecture with $\pm 1$ weights and shuffled signs preserving sign balance}
+This control keeps the biological connectivity fixed but randomizes which edges carry inhibitory signs. If
+\[
+N_-=\#\{(i,j):W'_{ij}=-1\},
+\]
+then a random subset of size \(N_-\) of nonzero entries is assigned sign \(-1\), and all remaining nonzero entries are assigned sign \(+1\). This preserves the global E/I sign ratio while shuffling sign placement.
+
+\subsubsection[C. elegans architecture with signed unit weights under connection shuffling]{C. elegans architecture with $\pm 1$ weights under connection shuffling}
+Starting from the signed unit-magnitude network in Section~\ref{sec:plus1minus1network}, the edge set is connection-shuffled as described in Section~\ref{Connection-Shuffle}.
+
+\subsubsection[C. elegans architecture with signed unit weights under connection and weight shuffling]{C. elegans architecture with $\pm 1$ weights under connection shuffling and weight shuffling}
+Starting from the signed unit-magnitude network in Section~\ref{sec:plus1minus1network}, the edge set is connection-shuffled and then the signed unit weights are shuffled across the resulting nonzero entries.
+
+\subsubsection{C. elegans architecture with binary weights}
+This ablation preserves the biological connectivity pattern but removes both sign and magnitude heterogeneity:
+\[
+W_{ij}' =
+\begin{cases}
+1 & \text{if } W_{ij} \neq 0,\\
+0 & \text{if } W_{ij} = 0.
+\end{cases}
+\]
+
+\subsubsection{C. elegans architecture with binary weights and connection shuffle}
+This binary network is rewired with the procedure in Section~\ref{Connection-Shuffle}.
+
+\subsubsection{C.~elegans topology with Gaussian weights}
+This control keeps the biological connectivity pattern but replaces each nonzero weight with an independent Gaussian sample:
+\[
+W'_{ij} =
+\begin{cases}
+X_{ij} & \text{if } W_{ij} \neq 0,\\
+0 & \text{if } W_{ij} = 0,
+\end{cases}
+\qquad
+X_{ij}\sim\mathcal{N}(0,1).
+\]
+
+\subsubsection{C.~elegans--matched Erd\H{o}s--R\'enyi model with Gaussian weights}
+This random-graph baseline uses \(N=299\) nodes and an adjusted ER edge set with the same number of directed edges as the \emph{C.~elegans} network. After fixing the edge count, weights are independently sampled from \(\mathcal{N}(0,1)\).
+
+\subsubsection{Watts--Strogatz Gaussian control}
+This small-world control uses \(N=299\) nodes and \(3108\) directed edges. A directed ring lattice is rewired with probability \(p=0.1\), preserving source out-degree and edge count, and nonzero weights are independently sampled from \(\mathcal{N}(0,1)\).
+
+\subsubsection{C. elegans architecture with half Gaussian weights using original connection signs}
+Starting from the signed unit-magnitude network in Section~\ref{sec:plus1minus1network}, magnitudes are sampled from a half-Gaussian distribution:
+\[
+W_{ij}'=\operatorname{sign}(W_{ij})|\mathcal{N}(0,1)|.
+\]
+
+\subsubsection{C. elegans architecture with uniform weights using original connection signs}
+Starting from the signed unit-magnitude network in Section~\ref{sec:plus1minus1network}, magnitudes are sampled independently from a uniform distribution:
+\[
+W_{ij}'=\operatorname{sign}(W_{ij})X_{ij},
+\qquad
+X_{ij}\sim\mathcal{U}(0,1).
+\]
 
 
 
-
-\section{Neuroscience Terms Explained for Computer Scientists}
+\subsection{Neuroscience Terms Explained for Computer Scientists}
 \begin{itemize}
     \item {\textbf{neuron} -- basic building block of neural circuits. In this work, neurons are represented as nodes on a graph, each with both an activation function and an internal state representing membrane potential.}
     
     \item {\textbf{synapse} -- another basic building block of neural circuits. In this work, synapses are represented by directed edges with weights connecting two neurons.} 
     \item {\textbf{excitatory neuron} -- a neuron with only positive-weight outgoing edges}
     \item {\textbf{inhibitory neuron} -- a neuron with only negative-weight outgoing edges}
-    \item {\textbf{E/I balance} -- the ratio of excitatory neurons to inhibitory neurons}
+    \item {\textbf{E/I balance} -- the ratio or fraction of excitatory to inhibitory synaptic signs in the modeled reservoir}
    % \item {\textbf{Dale’s law} -- principle stating that a %neuron releases the same neurotransmitter at all of its %synapses. \parencite{Svensson2019} In graph terms, neurons %adhering to this principle have all positive or negative %outgoing connections    \footnote{Dale’s law is not %universally true; many neurons are now known to exhibit %cotransmission, releasing multiple neurotransmitters and %violating the single-sign assumption.\parencite{Svensson2019} }}
 
     
@@ -1087,11 +707,11 @@ AI tools were used solely as assistive instruments. All scientific claims, analy
 
 
 
-\section{Equivalence testing}
+\subsection{Equivalence testing}
 Equivalence testing using TOST (Table~\ref{tab:tost_mcipc} and Table~\ref{tab:tost_grkr}) further clarifies these relationships. We used TOST equivalence testing on the mean dispersion (CV) between each architecture and the biological connectome. The equivalence margin was set to $\Delta = |0.05(\text{median}(\text{dispersion}))|$, computed per metric across all runs. We concluded equivalence when both one-sided tests rejected the null that the mean difference lay outside $[-\Delta,+\Delta]$. Thus, small p-values indicate that the dispersion difference is statistically confined within the predefined practical tolerance. Under this criterion, only specific sign-preserving perturbations satisfied equivalence for selected metrics, while most architectures---including connection shuffles, weight shuffles, and random graph controls---did not satisfy equivalence across all metrics simultaneously. Failure to conclude equivalence (large $p$) does not imply non-equivalence; it indicates insufficient evidence that the mean difference is within $\pm\Delta$ under the chosen margin and sample size. Each comparison used 1000 observations. 
 
 
-\section{Tables}
+\subsection{Tables}
 
 \begin{table}[t]
 \centering
@@ -1357,13 +977,9 @@ GR & 4.712 & +0.0731 (+1.55\%) & +0.447 (+9.49\%) & +0.655 (+13.9\%) \\
 \label{tab:cel_to_cel_shuf_interp_perf}
 \resizebox{\textwidth}{!}{\input{figs/interpolation/cel_to_cel_shuf_perf.tex}}
 \end{table}
-%  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...
-
-% The next line forces every entry in your bibliography to be displayed, regardless of whether or not you've cited it in your thesis.
-    \nocite{*}
-% For more details on customizing how your bibliography appears:
+%  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...% For more details on customizing how your bibliography appears:
 % https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#Customizing_the_bibliography
-\printbibliography[heading=bibintoc]
+\printbibliography
 
 % Finally, an index would go here... but it is also optional.
 \end{document}

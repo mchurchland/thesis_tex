@@ -1,20 +1,18 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
+\documentclass[a4paper,fleqn,review]{cas-sc}
+
 \usepackage{listings}
-\usepackage{graphicx,latexsym}
-\usepackage{amssymb,amsthm,amsmath}
-\usepackage{comment}
-\usepackage{longtable,booktabs,setspace}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{longtable}
 \usepackage{chemarr}
 \usepackage{rotating}
 \usepackage[english]{babel}
 \usepackage{bm}
-\usepackage{xcolor}
 \usepackage{microtype}
 \usepackage{csquotes}
-\usepackage[hidelinks]{hyperref}
-\usepackage[style=apa,backend=biber]{biblatex}
-\addbibresource{bibliography.bib}
+\usepackage[authoryear,longnamesfirst]{natbib}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\let\parencite\citep
 
 \definecolor{celblue}{HTML}{32a2f2}
 \definecolor{celgreen}{HTML}{127212}
@@ -29,141 +27,98 @@
 \definecolor{purple}{HTML}{AF7DF5}
 \definecolor{lightcyan}{HTML}{8ADEF3}
 
-\title{Determinants of Hyperparameter Invariance in Connectome Reservoir Computing}
-\author{Miles Walter Churchland\\Department of Computer Science, Reed College}
-\date{May 2026}
-
-\setlength{\parskip}{0.5em}
-\setlength{\parindent}{0pt}
-
 \begin{document}
-\maketitle
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\shorttitle{Hyperparameter invariance in connectome reservoirs}
+\shortauthors{Churchland}
+
+\title [mode = title]{Determinants of Hyperparameter Invariance in Connectome Reservoir Computing}
+
+\author[1]{Miles Walter Churchland}
+\credit{Conceptualization, methodology, software, formal analysis, visualization, writing - original draft, writing - review and editing}
+\author[2]{Raul de Palma Aristides}
+\credit{}
+\author[3]{Miguel Soriano}
+\credit{}
+\author[4]{Anna Ritz}
+\credit{}
+\author[5]{Greg Anderson}
+\credit{}
+
+
+\affiliation[1]{organization={Department of Computer Science, Reed College},
+                city={Portland},
+                state={OR},
+                country={United States}}
 
 \begin{abstract}
-Biological neural circuits maintain functional computation despite substantial variation in synaptic strengths, membrane properties, and inputs. Reservoir computing provides an artificial framework for studying this robustness: input signals are projected into a high-dimensional space by a fixed nonlinear dynamical system, called the reservoir. Unlike biological circuits, these systems can be highly sensitive to hyperparameters such as spectral radius, input scaling, and leak rate. This paper asks which structural features of a network support invariance to those parameter changes. Using the \textit{C.\ elegans} connectome as a biologically grounded reservoir, we measure computational capability with four task-agnostic metrics---memory capacity (MC), information processing capacity (IPC), kernel rank (KR), and generalization rank (GR)---and define hyperparameter invariance as the coefficient of variation of these metrics across sweeps of spectral radius, input scaling, and leak rate.
+Biological neural circuits maintain functional computation despite substantial variation in synaptic strengths, membrane properties, and inputs. Reservoir computing provides an artificial framework for studying this robustness: input signals are projected into a high-dimensional space by a fixed nonlinear dynamical system, called the reservoir. Unlike biological circuits, these systems can be highly sensitive to hyperparameters such as spectral radius, input scaling, leak rate, and bias. This paper asks which reservoir-network features support invariance to those parameter changes. Using the \textit{C.\ elegans} connectome as a biologically grounded reservoir, we measure computational capability with four task-agnostic metrics---memory capacity (MC), information processing capacity (IPC), kernel rank (KR), and generalization rank (GR)---and define hyperparameter invariance as the coefficient of variation of these metrics across sweeps of spectral radius, input scaling, leak rate, and neuron bias.
 
-To isolate the structural determinants of invariance, we construct controlled perturbations that separately modify connectivity topology, weight-magnitude distributions, magnitude placement, and excitatory/inhibitory sign structure while preserving the remaining properties. Across these experiments, the empirical connectome consistently occupies a relatively low-variance regime. Preserving the empirical global sign ratio recovers much of this invariance even when weight magnitude heterogeneity is removed, whereas perturbing sign balance produces the largest changes in both mean performance and hyperparameter sensitivity.
+To isolate contributors to invariance, we construct controlled perturbations that separately modify connectivity topology, weight-magnitude distributions, magnitude placement, and excitatory/inhibitory sign structure while preserving the remaining properties. Across these experiments, the empirical connectome consistently occupies a relatively low-variance regime. 
 
-The dominant pattern is a performance--invariance tradeoff. Moving the reservoir toward greater excitatory/inhibitory balance generally increases mean computational performance but also increases variability under hyperparameter change. Topological perturbations most clearly affect memory capacity, while sign-preserving magnitude interpolation shows that reassigning empirical magnitudes across fixed signed edges especially affects kernel-based metrics. These results support a hierarchy of causes: \textit{C.\ elegans} connectome invariance is explained primarily by global excitatory/inhibitory sign imbalance, while topology and empirical weight magnitudes provide secondary, metric-specific effects.
+The central result is a performance--invariance tradeoff: perturbations that raise task-agnostic computational capacity tend to make those capacities more dependent on reservoir hyperparameters. The controls rule out a simple explanation based on any single network feature. In the reservoir abstraction studied here, global excitatory/inhibitory sign imbalance is an important control parameter, but its effect is conditional on the topology on which signs are placed and on the distribution and placement of weight magnitudes. Thus, the biological sign structure is not interpreted as an optimum for reservoir performance; instead, it participates in a broader structural regime that favors lower hyperparameter sensitivity. These findings suggest that robust reservoir computation arises from coordinated constraints on sign balance, topology, and synaptic-weight organization, rather than from a universally primary determinant.
 \end{abstract}
 
+\begin{highlights}
+\item The \textit{C.\ elegans} connectome occupies a low hyperparameter-sensitivity regime as a reservoir.
+\item Higher task-agnostic capacity often coincides with higher sensitivity to reservoir hyperparameters.
+\item E/I sign imbalance is a strong but conditional control, interacting with topology and weight placement.
+\end{highlights}
+
+\begin{keywords}
+reservoir computing \sep connectomics \sep hyperparameter robustness \sep E/I balance \sep \textit{C.\ elegans}
+\end{keywords}
+
+\maketitle
+
 \section{Introduction}
-In 1966, the mathematician and psychologist Seymour Papert initiated the ``Summer Vision Project,'' an early attempt to develop programs capable of performing image-classification tasks. The project revealed that visual perception was far more difficult to formalize computationally than early researchers had anticipated, and that heuristic approaches were insufficient for the problem. \parencite{nilsson_2010}
+Reservoir computing uses a fixed recurrent dynamical system to project input histories into a high-dimensional state space, after which only a readout is trained \parencite{jaeger_echo_state_2001,maass_lsm_2002}. This separation makes reservoir models useful for studying how recurrent architecture shapes computation. It also exposes a persistent design problem: reservoir behavior can depend strongly on hyperparameters such as spectral radius, input scaling, leak rate, and neuronal bias. A reservoir that performs well only under a narrow set of choices is less useful as a robust computational substrate.
 
-Earlier, in 1962, Hubel and Wiesel studied the visual cortex of cats and found neurons that responded selectively to oriented bars of light at specific locations, as well as more complex cells that responded to such features across a range of positions. These results suggested that biological vision achieves robust computation through layered feature extraction.\parencite{lindsay_2020}
+Most reservoir-computing theory and practice treats random recurrent networks as a strong generic baseline. Random reservoirs can provide diverse, weakly correlated nonlinear features and can be tuned near dynamical regimes that support memory and separability \parencite{Lukosevicius2012PracticalESN}. From that perspective, a small, sparse, structured, signed biological circuit should not be expected to maximize generic task-agnostic capacity. The \textit{C.\ elegans} connectome was shaped by developmental, metabolic, behavioral, and stability constraints, not by the objective of serving as an optimized random feature map. Its value here is therefore not as a presumed best reservoir, but as a structured biological prior for asking which constraints change the relationship between performance and sensitivity.
 
-Fukushima drew directly on these biological principles in 1980 when he developed the Neocognitron, a multilayer neural architecture capable of image classification that was robust to positional shifts. The Neocognitron is widely regarded as a precursor to modern convolutional neural networks. This historical arc is illustrative: when computational principles proved inadequate, progress came from studying biological systems and abstracting structural principles from them. \parencite{fukushima_1980} 
+This distinction matters because biological neural systems often remain functional across variable internal and environmental conditions, whereas artificial systems can be brittle outside the regime in which they were tuned or trained \parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}. In reservoir computing terms, this suggests a question that is different from peak-performance optimization: which structural properties make computational statistics stable across hyperparameter variation? The present study addresses that question by treating hyperparameter invariance as a metric of reservoir architectures.
 
-The same logic motivates the present work. Biological neural networks must function reliably across noisy, variable, and changing conditions, making them natural models of robust computation. The gap between artificial and biological robustness is still visible in many domains: engineered systems often remain brittle outside their training regime \parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}, whereas animals routinely generalize behavior across unfamiliar environments \parencite{burden_libby_jayaram_sponberg_donelan_2024,pearson_2000}.
+We use the signed chemical-synapse \textit{C.\ elegans} connectome as a biologically grounded reservoir and compare it with controlled perturbations that isolate topology, excitatory/inhibitory sign structure, weight-magnitude distribution, magnitude placement, and sign placement. Reservoir behavior is evaluated with four task-agnostic metrics: memory capacity (MC), information processing capacity (IPC), kernel rank (KR), and generalization rank (GR). Hyperparameter invariance is quantified as the coefficient of variation of these metrics across a full factorial sweep of spectral radius, input scaling, leak rate, and neuron-bias range.
 
-This thesis turns to a biological network not to explain the organism itself, but to study what its architecture may reveal about robust computation. Thus, the \textit{C.\ elegans} connectome is used as a network prior to investigate which of its structural features contribute to hyperparameter-invariant computation.
+The results identify a performance--invariance tradeoff rather than a biological optimum for reservoir performance. Perturbations that increase task-agnostic capacity often also increase sensitivity to hyperparameter choice. Global excitatory/inhibitory sign imbalance strongly influences low-variance regime observed in the \textit{C.\ elegans} model studied here, but it is not a universal determinant acting alone: its effect depends on topology, local sign placement, weight-magnitude distribution, and magnitude placement. 
 
-
-
-
-
-\section{Reservoir Computers and Echo State Networks}
-\subsection{Reservoir Computers: an Introduction}
-Picture a pool of water, with no waves on it--this is a computational reservoir, our computational substrate. Now imagine dropping a stone into the pool--our input--and observing the ensuing waves--our output. One could use the pool to perform computational tasks by dropping multiple stones into it in sequence.\footnote{This has actually been done in \textit{Pattern Recognition in a Bucket} \parencite{fernando_sampsa_sojakka_2003}} Alternatively, one could measure the computational power of the pool without regard to a specific task; this is what this work explores. In this analogy, the input sequence corresponds to the sequence of stones, the nonlinear high-dimensional expansion corresponds to the pool dynamics, and the output sequence corresponds to an observer interpreting the evolving wave patterns. Echo state networks and liquid state machines are two foundational reservoir-computing formalisms: both use fixed recurrent dynamics as temporal feature maps and train comparatively simple readouts \parencite{jaeger_echo_state_2001,maass_lsm_2002}. Echo state networks are a class of reservoir computers in which the reservoir state is uniquely determined by the input history.
-
-\subsection{Echo State Networks}
-Echo state networks are discrete-time recurrent reservoir computers, introduced by Jaeger \parencite{jaeger_echo_state_2001}. Due to their recurrence, echo state networks are particularly useful in time series analysis \parencite{Jaeger_Schrauwen_2012} and chaotic system prediction problems \parencite{Jager2004}. For readers unfamiliar with reservoir computing, we recommend the tutorial-style introduction\ \parencite{introtoRC} and the accompanying interactive RC Bootcamp notebooks. \parencite{rcbootcampSite}
-
-Reservoir computers have $d$ input units, $N$ internal network (more colloquially known as reservoir network or reservoir) units, and $p$ output units. These units are most commonly nodes of a network.\footnote{We must say units here, as researchers implement reservoir computing with all sorts of computational media, such as water \parencite{fernando_sampsa_sojakka_2003} and plants \parencite{pieters_de_swaef_stock_wyffels_2022}.} Reservoir computers have three weight matrices: input weights $W^{\mathrm{in}}\in\mathbb{R}^{N\times d}$, internal weights $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$, and output weights $W^{\mathrm{out}}\in\mathbb{R}^{p\times N}$ \parencite{jaeger_echo_state_2001}. The reservoir acts as a nonlinear expansion and as a memory of the input \parencite{Lukosevicius2012PracticalESN}.
-
-Formally, let $u_t \in \mathbb{R}^{d}$ be input, $x_t \in \mathbb{R}^{N}$ the reservoir state, and $y_t \in \mathbb{R}^{p}$ the output. With leak $\alpha \in (0,1]$:
+\section{Methods}
+\label{sec:methods}
+\subsection{Reservoir model}
+We use echo state networks, a discrete-time reservoir-computing model in which recurrent weights are fixed and only linear readouts are fit when a metric requires reconstruction \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}. Let \(u_t \in \mathbb{R}^{d}\) be the input, \(x_t \in \mathbb{R}^{N}\) the reservoir state, and \(y_t \in \mathbb{R}^{p}\) the readout. With leak rate \(\alpha \in (0,1]\), the state update is
 \begin{align}
 \tilde{x}_{t+1} &= \tanh\!\left(W^{\mathrm{res}} x_t + s_{\mathrm{in}}W^{\mathrm{in}} u_{t+1} + b + \xi_t\right), \\
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
-y_t &= W^{\mathrm{out}}\,x_t,
+y_t &= W^{\mathrm{out}}\,x_t.
 \end{align}
-where $\tanh$ is elementwise, $b$ is an optional bias term and is not included in our model, $\xi_t$ is optional i.i.d.\ noise and is not included in our model, $W^{\mathrm{in}}$ is input weights scaled by $s_{\mathrm{in}}$, $W^{\mathrm{res}}\in\mathbb{R}^{N\times N}$ is in our case sparse, and $W^{\mathrm{out}}\in\mathbb{R}^{p\times N}$ is trained. The parameter $p$ is set to 3 for IPC (Section~\ref{sec:ipc}) to solve for different orders in a single batch; in all other cases, it is set to 1.
+Here \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\xi_t\) denotes optional noise. Noise is not included in the experiments. The readout dimension is \(p=3\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).
 
-Training a network is the process of tuning its parameters to optimize it for a specific task or set of tasks. When training these networks we train solely $W^{\mathrm{out}}$, as opposed to training all weights as is typically done in artificial neural networks. Training exclusively the output weights preserves the dynamics of the reservoir while keeping training computationally inexpensive. When training these networks we ``tap'' into the dynamics of the ``reservoir'' by linearly combining different neuron states. Training the reservoir's weights would reshape the internal dynamics, often reducing the diversity of activity patterns and thereby decreasing the number of linearly independent features available to the readout layer.
+Only \(W^{\mathrm{out}}\) is fit during metric calculations. The recurrent matrix is fixed after the architecture is instantiated, so the experiments isolate how reservoir structure and global hyperparameters shape the state matrix available to the readout. Architectures are rescaled to a target spectral radius before rollout, as described below. This keeps the comparison focused on relative structure rather than raw matrix scale.
 
-
-
-The literature emphasizes the importance of the internal network satisfying the echo state property \parencite{Stepney2024PRCtutorial,jaeger_echo_state_2001}. The echo state property states that asymptotically, the state of a reservoir $x(n)$ is uniquely determined by the input history $u_t$, rather than by the initial state of the network $x_0$. An elucidating example of this property is a house with a thermostat. Picture two identical houses with the same target temperature $u_t$ and thermostat program $W$. Imagine house B starts at a cold temperature $x_0$ and house A starts at a hot temperature $x_0'$. With time and a reasonable thermostat program, both temperature states $x_n,x_n'$ will converge and the temperature state $x_n$ will be determined solely by the temperature target.
-
-A reservoir that does not satisfy the echo state property is generally unsuitable for computation. Without the echo state property, the reservoir state is not uniquely determined by the input history and instead depends largely on the initial condition. In practice, this means that recurrent feedback dominates the dynamics: internal activity grows in magnitude and persists independently of the input; the effect of new inputs is overshadowed. As a result, the reservoir no longer functions as a reliably input-driven dynamical system and instead tends toward self-sustaining or unstable feedback patterns.
-
-
-
-\begin{figure}
-    \centering
-\includegraphics[width=0.5\linewidth]{figs/esn.png}
-    \caption{A basic echo state network architecture. $W^{\mathrm{out}}$ edges are trainable. $W^{\mathrm{in}}$ and $W^{\mathrm{res}}$ are fixed after the network architecture is created and are not updated during training.\parencite{9093897}}
-    \label{fig:esn}
-\end{figure}
-\subsection{Hyperparameters}
-Echo state networks, like most machine learning models, rely on hyperparameters---parameters specified prior to training that determine global properties of the model and influence how its neurons behave. In reservoir computing, these parameters do not affect $W^{\mathrm{out}}$ directly; instead they influence the intrinsic behavior of the reservoir itself, shaping recurrent feedback, external input, and temporal integration.
-
-\textbf{Spectral radius} $\rho(W^{\mathrm{res}})$: Let $W \in \mathbb{R}^{N \times N}$ be a square matrix with eigenvalues 
-$\{\lambda_i\}_{i=1}^N$. The \emph{spectral radius} of $W$ is defined as
+\subsection{Reservoir hyperparameters}
+The experiments sweep four hyperparameters that control the reservoir's operating regime. The spectral radius \(\rho(W^{\mathrm{res}})\) controls the strength of recurrent feedback, where
 \[
 \rho(W) = \max_{1 \le i \le N} |\lambda_i|.
 \]
-The spectral radius roughly controls the strength of recurrent feedback. Choosing $\rho(W^{\mathrm{res}}) < 1$ promotes the echo state property by making the reservoir dynamics contractive. Values near $\rho(W^{\mathrm{res}}) \approx 1$ typically produce richer, longer-lasting transients while often still preserving the echo state property. Values with $\rho(W^{\mathrm{res}}) > 1$ are less common, since they often lead to reservoirs that do not satisfy the echo state property. However, if the reservoir is driven by sufficiently strong inputs, reservoirs with $\rho(W^{\mathrm{res}}) > 1$ can still satisfy the echo state property. This is due to the nonlinearity of the activation function, in our case $\tanh$, which reduces the effective gain of the recurrence and damps feedback loops. \parencite{Lukosevicius2012PracticalESN}
- 
-
-
-
-\textbf{Leak rate} $\alpha$: The leak rate controls the effective timescale of the reservoir by interpolating between the previous state and the newly computed activation. The effective recurrence is
-\[
-x_{t+1} \approx \left[(1-\alpha)x_t + \alpha \tilde{x}_{t+1} \right] ,
-\]
-Smaller $\alpha$ increases the persistence of past inputs and extends temporal memory of the reservoir. Larger $\alpha$ causes the system to update more rapidly, reducing memory but increasing responsiveness. Thus, while the spectral radius controls the strength of recurrence, the leak rate controls how quickly that signal dissipates over time.
- 
-\textbf{Input scaling} $s_{\mathrm{in}}$: Input scaling determines the magnitude of the input weights. When input scaling is small, the influence of external input on the reservoir state is reduced relative to that of recurrent feedback. Increasing input scaling drives neurons into the nonlinear regime of the activation function, increasing computational richness. However, excessive scaling saturates the activation function, reducing sensitivity to inputs and collapsing the effective dimensionality of the reservoir's state matrix.
-
-\textbf{Noise} $\xi_t$: Noise introduces stochastic perturbations to the reservoir state. Noise insertion has been shown to improve attractor stability in echo state networks by preventing trajectories from collapsing into undesired fixed points or oscillatory modes, though this comes at the cost of reduced prediction precision \parencite{jaeger_echo_state_2001}. Because the present experiments focus on task-agnostic structural invariance rather than optimizing performance on a specific task, noise is omitted from our study.
-
-\section{Background}
-\subsection{The C. elegans Connectome} %maybe put this at the start instead
-\subsubsection{Connectome}
+The leak rate \(\alpha\) controls the effective timescale of the reservoir by interpolating between the previous state and the newly computed activation. Input scaling \(s_{\mathrm{in}}\) controls the strength of the external drive relative to recurrent feedback. The neuron-bias half-range \(\beta\) controls static activation offsets: when \(\beta=0\), \(b=0\); when \(\beta>0\), each neuron is sampled independently as \(b_i\sim\mathcal{U}(-\beta,\beta)\) and then held fixed during trials. These parameters do not alter the trained readout directly; they change the dynamics of the reservoir whose stability is evaluated by the invariance analysis.
+\subsection{Connectome data and preprocessing}
 \label{sec:connectome_dataset}
 A connectome is a description of the neural wiring of an organism. It encodes which neurons are connected, the direction of each connection, and often additional biological metadata such as the number of synaptic terminals and the neurotransmitter associated with each connection.
 
-In this work, we treat the connectome as the foundation for a graph: each neuron is represented as a node, and each synapse as a directed, weighted edge. Two \textit{C.\ elegans} connectome sources are used. The main experiments use the signed chemical-synapse connectome derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. We analyze two preprocessing versions of this dataset. In the signed-only version, unknown or complex-sign connections are removed, leaving 297 nodes and 1740 directed signed edges. In the augmented random-sign version, the 1864 unknown or complex-sign edges are retained and assigned signs randomly with a 4:1 excitatory-to-inhibitory ratio. The older c302-derived connectome \parencite{c302} is retained only for the supplemental architecture visualizations and legacy schematic controls; it is not the source of the main Results figures.
+In this work, we treat the connectome as the foundation for a graph: each neuron is represented as a node, and each synapse as a directed, weighted edge. Two \textit{C.\ elegans} connectome sources are used. The main experiments use the signed chemical-synapse connectome derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. We analyze two preprocessing versions of this dataset. In the signed-only version, unknown or complex-sign connections are removed, leaving 297 nodes and 1740 directed signed edges. In the augmented random-sign version, the 1864 unknown or complex-sign edges are retained and assigned signs randomly with a 4:1 excitatory-to-inhibitory ratio. The older c302-derived connectome \parencite{c302} is retained only for the supplemental architecture visualizations and legacy schematic controls; it is not the source of the main results figures.
 
-The main network is composed of several key components:
-    \paragraph{Neurons}: The analysis graph includes 297 \textit{C.\ elegans} neurons after preprocessing.
-    \paragraph{Synaptic connections}: The signed-only graph contains 1740 directed chemical-synapse edges with fixed signed weights. These signs are treated as the empirical excitatory/inhibitory partition for the invariance experiments. The augmented random-sign graph adds the 1864 unknown or complex-sign connections back into the topology and assigns each such edge a random sign under a 4:1 excitatory-to-inhibitory prior. This assignment is used as a sensitivity analysis rather than as a claim that those individual signs are known. Both versions remain \emph{working abstractions}: they do not attempt to capture receptor-specific, context-dependent, developmental, or neuromodulatory effects. Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is beyond the scope of the analysis.
-\paragraph{Connection count (weight proxy)}: When edge magnitudes are required, the number of synaptic contacts from neuron \(i\) to neuron \(j\) is used as a weight proxy, \(W_{ij}=c_{ij}\). Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020} and provides the biologically informed magnitude prior for the reservoir.
+The signed-only graph contains 1740 directed chemical-synapse edges over 297 neurons after preprocessing. These signs are treated as the empirical excitatory/inhibitory partition for the invariance experiments. The augmented random-sign graph adds the 1864 unknown or complex-sign connections back into the topology and assigns each such edge a random sign under a 4:1 excitatory-to-inhibitory prior. This assignment is used as a sensitivity analysis rather than as a claim that those individual signs are known. Both versions remain \emph{working abstractions}: they do not attempt to capture receptor-specific, context-dependent, developmental, or neuromodulatory effects. Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is beyond the scope of the analysis and computationally expensive at the current scope of our experiments.
+
+When edge magnitudes are required, the number of synaptic contacts from neuron \(i\) to neuron \(j\) is used as a weight proxy, \(W_{ij}=c_{ij}\). Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020,churchland_garcia-ojalvo_2026} and provides the biologically informed magnitude prior for the reservoir.
 
 \subsubsection{Omitted and isolated nodes}
 \label{sec:omission}
 The final analysis graph contains 297 nodes after preprocessing. Nodes or entries with no neuronal in- or out-edges are dynamically inert in this reservoir model and therefore do not influence the dynamics of the connected network. Formally, if neuron \(i\) satisfies \(W_{ij}=0\) and \(W_{ji}=0\) for all \(j\), then its state does not contribute to the state update of any other neuron. Consequently, adding or removing such isolated nodes does not alter the dynamics of the remaining recurrent network. They may still receive an input-driven internal signal, but that signal provides no graph-mediated recurrent features to the readout layer. The omission of isolated or non-neuronal entries is therefore a preprocessing step rather than a biological claim about their importance in the animal.
-
-
-
-
-\begin{comment}
-\paragraph{Noise–memory trade-off}
-Analyze the pre-activation linear regime by setting $f(z)\approx z$ and $b=0$:
-\begin{equation}
-x_{t+1} \;=\; A x_t + B u_{t+1} + \xi_t,\qquad
-A = (1-\alpha)I + \alpha W_{\mathrm{res}},\quad B = \alpha W_{\mathrm{in}}.
-\label{eq:lin}
-\end{equation}
-With no inputs ($u\equiv 0$), the homogeneous solution is $x_t = A^t x_0$. If $\rho(A)<1$, then $A^t\!\to 0$ and the contribution of initial conditions decays:
-\[
-\|x_t\| \;\le\; \|A^t\|\,\|x_0\| \;\xrightarrow[t\to\infty]{}\; 0.
-\]
-
-Additionally, as $t$ grows, the signal component inherited from $x_0$ decays geometrically like $\|A^t\|$, while the noise floor plateaus at the stationary level set by $\Sigma_\xi$. Beyond the time $t^\star$ where $\|A^{t^\star}\|\|x_0\|$ falls below the typical noise scale, linear memory about past states is dominated by noise, reducing
-
-Injecting noise during training improves generalization. In deterministic dynamics, a small error at time 
-$t$ typically amplifies at $t+1$
-and onward, causing divergence; with noise-trained models, the estimator learns to correct small perturbations so errors do not compound across steps. \parencite{jaeger_echo_state_2001}
-\end{comment}
-
-
-
-
-\subsection{Task Agnostic Network Statistics}
-\subsubsection{Motivation}
-Task-agnostic reservoir statistics measure computational properties of the reservoir before training it on a specific downstream task. This thesis uses four such metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and information processing capacity (IPC), following prior work on reservoir/neural-microcircuit diagnostics and benchmarking \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}. For each architecture and hyperparameter setting, the reservoir is driven by an i.i.d. input sequence and the resulting state matrix is used to compute these metrics. Higher MC, IPC, and KR indicate greater task-agnostic computational capability. GR measures sensitivity to small input perturbations; throughout the Results it is analyzed alongside the other metrics as a reservoir response statistic.
+\subsection{Task-agnostic reservoir metrics}
+Task-agnostic reservoir statistics measure computational properties of the reservoir before training it on a specific downstream task. This study uses four such metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and information processing capacity (IPC), following prior work on reservoir/neural-microcircuit diagnostics and benchmarking \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}. For each architecture and hyperparameter setting, the reservoir is driven by an i.i.d. input sequence and the resulting state matrix is used to compute these metrics. Higher MC, IPC, and KR indicate greater task-agnostic computational capability. GR measures sensitivity to small input perturbations; throughout the results it is analyzed alongside the other metrics as a reservoir response statistic.
 
 \subsubsection{Kernel Rank}
 Kernel rank measures how many effectively independent reservoir activity dimensions are produced by the input drive \parencite{maass_comp_power_2004}. We collect the post-washout state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute effective rank:
@@ -210,21 +165,18 @@ We use \(D_{\max}=30\). Validation against longer delay windows and polynomial o
 
 
 
-\subsection{Invariance across Hyperparameters}
-Variance measures the degree of spread in a data set from its mean value. In this study, we measure variation in task-agnostic statistics (GR, KR, IPC, MC) under hyperparameter change. While the values of these task-agnostic statistics are themselves meaningful---for example, high IPC can indicate a useful network architecture---we are also interested in how these values change under hyperparameter variation across different architectures, rather than considering the values alone. Hence, we measure the coefficient of variation rather than raw variance, since CV provides a measure of variation across different scales.
+\subsection{Hyperparameter-invariance metric}
+We quantify hyperparameter invariance by measuring how much each task-agnostic metric changes across the hyperparameter grid. Because MC, IPC, KR, and GR have different numerical scales, we use the coefficient of variation (CV) rather than raw variance:
 
 \[CV = \frac{\text{std}(a)}{\bar{a}}\]
 
-where $a$ denotes the set of values of the network statistic of interest---such as IPC, MC, GR, or KR---across the evaluated hyperparameter settings. It is desirable to have a low CV, as this indicates that the network statistic is invariant to hyperparameter change, meaning the network can be trained with a wide range of hyperparameters without changing the network's ability to perform a given task.
+where \(a\) is the set of values for a metric across the evaluated hyperparameter settings within a trial. Low CV indicates that a metric is stable under hyperparameter variation; it does not by itself imply high absolute performance. The results therefore analyze CV together with mean metric value.
 
 
-\section{Methods}
-To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network---such as topology, weight distribution, or sign structure---while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we can assess which features are responsible for observed variation across hyperparameter settings. %These experiments are set of structural ablations: starting from the biological network, we selectively randomize or preserve particular attributes and measure how these changes affect performance across hyperparameter settings.
+\subsection{Structural perturbations and architecture controls}
+To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network---such as topology, weight distribution, sign structure, or magnitude placement---while holding other properties fixed. By comparing the computational behavior of these modified networks to the original connectome, we assess which features are associated with variation across hyperparameter settings.
 
-
-\subsection{Graph Perturbations}
-
-\subsubsection{Connection-Shuffle} %has fig
+\subsubsection{Connection shuffle}
 \label{Connection-Shuffle}
 We define a connection shuffle as a directed degree-preserving edge swap. Let \(W\) be the weighted adjacency matrix. We randomly select two existing directed edges \((a,b)\) and \((c,d)\), where \(a,b,c,d\) are distinct and the proposed edges \((a,d)\) and \((c,b)\) do not already exist. We then form a new matrix \(W'\) by setting
 \[
@@ -234,7 +186,7 @@ W'_{ab}=0, \qquad
 W'_{cd}=0,
 \]
 with all other entries unchanged. In this operation, the weights are carried with the original edges as they are reassigned to new targets. This preserves each node's in-degree and out-degree while shuffling the neighborhood structure.
-\subsubsection{Weight-Shuffle} %has fig
+\subsubsection{Weight shuffle}
 
 \label{Weight-Shuffle}
 Fix the synaptic connectivity pattern and randomly permute the weights assigned to existing connections. Let
@@ -248,32 +200,6 @@ w_{NZ}=\{W_{ij}:(i,j)\in NZ\},
 randomly shuffle this vector using \texttt{numpy.random.shuffle}, and then reassign the shuffled weights back to the same nonzero indices. Thus, the set of existing connections is unchanged, but the weights assigned to those connections are redistributed across the fixed network topology.
 
 For this shuffle, the probability that a given connection changes sign depends on the empirical sign ratio of the graph being shuffled. This operation is therefore not sign-preserving unless explicitly stated otherwise.
-\begin{comment}
-\begin{align*}
-N_{\text{neg}} &= \text{number of negative edge weights} \\
-N &= \text{number of weights} \\
-P_{\text{neg}} &= P(\text{negative}) = \frac{N_{\text{neg}}}{N} \\
-P(\text{neg}\to\text{pos})
-&= P(\text{positive})\,P(\text{negative}) \\
-&= (1-P_{\text{neg}})P_{\text{neg}} \\
-P(\text{pos}\to\text{neg})
-&= P(\text{negative})\,P(\text{positive}) \\
-&= P_{\text{neg}}(1-P_{\text{neg}}) \\
-P(\text{swap})
-&= P(\text{pos}\to\text{neg}) + P(\text{neg}\to\text{pos}) \\
-&= (1-P_{\text{neg}})P_{\text{neg}} + P_{\text{neg}}(1-P_{\text{neg}}) \\
-&= 2P_{\text{neg}}(1-P_{\text{neg}}) \\
-\mathbb{E}[\text{swap}]
-&= N\,P(\text{swap})
-\end{align*}
-
-\begin{align}
-    P_{neg} =& \frac{190}{3108}\\
-    P(\text{swap}) =& 2(\frac{190}{3108})(1-\frac{190}{3108}) =  0.1147\\
-    \mathbb{E}(\text{swaps}) =& 2(\frac{190}{3108})(1-\frac{190}{3108}) \times 3108 = 356.7696
-\end{align}
-}
-\end{comment}
 
 \subsubsection{Sign-preserving magnitude interpolation}
 \label{sec:magnitude_interpolation_methods}
@@ -304,16 +230,16 @@ m^{0}_{ij}=|W^{\mathrm{cel}}_{ij}|,\qquad m^{1}_{ij}=m^{\pi}_{ij}.
 \]
 In all three cases, topology and signs are fixed, so changes in CV or mean metric value reflect magnitude perturbation rather than sign perturbation.
 
-\subsubsection{Spectral Radius Normalization \& Scaling}
+\subsubsection{Spectral-radius normalization and scaling}
 Spectral radius normalization and rescaling is done by scaling all weights in our weight matrix by $\frac{\rho_{target}}{\rho(W)}$. This is applied as the final step before running the architectures. Thus, normalization/scaling occur after any weight or sign perturbations.
 
-\subsection{Small-world networks}
-Small-world networks combine relatively high clustering with short path lengths \parencite{network_science}. They are relevant here because prior reservoir-computing work found that small-world reservoirs can maintain memory performance across a broader range of spectral radii than fully random reservoirs when input and output nodes are spatially segregated \parencite{KAWAI201915,Wssmallworld}. In this thesis, the small-world model is used only as a topology control: it tests whether a generic clustered-and-short-path architecture reproduces the invariance profile of the \textit{C.\ elegans} reservoir once empirical signs and magnitudes are removed.
+\subsubsection{Small-world networks}
+Small-world networks combine relatively high clustering with short path lengths \parencite{network_science}. They are relevant here because prior reservoir-computing work found that small-world reservoirs can maintain memory performance across a broader range of spectral radii than fully random reservoirs when input and output nodes are spatially segregated \parencite{KAWAI201915,Wssmallworld}. In this study, the small-world model is used only as a topology control: it tests whether a generic clustered-and-short-path architecture reproduces the invariance profile of the \textit{C.\ elegans} reservoir once empirical signs and magnitudes are removed.
 
 
 
 
-\subsection{Network Architectures}
+\subsection{Network architectures}
 \label{Architectures}
 The experiments use controlled architecture families that isolate sign balance, topology, magnitude distribution, and magnitude placement. The main text groups these controls by the structural feature they manipulate; full architecture definitions and visualizations are provided in Supplemental Section~\ref{supp:architectures}.
 
@@ -327,9 +253,9 @@ Architecture family & Manipulation & Main comparison \\
 \midrule
 Empirical baseline & Original \textit{C.\ elegans} topology, signs, and contact-count magnitudes & Defines the low-variance reference regime \\
 \addlinespace
-Sign-preserving simplifications & Replace magnitudes with signed unit, half-Gaussian, or uniform magnitudes while preserving the empirical sign ratio & Tests whether global E/I sign imbalance is sufficient for invariance \\
+Sign-preserving simplifications & Replace magnitudes with signed unit, half-Gaussian, or uniform magnitudes while preserving the empirical sign ratio & Tests how much invariance is recovered by preserving global E/I sign imbalance \\
 \addlinespace
-Sign-removing simplifications & Collapse all nonzero weights to positive binary values & Tests the effect of removing inhibitory signs \\
+Binary weights & Collapse all nonzero weights to positive binary values & Tests the effect of removing inhibitory signs and weight magnitudes  \\
 \addlinespace
 Magnitude-placement controls & Shuffle empirical magnitudes across fixed edges or interpolate toward shuffled magnitudes while preserving signs & Tests whether empirical magnitudes matter through their placement \\
 \addlinespace
@@ -358,19 +284,21 @@ A single trial of a model consists of:
         \item \textbf{Ridge alpha} = 0.0001 (controls the strength of L2 regularization for ridge regression)
     \end{itemize}
 \end{enumerate}
-\subsection{Hyperparameter Sweeps}
-We evaluated network performance across a full factorial sweep of spectral radius, leak rate, and input scaling. To compute our coefficient of variation (CV) metric, each trial evaluates a given network's performance across all combinations of the following hyperparameters:
+\subsection{Hyperparameter sweeps}
+\label{sec:hyperparameter_sweeps}
+We evaluated network performance across a full factorial sweep of spectral radius, leak rate, input scaling, and neuron-bias range. To compute our coefficient of variation (CV) metric, each trial evaluates a given network's performance across all combinations of the following hyperparameters:
 
 \begin{itemize}
     \item Spectral radius: $sr \in \{0.6,\,0.8,\,0.95,\,1.05\}$
     \item Leak rate: $\text{leak} \in \{0.6,\,0.8,\,1.0\}$
     \item Input scaling: $\text{input scaling} \in \{0.1,\,0.5,\,1.0,\,1.5\}$
+    \item Neuron bias half-range: \(\beta \in \{0.0,\,0.1\}\)
 \end{itemize}
 The coefficient of variation (CV) is computed across hyperparameter combinations within a trial. Each trial uses a single fixed input sequence shared across all hyperparameter combinations to ensure comparability. Reservoir instantiations are independent across trials: for each trial, the reservoir is reconstructed with a unique seed. Each reservoir instantiation in a trial uses the same input sequence; different trials use different input sequences.
 
-Number of trials for architecture comparison~\ref{fig:arch}: 500 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 24,000$. Number of trials for Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}: 250 per point. Total metric evaluations per point: $12,000$. Number of trials for Figure~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $2,400$. The interpolation experiments in Figures~\ref{fig:bin_to_cel_interp},~\ref{fig:bin_to_cel_shuf_interp}, and~\ref{fig:cel_to_cel_shuf_interp} use the same hyperparameter grid and compute CV independently at each interpolation fraction \(f\in\{0,0.25,0.5,0.75,1\}\).
+This factorial design produces 96 hyperparameter settings per trial. Number of trials for architecture comparison~\ref{fig:arch}: 200 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 19,200$. Number of trials for Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}: 50 per point. Total metric evaluations per point: $4,800$. Number of trials for Figure~\ref{fig:weights}: 50 per point. Total metric evaluations per point: $4,800$. The interpolation experiments in Figures~\ref{fig:bin_to_cel_interp},~\ref{fig:bin_to_cel_shuf_interp}, and~\ref{fig:cel_to_cel_shuf_interp} use the same hyperparameter grid and compute CV independently at each interpolation fraction \(f\in\{0,0.25,0.5,0.75,1\}\).
 
-\subsection{Experimental Pipeline}
+\subsection{Experimental pipeline}
 \textbf{For each trial}:
 \begin{enumerate}
     \item Instantiate reservoir computer (nodes and edges)
@@ -385,7 +313,7 @@ Number of trials for architecture comparison~\ref{fig:arch}: 500 per model. Tota
 \begin{enumerate}
     \item Compute CV across hyperparameter grid
     \item Average over trials
-    \item Run equivalence tests and plot results
+    \item Analyze results
 \end{enumerate}
 
 \subsection{KL divergence to a fitted shifted half-normal target}
@@ -416,12 +344,12 @@ Equivalence is concluded if both one-sided tests reject $H_0$ at $\eta$ = 0.05.
 
 \section{Results}
 \label{sec:results}
-\textit{C.\ elegans} reservoirs are relatively insensitive to reservoir hyperparameter choices, but the experiments below do not support a flat list of equally important causes. The dominant effect is global excitatory/inhibitory (E/I) sign imbalance: preserving the empirical sign ratio recovers much of the connectome's invariance for IPC, KR, and GR, even when exact sign placement or empirical magnitudes are simplified. Topology, heterogeneous magnitudes, and magnitude placement then explain metric-specific residuals, most notably the distinct behavior of MC.
+\textit{C.\ elegans} reservoirs are relatively insensitive to reservoir hyperparameter choices, but the experiments below do not support a flat list of equally important causes. In the present model, global excitatory/inhibitory (E/I) sign imbalance is the strongest single control we identify: preserving the empirical sign ratio recovers much of the connectome's invariance for IPC, KR, and GR, even when exact sign placement or empirical magnitudes are simplified. This should not be read as a universal claim about E/I balance alone. The relative effect of sign imbalance depends on the surrounding architecture, including topology, sign placement, weight-magnitude distribution, and magnitude placement.
 
 \subsection[The empirical connectome occupies a low-variance reservoir regime]{The empirical connectome occupies a low-variance reservoir regime}
-Figure~\ref{fig:arch} establishes the basic phenomenon. Across sweeps of spectral radius, leak rate, and input scaling, the empirical \textit{C.\ elegans} connectome lies in a low-CV regime for the four task-agnostic metrics considered here. Low CV means that the metric changes relatively little as hyperparameters vary, so this regime corresponds to hyperparameter invariance rather than high absolute performance.
+Figure~\ref{fig:arch} establishes the basic phenomenon. Across sweeps of spectral radius, leak rate, input scaling, and neuron bias, the empirical \textit{C.\ elegans} connectome lies in a low-CV regime for the four task-agnostic metrics considered here. Low CV means that the metric changes relatively little as hyperparameters vary, so this regime corresponds to hyperparameter invariance rather than high absolute performance.
 
-The architecture comparison also gives an initial ordering of possible causes. Gaussian-weight controls that do not preserve the empirical sign structure occupy a higher-CV regime than the empirical connectome and the sign-preserving controls. This separation indicates that topology alone is not enough to explain the connectome's invariance. Conversely, collapsing nonzero weights to signed unit magnitudes preserves much of the low-variance profile, suggesting that the detailed empirical magnitude distribution is not the first-order explanation for IPC, KR, and GR invariance. The performance--CV island plot makes the same pattern visible in the joint space of mean metric value and hyperparameter sensitivity: the empirical connectome occupies a compact low-CV island, while balanced random-sign controls move toward higher performance and higher CV. These comparisons motivate the central claim tested in the following sections: the connectome's low-variance behavior is explained primarily by global E/I sign imbalance, with topology and weight magnitudes contributing secondary, metric-specific effects.
+The architecture comparison also gives an initial ordering of possible causes within this experimental family. Gaussian-weight controls that do not preserve the empirical sign structure occupy a higher-CV regime than the empirical connectome and the sign-preserving controls. This separation indicates that topology alone is not enough to explain the connectome's invariance. Conversely, collapsing nonzero weights to signed unit magnitudes preserves much of the low-variance profile, suggesting that the detailed empirical magnitude distribution is not the first-order explanation for IPC, KR, and GR invariance in these models. The performance--CV island plot makes the same pattern visible in the joint space of mean metric value and hyperparameter sensitivity: the empirical connectome occupies a compact low-CV island, while balanced random-sign controls move toward higher performance and higher CV. These comparisons motivate the central claim tested in the following sections: global E/I sign imbalance strongly controls the connectome's low-variance behavior under the present topology and magnitude regimes, while topology, sign placement, and weight magnitudes tune the effect in metric-specific ways.
 
 \begin{figure}
     \centering
@@ -430,34 +358,34 @@ The architecture comparison also gives an initial ordering of possible causes. G
     \label{fig:arch}
 \end{figure}
 
-\subsection[Global sign balance explains the main performance-invariance tradeoff]{Global sign balance explains the main performance--invariance tradeoff}
+\subsection[Global sign balance reveals a performance-invariance tradeoff]{Global sign balance reveals a performance--invariance tradeoff}
 \label{balance}
-To isolate global sign balance, we flipped the signs of randomly selected synapses while preserving the remaining structure of each network. This manipulation changes the inhibitory fraction while holding connectivity and, where applicable, magnitudes fixed. It therefore tests whether the low-variance regime in Figure~\ref{fig:arch} is primarily a consequence of the empirical network's strongly imbalanced E/I sign ratio.
+To isolate global sign balance, we flipped the signs of randomly selected synapses while preserving the remaining structure of each network. This manipulation changes the inhibitory fraction while holding connectivity and, where applicable, magnitudes fixed. It therefore tests how much of the low-variance regime in Figure~\ref{fig:arch} can be recovered from the empirical network's strongly imbalanced E/I sign ratio under otherwise matched conditions.
 
-The result is a clear performance--invariance tradeoff. In the all-positive or strongly sign-imbalanced regime, reservoirs have low CV but reduced mean computational performance. As the inhibitory fraction increases toward a more balanced E/I regime, mean metric values generally rise, but CV rises as well (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}). Thus, the same manipulation that increases computational capability also makes the reservoir more sensitive to spectral radius, leak rate, and input scaling.
+The result is a clear performance--invariance tradeoff. In the all-positive or strongly sign-imbalanced regime, reservoirs have low CV but reduced mean computational performance. As the inhibitory fraction increases toward a more balanced E/I regime, mean metric values generally rise, but CV rises as well (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}). Thus, the same manipulation that increases computational capability also makes the reservoir more sensitive to spectral radius, leak rate, input scaling, and neuron bias.
 
 This performance trend is consistent with recent reservoir studies in which balanced or slightly inhibition-dominated regimes outperform excitation-dominated regimes on memory, prediction, and locomotor-pattern tasks \parencite{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}. The present result extends that framing by emphasizing not only mean performance, but also the accompanying increase in hyperparameter sensitivity.
 
-This pattern explains why preserving the empirical sign ratio recovers much of the connectome's invariance in the architecture comparison. The empirical connectome, under the coarse neurotransmitter-to-sign mapping used here, sits on the low-variance side of the tradeoff rather than near the peak-performance region. This does not show that the biological circuit is optimized for low CV; it shows that, in this reservoir abstraction, global E/I sign imbalance is the main control parameter governing the observed invariance.
+This pattern explains why preserving the empirical sign ratio recovers much of the connectome's invariance in the architecture comparison. The empirical connectome, under the coarse neurotransmitter-to-sign mapping used here, sits on the low-variance side of the tradeoff rather than near the peak-performance region. In the reservoir-computing abstraction studied here, the approximately 4:1 excitatory-to-inhibitory balance associated with many biological networks does not prioritize peak task-agnostic performance. Instead, it places the reservoir in a lower-performance but more hyperparameter-invariant regime. Thus global E/I sign imbalance is a strong control parameter in this model, but its effect is expressed through the tested topology and magnitude regimes.
 
 \begin{figure} 
     \centering
     \includegraphics[width=1\linewidth]{New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png}
-    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans} topology with signed unit weights. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Increasing the negative sign percentage moves the reservoir from a low-variance, low-performance regime toward a higher-performance but more hyperparameter-sensitive regime. A total of 250 trials were performed for each fraction.}
+    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans} topology with real weights, using the augmented graph in which complex or unknown neurotransmitter signs are assigned under a 4:1 excitatory-to-inhibitory prior. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Increasing the negative sign percentage moves the reservoir from a low-variance, low-performance regime toward a higher-performance but more hyperparameter-sensitive regime. A total of 50 trials were performed for each fraction.}
     \label{fig:bin_cel_frac_curves}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png}
-    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans}-matched ER topology. IPC is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance is a primary control parameter. A total of 250 trials were performed for each fraction.}
+    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans}-matched ER topology. IPC is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance can act as a primary control parameter within this matched random-topology setting. A total of 50 trials were performed for each fraction.}
     \label{fig:er_frac_curves}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png}
-    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the empirical \textit{C.\ elegans} magnitude pattern after removing the original signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with empirical magnitudes held in place. A total of 250 trials were performed for each fraction.}
+    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the empirical \textit{C.\ elegans} magnitude pattern after removing connections with unknown or complex signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with empirical magnitudes held in place. A total of 50 trials were performed for each fraction.}
     \label{fig:og_cel_frac_curves}
 \end{figure}
 
@@ -492,13 +420,13 @@ This interpretation is strengthened by recent reservoir-computing work on the no
 
 \subsection{Topology and heterogeneous magnitudes explain metric-specific residuals}
 \label{sec:shuf}
-The sign-balance result explains the main architecture-level separation, but it does not explain every metric equally. The residual structure is most visible in MC. In the architecture comparison, sign-preserving $\pm 1$ controls recover much of the empirical connectome's invariance for IPC, KR, and GR, but not for MC. By contrast, the sign-preserving Gaussian and uniform controls are closest to the empirical connectome for MC. This indicates that MC depends more strongly on heterogeneous weights and their organization on the graph than the other three metrics do.
+The sign-balance result explains the main architecture-level separation, but it does not explain every metric equally. In the architecture comparison, sign-preserving $\pm 1$ controls recover much of the empirical connectome's invariance for IPC, KR, and GR, but not for MC. By contrast, the sign-preserving Gaussian and uniform controls are closest to the empirical connectome for MC. This indicates that MC depends strongly on heterogeneous weights and their organization on the graph, while the shuffle experiments below show that residual topology and sign-placement effects also appear in KR and GR.
 
-The degree-preserving shuffle experiments sharpen this interpretation. With the original real-valued \textit{C.\ elegans} weights, weight shuffling, connection shuffling, and connection-plus-weight shuffling all move the reservoir away from the unshuffled empirical connectome (Figure~\ref{fig:realW}). Because all three shuffled conditions are similar to one another, the main effect in this setting appears to be disruption of the empirical assignment of heterogeneous weights to edges, rather than degree-preserving rewiring alone.
+The degree-preserving shuffle experiments sharpen this interpretation. With the original real-valued \textit{C.\ elegans} weights, weight shuffling, connection shuffling, and connection-plus-weight shuffling all move the reservoir away from the unshuffled empirical connectome toward higher mean performance and higher CV (Figure~\ref{fig:realW}). This shift is not explained by magnitude placement alone. Connection shuffling by itself produces CV increases comparable to, and for KR larger than, weight shuffling: relative to the empirical connectome, the connection shuffle increases mean CV by \(18.8\%\) for MC, \(29.8\%\) for IPC, \(50.1\%\) for KR, and \(26.9\%\) for GR (Supplemental Table~\ref{tab:shuffle_cv_real}). The real-weight shuffle results therefore point to an interaction between graph organization, sign placement, and heterogeneous magnitude placement: disrupting either the empirical edge arrangement or the empirical assignment of magnitudes moves the reservoir out of the compact low-variance regime.
 
-When all nonzero weights are collapsed to $\pm 1$ while preserving the empirical sign ratio, the picture changes (Figure~\ref{fig:pm1W}). IPC, KR, and GR become largely insensitive to both sign redistribution and degree-preserving rewiring, consistent with the conclusion that global sign balance is sufficient for much of their invariance. MC remains more sensitive to topology-changing perturbations. The binary-weight experiment isolates this residual topology effect still further: once every nonzero edge has the same positive sign and magnitude, degree-preserving rewiring still changes MC more clearly than it changes IPC, KR, or GR (Figure~\ref{fig:bW}).
+When all nonzero weights are collapsed to $\pm 1$ while preserving the empirical sign ratio, the picture changes (Figure~\ref{fig:pm1W}). Using the original local sign placement as the baseline, the sign- and topology-shuffled signed-unit controls have lower CV across all four metrics (Supplemental Table~\ref{tab:shuffle_cv_pm1}). The largest proportional reductions occur for KR: \(-21.2\%\) for sign-preserving weight shuffling, \(-14.0\%\) for connection shuffling, and \(-21.9\%\) for the combined sign-preserving shuffle. Preserving only the global sign ratio therefore recovers a lower-variance regime, but it does not make sign placement irrelevant; the original local sign arrangement places the signed-unit reservoir in a higher-performance, higher-CV regime than the shuffled signed-unit controls. The binary-weight experiment isolates topology further: once every nonzero edge has the same positive sign and magnitude, degree-preserving rewiring lowers CV most for MC (\(-10.2\%\)) and also for KR (\(-5.3\%\)), while IPC changes negligibly and GR changes more weakly (Figure~\ref{fig:bW}; Supplemental Table~\ref{tab:shuffle_cv_binary}).
 
-These results give the hierarchy its second level. Global E/I sign imbalance is the primary determinant of the low-variance regime, especially for IPC, KR, and GR. Topology and heterogeneous magnitudes are not irrelevant, but their clearest effects are residual and metric-specific. MC is the main exception to the sign-balance story: it depends more on graph organization and heterogeneous weights than the other metrics do.
+These results give the hierarchy its second level. Global E/I sign imbalance is the strongest single control of the low-variance regime in the tested \textit{C.\ elegans} reservoir family, especially for IPC, KR, and GR, but the shuffle experiments show that it is not acting alone. Topology, sign placement, and heterogeneous magnitudes determine how far the sign-balance effect carries and where it breaks down. MC is the clearest architecture-level exception to the sign-balance simplification, while KR is especially sensitive to real-weight connection shuffling and signed-unit sign/topology rearrangements.
 
 \begin{figure}
     \centering
@@ -526,25 +454,25 @@ These results give the hierarchy its second level. Global E/I sign imbalance is 
 
 
 \section{Discussion}
-The central result of this thesis is not that every structural feature contributes equally to hyperparameter invariance. The \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime, and the ablations point to a hierarchy of causes. Global E/I sign imbalance is the primary explanation: preserving the empirical sign ratio recovers much of the connectome's invariance for IPC, KR, and GR, even when exact sign placement and empirical weight magnitudes are simplified.
+The central result of this manuscript is not that every structural feature contributes equally to hyperparameter invariance. The \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime, and the ablations point to a conditional hierarchy of causes. Global E/I sign imbalance is the strongest single explanation in the model studied here: preserving the empirical sign ratio recovers much of the connectome's invariance for IPC, KR, and GR, even when exact sign placement and empirical weight magnitudes are simplified. This hierarchy is conditional because sign balance does not act in isolation. Its apparent explanatory power depends on the topology it is placed on, the distribution of weight magnitudes, the placement of those magnitudes, and the placement of inhibitory signs.
 
-The sign-flipping experiments place this result in a performance--invariance tradeoff. Moving toward a more balanced E/I regime generally increases mean task-agnostic performance, but it also increases CV across spectral radius, leak rate, and input scaling. Under the present modeling choices, the empirical \textit{C.\ elegans} instantiation lies on the low-variance side of this curve rather than at the peak-performance region. This does not show that the biological network is optimized for invariance; it shows that global sign imbalance is the dominant control parameter in this reservoir abstraction.
+The sign-flipping experiments place this result in a performance--invariance tradeoff. Moving toward a more balanced E/I regime generally increases mean task-agnostic performance, but it also increases CV across spectral radius, leak rate, input scaling, and neuron bias. Under the present modeling choices, the empirical \textit{C.\ elegans} instantiation lies on the low-variance side of this curve rather than at the peak-performance region. Put more directly, the approximately 4:1 excitatory-to-inhibitory balance associated with many biological networks does not prioritize peak reservoir performance in this abstraction; it produces a more hyperparameter-invariant, lower-performance operating point. The result is therefore not a universal claim about E/I imbalance alone, but a statement about how this sign ratio acts in combination with the other structural choices in the present reservoir model.
 
-The secondary effects are metric-specific. MC is the clearest exception to the sign-balance account: it is not recovered by the sign-preserving $\pm 1$ controls and remains sensitive to topology and heterogeneous weights. The shuffle experiments support the same conclusion. Once magnitudes are collapsed, IPC, KR, and GR are largely recovered by preserving sign balance, while MC retains a stronger dependence on graph organization.
+The secondary effects are metric-specific. MC is the clearest architecture-level exception to the sign-balance account: it is not recovered by the sign-preserving $\pm 1$ controls and remains sensitive to topology and heterogeneous weights. The shuffle experiments support the same conclusion, but they also show that the residual structure is not restricted to MC. In the real-weight controls, connection shuffling and weight shuffling both move the reservoir toward higher-performance, higher-CV regimes, with the largest CV increases in KR. In the signed-unit controls, the original local sign placement has higher CV than the sign- and topology-shuffled controls despite a fixed global sign ratio. These effects are smaller than the global sign-balance sweep, but they are necessary for explaining where the empirical connectome sits within the performance--invariance tradeoff.
 
-Magnitude effects become interpretable only after sign structure is fixed. Perturbing the empirical magnitude distribution toward a half-normal target has limited effect when signs and topology are preserved, so that experiment is best understood as a control against over-attributing the result to weight-distribution shape. By contrast, sign-preserving interpolation toward shuffled empirical magnitudes increases both mean performance and CV, especially for KR and GR. Magnitude placement therefore tunes the performance--invariance tradeoff within the sign-defined regime; it does not replace sign imbalance as the first-order explanation.
+Magnitude effects become interpretable only after sign structure is fixed. Perturbing the empirical magnitude distribution toward a half-normal target has limited effect when signs and topology are preserved, so that experiment is best understood as a control against over-attributing the result to weight-distribution shape. By contrast, sign-preserving interpolation toward shuffled empirical magnitudes increases both mean performance and CV, especially for KR and GR. Magnitude placement therefore tunes the performance--invariance tradeoff within the sign-defined regime. It is not secondary in a universal sense; in this model it modulates, amplifies, or limits the effect of sign imbalance rather than replacing it as the largest observed driver for IPC, KR, and GR.
 
-The no-strong-loops result also sharpens the interpretation of MC. In this thesis, MC is the metric least fully explained by global sign ratio and remains sensitive to topology and heterogeneous weights. Hadaeghi et al. report the same kind of structural sensitivity from a different direction: increasing reciprocity changes the leading eigenvalue structure and lowers memory capacity, especially when the resulting increase in spectral radius forces stronger downscaling of recurrent weights during normalization \parencite{hadaeghi_no_strong_loops_2025}. This supports the hierarchy proposed here. Global sign imbalance explains the dominant IPC, KR, and GR invariance pattern, while MC retains a stronger dependence on graph organization, loop structure, and the spectral constraints those structures impose.
+The no-strong-loops result also sharpens the interpretation of topology-sensitive residuals. In this study, MC is the metric least fully explained by global sign ratio in the architecture comparison and remains sensitive to topology and heterogeneous weights. KR is also strongly affected by several shuffle controls, especially real-weight connection shuffling. Hadaeghi et al. report the same kind of structural sensitivity from a different direction: increasing reciprocity changes the leading eigenvalue structure and lowers memory capacity, especially when the resulting increase in spectral radius forces stronger downscaling of recurrent weights during normalization \parencite{hadaeghi_no_strong_loops_2025}. This supports the conditional hierarchy proposed here. Global sign imbalance accounts for the largest IPC, KR, and GR invariance pattern within the tested models, while MC and KR retain stronger dependence on graph organization, loop structure, and the spectral constraints those structures impose.
 
 Direct biological interpretation should be cautious because the connectome model compresses substantial uncertainty into a static signed network. The main analyses use EleganSign-derived signed connectomes, but many biological connections have unknown or complex sign annotations, and the inferred inhibitory fraction depends on how those ambiguous cases are handled \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. We therefore analyze both a signed-only version that removes those ambiguous edges and an augmented version that assigns them random signs under a 4:1 excitatory-to-inhibitory prior. If the true inhibitory fraction differs from either approximation, the empirical connectome may lie elsewhere along the observed performance--CV curve. In addition, E/I balance varies across development and aging \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}, and our model delivers inputs to all neurons rather than to biologically segregated populations. The present work should therefore be read as a structural reservoir analysis, not a faithful dynamical simulation of the animal.
 
-For reservoir computing, the practical implication is that E/I sign ratio should be treated as a primary design parameter for controlling the tradeoff between robustness and task-agnostic performance, complementing recent performance-focused work on adaptive E/I control in reservoirs \parencite{srinivasan_ei_balance_2025}. Topology and magnitude placement remain useful tuning dimensions, but their effects are more metric-specific: topology and heterogeneous weights matter most for MC, while magnitude placement especially affects KR and GR after sign structure is fixed.
+For reservoir computing, the practical implication is that E/I sign ratio should be treated as an important design parameter for controlling the tradeoff between robustness and task-agnostic performance, complementing recent performance-focused work on adaptive E/I control in reservoirs \parencite{srinivasan_ei_balance_2025}. Its relative power should be evaluated alongside topology, sign placement, magnitude distribution, and magnitude placement rather than assumed in advance. In the present experiments, topology and heterogeneous weights matter strongly for MC and KR, while magnitude placement especially affects KR and GR after sign structure is fixed.
 
 \subsection{Future directions}
 
 Several extensions would help clarify these interpretations. First, the model comparisons could be strengthened by adding additional topology controls that match degree and sign statistics more tightly, including degree-matched random and scale-free networks. Such controls would help determine which residual effects are genuinely topological and whether the distinctive sensitivity of MC persists outside the \textit{C.\ elegans} degree distribution.
 
-Second, the present conclusions should be tested on downstream tasks such as NARMA to determine whether the same structural relationships hold when reservoirs are evaluated by task performance rather than task-agnostic statistics alone. The same framework could also be used to investigate how connectome optimization algorithms \parencite{churchland_garcia-ojalvo_2026} alter task-agnostic statistics, and whether task-driven optimization moves biological reservoirs along the same performance--invariance axes identified here.
+Second, the present conclusions should be tested on downstream tasks such as NARMA to determine whether the same structural relationships hold when reservoirs are evaluated by task performance rather than task-agnostic statistics alone. The same framework could also be used to investigate how connectome optimization algorithms \parencite{churchland_garcia-ojalvo_2026} alter task-agnostic statistics, and whether task-driven optimization moves biological reservoirs along the same performance--invariance axes identified here. Extending the ablation grid across additional topologies, magnitude distributions, and sign-placement rules would also test how far the relative importance of E/I imbalance generalizes beyond the present connectome-centered setting.
 
 Third, it would be valuable to repeat these experiments with biologically segregated input and output populations. Using sensory neurons as inputs and muscles or motor neurons as outputs would bring the model closer to a functional circuit interpretation and would better connect this work to prior studies of connectome-based computation \parencite{KAWAI201915,yu_bpu_2025}. Finally, the role of sign inference deserves more direct study. Natural next steps would be to compare alternative neurotransmitter-to-sign mappings and to repeat the sign-balance analyses under inferred inhibitory fractions closer to those suggested by recent biological work.
 
@@ -671,6 +599,34 @@ W_{ij}'=\operatorname{sign}(W_{ij})X_{ij},
 X_{ij}\sim\mathcal{U}(0,1).
 \]
 
+\subsection{Shuffle experiment CV summaries}
+\label{supp:shuffle_cv}
+Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired changes in mean hyperparameter CV for the shuffle experiments shown in Figure~\ref{fig:realW}, Figure~\ref{fig:pm1W}, and Figure~\ref{fig:bW}. Positive values indicate higher CV than the corresponding baseline, and negative values indicate lower CV. Each comparison uses \(n=200\) paired trial groups.
+
+\begin{table}[p]
+    \centering
+    \scriptsize
+    \caption[Mean CV differences for real-valued shuffle controls]{Mean CV differences for real-valued shuffle controls relative to the empirical \textit{C.\ elegans} reservoir. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
+    \label{tab:shuffle_cv_real}
+    \resizebox{\textwidth}{!}{\input{New_figs/shuf/cv_mean_differences_table_vs_real.tex}}
+\end{table}
+
+\begin{table}[p]
+    \centering
+    \scriptsize
+    \caption[Mean CV differences for signed-unit shuffle controls]{Mean CV differences for signed-unit shuffle controls relative to the original local sign-preserving signed-unit reservoir. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
+    \label{tab:shuffle_cv_pm1}
+    \resizebox{\textwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex}}
+\end{table}
+
+\begin{table}[p]
+    \centering
+    \scriptsize
+    \caption[Mean CV differences for the all-positive binary topology shuffle]{Mean CV differences for the all-positive binary topology shuffle relative to the all-positive binary \textit{C.\ elegans} topology. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
+    \label{tab:shuffle_cv_binary}
+    \resizebox{\textwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex}}
+\end{table}
+
 
 \subsection{Weight and magnitude ablation controls}
 \label{sec:magnitude_interpolation}
@@ -683,7 +639,7 @@ The shuffled-magnitude interpolations behave differently. Moving from signed uni
 
 The half-normal perturbation is best interpreted as a control rather than a main discovery. When connectivity and signs are preserved, moving the magnitude distribution toward a fitted shifted half-normal target produces only modest changes in both mean metric value and CV (Figure~\ref{fig:weights}). When sign is not preserved in the corresponding control, the changes are much larger. This confirms the ordering of causes: large effects attributed to magnitude perturbation can be dominated by sign-balance changes unless sign structure is explicitly fixed.
 
-Together, the magnitude experiments complete the hierarchy. Magnitude placement can move the reservoir toward higher mean performance and higher CV, particularly for KR and GR, but this effect appears after the sign structure has already set the main performance--invariance regime. Empirical \textit{C.\ elegans} magnitudes are therefore not irrelevant; they tune metric-specific behavior within a regime primarily established by global E/I sign imbalance.
+Together, the magnitude experiments complete the conditional hierarchy. Magnitude placement can move the reservoir toward higher mean performance and higher CV, particularly for KR and GR, but this effect appears after the sign structure has already set the main performance--invariance regime in these experiments. Empirical \textit{C.\ elegans} magnitudes are therefore not irrelevant; they tune metric-specific behavior within a regime strongly shaped by global E/I sign imbalance.
 
 \begin{figure}
     \centering
@@ -1009,9 +965,8 @@ GR & 4.712 & +0.0731 (+1.55\%) & +0.447 (+9.49\%) & +0.655 (+13.9\%) \\
 \label{tab:cel_to_cel_shuf_interp_perf}
 \resizebox{\textwidth}{!}{\input{figs/interpolation/cel_to_cel_shuf_perf.tex}}
 \end{table}
-%  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...% For more details on customizing how your bibliography appears:
-% https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex#Customizing_the_bibliography
-\printbibliography
+\bibliographystyle{style_neural_networks/cas-model2-names}
+\bibliography{bibliography}
 
 % Finally, an index would go here... but it is also optional.
 \end{document}

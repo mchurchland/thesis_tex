@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1782748305.66362 "thesis.aux" "thesis.bbl" "thesis" 1782748320.38521 0
+["bibtex thesis"] 1782836240.92136 "thesis.aux" "thesis.bbl" "thesis" 1782837043.16726 0
   "./bibliography.bib" 1782472672.14052 20468 f44447d0107f50eb18b0e9ce23132e48 ""
   "./style_neural_networks/cas-model2-names.bst" 1782742284.17007 31802 28b630660245c09f173aac55be552b29 ""
-  "thesis.aux" 1782748320.09854 40031 08ea38782938a2c65e1cd666f580d054 "pdflatex"
+  "thesis.aux" 1782837042.86347 34489 181cb7cb7a087edfe7892945d22f9aab "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1782748305.74444 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1782748320.3854 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1782748255.49025 86784 d36e89603bd37d7f30e26ed198fe714a ""
+["pdflatex"] 1782837029.82184 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1782837043.16745 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1782837029.52458 78076 1ceed600f761967dd5c1c4385f9f96a7 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc" 1388795362 2836 154e6b0061f9b8cb549144b55b268339 ""
@@ -66,7 +66,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb" 1388795362 26156 d6751631159a7cd0a5d264b2d10a82fe ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb" 1388795362 41474 772656494141d29334d3e80c9a859c10 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb" 1388795362 40662 35fc2ef7e5426524c472184c87cb4d57 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb" 1388795362 49105 9eedb6cab5411e388fea9002bbf95a72 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/stix/t1-stixgeneralsc.vf" 1388795362 1924 0897a65b0de596367f65e150a518f29a ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1775001600 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -191,11 +190,11 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1775001600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778058170.49132 4602601 5d02a5c5d52d7237566d144856366042 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778057916 7753932 575fe8d2404ccb209e671619e17d0c52 ""
-  "New_figs/fullv2/50per.png" 1782466260.91138 1151478 de16dd6123cb63caa1998d651c880681 ""
+  "New_figs/fullv2/50per.png" 1782819816.32118 336082 a2752507052a77a5bbc2b25d1f037dad ""
   "New_figs/shuf/binary_base.png" 1782466260.98686 610487 1d98cb657778c1a7941b61b8e3a59804 ""
-  "New_figs/shuf/cv_mean_differences_table_vs_real.tex" 1782740531.66745 1257 3e0fe7d624a4af7830ecd298b2f46c31 ""
-  "New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex" 1782740531.67433 584 3b203217bc1ff3dd6f174a444d736406 ""
-  "New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex" 1782740531.69056 1334 96ec9c60eb69f2297236060134d6e787 ""
+  "New_figs/shuf/cv_mean_differences_table_vs_real.tex" 1782818263.67702 994 0287d19a41b6d41b062c85d64e135606 ""
+  "New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex" 1782818263.67731 489 dd499faecec738a33ec92412efbb049b ""
+  "New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex" 1782818263.67723 1071 e019a1a489057eb5ac1c223edda8d0a9 ""
   "New_figs/shuf/pm1.png" 1782466260.99033 747965 07530a4d13179c3c733d0e6452afd834 ""
   "New_figs/shuf/real.png" 1782466260.98667 727374 43eb0f5f1fb9b6d526c94cea1e107db6 ""
   "New_figs/sign_norm_abalation/matched_cel/sign_norm_ablation_combined.png" 1782466260.94198 765986 120057d341b3c31a29310a47111c9817 ""
@@ -217,14 +216,13 @@
   "figs/interpolation/cel_to_cel_shuf_perf.tex" 1780447346.79965 494 6a0f1c87c7813cc719cdf05471218f0d ""
   "figs/toplogy/model_grid_A_to_H.png" 1776967869.70274 7083705 3b36af4dda6d02e2ba2c070ef4977f46 ""
   "figs/toplogy/model_grid_I_to_O.png" 1776967869.72679 7755832 017e404949bf1499028bfd27bbd4b865 ""
-  "figs/weight_to_gaus.png" 1776450839.87624 4288011 4ca307a9172129fbad383ebd3cf9a8a9 ""
   "style_neural_networks/cas-common.sty" 1782742284.15522 76688 c602be3da196cb506acc84d1fa26b134 ""
   "style_neural_networks/cas-sc.cls" 1782742284.17379 4410 65b518b1d7581e9c4ebe84b81471ee59 ""
-  "thesis.abs" 1782748306.28339 2314 0dcc4a2c0813f997f1325f1255ec13f7 "pdflatex"
-  "thesis.aux" 1782748320.09854 40031 08ea38782938a2c65e1cd666f580d054 "pdflatex"
-  "thesis.bbl" 1782748305.73938 15082 83960181322af7de9dd3d413be3cbbaf "bibtex thesis"
-  "thesis.out" 1782748306.25884 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.tex" 1782748255.49025 86784 d36e89603bd37d7f30e26ed198fe714a ""
+  "thesis.abs" 1782837030.99142 2314 0dcc4a2c0813f997f1325f1255ec13f7 "pdflatex"
+  "thesis.aux" 1782837042.86347 34489 181cb7cb7a087edfe7892945d22f9aab "pdflatex"
+  "thesis.bbl" 1782836241.01192 15082 83960181322af7de9dd3d413be3cbbaf "bibtex thesis"
+  "thesis.out" 1782837030.96042 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.tex" 1782837029.52458 78076 1ceed600f761967dd5c1c4385f9f96a7 ""
   (generated)
   "thesis.abs"
   "thesis.aux"

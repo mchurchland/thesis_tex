@@ -337,7 +337,7 @@ The architecture comparison gives an initial ordering of possible causes within 
 
 \subsection[Global sign balance reveals a performance-invariance tradeoff]{Global sign balance reveals a performance--invariance tradeoff}
 \label{balance}
-To isolate global sign balance, we flipped the signs of randomly selected synapses while preserving the remaining structure of each network. This manipulation changes the inhibitory edge fraction while holding connectivity and magnitudes fixed. It does not assign neurons to excitatory or inhibitory classes. The result is a clear performance--invariance tradeoff. In the all-positive or strongly sign-imbalanced regime, reservoirs have low CV but reduced mean computational performance. As the fraction of negative edges increases toward a more balanced E/I edge-sign regime, mean metric values generally rise, but CV rises as well (Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}). Thus, the same manipulation that increases computational capability also makes the reservoir more sensitive to spectral radius, leak rate, input scaling, and neuron bias.
+To isolate global sign balance, we flipped the signs of randomly selected synapses while preserving the remaining structure of each network. This manipulation changes the inhibitory edge fraction while holding connectivity and magnitudes fixed. It does not assign neurons to excitatory or inhibitory classes. The result is a clear performance--invariance tradeoff. In the all-positive or strongly sign-imbalanced regime, reservoirs have low CV but reduced mean computational performance. As the fraction of negative edges increases toward a more balanced E/I edge-sign regime, mean metric values generally rise, but CV rises as well (Figure~\ref{fig:bin_cel_frac_curves}). The same qualitative trend appears in the \textit{C.\ elegans}-matched ER topology and in the unknown/complex-removed \textit{C.\ elegans} magnitude pattern (Supplemental Figures~\ref{fig:er_frac_curves} and~\ref{fig:og_cel_frac_curves}). Thus, the same manipulation that increases computational capability also makes the reservoir more sensitive to spectral radius, leak rate, input scaling, and neuron bias.
 
 This performance trend is consistent with recent reservoir studies in which balanced or slightly inhibition-dominated regimes outperform excitation-dominated regimes on memory, prediction, and locomotor-pattern tasks \parencite{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}. The present result extends that framing by emphasizing not only mean performance, but also the accompanying increase in hyperparameter sensitivity.
 
@@ -350,25 +350,11 @@ This pattern explains why preserving the empirical sign ratio recovers much of t
     \label{fig:bin_cel_frac_curves}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png}
-    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans}-matched ER topology. IPC is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance can act as a primary control parameter within this matched random-topology setting. A total of 50 trials were performed for each fraction.}
-    \label{fig:er_frac_curves}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png}
-    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the empirical \textit{C.\ elegans} magnitude pattern after removing connections with unknown or complex signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with empirical magnitudes held in place. A total of 50 trials were performed for each fraction.}
-    \label{fig:og_cel_frac_curves}
-\end{figure}
-
 \subsection[Sign-normalization links sign balance to spectral-radius scaling]{Sign-normalization links sign balance to spectral-radius scaling}
 \label{sec:sign_norm_ablation}
 The sign-fraction curves can be interpreted through the way edge-sign balance changes the raw spectral radius before normalization. Changing the fraction of negative edges changes whether recurrent loops reinforce each other or cancel. More negative edges can reduce the raw spectral radius by disrupting coherent positive feedback. When each perturbed matrix is normalized by its own spectral radius, \(W/\rho(W)\), a lower raw \(\rho(W)\) produces a larger scale factor for the same target spectral radius. In other words, sign balance can indirectly allow larger effective recurrent weights after normalization.
 
-The sign-normalization ablations test this mechanism by comparing the usual own-radius normalization, \(W/\rho(W)\), with normalization by the original matrix's spectral radius, \(W/\rho(W_{\mathrm{orig}})\). Under own-radius normalization, performance increases strongly as the negative edge fraction moves toward the balanced regime, and CV increases at the same time (Figure~\ref{fig:sign_norm_matched_cel}). When the same perturbed matrices are instead scaled by the original spectral radius, the performance curves are much flatter through the middle of the sign-fraction sweep. The ER-matched and unknown/complex-removed controls show the same qualitative separation between normalization conventions (Figures~\ref{fig:sign_norm_matched_er} and~\ref{fig:sign_norm_removed_cel}).
+The sign-normalization ablations test this mechanism by comparing the usual own-radius normalization, \(W/\rho(W)\), with normalization by the original matrix's spectral radius, \(W/\rho(W_{\mathrm{orig}})\). Under own-radius normalization, performance increases strongly as the negative edge fraction moves toward the balanced regime, and CV increases at the same time (Figure~\ref{fig:sign_norm_matched_cel}). When the same perturbed matrices are instead scaled by the original spectral radius, the performance curves are much flatter through the middle of the sign-fraction sweep. The ER-matched and unknown/complex-removed controls show the same qualitative separation between normalization conventions (Supplemental Figures~\ref{fig:sign_norm_matched_er} and~\ref{fig:sign_norm_removed_cel}).
 
 This flattening is expected only over the range of sign fractions where the perturbed matrix has a lower raw spectral radius than the original matrix. Let \(q\) denote the negative edge fraction and \(q_{\mathrm{orig}}\) the original fraction. For the sign-sweep experiments, this middle region is approximately the interval between \(q_{\mathrm{orig}}\) and its sign-complement \(1-q_{\mathrm{orig}}\). In that range, \(\rho(W)<\rho(W_{\mathrm{orig}})\), so original-radius scaling gives a post-scaling radius
 \[
@@ -380,6 +366,8 @@ This flattening is expected only over the range of sign fractions where the pert
 \]
 Though the weight magnitudes are not changing, the post-normalization spectral radius is. In all three experiments, performance stays flat in these inner fractions. Outside this middle range, the perturbed matrix can have \(\rho(W)>\rho(W_{\mathrm{orig}})\). Scaling by \(\rho(W_{\mathrm{orig}})\) then moves the post-scaling spectral radius back toward, or above, the target value rather than holding it low. The changeover occurs where \(\rho(W)=\rho(W_{\mathrm{orig}})\).
 
+In the \textit{C.\ elegans} sign sweeps, this changeover can occur slightly before the empirical negative-edge fraction rather than exactly at it. The reason is that the sweep does not only change the global fraction of negative edges; it also randomly reassigns which edges carry those signs. The shuffle controls show that randomizing sign placement can itself increase performance and CV, consistent with a reduction in \(\rho_{\mathrm{raw}}\) (Figure~\ref{fig:shuf_all}). Therefore, the perturbed \textit{C.\ elegans} matrix can reach \(\rho(W)<\rho(W_{\mathrm{orig}})\) before the sweep reaches the empirical sign fraction. This offset is not expected to appear as strongly in the ER-matched network, where signs are already effectively random with respect to the topology and reshuffling sign placement has little additional effect on the raw spectral radius.
+
 This pattern suggests that the performance gain from sign balance is mostly mediated by spectral-radius scaling. The benefit is not only that positive and negative edges create a different signed topology; it is also that this signed topology lowers the raw spectral radius, so own-radius normalization applies a larger scale factor. That higher effective recurrent scale improves task-agnostic performance but also makes the reservoir more hyperparameter-sensitive. This interpretation is consistent with recent reservoir-computing work on the no-strong-loops principle: Hadaeghi and colleagues show that stronger reciprocal loops inflate \(\rho(W)\), forcing spectral-radius normalization to downscale recurrent weights more strongly and reducing memory capacity and kernel rank \parencite{hadaeghi_no_strong_loops_2025}. Their manipulation targets reciprocity rather than E/I edge signs, but the mechanism is complementary. Strong loops raise the raw spectral radius and suppress effective recurrent scale after normalization; balanced edge signs can lower the raw spectral radius and permit larger effective recurrent scale.
 
 \begin{figure}
@@ -387,20 +375,6 @@ This pattern suggests that the performance gain from sign balance is mostly medi
     \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_cel/sign_norm_ablation_combined.png}
     \caption{Sign-balance normalization ablation for the \textit{C.\ elegans} 4:1 topology. Solid curves normalize each perturbed matrix by its own spectral radius; dashed curves normalize by the original spectral radius. Own-radius normalization produces a stronger performance increase and a larger CV increase as the negative edge fraction approaches the balanced regime.}
     \label{fig:sign_norm_matched_cel}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png}
-    \caption{Sign-balance normalization ablation for the \textit{C.\ elegans}-matched ER topology. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}
-    \label{fig:sign_norm_matched_er}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png}
-    \caption{Sign-balance normalization ablation for the unknown/complex-removed \textit{C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}
-    \label{fig:sign_norm_removed_cel}
 \end{figure}
 
 \subsection{Shuffle controls implicate raw spectral radius as a common mediator}
@@ -478,6 +452,41 @@ AI tools were used solely as assistive instruments. All scientific claims, analy
 \appendix
 \section{Supplemental Information}
 
+\subsection{Additional sign-fraction controls}
+\label{supp:sign_fraction_controls}
+The main text shows the sign-fraction sweep for the augmented \textit{C.\ elegans} graph. Two additional controls show that the same performance--invariance tradeoff is not specific to that preprocessing choice.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png}
+    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans}-matched ER topology. IPC is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance can act as a primary control parameter within this matched random-topology setting. A total of 50 trials were performed for each fraction.}
+    \label{fig:er_frac_curves}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png}
+    \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the empirical \textit{C.\ elegans} magnitude pattern after removing connections with unknown or complex signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with empirical magnitudes held in place. A total of 50 trials were performed for each fraction.}
+    \label{fig:og_cel_frac_curves}
+\end{figure}
+
+\subsection{Additional sign-normalization controls}
+\label{supp:sign_norm_controls}
+The main text shows the sign-normalization ablation for the augmented \textit{C.\ elegans} graph. The same normalization comparison was repeated for the matched ER topology and the unknown/complex-removed \textit{C.\ elegans} magnitude pattern.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png}
+    \caption{Sign-balance normalization ablation for the \textit{C.\ elegans}-matched ER topology. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}
+    \label{fig:sign_norm_matched_er}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png}
+    \caption{Sign-balance normalization ablation for the unknown/complex-removed \textit{C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}
+    \label{fig:sign_norm_removed_cel}
+\end{figure}
 
 \subsection{Architecture details}
 \label{supp:architectures}

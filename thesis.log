@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  1 JUL 2026 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  1 JUL 2026 14:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -964,60 +964,57 @@ File: New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png G
 Package pdftex.def Info: New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png  used on input line 401.
 (pdftex.def)             Requested size: 468.3324pt x 245.87045pt.
  [15] [16 <./New_figs/sign_norm_abalation/matched_cel/sign_norm_ablation_combined.png>]
-<New_figs/shuf/real_color.png, id=257, 520.344pt x 372.1905pt>
-File: New_figs/shuf/real_color.png Graphic file (type png)
-<use New_figs/shuf/real_color.png>
-Package pdftex.def Info: New_figs/shuf/real_color.png  used on input line 422.
-(pdftex.def)             Requested size: 468.3324pt x 335.00243pt.
-<New_figs/shuf/pm1_color.png, id=258, 520.344pt x 372.1905pt>
-File: New_figs/shuf/pm1_color.png Graphic file (type png)
-<use New_figs/shuf/pm1_color.png>
-Package pdftex.def Info: New_figs/shuf/pm1_color.png  used on input line 430.
-(pdftex.def)             Requested size: 468.3324pt x 335.00243pt.
-<New_figs/shuf/binary_color.png, id=259, 520.344pt x 372.1905pt>
-File: New_figs/shuf/binary_color.png Graphic file (type png)
-<use New_figs/shuf/binary_color.png>
-Package pdftex.def Info: New_figs/shuf/binary_color.png  used on input line 438.
-(pdftex.def)             Requested size: 468.3324pt x 335.00243pt.
- [17 <./New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png>] [18 <./New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png>] [19 <./New_figs/shuf/real_color.png>] [20 <./New_figs/shuf/pm1_color.png>] [21 <./New_figs/shuf/binary_color.png>] [22]
-<figs/toplogy/model_grid_A_to_H.png, id=326, 607.068pt x 881.694pt>
+<New_figs/shuf/shuf_all.png, id=256, 780.516pt x 516.7305pt>
+File: New_figs/shuf/shuf_all.png Graphic file (type png)
+<use New_figs/shuf/shuf_all.png>
+Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 422.
+(pdftex.def)             Requested size: 468.3324pt x 310.05646pt.
+ [17 <./New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png>]
+<New_figs/raw_rho_performance_summary.png, id=266, 953.964pt x 458.8342pt>
+File: New_figs/raw_rho_performance_summary.png Graphic file (type png)
+<use New_figs/raw_rho_performance_summary.png>
+Package pdftex.def Info: New_figs/raw_rho_performance_summary.png  used on input line 436.
+(pdftex.def)             Requested size: 468.3324pt x 225.2578pt.
+ [18 <./New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png>] [19 <./New_figs/shuf/shuf_all.png>] [20 <./New_figs/raw_rho_performance_summary.png>] [21]
+<figs/toplogy/model_grid_A_to_H.png, id=318, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_A_to_H.png Graphic file (type png)
 <use figs/toplogy/model_grid_A_to_H.png>
-Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 491.
+Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 488.
 (pdftex.def)             Requested size: 351.2493pt x 510.14516pt.
-<figs/toplogy/model_grid_I_to_O.png, id=327, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_I_to_O.png, id=319, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_I_to_O.png Graphic file (type png)
 <use figs/toplogy/model_grid_I_to_O.png>
-Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 497.
+Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 494.
 (pdftex.def)             Requested size: 351.2493pt x 510.14516pt.
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 518.
+ [22]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 515.
 
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 518.
+(Font)              size <10.95> substituted on input line 515.
 
-[23] [24] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [25] [26]
-<figs/interpolation/bin_to_cel.png, id=383, 711.8595pt x 259.81065pt>
+[23] [24] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [25]
+<figs/interpolation/bin_to_cel.png, id=375, 711.8595pt x 259.81065pt>
 File: figs/interpolation/bin_to_cel.png Graphic file (type png)
 <use figs/interpolation/bin_to_cel.png>
-Package pdftex.def Info: figs/interpolation/bin_to_cel.png  used on input line 631.
+Package pdftex.def Info: figs/interpolation/bin_to_cel.png  used on input line 628.
 (pdftex.def)             Requested size: 468.3324pt x 170.93243pt.
-<figs/interpolation/bin_to_cel_shuf.png, id=384, 711.8595pt x 259.81065pt>
+<figs/interpolation/bin_to_cel_shuf.png, id=376, 711.8595pt x 259.81065pt>
 File: figs/interpolation/bin_to_cel_shuf.png Graphic file (type png)
 <use figs/interpolation/bin_to_cel_shuf.png>
-Package pdftex.def Info: figs/interpolation/bin_to_cel_shuf.png  used on input line 638.
+Package pdftex.def Info: figs/interpolation/bin_to_cel_shuf.png  used on input line 635.
 (pdftex.def)             Requested size: 468.3324pt x 170.93243pt.
-<figs/interpolation/cel_to_cel_shuf.png, id=385, 711.8595pt x 259.81065pt>
+<figs/interpolation/cel_to_cel_shuf.png, id=377, 711.8595pt x 259.81065pt>
 File: figs/interpolation/cel_to_cel_shuf.png Graphic file (type png)
 <use figs/interpolation/cel_to_cel_shuf.png>
-Package pdftex.def Info: figs/interpolation/cel_to_cel_shuf.png  used on input line 645.
+Package pdftex.def Info: figs/interpolation/cel_to_cel_shuf.png  used on input line 642.
 (pdftex.def)             Requested size: 468.3324pt x 170.93243pt.
- [27] (./figs/interpolation/bin_to_cel_cv.tex) (./figs/interpolation/bin_to_cel_perf.tex) (./figs/interpolation/bin_to_cel_shuf_cv.tex) (./figs/interpolation/bin_to_cel_shuf_perf.tex) (./figs/interpolation/cel_to_cel_shuf_cv.tex) (./figs/interpolation/cel_to_cel_shuf_perf.tex) (./thesis.bbl [28]
+ [26] [27] (./figs/interpolation/bin_to_cel_cv.tex) (./figs/interpolation/bin_to_cel_perf.tex) (./figs/interpolation/bin_to_cel_shuf_cv.tex) (./figs/interpolation/bin_to_cel_shuf_perf.tex) (./figs/interpolation/cel_to_cel_shuf_cv.tex) (./figs/interpolation/cel_to_cel_shuf_perf.tex) (./thesis.bbl
 Underfull \hbox (badness 2134) in paragraph at lines 28--33
 []\T1/stix/m/n/8 (+20) Broido, A.D., Clauset, A., 2019.  Scale-free net-works are rare.  Na-ture Com-mu-ni-ca-tions 10.  doi:[][]$\T1/cmtt/m/n/8 https : / / doi . org / 10 . 1038 /
  []
 
-[29] [30] [31]) [32] [33 <./figs/toplogy/model_grid_A_to_H.png>] [34 <./figs/toplogy/model_grid_I_to_O.png>] [35 <./figs/interpolation/bin_to_cel.png> <./figs/interpolation/bin_to_cel_shuf.png>] [36 <./figs/interpolation/cel_to_cel_shuf.png>] (./thesis.aux)
+[28] [29] [30]) [31] [32 <./figs/toplogy/model_grid_A_to_H.png>] [33 <./figs/toplogy/model_grid_I_to_O.png>] [34 <./figs/interpolation/bin_to_cel.png> <./figs/interpolation/bin_to_cel_shuf.png>] [35 <./figs/interpolation/cel_to_cel_shuf.png>] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1026,18 +1023,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22885 strings out of 476041
- 364301 string characters out of 5793175
+ 22888 strings out of 476041
+ 364308 string characters out of 5793175
  1893388 words of memory out of 6000000
- 42421 multiletter control sequences out of 15000+600000
- 670009 words of font info for 379 fonts, out of 8000000 for 9000
+ 42415 multiletter control sequences out of 15000+600000
+ 670527 words of font info for 384 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 95i,12n,93p,1364b,717s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,12n,93p,1364b,702s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb>
-Output written on thesis.pdf (37 pages, 18926887 bytes).
+Output written on thesis.pdf (36 pages, 19214105 bytes).
 PDF statistics:
- 613 PDF objects out of 1000 (max. 8388607)
- 507 compressed objects within 6 object streams
- 160 named destinations out of 1000 (max. 500000)
- 52300 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 602 PDF objects out of 1000 (max. 8388607)
+ 500 compressed objects within 5 object streams
+ 159 named destinations out of 1000 (max. 500000)
+ 52295 words of extra memory for PDF output out of 61914 (max. 10000000)
 

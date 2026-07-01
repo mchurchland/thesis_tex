@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1782836240.92136 "thesis.aux" "thesis.bbl" "thesis" 1782837043.16726 0
+["bibtex thesis"] 1782895710.16534 "thesis.aux" "thesis.bbl" "thesis" 1782898258.97084 0
   "./bibliography.bib" 1782472672.14052 20468 f44447d0107f50eb18b0e9ce23132e48 ""
   "./style_neural_networks/cas-model2-names.bst" 1782742284.17007 31802 28b630660245c09f173aac55be552b29 ""
-  "thesis.aux" 1782837042.86347 34489 181cb7cb7a087edfe7892945d22f9aab "pdflatex"
+  "thesis.aux" 1782898258.7643 35206 0075831d416354b564175314fa46bd8f "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1782837029.82184 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1782837043.16745 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1782837029.52458 78076 1ceed600f761967dd5c1c4385f9f96a7 ""
+["pdflatex"] 1782898252.35368 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1782898258.97108 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1782898252.12173 79404 5c6bbc7b1a1161e9066f41d3c1a0dad7 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc" 1388795362 2836 154e6b0061f9b8cb549144b55b268339 ""
@@ -191,12 +191,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778058170.49132 4602601 5d02a5c5d52d7237566d144856366042 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778057916 7753932 575fe8d2404ccb209e671619e17d0c52 ""
   "New_figs/fullv2/50per.png" 1782819816.32118 336082 a2752507052a77a5bbc2b25d1f037dad ""
-  "New_figs/shuf/binary_base.png" 1782466260.98686 610487 1d98cb657778c1a7941b61b8e3a59804 ""
+  "New_figs/shuf/binary_color.png" 1782892625.6724 243923 f6d00751b9ebac09006f8a890db9fcb6 ""
   "New_figs/shuf/cv_mean_differences_table_vs_real.tex" 1782818263.67702 994 0287d19a41b6d41b062c85d64e135606 ""
   "New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex" 1782818263.67731 489 dd499faecec738a33ec92412efbb049b ""
   "New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex" 1782818263.67723 1071 e019a1a489057eb5ac1c223edda8d0a9 ""
-  "New_figs/shuf/pm1.png" 1782466260.99033 747965 07530a4d13179c3c733d0e6452afd834 ""
-  "New_figs/shuf/real.png" 1782466260.98667 727374 43eb0f5f1fb9b6d526c94cea1e107db6 ""
+  "New_figs/shuf/pm1_color.png" 1782892625.68586 263547 37071491623bb1868673c8dd1e1bdbb2 ""
+  "New_figs/shuf/real_color.png" 1782892625.69174 243890 4697450143e85cfb71aad355e476d5dd ""
   "New_figs/sign_norm_abalation/matched_cel/sign_norm_ablation_combined.png" 1782466260.94198 765986 120057d341b3c31a29310a47111c9817 ""
   "New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png" 1782466260.94475 732901 2cc3e7db5bde3d6c2da6ab852bb19a40 ""
   "New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png" 1782466260.94716 729872 fcf1a54d1047fd59b8ecb21179ead18c ""
@@ -218,11 +218,11 @@
   "figs/toplogy/model_grid_I_to_O.png" 1776967869.72679 7755832 017e404949bf1499028bfd27bbd4b865 ""
   "style_neural_networks/cas-common.sty" 1782742284.15522 76688 c602be3da196cb506acc84d1fa26b134 ""
   "style_neural_networks/cas-sc.cls" 1782742284.17379 4410 65b518b1d7581e9c4ebe84b81471ee59 ""
-  "thesis.abs" 1782837030.99142 2314 0dcc4a2c0813f997f1325f1255ec13f7 "pdflatex"
-  "thesis.aux" 1782837042.86347 34489 181cb7cb7a087edfe7892945d22f9aab "pdflatex"
-  "thesis.bbl" 1782836241.01192 15082 83960181322af7de9dd3d413be3cbbaf "bibtex thesis"
-  "thesis.out" 1782837030.96042 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.tex" 1782837029.52458 78076 1ceed600f761967dd5c1c4385f9f96a7 ""
+  "thesis.abs" 1782898252.74462 2192 74e3631e57649416bf572c99a2baa30a "pdflatex"
+  "thesis.aux" 1782898258.7643 35206 0075831d416354b564175314fa46bd8f "pdflatex"
+  "thesis.bbl" 1782895710.22079 15082 83960181322af7de9dd3d413be3cbbaf "bibtex thesis"
+  "thesis.out" 1782898252.73018 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.tex" 1782898252.12173 79404 5c6bbc7b1a1161e9066f41d3c1a0dad7 ""
   (generated)
   "thesis.abs"
   "thesis.aux"

@@ -1,4 +1,4 @@
-\documentclass[a4paper,fleqn,review]{cas-sc}
+\documentclass[a4paper,fleqn,review]{style_neural_networks/cas-dc}
 
 \usepackage{listings}
 \usepackage{latexsym}
@@ -47,7 +47,7 @@
 \credit{}
 \author[5]{Greg Anderson}
 \credit{}
-
+\author[6]{Jordi Garcia-Ojalvo}
 
 \affiliation[1]{organization={Department of Computer Science, Reed College},
                 city={Portland},
@@ -80,6 +80,8 @@ Reservoir computing uses a fixed recurrent dynamical system to project input his
 Most reservoir-computing theory and practice treats random recurrent networks as a strong generic baseline. Random reservoirs can provide diverse, weakly correlated nonlinear features and can be tuned near dynamical regimes that support memory and separability \parencite{Lukosevicius2012PracticalESN}. From that perspective, a small, sparse, structured, signed biological circuit should not be expected to maximize generic task-agnostic capacity. The \textit{C.\ elegans} connectome was shaped by developmental, metabolic, behavioral, and stability constraints, not by the objective of serving as an optimized random feature map. Its value here is therefore not as a presumed best reservoir, but as a structured biological prior for asking which constraints change the relationship between performance and sensitivity.
 
 This distinction matters because biological neural systems often remain functional across variable internal and environmental conditions, whereas artificial systems can be brittle outside the regime in which they were tuned or trained \parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}. In reservoir computing terms, this suggests a question that is different from peak-performance optimization: which structural properties make computational statistics stable across hyperparameter variation? The present study addresses that question by treating hyperparameter invariance as a metric of reservoir architectures.
+
+Prior work has also used biological networks themselves as reservoirs or reservoir-like substrates. Kawai and colleagues evaluated echo-state networks with small-world structure and compared them to models with real human cortical connectivity \parencite{KAWAI201915}. Morra and Daley replaced the reservoir layer of an ESN with a fruit-fly connectome-derived topology, and later Morra and colleagues used a fruit-fly lateral-horn connectome to study multifunctionality in a connectome-based reservoir computer \parencite{morra_daley_2022,morra_fly_rc_2023}. In that later study, the fruit-fly connectome-based reservoir showed a broader window of \([\rho,\gamma]\)-space with multifunctionality and a larger magnitude of multifunctionality than the Erd\H{o}s--R\'enyi control \parencite{morra_fly_rc_2023}. More recently, Iannello and colleagues described biological reservoir computing with cultured cortical neurons as the reservoir substrate \parencite{iannello_brc_2025}. Taken together, these studies show that both anatomical connectomes and living neuronal networks have been used as reservoirs, although they differ in whether the biological network is treated as a fixed graph or as an active physical substrate.
 
 We use the signed chemical-synapse \textit{C.\ elegans} connectome as a biologically grounded reservoir and compare it with controlled perturbations that isolate topology, excitatory/inhibitory sign structure, weight-magnitude distribution, magnitude placement, and sign placement. Reservoir behavior is evaluated with four task-agnostic metrics: memory capacity (MC), information processing capacity (IPC), kernel rank (KR), and generalization rank (GR). Hyperparameter invariance is quantified as the coefficient of variation of these metrics across a full factorial sweep of spectral radius, input scaling, leak rate, and neuron-bias range.
 
@@ -192,7 +194,7 @@ To determine which topological and weight-related features influence robustness,
 \centering
 \caption{Architecture families used in the reservoir ablations.}
 \label{tab:architecture_groups}
-\begin{tabular}{p{0.24\textwidth}p{0.36\textwidth}p{0.30\textwidth}}
+\begin{tabular}{p{0.24\columnwidth}p{0.36\columnwidth}p{0.30\columnwidth}}
 \toprule
 Architecture family & Manipulation & Main comparison \\
 \midrule
@@ -201,8 +203,6 @@ Empirical baseline & Original \textit{C.\ elegans} topology, signs, and contact-
 Sign-preserving simplifications & Replace magnitudes with signed unit, half-Gaussian, or uniform magnitudes while preserving the empirical sign ratio & Tests how much invariance is recovered by preserving global E/I sign imbalance \\
 \addlinespace
 Binary weights & Collapse all nonzero weights to positive binary values & Tests the effect of removing inhibitory signs and weight magnitudes  \\
-\addlinespace
-Magnitude-placement controls & Shuffle empirical magnitudes across fixed edges or interpolate toward shuffled magnitudes while preserving signs & Tests whether empirical magnitudes matter through their placement \\
 \addlinespace
 Degree-preserving topology controls & Rewire edges using directed degree-preserving connection shuffles, with or without magnitude shuffling & Tests topology and its interaction with heterogeneous weights \\
 \addlinespace
@@ -238,83 +238,36 @@ randomly shuffle this vector using \texttt{numpy.random.shuffle}, and then reass
 
 For this shuffle, the probability that a given connection changes sign depends on the empirical sign ratio of the graph being shuffled. This operation is therefore not sign-preserving unless explicitly stated otherwise.
 
-\subsubsection{Sign-preserving magnitude interpolation}
-\label{sec:magnitude_interpolation_methods}
-To separate the effect of weight magnitudes from the effect of excitatory/inhibitory sign balance, we also use sign-preserving magnitude interpolation. These experiments keep the biological topological and synapse signs fixed. Only the nonzero magnitudes are changed.
 
-Let
-\[
-s_{ij}=\operatorname{sign}(W^{\mathrm{cel}}_{ij})
-\]
-for each nonzero \textit{C.\ elegans} edge. Given two nonnegative magnitude assignments \(m^{0}_{ij}\) and \(m^{1}_{ij}\) defined on the same edge set, the interpolated weight matrix at fraction \(f\in[0,1]\) is
-\[
-W^{f}_{ij}
-=s_{ij}\left((1-f)m^{0}_{ij}+f m^{1}_{ij}\right).
-\]
-Thus, the sign of every edge is identical for all interpolation fractions. This differs from the weight-shuffle procedure in Section~\ref{Weight-Shuffle}: in the interpolation experiments, shuffled \textit{C.\ elegans} magnitudes are permuted as magnitudes only and are then assigned to edges whose original signs are preserved.
-
-We evaluate three interpolation families. First, we interpolate from signed unit magnitudes to empirical \textit{C.\ elegans} magnitudes:
-\[
-m^{0}_{ij}=1,\qquad m^{1}_{ij}=|W^{\mathrm{cel}}_{ij}|.
-\]
-Second, we interpolate from signed unit magnitudes to shuffled empirical magnitudes:
-\[
-m^{0}_{ij}=1,\qquad m^{f1}_{ij}=m^{\pi}_{ij},
-\]
-where \(m^{\pi}\) is a random permutation of the empirical magnitudes \(|W^{\mathrm{cel}}|\) across the nonzero edge set. Third, we interpolate directly from empirical magnitudes to shuffled empirical magnitudes:
-\[
-m^{0}_{ij}=|W^{\mathrm{cel}}_{ij}|,\qquad m^{1}_{ij}=m^{\pi}_{ij}.
-\]
-In all three cases, topology and signs are fixed, so changes in CV or mean metric value reflect magnitude perturbation rather than sign perturbation.
-
-\subsection{Trial definition}
+\subsection{Experimental setup}
 \label{sec:trial_def}
-A single trial of a model consists of:
-\begin{enumerate}
-    \item A reservoir instantiation for each trial, reset between hyperparameter combinations
-    \item A performance evaluation for each hyperparameter combination, using the following parameters: \begin{itemize}
-        \item \textbf{Sequence length} = 2500
-        \item \textbf{Washout time steps} = 500
-        \item \textbf{Perturbation standard deviation}  = 0.01 (for calculating GR)
-        \item \textbf{Train time steps} = 1500
-        \item \textbf{Test time steps} = 500
-        \item \textbf{Memory capacity max delay} = 30
-        \item \textbf{Information processing capacity max delay} = 30
-        \item \textbf{Information processing capacity polynomial targets} = univariate Legendre orders \(\{1,2,3,4,5\}\); pairwise and cross-delay product terms are not included
-        \item \textbf{Ridge alpha} = 0.0001 (controls the strength of L2 regularization for ridge regression)
-    \end{itemize}
-\end{enumerate}
-\subsection{Hyperparameter sweeps}
-\label{sec:hyperparameter_sweeps}
-We evaluated network performance across a full factorial sweep of spectral radius, leak rate, input scaling, and neuron-bias range. To compute our coefficient of variation (CV) metric, each trial evaluates a given network's performance across all combinations of the following hyperparameters:
+Table~\ref{tab:exp_setup} condenses the trial definition, hyperparameter sweep, and evaluation pipeline. Each trial uses one fixed i.i.d.\ input sequence across all hyperparameter combinations; reservoirs are re-instantiated with a fresh seed between trials.
 
-\begin{itemize}
-    \item Spectral radius: $sr \in \{0.6,\,0.8,\,0.95,\,1.05\}$
-    \item Leak rate: $\text{leak} \in \{0.6,\,0.8,\,1.0\}$
-    \item Input scaling: $\text{input scaling} \in \{0.1,\,0.5,\,1.0,\,1.5\}$
-    \item Neuron bias half-range: \(\beta \in \{0.0,\,0.1\}\)
-\end{itemize}
-The coefficient of variation (CV) is computed across hyperparameter combinations within a trial. Each trial uses a single fixed input sequence shared across all hyperparameter combinations to ensure comparability. Reservoir instantiations are independent across trials: for each trial, the reservoir is reconstructed with a unique seed. Each reservoir instantiation in a trial uses the same input sequence; different trials use different input sequences.
-
-This factorial design produces 96 hyperparameter settings per trial. Number of trials for architecture comparison~\ref{fig:arch}: 200 per model. Total metric evaluations per model: $\text{Trials} \times \text {hyperparameter grid} = 19,200$. Number of trials for Figures~\ref{fig:bin_cel_frac_curves},~\ref{fig:er_frac_curves}, and~\ref{fig:og_cel_frac_curves}: 50 per point. Total metric evaluations per point: $4,800$. The half-normal magnitude-perturbation control also uses 50 trials per point, for $4,800$ total metric evaluations per point. The interpolation experiments in Figures~\ref{fig:bin_to_cel_interp},~\ref{fig:bin_to_cel_shuf_interp}, and~\ref{fig:cel_to_cel_shuf_interp} use the same hyperparameter grid and compute CV independently at each interpolation fraction \(f\in\{0,0.25,0.5,0.75,1\}\).
-
-\subsection{Experimental pipeline}
-\textbf{For each trial}:
-\begin{enumerate}
-    \item Instantiate reservoir computer (nodes and edges)
-    \item Assign weights/signs
-    \item Scale to target spectral radius
-    \item Create an i.i.d.\ input sequence
-    \item Run the network on the input sequence and split states into washout/train/test sets
-    \item Compute task-agnostic metrics (KR, GR, IPC, MC)
-    \item Repeat for each combination of hyperparameters in our hyperparameter array
-\end{enumerate}
-\textbf{Analysis of Trials}:
-\begin{enumerate}
-    \item Compute CV across hyperparameter grid
-    \item Average over trials
-    \item Analyze results
-\end{enumerate}
+\begin{table*}[t]
+    \centering
+    \scriptsize
+    \caption{Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline.}
+    \label{tab:exp_setup}
+    \renewcommand{\arraystretch}{1.15}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{p{0.18\textwidth}p{0.54\textwidth}p{0.24\textwidth}}
+        \toprule
+        Component & Setting & Notes \\
+        \midrule
+        Trial unit & One reservoir instantiation evaluated across the full hyperparameter grid & Reservoir reset between trials; shared input sequence within a trial \\
+        \addlinespace
+        Sequence split & 2500 total steps: 500 washout, 1500 train, 500 test & GR uses perturbation s.d.\ 0.01 \\
+        \addlinespace
+        Readout and metrics & MC max delay 30; IPC max delay 30; IPC targets are Legendre orders \(1\)--\(5\); ridge alpha \(=10^{-4}\) & Pairwise and cross-delay products are omitted from IPC \\
+        \addlinespace
+        Hyperparameter sweep & Spectral radius \(\{0.6,0.8,0.95,1.05\}\); leak \(\{0.6,0.8,1.0\}\); input scaling \(\{0.1,0.5,1.0,1.5\}\); bias half-range \(\{0.0,0.1\}\) & 96 combinations per trial \\
+        \addlinespace
+        Pipeline & Instantiate reservoir \(\rightarrow\) assign weights/signs \(\rightarrow\) scale to target spectral radius \(\rightarrow\) drive i.i.d.\ input \(\rightarrow\) split washout/train/test \(\rightarrow\) compute KR, GR, IPC, MC \(\rightarrow\) aggregate CV & CV is computed within each trial before averaging over trials \\
+        \addlinespace
+        Replicates & Architecture comparison: 200 trials/model; sign-sweep and half-normal controls: 50 trials/point & Totals: 19,200 and 4,800 evaluations per condition \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
 
 
 
@@ -606,7 +559,7 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
     \scriptsize
     \caption[Mean CV differences for real-valued shuffle controls]{Mean CV differences for real-valued shuffle controls relative to the empirical \textit{C.\ elegans} reservoir. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
     \label{tab:shuffle_cv_real}
-    \resizebox{\textwidth}{!}{\input{New_figs/shuf/cv_mean_differences_table_vs_real.tex}}
+    \resizebox{\columnwidth}{!}{\input{New_figs/shuf/cv_mean_differences_table_vs_real.tex}}
 \end{table}
 
 \begin{table}[p]
@@ -614,7 +567,7 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
     \scriptsize
     \caption[Mean CV differences for signed-unit shuffle controls]{Mean CV differences for signed-unit shuffle controls relative to the original local sign-preserving signed-unit reservoir. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
     \label{tab:shuffle_cv_pm1}
-    \resizebox{\textwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex}}
+    \resizebox{\columnwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex}}
 \end{table}
 
 \begin{table}[p]
@@ -622,177 +575,25 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
     \scriptsize
     \caption[Mean CV differences for the all-positive binary topology shuffle]{Mean CV differences for the all-positive binary topology shuffle relative to the all-positive binary \textit{C.\ elegans} topology. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
     \label{tab:shuffle_cv_binary}
-    \resizebox{\textwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex}}
+    \resizebox{\columnwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex}}
 \end{table}
 
 
-\subsection{Weight and magnitude ablation controls}
-\label{sec:magnitude_interpolation}
-\label{sec:weight_perturbation}
-The main results show that sign structure must be fixed before magnitude effects can be interpreted cleanly. The sign-preserving interpolation experiments therefore ask a narrower question: once topology and edge signs are held constant, does the placement of empirical magnitudes across signed edges matter?
 
-Interpolating from signed unit magnitudes to the empirical \textit{C.\ elegans} magnitudes produces only modest changes (Figure~\ref{fig:bin_to_cel_interp}). At \(f=1\), CV changes by \(+7.39\%\) for MC, \(-0.635\%\) for IPC, \(+0.929\%\) for KR, and \(+0.775\%\) for GR. Mean metric values also change modestly. Thus, adding empirical magnitudes in their original locations does not substantially disrupt the low-variance regime once the empirical sign structure is already fixed.
-
-The shuffled-magnitude interpolations behave differently. Moving from signed unit magnitudes to shuffled empirical magnitudes increases CV by \(17.5\%\) for MC, \(14.3\%\) for IPC, \(32.1\%\) for KR, and \(24.4\%\) for GR at \(f=1\) (Figure~\ref{fig:bin_to_cel_shuf_interp}). Directly interpolating from empirical magnitudes to shuffled empirical magnitudes produces a similar pattern, with especially large effects for KR and GR (Figure~\ref{fig:cel_to_cel_shuf_interp}). Because signs are preserved throughout these sweeps, the increase in CV cannot be attributed to altered E/I balance. It reflects the placement of heterogeneous magnitudes on the fixed signed topology.
-
-The half-normal perturbation is best interpreted as a control rather than a main discovery. When connectivity and signs are preserved, moving the magnitude distribution toward a fitted shifted half-normal target produces only modest changes in both mean metric value and CV. When sign is not preserved in the corresponding control, the changes are much larger. This confirms the ordering of causes: large effects attributed to magnitude perturbation can be dominated by sign-balance changes unless sign structure is explicitly fixed.
-
-Together, the magnitude experiments complete the conditional hierarchy. Magnitude placement can move the reservoir toward higher mean performance and higher CV, particularly for KR and GR, but this effect appears after the sign structure has already set the main performance--invariance regime in these experiments. Empirical \textit{C.\ elegans} magnitudes are therefore not irrelevant; they tune metric-specific behavior within a regime strongly shaped by global E/I sign imbalance.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{figs/interpolation/bin_to_cel.png}
-    \caption{Sign-preserving interpolation from signed unit magnitudes to empirical \textit{C.\ elegans} magnitudes. The original topology and edge signs are fixed for every interpolation fraction; only nonzero magnitudes change. Left: mean CV across the hyperparameter sweep. Right: mean task-agnostic metric value.}
-    \label{fig:bin_to_cel_interp}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{figs/interpolation/bin_to_cel_shuf.png}
-    \caption{Sign-preserving interpolation from signed unit magnitudes to shuffled empirical \textit{C.\ elegans} magnitudes. The endpoint uses a random permutation of the empirical magnitudes across the original edge set while preserving each edge's original sign. Left: mean CV across the hyperparameter sweep. Right: mean task-agnostic metric value.}
-    \label{fig:bin_to_cel_shuf_interp}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{figs/interpolation/cel_to_cel_shuf.png}
-    \caption{Sign-preserving interpolation from empirical \textit{C.\ elegans} magnitudes to shuffled empirical magnitudes. The endpoint redistributes empirical magnitudes across the fixed topology, but every edge retains its original sign throughout the interpolation. Left: mean CV across the hyperparameter sweep. Right: mean task-agnostic metric value.}
-    \label{fig:cel_to_cel_shuf_interp}
-\end{figure}
 
 
 \subsection{Neuroscience Terms Explained for Computer Scientists}
 \begin{itemize}
-    \item {\textbf{neuron} -- basic building block of neural circuits. In this work, neurons are represented as nodes on a graph, each with both an activation function and an internal state representing membrane potential.}
-    
-    \item {\textbf{synapse} -- another basic building block of neural circuits. In this work, synapses are represented by directed edges with weights connecting two neurons.} 
-    \item {\textbf{excitatory connection} -- a modeled synaptic edge with positive sign}
-    \item {\textbf{inhibitory connection} -- a modeled synaptic edge with negative sign}
     \item {\textbf{E/I balance} -- the ratio or fraction of excitatory to inhibitory synaptic signs in the modeled reservoir; in this paper this is an edge-level quantity, not a count of excitatory or inhibitory neurons}
-   % \item {\textbf{Dale’s law} -- principle stating that a %neuron releases the same neurotransmitter at all of its %synapses. \parencite{Svensson2019} In graph terms, neurons %adhering to this principle have all positive or negative %outgoing connections    \footnote{Dale’s law is not %universally true; many neurons are now known to exhibit %cotransmission, releasing multiple neurotransmitters and %violating the single-sign assumption.\parencite{Svensson2019} }}
-
-    
     \item {\textbf{neurotransmitter} -- a chemical that allows neurons to communicate with each other by transmitting signals across synapses \parencite{Sheffler2023Neurotransmitters}.}
     \item {\textbf{gap junction} -- a type of synapse that connects the cytoplasm of two adjacent cells; bidirectional with the same weight for both sides. In our modeling, these are either removed or treated as two distinct positively signed edges.}
     \item {\textbf{neuromuscular junction} -- a specialized synapse where a motor neuron communicates with a muscle fiber. These directed edges point to non-neural cells and hence are not included in our graph.}
-    \item {\textbf{connectome} -- a wiring diagram of a biological neural network. This typically contains all neurons and synapses, along with edge weights.}
-    \item {\textbf{sensory neuron} -- a neuron that receives sensory input. During typical biological use, these can be thought of as ``inputs" to the network.} 
-    \item {\textbf{motor neuron} -- a neuron that passes signals to motor cells. During typical biological use, these can be thought of as the ``outputs" of the network.}
     \item {\textbf{synaptic terminals} -- bulbous endings of a neuron's axon where neurotransmitters are transferred to other cells (neurons or muscles). We use the number of these terminals as a proxy for edge weight.}
     \item {\textbf{membrane potential} -- the difference in electrical charge between the inside and outside of a neuron, forming the basis for neural activity \parencite{Henley_2021}. For our purposes, this is the internal state of the neuron representing how much our activation function will be saturated.}
     \item {\textbf{small-worldness} -- a property commonly observed in biological networks. A graph that exhibits the small-world property has both a high clustering coefficient and a short average path length. This structure is claimed to make information spread more efficient and to make the network more robust \parencite{Bassett2007,latora2001}.}
     \item {\textbf{scale-free network}} -- a network whose degree distribution follows a power law, meaning the fraction of nodes with degree $k$ follows a power law $k^{-\alpha}$ \parencite{broido_clauset_2019}.
 \end{itemize}
 
-
-
-
-\subsection{Tables}
-
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean CV across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is not preserved in this version of the experiment.}
-\label{tab:no_sign_pres_gaus_weights}
-\begin{tabular}{lcccc}
-\toprule
-Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
-\midrule
-MC & 0.3548 & +0.00808 (+2.28\%) & +0.0851 (+24\%) & +0.162 (+45.6\%)  \\
-IPC & 0.2718 & +0.00868 (+3.19\%) & +0.0891 (+32.8\%) & +0.151 (+55.4\%) \\
-KR & 0.2634 & +0.00505 (+1.92\%) & +0.125 (+47.6\%) & +0.335 (+127\%) \\
-GR & 0.4426 & +0.00829 (+1.87\%) & +0.162 (+36.5\%) & +0.311 (+70.3\%) \\
-\bottomrule
-\end{tabular}
-\end{table}
-\begin{table}[t]
-\centering
-\caption{Changes in mean metric value across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is not preserved in this version of the experiment.}
-\label{tab:no_sign_pres_gaus_metric_mean}
-\begin{tabular}{lcccc}
-\toprule
-Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
-\midrule
-MC & 4.161 & +0.00525 (+0.126\%) & +0.715 (+17.2\%) & +3.13 (+75.3\%) \\
-IPC & 5.863 & +0.0241 (+0.411\%) & +0.999 (+17\%) & +4.31 (+73.4\%)  \\
-KR & 2.99 & +0.0545 (+1.82\%) & +1.6 (+53.4\%) & +7.51 (+251\%)  \\
-GR & 4.712 & +0.12 (+2.55\%) & +3.54 (+75\%) & +16.4 (+348\%) \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean CV across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is preserved in this version of the experiment.}
-\label{tab:sign_pres_gaus_weights}
-\begin{tabular}{lcccc}
-\toprule
-Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
-\midrule
-MC & 0.3623 & +0.00232 (+0.641\%) & +0.0133 (+3.67\%) & +0.0156 (+4.32\%) \\
-IPC & 0.2781 & +0.00298 (+1.07\%) & +0.0178 (+6.38\%) & +0.0244 (+8.76\%) \\
-KR & 0.2634 & +0.00294 (+1.12\%) & +0.0211 (+8.01\%) & +0.0306 (+11.6\%) \\
-GR & 0.4426 & +0.00508 (+1.15\%) & +0.0319 (+7.2\%) & +0.0444 (+10\%) \\
-\bottomrule
-\end{tabular}
-\end{table}
-\begin{table}[t]
-\centering
-\caption{Changes in mean metric value across Gaussian noise magnitudes. Baseline column lists the reference value for each metric; other entries show absolute change followed by percent change. Relative to baseline mode weight\_test0.0. Sign is preserved in this version of the experiment.}
-\label{tab:sign_pres_gaus_metric_mean}
-\begin{tabular}{lcccc}
-\toprule
-Metric & Baseline & $\Lambda=1$ & $\Lambda=5$ & $\Lambda=10$ \\
-\midrule
-MC & 4.096 & -0.00846 (-0.206\%) & -0.094 (-2.3\%) & -0.102 (-2.48\%) \\
-IPC & 5.733 & +0.00524 (+0.0914\%) & -0.0257 (-0.448\%) & -0.0286 (-0.499\%) \\
-KR & 2.99 & +0.0314 (+1.05\%) & +0.193 (+6.45\%) & +0.289 (+9.67\%) \\
-GR & 4.712 & +0.0731 (+1.55\%) & +0.447 (+9.49\%) & +0.655 (+13.9\%) \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean CV during sign-preserving interpolation from signed unit magnitudes to empirical \textit{C.\ elegans} magnitudes. Baseline column lists the value at \(f=0\); other entries show absolute change followed by percent change.}
-\label{tab:bin_to_cel_interp_cv}
-\resizebox{\textwidth}{!}{\input{figs/interpolation/bin_to_cel_cv.tex}}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean metric value during sign-preserving interpolation from signed unit magnitudes to empirical \textit{C.\ elegans} magnitudes. Baseline column lists the value at \(f=0\); other entries show absolute change followed by percent change.}
-\label{tab:bin_to_cel_interp_perf}
-\resizebox{\textwidth}{!}{\input{figs/interpolation/bin_to_cel_perf.tex}}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean CV during sign-preserving interpolation from signed unit magnitudes to shuffled empirical \textit{C.\ elegans} magnitudes. Baseline column lists the value at \(f=0\); other entries show absolute change followed by percent change.}
-\label{tab:bin_to_cel_shuf_interp_cv}
-\resizebox{\textwidth}{!}{\input{figs/interpolation/bin_to_cel_shuf_cv.tex}}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean metric value during sign-preserving interpolation from signed unit magnitudes to shuffled empirical \textit{C.\ elegans} magnitudes. Baseline column lists the value at \(f=0\); other entries show absolute change followed by percent change.}
-\label{tab:bin_to_cel_shuf_interp_perf}
-\resizebox{\textwidth}{!}{\input{figs/interpolation/bin_to_cel_shuf_perf.tex}}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean CV during sign-preserving interpolation from empirical \textit{C.\ elegans} magnitudes to shuffled empirical magnitudes. Baseline column lists the value at \(f=0\); other entries show absolute change followed by percent change.}
-\label{tab:cel_to_cel_shuf_interp_cv}
-\resizebox{\textwidth}{!}{\input{figs/interpolation/cel_to_cel_shuf_cv.tex}}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption{Changes in mean metric value during sign-preserving interpolation from empirical \textit{C.\ elegans} magnitudes to shuffled empirical magnitudes. Baseline column lists the value at \(f=0\); other entries show absolute change followed by percent change.}
-\label{tab:cel_to_cel_shuf_interp_perf}
-\resizebox{\textwidth}{!}{\input{figs/interpolation/cel_to_cel_shuf_perf.tex}}
-\end{table}
 \bibliographystyle{style_neural_networks/cas-model2-names}
 \bibliography{bibliography}
 

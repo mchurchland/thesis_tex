@@ -4,48 +4,48 @@ The top-level auxiliary file: thesis.aux
 The style file: style_neural_networks/cas-model2-names.bst
 Database file #1: bibliography.bib
 Warning--entry type for "elegansign_web" isn't style-file defined
---line 273 of file bibliography.bib
+--line 303 of file bibliography.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty pages in Sheffler2023Neurotransmitters
-You've used 29 entries,
+You've used 32 entries,
             2990 wiz_defined-function locations,
-            954 strings with 13364 characters,
-and the built_in function-call counts, 20240 in all, are:
-= -- 1532
-> -- 816
-< -- 18
-+ -- 324
-- -- 283
-* -- 2294
-:= -- 2915
-add.period$ -- 106
-call.type$ -- 29
-change.case$ -- 242
-chr.to.int$ -- 29
-cite$ -- 30
-duplicate$ -- 1509
-empty$ -- 1450
-format.name$ -- 371
-if$ -- 3768
+            970 strings with 14030 characters,
+and the built_in function-call counts, 22282 in all, are:
+= -- 1683
+> -- 942
+< -- 19
++ -- 372
+- -- 328
+* -- 2541
+:= -- 3230
+add.period$ -- 115
+call.type$ -- 32
+change.case$ -- 272
+chr.to.int$ -- 32
+cite$ -- 33
+duplicate$ -- 1647
+empty$ -- 1561
+format.name$ -- 427
+if$ -- 4130
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 296
-newline$ -- 179
-num.names$ -- 120
-pop$ -- 502
+missing$ -- 323
+newline$ -- 194
+num.names$ -- 132
+pop$ -- 559
 preamble$ -- 1
-purify$ -- 209
+purify$ -- 236
 quote$ -- 0
-skip$ -- 448
+skip$ -- 487
 stack$ -- 0
-substring$ -- 781
-swap$ -- 1141
+substring$ -- 814
+swap$ -- 1247
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 255
+type$ -- 282
 warning$ -- 1
-while$ -- 115
+while$ -- 124
 width$ -- 0
-write$ -- 468
+write$ -- 510
 (There were 2 warnings)

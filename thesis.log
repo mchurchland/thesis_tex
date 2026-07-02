@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  2 JUL 2026 12:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  2 JUL 2026 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,8 +6,12 @@ entering extended mode
 **/home/saki/Desktop/Reed/thesis_tex/thesis.tex
 (/home/saki/Desktop/Reed/thesis_tex/thesis.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-02-22> (./cas-sc.cls (./style_neural_networks/cas-sc.cls
-Document Class: cas-sc 2024/05/04, 2.4: Formatting class for CAS single column articles
+L3 programming layer <2023-02-22> (./style_neural_networks/cas-dc.cls
+
+LaTeX Warning: You have requested document class `style_neural_networks/cas-dc',
+               but the document class provides `cas-dc'.
+
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
 \c@blind=\count185
 \@bls=\dimen140
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -137,38 +141,41 @@ Package: xparse 2023-02-02 L3 Experimental document command parser
 ) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count273
+) (/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
+Package: balance 1999/02/23 4.3 (PWD)
+\oldvsize=\dimen153
 ) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen153
-\lightrulewidth=\dimen154
-\cmidrulewidth=\dimen155
-\belowrulesep=\dimen156
-\belowbottomsep=\dimen157
-\aboverulesep=\dimen158
-\abovetopsep=\dimen159
-\cmidrulesep=\dimen160
-\cmidrulekern=\dimen161
-\defaultaddspace=\dimen162
+\heavyrulewidth=\dimen154
+\lightrulewidth=\dimen155
+\cmidrulewidth=\dimen156
+\belowrulesep=\dimen157
+\belowbottomsep=\dimen158
+\aboverulesep=\dimen159
+\abovetopsep=\dimen160
+\cmidrulesep=\dimen161
+\cmidrulekern=\dimen162
+\defaultaddspace=\dimen163
 \@cmidla=\count274
 \@cmidlb=\count275
-\@aboverulesep=\dimen163
-\@belowrulesep=\dimen164
+\@aboverulesep=\dimen164
+\@belowrulesep=\dimen165
 \@thisruleclass=\count276
 \@lastruleclass=\count277
-\@thisrulewidth=\dimen165
+\@thisrulewidth=\dimen166
 ) (/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
  (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen166
+\col@sep=\dimen167
 \ar@mcellbox=\box54
-\extrarowheight=\dimen167
+\extrarowheight=\dimen168
 \NC@list=\toks22
 \extratabsurround=\skip54
 \backup@length=\skip55
 \ar@cellbox=\box55
 )
-\rotheadsize=\dimen168
+\rotheadsize=\dimen169
 \c@nlinenum=\count278
 \TeXr@lab=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
@@ -176,7 +183,7 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip56
 \multirow@cntb=\count279
 \multirow@dima=\skip57
-\bigstrutjot=\dimen169
+\bigstrutjot=\dimen170
 ) (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
@@ -205,8 +212,8 @@ Package: xstring 2023/01/14 v1.85 String manipulations (CT)
 ) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
 \FN@temptoken=\toks25
-\footnotemargin=\dimen170
-\@outputbox@depth=\dimen171
+\footnotemargin=\dimen171
+\@outputbox@depth=\dimen172
 Package footmisc Info: Declaring symbol style bringhurst on input line 695.
 Package footmisc Info: Declaring symbol style chicago on input line 703.
 Package footmisc Info: Declaring symbol style wiley on input line 712.
@@ -273,7 +280,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count285
 )
-\@linkdim=\dimen172
+\@linkdim=\dimen173
 \Hy@linkcounter=\count286
 \Hy@pagecounter=\count287
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -305,15 +312,15 @@ Package hyperref Info: Bookmarks ON on input line 4425.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen173
+\XeTeXLinkMargin=\dimen174
  (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count290
-\Field@Width=\dimen174
-\Fld@charsize=\dimen175
+\Field@Width=\dimen175
+\Fld@charsize=\dimen176
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -347,8 +354,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip59
 ) (./cas-common.sty (./style_neural_networks/cas-common.sty
-\l_stm_title_before_dim=\dimen176
-\l_stm_title_after_dim=\dimen177
+\l_stm_title_before_dim=\dimen177
+\l_stm_title_after_dim=\dimen178
 \g_ead_int=\count296
 \g_uad_int=\count297
 \@eadauthor=\toks26
@@ -358,19 +365,19 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \g_stm_au_int=\count301
 \g_stm_aau_int=\count302
 \l_autype_int=\count303
-\l_stm_augroup_before_dim=\dimen178
-\l_stm_augroup_after_dim=\dimen179
-\l_stm_augroup_lskip_tl=\dimen180
-\l_stm_augroup_rskip_tl=\dimen181
+\l_stm_augroup_before_dim=\dimen179
+\l_stm_augroup_after_dim=\dimen180
+\l_stm_augroup_lskip_tl=\dimen181
+\l_stm_augroup_rskip_tl=\dimen182
 \g_stm_aff_int=\count304
 \g_stm_aff_ext_int=\count305
 \g_stm_aff_int_int=\count306
 \g_stm_fn_aff_ext_int=\count307
 \g_stm_fn_aff_int_int=\count308
-\l_stm_aff_before_dim=\dimen182
-\l_stm_aff_after_dim=\dimen183
-\l_stm_aff_lskip_dim=\dimen184
-\l_stm_aff_rskip_dim=\dimen185
+\l_stm_aff_before_dim=\dimen183
+\l_stm_aff_after_dim=\dimen184
+\l_stm_aff_lskip_dim=\dimen185
+\l_stm_aff_rskip_dim=\dimen186
 \g_stm_augr_int=\count309
 \g_stm_aaugr_int=\count310
  (/usr/share/texlive/texmf-dist/tex/latex/moreverb/moreverb.sty
@@ -398,40 +405,40 @@ Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \c@aff=\count320
 \g_stm_notes_box=\box60
 \g_stm_front_box=\box61
-\paraindent=\dimen186
-\subparaindent=\dimen187
-\FullWidth=\dimen188
-\l_tbl_width_dim=\dimen189
+\paraindent=\dimen187
+\subparaindent=\dimen188
+\FullWidth=\dimen189
+\l_tbl_width_dim=\dimen190
 \l_tbl_abovecap_skip=\skip60
 \l_tbl_belowcap_skip=\skip61
 \l_tbl_abovetbl_skip=\skip62
 \l_tbl_belowtbl_skip=\skip63
-\l_fig_width_dim=\dimen190
+\l_fig_width_dim=\dimen191
 \cascaptionbox=\box62
 \l_fig_abovecap_skip=\skip64
 \l_fig_belowcap_skip=\skip65
 \l_fig_abovefig_skip=\skip66
 \l_fig_belowfig_skip=\skip67
  (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen191
-\WF@size=\dimen192
+\wrapoverhang=\dimen192
+\WF@size=\dimen193
 \c@WF@wrappedlines=\count321
 \WF@box=\box63
 \WF@everypar=\toks29
 Package: wrapfig 2003/01/31  v 3.6
 )
-\l_wrap_figwidth_dim=\dimen193
-\l_wrap_fighspace_dim=\dimen194
-\l_wrap_figvspace_dim=\dimen195
-\l_wrap_fighcorr_dim=\dimen196
-\l_wrap_figvcorr_dim=\dimen197
-\l_above_bio_dim=\dimen198
+\l_wrap_figwidth_dim=\dimen194
+\l_wrap_fighspace_dim=\dimen195
+\l_wrap_figvspace_dim=\dimen196
+\l_wrap_fighcorr_dim=\dimen197
+\l_wrap_figvcorr_dim=\dimen198
+\l_above_bio_dim=\dimen199
 \l_wrap_figlcorr_int=\count322
 \l_wrap_figlines_int=\count323
 \l_bio_text_box=\box64
 \c@ca_biography_ctr=\count324
 \l_ca_temp_inta=\count325
-\leftMargin=\dimen199
+\leftMargin=\dimen256
 \@enLab=\toks30
 \@sep=\skip68
 \@@sep=\skip69
@@ -539,40 +546,52 @@ LaTeX Info: Redefining \vdots on input line 1518.
 LaTeX Info: Redefining \cdots on input line 1522.
 LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 1978.
 LaTeX Info: Redefining \not on input line 2144.
+) (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/inconsolata.sty
+Package: inconsolata 2019/05/17 v1.12
+ `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks31
+\XKV@tempa@toks=\toks32
+)
+\XKV@depth=\count326
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\zifour@ocount=\count327
 ) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count326
-\Gm@cntv=\count327
-\c@Gm@tempcnt=\count328
-\Gm@bindingoffset=\dimen256
-\Gm@wd@mp=\dimen257
-\Gm@odd@mp=\dimen258
-\Gm@even@mp=\dimen259
-\Gm@layoutwidth=\dimen260
-\Gm@layoutheight=\dimen261
-\Gm@layouthoffset=\dimen262
-\Gm@layoutvoffset=\dimen263
-\Gm@dimlist=\toks31
-))) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count329
+\Gm@cnth=\count328
+\Gm@cntv=\count329
+\c@Gm@tempcnt=\count330
+\Gm@bindingoffset=\dimen257
+\Gm@wd@mp=\dimen258
+\Gm@odd@mp=\dimen259
+\Gm@even@mp=\dimen260
+\Gm@layoutwidth=\dimen261
+\Gm@layoutheight=\dimen262
+\Gm@layouthoffset=\dimen263
+\Gm@layoutvoffset=\dimen264
+\Gm@dimlist=\toks33
+)) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count331
 \lst@gtempboxa=\box65
-\lst@token=\toks32
-\lst@length=\count330
-\lst@currlwidth=\dimen264
-\lst@column=\count331
-\lst@pos=\count332
-\lst@lostspace=\dimen265
-\lst@width=\dimen266
-\lst@newlines=\count333
-\lst@lineno=\count334
-\lst@maxwidth=\dimen267
+\lst@token=\toks34
+\lst@length=\count332
+\lst@currlwidth=\dimen265
+\lst@column=\count333
+\lst@pos=\count334
+\lst@lostspace=\dimen266
+\lst@width=\dimen267
+\lst@newlines=\count335
+\lst@lineno=\count336
+\lst@maxwidth=\dimen268
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count335
-\lst@skipnumbers=\count336
+\c@lstnumber=\count337
+\lst@skipnumbers=\count338
 \lst@framebox=\box66
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -585,15 +604,15 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 ) (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks33
-\thm@bodyfont=\toks34
-\thm@headfont=\toks35
-\thm@notefont=\toks36
-\thm@headpunct=\toks37
+\thm@style=\toks35
+\thm@bodyfont=\toks36
+\thm@headfont=\toks37
+\thm@notefont=\toks38
+\thm@headpunct=\toks39
 \thm@preskip=\skip70
 \thm@postskip=\skip71
 \thm@headsep=\skip72
-\dth@everypar=\toks38
+\dth@everypar=\toks40
 LaTeX Info: Redefining \qed on input line 273.
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
@@ -601,18 +620,18 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTright=\skip74
 \LTpre=\skip75
 \LTpost=\skip76
-\LTchunksize=\count337
-\LTcapwidth=\dimen268
+\LTchunksize=\count339
+\LTcapwidth=\dimen269
 \LT@head=\box67
 \LT@firsthead=\box68
 \LT@foot=\box69
 \LT@lastfoot=\box70
 \LT@gbox=\box71
-\LT@cols=\count338
-\LT@rows=\count339
-\c@LT@tables=\count340
-\c@LT@chunks=\count341
-\LT@p@ftn=\toks39
+\LT@cols=\count340
+\LT@rows=\count341
+\c@LT@tables=\count342
+\c@LT@chunks=\count343
+\LT@p@ftn=\toks41
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/chemarr.sty
 Package: chemarr 2016/05/16 v1.3 Arrows for chemical reactions (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
@@ -620,19 +639,19 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
  (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count342
+\c@r@tfl@t=\count344
 \rotFPtop=\skip77
 \rotFPbot=\skip78
 \rot@float@box=\box72
-\rot@mess@toks=\toks40
+\rot@mess@toks=\toks42
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2023/02/13 3.86 The Babel package
-\babel@savecnt=\count343
-\U@D=\dimen269
+\babel@savecnt=\count345
+\U@D=\dimen270
 \l@unhyphenated=\language85
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-\bbl@dirlevel=\count344
+\bbl@dirlevel=\count346
  (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -652,17 +671,17 @@ Package bm Info: No bold for \U/msb/m/n, using \pmb.
 Package bm Info: No bold for \LS1/stix/b/n, using \pmb.
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
-\MT@toks=\toks41
+\MT@toks=\toks43
 \MT@tempbox=\box73
-\MT@count=\count345
+\MT@count=\count347
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
-\MT@prot@toks=\toks42
+\MT@prot@toks=\toks44
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
-\MT@outer@kern=\dimen270
+\MT@outer@kern=\dimen271
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
-\MT@listname@count=\count346
+\MT@listname@count=\count348
  (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 902.
@@ -674,13 +693,13 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
 )) (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
-\csq@reset=\count347
-\csq@gtype=\count348
-\csq@glevel=\count349
-\csq@qlevel=\count350
-\csq@maxlvl=\count351
-\csq@tshold=\count352
-\csq@ltx@everypar=\toks43
+\csq@reset=\count349
+\csq@gtype=\count350
+\csq@glevel=\count351
+\csq@qlevel=\count352
+\csq@maxlvl=\count353
+\csq@tshold=\count354
+\csq@ltx@everypar=\toks45
  (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
 )
@@ -693,7 +712,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip80
 \bibsep=\skip81
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count353
+\c@NAT@ctr=\count355
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -737,17 +756,17 @@ File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
 LaTeX Font Info:    ... okay on input line 30.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count354
-\scratchdimen=\dimen271
+\scratchcounter=\count356
+\scratchdimen=\dimen272
 \scratchbox=\box74
-\nofMPsegments=\count355
-\nofMParguments=\count356
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count357
-\MPscratchDim=\dimen272
-\MPnumerator=\count358
-\makeMPintoPDFobject=\count359
-\everyMPtoPDFconversion=\toks45
+\nofMPsegments=\count357
+\nofMParguments=\count358
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen273
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
+\everyMPtoPDFconversion=\toks47
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
  (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
@@ -767,7 +786,9 @@ Package hyperref Info: Link coloring ON on input line 30.
 \@outlinefile=\write3
 \openout3 = `thesis.out'.
 
-
+ (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+)
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -776,22 +797,22 @@ Package hyperref Info: Link coloring ON on input line 30.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(38.98026pt, 468.3324pt, 38.98026pt)
-* v-part:(T,H,B)=(54.06023pt, 637.34175pt, 54.06023pt)
-* \paperwidth=546.29291pt
-* \paperheight=745.4622pt
-* \textwidth=468.3324pt
-* \textheight=637.34175pt
-* \oddsidemargin=-33.28973pt
-* \evensidemargin=-33.28973pt
-* \topmargin=-42.20976pt
+* h-part:(L,W,R)=(51.4995pt, 494.50888pt, 51.4995pt)
+* v-part:(T,H,B)=(55.48286pt, 689.4103pt, 51.784pt)
+* \paperwidth=597.50787pt
+* \paperheight=796.67715pt
+* \textwidth=494.50888pt
+* \textheight=689.4103pt
+* \oddsidemargin=-20.7705pt
+* \evensidemargin=-20.7705pt
+* \topmargin=-40.78712pt
 * \headheight=12.0pt
 * \headsep=12.0pt
 * \topskip=10.0pt
 * \footskip=12.0pt
 * \marginparwidth=57.0pt
 * \marginparsep=11.0pt
-* \columnsep=10.0pt
+* \columnsep=18.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -802,7 +823,7 @@ Package hyperref Info: Link coloring ON on input line 30.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count360
+\c@lstlisting=\count362
 LaTeX Info: Redefining \microtypecontext on input line 30.
 Package microtype Info: Applying patch `item' on input line 30.
 Package microtype Info: Applying patch `toc' on input line 30.
@@ -875,7 +896,7 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 75.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (117.0831pt too wide) detected at line 75
+Overfull \hbox (123.62721pt too wide) detected at line 75
 []
  []
 
@@ -883,7 +904,7 @@ Overfull \hbox (117.0831pt too wide) detected at line 75
 
 Package hyperref Warning: Ignoring empty anchor on input line 75.
 
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 81.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 83.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -891,135 +912,279 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [1{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+ [1
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 91.
+(Font)              size <7> substituted on input line 84.
 
-[2] [3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 205--205
-[]|\T1/cmss/m/n/9 (+20) Magnitude-placement
+[2] [3] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 199--199
+[]|\T1/cmss/m/n/9 (+20) Architecture
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 207--207
-[]|\T1/cmss/m/n/9 (+20) Degree-preserving topol-ogy
+Underfull \hbox (badness 5203) in paragraph at lines 201--201
+[]|\T1/cmss/m/n/9 (+20) Original \T1/cmss/m/it/9 (+20) C. el-e-gans
+ []
+
+
+Underfull \hbox (badness 1603) in paragraph at lines 201--201
+\T1/cmss/m/n/9 (+20) topol-ogy, signs, and
+ []
+
+
+Underfull \hbox (badness 2772) in paragraph at lines 201--202
+[]|\T1/cmss/m/n/9 (+20) Defines the low-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]|\T1/cmss/m/n/9 (+20) Sign-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\T1/cmss/m/n/9 (+20) preserving
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+[]|\T1/cmss/m/n/9 (+20) Replace mag-ni-tudes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\T1/cmss/m/n/9 (+20) with signed unit,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\T1/cmss/m/n/9 (+20) half-Gaussian, or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
+\T1/cmss/m/n/9 (+20) uni-form mag-ni-tudes
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 203--203
+\T1/cmss/m/n/9 (+20) while pre-serv-ing the
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 205--205
+[]|\T1/cmss/m/n/9 (+20) Collapse all nonzero
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 205--206
+[]|\T1/cmss/m/n/9 (+20) Tests the ef-fect
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 205--206
+\T1/cmss/m/n/9 (+20) of re-mov-ing in-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/cmss/m/n/9 (+20) Rewire edges us-ing di-rected degree-
+[]|\T1/cmss/m/n/9 (+20) Degree-
  []
 
 
-Underfull \hbox (badness 2818) in paragraph at lines 207--207
-\T1/cmss/m/n/9 (+20) preserving con-nec-tion shuf-fles, with or
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+\T1/cmss/m/n/9 (+20) preserving
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+\T1/cmss/m/n/9 (+20) topol-ogy
+ []
+
+
+Underfull \hbox (badness 4886) in paragraph at lines 207--207
+[]|\T1/cmss/m/n/9 (+20) Rewire edges us-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+\T1/cmss/m/n/9 (+20) di-rected degree-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+\T1/cmss/m/n/9 (+20) shuf-fles, with or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+\T1/cmss/m/n/9 (+20) with-out mag-ni-tude
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+\T1/cmss/m/n/9 (+20) het-ero-ge-neous
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
+[]|\T1/cmss/m/n/9 (+20) Random-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
+\T1/cmss/m/n/9 (+20) topology
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+[]|\T1/cmss/m/n/9 (+20) Tests whether
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+\T1/cmss/m/n/9 (+20) topol-ogy alone
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+\T1/cmss/m/n/9 (+20) ex-plains the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
+\T1/cmss/m/n/9 (+20) low-variance
+ []
+
+
+Overfull \hbox (12.17673pt too wide) in paragraph at lines 197--212
+ [][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 237.
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 237.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `zi4' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Overfull \hbox (4.2154pt too wide) in paragraph at lines 253--270
+ [][] 
  []
 
 [7]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 237.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [8] [9] [10]
-<New_figs/fullv2/50per.png, id=181, 520.344pt x 372.1905pt>
+<New_figs/fullv2/50per.png, id=173, 520.344pt x 372.1905pt>
 File: New_figs/fullv2/50per.png Graphic file (type png)
 <use New_figs/fullv2/50per.png>
-Package pdftex.def Info: New_figs/fullv2/50per.png  used on input line 333.
-(pdftex.def)             Requested size: 468.3324pt x 335.00243pt.
- [11] [12 <./New_figs/fullv2/50per.png>]
-<New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png, id=208, 448.7967pt x 177.66376pt>
+Package pdftex.def Info: New_figs/fullv2/50per.png  used on input line 286.
+(pdftex.def)             Requested size: 238.25444pt x 170.4203pt.
+<New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png, id=182, 466.3824pt x 177.66376pt>
 File: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png  used on input line 348.
-(pdftex.def)             Requested size: 468.3324pt x 185.403pt.
- [13 <./New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>] [14]
-<New_figs/sign_norm_abalation/matched_cel/sign_norm.png, id=234, 1475.5125pt x 1601.985pt>
+Package pdftex.def Info: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png  used on input line 301.
+(pdftex.def)             Requested size: 238.25444pt x 90.76183pt.
+ [8 <./New_figs/fullv2/50per.png>] [9 <./New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>]
+<New_figs/sign_norm_abalation/matched_cel/sign_norm.png, id=214, 1475.5125pt x 1601.985pt>
 File: New_figs/sign_norm_abalation/matched_cel/sign_norm.png Graphic file (type png)
 <use New_figs/sign_norm_abalation/matched_cel/sign_norm.png>
-Package pdftex.def Info: New_figs/sign_norm_abalation/matched_cel/sign_norm.png  used on input line 375.
-(pdftex.def)             Requested size: 468.3324pt x 508.46571pt.
- [15] [16 <./New_figs/sign_norm_abalation/matched_cel/sign_norm.png (PNG copy)>]
-<New_figs/shuf/shuf_all.png, id=252, 780.516pt x 516.7305pt>
+Package pdftex.def Info: New_figs/sign_norm_abalation/matched_cel/sign_norm.png  used on input line 328.
+(pdftex.def)             Requested size: 238.25444pt x 258.6695pt.
+ [10 <./New_figs/sign_norm_abalation/matched_cel/sign_norm.png (PNG copy)>]
+<New_figs/shuf/shuf_all.png, id=226, 780.516pt x 516.7305pt>
 File: New_figs/shuf/shuf_all.png Graphic file (type png)
 <use New_figs/shuf/shuf_all.png>
-Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 396.
-(pdftex.def)             Requested size: 468.3324pt x 310.05646pt.
- [17 <./New_figs/shuf/shuf_all.png>]
-<New_figs/raw_rho_performance_summary.png, id=260, 953.964pt x 458.8342pt>
+Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 349.
+(pdftex.def)             Requested size: 238.25444pt x 157.73267pt.
+ [11 <./New_figs/shuf/shuf_all.png>]
+<New_figs/raw_rho_performance_summary.png, id=237, 953.964pt x 458.8342pt>
 File: New_figs/raw_rho_performance_summary.png Graphic file (type png)
 <use New_figs/raw_rho_performance_summary.png>
-Package pdftex.def Info: New_figs/raw_rho_performance_summary.png  used on input line 410.
-(pdftex.def)             Requested size: 468.3324pt x 225.2578pt.
- [18 <./New_figs/raw_rho_performance_summary.png>] [19] [20]
-<New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png, id=306, 448.7967pt x 177.66376pt>
+Package pdftex.def Info: New_figs/raw_rho_performance_summary.png  used on input line 363.
+(pdftex.def)             Requested size: 238.25444pt x 114.58923pt.
+ [12 <./New_figs/raw_rho_performance_summary.png>] [13]
+<New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png, id=274, 448.7967pt x 177.66376pt>
 File: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png  used on input line 461.
-(pdftex.def)             Requested size: 468.3324pt x 185.403pt.
-<New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png, id=307, 448.7967pt x 177.66376pt>
+Package pdftex.def Info: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png  used on input line 414.
+(pdftex.def)             Requested size: 238.25444pt x 94.31857pt.
+<New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png, id=275, 448.7967pt x 177.66376pt>
 File: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png  used on input line 468.
-(pdftex.def)             Requested size: 468.3324pt x 185.403pt.
-<supplement/sign_sweep_quicklook.png, id=308, 782.4432pt x 470.4777pt>
+Package pdftex.def Info: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png  used on input line 421.
+(pdftex.def)             Requested size: 238.25444pt x 94.31857pt.
+<supplement/sign_sweep_quicklook.png, id=276, 782.4432pt x 470.4777pt>
 File: supplement/sign_sweep_quicklook.png Graphic file (type png)
 <use supplement/sign_sweep_quicklook.png>
-Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 475.
-(pdftex.def)             Requested size: 468.3324pt x 281.59962pt.
-<New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png, id=309, 1156.32pt x 607.068pt>
+Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 428.
+(pdftex.def)             Requested size: 238.25444pt x 143.25499pt.
+<New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png, id=277, 1156.32pt x 607.068pt>
 File: New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png Graphic file (type png)
 <use New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png>
-Package pdftex.def Info: New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png  used on input line 486.
-(pdftex.def)             Requested size: 468.3324pt x 245.87045pt.
-<New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png, id=310, 1156.32pt x 607.068pt>
+Package pdftex.def Info: New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png  used on input line 439.
+(pdftex.def)             Requested size: 238.25444pt x 125.07964pt.
+<New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png, id=278, 1156.32pt x 607.068pt>
 File: New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png Graphic file (type png)
 <use New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png>
-Package pdftex.def Info: New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png  used on input line 493.
-(pdftex.def)             Requested size: 468.3324pt x 245.87045pt.
- [21]
-<figs/toplogy/model_grid_A_to_H.png, id=323, 607.068pt x 881.694pt>
+Package pdftex.def Info: New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png  used on input line 446.
+(pdftex.def)             Requested size: 238.25444pt x 125.07964pt.
+
+Underfull \hbox (badness 1953) in paragraph at lines 447--447
+[][]\T1/cmss/bx/n/9 (+20) Figure 10:[] []\T1/cmss/m/n/9 (+20) Sign-balance nor-mal-iza-tion ab-la-tion for the
+ []
+
+<figs/toplogy/model_grid_A_to_H.png, id=281, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_A_to_H.png Graphic file (type png)
 <use figs/toplogy/model_grid_A_to_H.png>
-Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 504.
-(pdftex.def)             Requested size: 351.2493pt x 510.14516pt.
-<figs/toplogy/model_grid_I_to_O.png, id=324, 607.068pt x 881.694pt>
+Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 457.
+(pdftex.def)             Requested size: 370.88165pt x 538.65323pt.
+
+Overfull \hbox (132.62721pt too wide) in paragraph at lines 457--458
+ [][] 
+ []
+
+<figs/toplogy/model_grid_I_to_O.png, id=282, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_I_to_O.png Graphic file (type png)
 <use figs/toplogy/model_grid_I_to_O.png>
-Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 510.
-(pdftex.def)             Requested size: 351.2493pt x 510.14516pt.
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 531.
+Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 463.
+(pdftex.def)             Requested size: 370.88165pt x 538.65323pt.
+
+Overfull \hbox (132.62721pt too wide) in paragraph at lines 463--464
+ [][] 
+ []
+
+[14]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 484.
 
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 531.
+(Font)              size <10.95> substituted on input line 484.
 
-[22] [23] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [24] [25]
-<figs/interpolation/bin_to_cel.png, id=377, 711.8595pt x 259.81065pt>
-File: figs/interpolation/bin_to_cel.png Graphic file (type png)
-<use figs/interpolation/bin_to_cel.png>
-Package pdftex.def Info: figs/interpolation/bin_to_cel.png  used on input line 644.
-(pdftex.def)             Requested size: 468.3324pt x 170.93243pt.
-<figs/interpolation/bin_to_cel_shuf.png, id=378, 711.8595pt x 259.81065pt>
-File: figs/interpolation/bin_to_cel_shuf.png Graphic file (type png)
-<use figs/interpolation/bin_to_cel_shuf.png>
-Package pdftex.def Info: figs/interpolation/bin_to_cel_shuf.png  used on input line 651.
-(pdftex.def)             Requested size: 468.3324pt x 170.93243pt.
-<figs/interpolation/cel_to_cel_shuf.png, id=379, 711.8595pt x 259.81065pt>
-File: figs/interpolation/cel_to_cel_shuf.png Graphic file (type png)
-<use figs/interpolation/cel_to_cel_shuf.png>
-Package pdftex.def Info: figs/interpolation/cel_to_cel_shuf.png  used on input line 658.
-(pdftex.def)             Requested size: 468.3324pt x 170.93243pt.
- [26] (./figs/interpolation/bin_to_cel_cv.tex) (./figs/interpolation/bin_to_cel_perf.tex) (./figs/interpolation/bin_to_cel_shuf_cv.tex) (./figs/interpolation/bin_to_cel_shuf_perf.tex) (./figs/interpolation/cel_to_cel_shuf_cv.tex) (./figs/interpolation/cel_to_cel_shuf_perf.tex) (./thesis.bbl
-Underfull \hbox (badness 2134) in paragraph at lines 28--33
-[]\T1/stix/m/n/8 (+20) Broido, A.D., Clauset, A., 2019.  Scale-free net-works are rare.  Na-ture Com-mu-ni-ca-tions 10.  doi:[][]$\T1/cmtt/m/n/8 https : / / doi . org / 10 . 1038 /
+[15 <./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png> <./New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png> <./supplement/sign_sweep_quicklook.png>] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [16] (./thesis.bbl
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 6.80005pt on input line 19.
+
+Underfull \hbox (badness 2809) in paragraph at lines 16--21
+[]\T1/stix/m/n/8 (+20) Barabási, A.L., 2016.  Net-work sci-ence.  Cam-bridge Uni-ver-sity
  []
 
-[27] [28] [29] [30]) [31] [32 <./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png> <./New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>] [33 <./supplement/sign_sweep_quicklook.png> <./New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png>] [34 <./New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png>] [35 <./figs/toplogy/model_grid_A_to_H.png>] [36 <./figs/toplogy/model_grid_I_to_O.png>] [37 <./figs/interpolation/bin_to_cel.png> <./figs/interpolation/bin_to_cel_shuf.png>] [38 <./figs/interpolation/cel_to_cel_shuf.png>] (./thesis.aux)
+
+Underfull \hbox (badness 2573) in paragraph at lines 16--21
+\T1/stix/m/n/8 (+20) Press, Cam-bridge.  URL: [][]$\T1/zi4/m/n/8 https : / / www . cambridge . org / fr / academic /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/zi4/m/n/8 subjects / physics / statistical-[]physics / network-[]science ? format = HB &
+ []
+
+[17] [18]) [19 <./New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png> <./New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png>] [20 <./figs/toplogy/model_grid_A_to_H.png> <./figs/toplogy/model_grid_I_to_O.png>] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1028,18 +1193,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22916 strings out of 476041
- 364783 string characters out of 5793175
- 1897388 words of memory out of 6000000
- 42424 multiletter control sequences out of 15000+600000
- 671302 words of font info for 389 fonts, out of 8000000 for 9000
+ 23160 strings out of 476041
+ 368839 string characters out of 5793175
+ 1889388 words of memory out of 6000000
+ 42736 multiletter control sequences out of 15000+600000
+ 670402 words of font info for 378 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 95i,12n,93p,1364b,721s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb>
-Output written on thesis.pdf (39 pages, 19094994 bytes).
+ 90i,13n,93p,1364b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on thesis.pdf (21 pages, 18034294 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 518 compressed objects within 6 object streams
- 165 named destinations out of 1000 (max. 500000)
- 52300 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 443 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 52285 words of extra memory for PDF output out of 61914 (max. 10000000)
 

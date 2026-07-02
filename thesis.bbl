@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{32}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -87,6 +87,11 @@
 \bibinfo{author}{Henley, C.}, \bibinfo{year}{2021}.
 \newblock \bibinfo{title}{Foundations of neuroscience Casey Henley}.
 \newblock \bibinfo{publisher}{Michigan State University}.
+%Type = Misc
+\bibitem[{Iannello et~al.(2025)Iannello, Ciampi, Lagani, Tonelli, Crocco, Calcagnile, Di~Garbo, Cremisi and Amato}]{iannello_brc_2025}
+\bibinfo{author}{Iannello, L.}, \bibinfo{author}{Ciampi, L.}, \bibinfo{author}{Lagani, G.}, \bibinfo{author}{Tonelli, F.}, \bibinfo{author}{Crocco, E.}, \bibinfo{author}{Calcagnile, L.M.}, \bibinfo{author}{Di~Garbo, A.}, \bibinfo{author}{Cremisi, F.}, \bibinfo{author}{Amato, G.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{From neurons to computation: Biological reservoir computing for pattern recognition}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2505.03510}, \href{http://arxiv.org/abs/2505.03510}{\tt arXiv:2505.03510}.
 %Type = Techreport
 \bibitem[{Jaeger(2001)}]{jaeger_echo_state_2001}
 \bibinfo{author}{Jaeger, H.}, \bibinfo{year}{2001}.
@@ -126,6 +131,16 @@
 \newblock \bibinfo{title}{Real-time computing without stable states: A new framework for neural computation based on perturbations}.
 \newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{14}, \bibinfo{pages}{2531--2560}.
 \newblock \DOIprefix\doi{10.1162/089976602760407955}.
+%Type = Misc
+\bibitem[{Morra and Daley(2022)}]{morra_daley_2022}
+\bibinfo{author}{Morra, J.}, \bibinfo{author}{Daley, M.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Imposing connectome-derived topology on an echo state network}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2201.09359}, \href{http://arxiv.org/abs/2201.09359}{\tt arXiv:2201.09359}.
+%Type = Misc
+\bibitem[{Morra et~al.(2023)Morra, Flynn, Amann and Daley}]{morra_fly_rc_2023}
+\bibinfo{author}{Morra, J.}, \bibinfo{author}{Flynn, A.}, \bibinfo{author}{Amann, A.}, \bibinfo{author}{Daley, M.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Multifunctionality in a connectome-based reservoir computer}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2306.01885}, \href{http://arxiv.org/abs/2306.01885}{\tt arXiv:2306.01885}.
 %Type = Article
 \bibitem[{Pilati et~al.(2026)Pilati, Ceni, Michieletti, Gallicchio, Ricciardi and Milano}]{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}
 \bibinfo{author}{Pilati, D.}, \bibinfo{author}{Ceni, A.}, \bibinfo{author}{Michieletti, F.}, \bibinfo{author}{Gallicchio, C.}, \bibinfo{author}{Ricciardi, C.}, \bibinfo{author}{Milano, G.}, \bibinfo{year}{2026}.

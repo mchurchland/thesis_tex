@@ -26,6 +26,7 @@
 \definecolor{deepblue}{HTML}{002CF1}
 \definecolor{purple}{HTML}{AF7DF5}
 \definecolor{lightcyan}{HTML}{8ADEF3}
+\newcommand{\raul}[1]{\textcolor{red}{#1}}
 
 \begin{document}
 \let\WriteBookmarks\relax
@@ -75,7 +76,7 @@ reservoir computing \sep connectomics \sep hyperparameter robustness \sep E/I ba
 \maketitle
 
 \section{Introduction}
-Reservoir computing uses a fixed recurrent dynamical system to project input histories into a high-dimensional state space, after which only a readout is trained \parencite{jaeger_echo_state_2001,maass_lsm_2002}. This separation makes reservoir models useful for studying how recurrent architecture shapes computation. It also exposes a persistent design problem: reservoir behavior can depend strongly on hyperparameters such as spectral radius, input scaling, leak rate, and neuronal bias. A reservoir that performs well only under a narrow set of choices is less useful as a robust computational substrate.
+Reservoir computing uses a fixed recurrent dynamical system to project input histories into a high-dimensional state space, after which only a readout is trained \parencite{jaeger_echo_state_2001,maass_lsm_2002}. This separation makes reservoir models useful for studying how recurrent architecture shapes computation. It also exposes a persistent design problem: reservoir behavior can depend strongly on hyperparameters such as spectral radius, input scaling, leak rate, and neuronal bias \raul{citation needed}. A reservoir that performs well only under a narrow set of choices is less useful as a robust computational substrate.
 
 Most reservoir-computing theory and practice treats random recurrent networks as a strong generic baseline. Random reservoirs can provide diverse, weakly correlated nonlinear features and can be tuned near dynamical regimes that support memory and separability \parencite{Lukosevicius2012PracticalESN}. From that perspective, a small, sparse, structured, signed biological circuit should not be expected to maximize generic task-agnostic capacity. The \textit{C.\ elegans} connectome was shaped by developmental, metabolic, behavioral, and stability constraints, not by the objective of serving as an optimized random feature map. Its value here is therefore not as a presumed best reservoir, but as a structured biological prior for asking which constraints change the relationship between performance and sensitivity.
 

@@ -366,14 +366,14 @@ This flattening is expected only over the range of sign fractions where the pert
 \]
 Though the weight magnitudes are not changing, the post-normalization spectral radius is. In all three experiments, performance stays flat in these inner fractions. Outside this middle range, the perturbed matrix can have \(\rho(W)>\rho(W_{\mathrm{orig}})\). Scaling by \(\rho(W_{\mathrm{orig}})\) then moves the post-scaling spectral radius back toward, or above, the target value rather than holding it low. The changeover occurs where \(\rho(W)=\rho(W_{\mathrm{orig}})\).
 
-In the \textit{C.\ elegans} sign sweeps, this changeover can occur slightly before the empirical negative-edge fraction rather than exactly at it. The reason is that the sweep does not only change the global fraction of negative edges; it also randomly reassigns which edges carry those signs. The shuffle controls show that randomizing sign placement can itself increase performance and CV, consistent with a reduction in \(\rho_{\mathrm{raw}}\) (Figure~\ref{fig:shuf_all}). Therefore, the perturbed \textit{C.\ elegans} matrix can reach \(\rho(W)<\rho(W_{\mathrm{orig}})\) before the sweep reaches the empirical sign fraction. This offset is not expected to appear as strongly in the ER-matched network, where signs are already effectively random with respect to the topology and reshuffling sign placement has little additional effect on the raw spectral radius.
+In the \textit{C.\ elegans} sign sweeps, this changeover can occur slightly before the empirical negative-edge fraction rather than exactly at it. The reason is that the sweep does not only change the global fraction of negative edges; it also randomly reassigns which edges carry those signs. The shuffle controls show that randomizing sign placement can itself increase performance and CV, consistent with a reduction in \(\rho_{\mathrm{raw}}\) (Figure~\ref{fig:shuf_all}). A quick comparison of the sign sweeps in the \textit{C.\ elegans} and ER-matched networks is given in Supplemental Figure~\ref{fig:sign_sweep_quicklook}. Therefore, the perturbed \textit{C.\ elegans} matrix can reach \(\rho(W)<\rho(W_{\mathrm{orig}})\) before the sweep reaches the empirical sign fraction. This offset is not expected to appear as strongly in the ER-matched network, where signs are already effectively random with respect to the topology and reshuffling sign placement has little additional effect on the raw spectral radius.
 
 This pattern suggests that the performance gain from sign balance is mostly mediated by spectral-radius scaling. The benefit is not only that positive and negative edges create a different signed topology; it is also that this signed topology lowers the raw spectral radius, so own-radius normalization applies a larger scale factor. That higher effective recurrent scale improves task-agnostic performance but also makes the reservoir more hyperparameter-sensitive. This interpretation is consistent with recent reservoir-computing work on the no-strong-loops principle: Hadaeghi and colleagues show that stronger reciprocal loops inflate \(\rho(W)\), forcing spectral-radius normalization to downscale recurrent weights more strongly and reducing memory capacity and kernel rank \parencite{hadaeghi_no_strong_loops_2025}. Their manipulation targets reciprocity rather than E/I edge signs, but the mechanism is complementary. Strong loops raise the raw spectral radius and suppress effective recurrent scale after normalization; balanced edge signs can lower the raw spectral radius and permit larger effective recurrent scale.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_cel/sign_norm_ablation_combined.png}
-    \caption{Sign-balance normalization ablation for the \textit{C.\ elegans} 4:1 topology. Solid curves normalize each perturbed matrix by its own spectral radius; dashed curves normalize by the original spectral radius. Own-radius normalization produces a stronger performance increase and a larger CV increase as the negative edge fraction approaches the balanced regime.}
+    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_cel/sign_norm.png}
+    \caption{C.\ elegans 4:1 sign-normalization sweep. Solid curves scale by \(\rho(W)\), and dashed curves scale by \(\rho(W_{\mathrm{orig}})\). Own-radius normalization produces a stronger performance increase and a larger CV increase as the negative edge fraction approaches the balanced regime.}
     \label{fig:sign_norm_matched_cel}
 \end{figure}
 
@@ -468,6 +468,13 @@ The main text shows the sign-fraction sweep for the augmented \textit{C.\ elegan
     \includegraphics[width=\linewidth]{New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png}
     \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the empirical \textit{C.\ elegans} magnitude pattern after removing connections with unknown or complex signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with empirical magnitudes held in place. A total of 50 trials were performed for each fraction.}
     \label{fig:og_cel_frac_curves}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth]{supplement/sign_sweep_quicklook.png}
+    \caption{Quick look at the sign-sweep comparison between the \textit{C.\ elegans} and \textit{C.\ elegans}-matched ER topologies. The vertical dashed line marks the empirical negative-edge fraction. In the \textit{C.\ elegans} sweep, the raw spectral radius can dip below the original baseline slightly before that fraction is reached because sign placement is simultaneously being randomized. The ER-matched sweep shows a smaller offset, consistent with signs already being effectively random relative to topology.}
+    \label{fig:sign_sweep_quicklook}
 \end{figure}
 
 \subsection{Additional sign-normalization controls}

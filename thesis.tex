@@ -438,6 +438,14 @@ The main text shows the sign-normalization ablation for the augmented \textit{C.
     \label{fig:sign_norm_removed_cel}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{New_figs/shuf/shuf_all.png}
+    \caption{
+    Performance--CV islands for the shuffle controls, shown with 50\% density contours. Columns correspond to GR, IPC, KR, and MC. Rows show all-positive binary controls, sign-preserving signed-unit controls, and real-valued \textit{C.\ elegans} controls. Contour color shows the percent change in raw spectral radius relative to the row baseline, \(\Delta\rho_{\mathrm{raw}}\); blue indicates lower raw spectral radius and red indicates higher raw spectral radius.As a control, we normalize by the spectral radius of the baseline matrix rather than by the post-ablation spectral radius of \(W^{\mathrm{res}}\), allowing us to isolate effects of the ablations that are not driven solely by changes in spectral radius. }
+    \label{fig:shuf_all}
+\end{figure}
+
 \subsection{Architecture details}
 \label{supp:architectures}
 This section gives the full architecture definitions summarized in Table~\ref{tab:architecture_groups}. The quantitative analyses use the EleganSign-derived preprocessing versions described in Section~\ref{sec:connectome_dataset}: a 297-node, 1740-edge signed-only graph and an augmented random-sign graph that retains the 1864 unknown or complex-sign edges under a 4:1 excitatory-to-inhibitory prior. The visualization panels in this supplemental section were generated from the earlier c302-derived connectome and are retained only as schematic illustrations of the control families.

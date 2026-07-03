@@ -1361,6 +1361,10 @@ INPUT ./supplement/option_8_average_perf_cv_removed.png
 INPUT supplement/option_8_average_perf_cv_removed.png
 INPUT ./supplement/option_8_average_perf_cv_removed.png
 INPUT ./supplement/option_8_average_perf_cv_removed.png
+INPUT ./New_figs/shuf/shuf_all.png
+INPUT ./New_figs/shuf/shuf_all.png
+INPUT New_figs/shuf/shuf_all.png
+INPUT ./New_figs/shuf/shuf_all.png
 INPUT ./figs/toplogy/model_grid_A_to_H.png
 INPUT ./figs/toplogy/model_grid_A_to_H.png
 INPUT figs/toplogy/model_grid_A_to_H.png

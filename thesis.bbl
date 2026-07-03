@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{30}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -58,12 +58,6 @@
 \newblock \bibinfo{title}{Synaptic polarity and sign-balance prediction using gene expression data in the caenorhabditis elegans chemical synapse neuronal connectome network}.
 \newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{16}, \bibinfo{pages}{e1007974–e1007974}.
 \newblock \DOIprefix\doi{https://doi.org/10.1371/journal.pcbi.1007974}.
-%Type = Article
-\bibitem[{Geirhos et~al.(2020)Geirhos, Jacobsen, Michaelis, Zemel, Brendel, Bethge and Wichmann}]{geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}
-\bibinfo{author}{Geirhos, R.}, \bibinfo{author}{Jacobsen, J.H.}, \bibinfo{author}{Michaelis, C.}, \bibinfo{author}{Zemel, R.}, \bibinfo{author}{Brendel, W.}, \bibinfo{author}{Bethge, M.}, \bibinfo{author}{Wichmann, F.A.}, \bibinfo{year}{2020}.
-\newblock \bibinfo{title}{Shortcut learning in deep neural networks}.
-\newblock \bibinfo{journal}{Nature Machine Intelligence} \bibinfo{volume}{2}, \bibinfo{pages}{665–673}.
-\newblock \DOIprefix\doi{https://doi.org/10.1038/s42256-020-00257-z}.
 %Type = Article
 \bibitem[{Gleeson et~al.(2018)Gleeson, Lung, Grosu, Hasani and Larson}]{c302}
 \bibinfo{author}{Gleeson, P.}, \bibinfo{author}{Lung, D.}, \bibinfo{author}{Grosu, R.}, \bibinfo{author}{Hasani, R.}, \bibinfo{author}{Larson, S.D.}, \bibinfo{year}{2018}.
@@ -131,6 +125,11 @@
 \newblock \bibinfo{title}{Real-time computing without stable states: A new framework for neural computation based on perturbations}.
 \newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{14}, \bibinfo{pages}{2531--2560}.
 \newblock \DOIprefix\doi{10.1162/089976602760407955}.
+%Type = Inproceedings
+\bibitem[{Matzner(2022)}]{Matzner2022HyperparameterTuningESN}
+\bibinfo{author}{Matzner, F.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Hyperparameter tuning in echo state networks}, in: \bibinfo{booktitle}{Proceedings of the Genetic and Evolutionary Computation Conference}, \bibinfo{publisher}{ACM}. p. \bibinfo{pages}{404–412}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1145/3512290.3528721}, \DOIprefix\doi{10.1145/3512290.3528721}.
 %Type = Misc
 \bibitem[{Morra and Daley(2022)}]{morra_daley_2022}
 \bibinfo{author}{Morra, J.}, \bibinfo{author}{Daley, M.}, \bibinfo{year}{2022}.
@@ -147,15 +146,6 @@
 \newblock \bibinfo{title}{Rcbench: a unified framework for benchmarking reservoir computing systems}.
 \newblock \bibinfo{journal}{Neuromorphic Computing and Engineering} \bibinfo{volume}{6}, \bibinfo{pages}{014012}.
 \newblock \DOIprefix\doi{https://doi.org/10.1088/2634-4386/ae441f}.
-%Type = Misc
-\bibitem[{Recht et~al.(2019)Recht, Roelofs, Schmidt and Shankar}]{recht2019}
-\bibinfo{author}{Recht, B.}, \bibinfo{author}{Roelofs, R.}, \bibinfo{author}{Schmidt, L.}, \bibinfo{author}{Shankar, V.}, \bibinfo{year}{2019}.
-\newblock \bibinfo{title}{Do imagenet classifiers generalize to imagenet?}
-\newblock \URLprefix \url{https://arxiv.org/abs/1902.10811}, \href{http://arxiv.org/abs/1902.10811}{\tt arXiv:1902.10811}.
-%Type = Inproceedings
-\bibitem[{Roy and Vetterli(2007)}]{roy_effective_rank_2007}
-\bibinfo{author}{Roy, O.}, \bibinfo{author}{Vetterli, M.}, \bibinfo{year}{2007}.
-\newblock \bibinfo{title}{The effective rank: A measure of effective dimensionality}, in: \bibinfo{booktitle}{Proceedings of the 15th European Signal Processing Conference (EUSIPCO)}, \bibinfo{address}{Pozna{\'n}, Poland}. pp. \bibinfo{pages}{606--610}.
 %Type = Incollection
 \bibitem[{Sheffler et~al.(2025)Sheffler, Reddy and Pillarisetty}]{Sheffler2023Neurotransmitters}
 \bibinfo{author}{Sheffler, Z.M.}, \bibinfo{author}{Reddy, V.}, \bibinfo{author}{Pillarisetty, L.S.}, \bibinfo{year}{2025}.

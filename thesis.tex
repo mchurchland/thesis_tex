@@ -76,37 +76,35 @@ reservoir computing \sep connectomics \sep hyperparameter robustness \sep E/I ba
 \maketitle
 
 \section{Introduction}
-Reservoir computing uses a fixed recurrent dynamical system to project input histories into a high-dimensional state space, after which only a readout is trained \parencite{jaeger_echo_state_2001,maass_lsm_2002}. This separation makes reservoir models useful for studying how recurrent architecture shapes computation. It also exposes a persistent design problem: reservoir behavior can depend strongly on hyperparameters such as spectral radius, input scaling, leak rate, and neuronal bias \raul{citation needed}. A reservoir that performs well only under a narrow set of choices is less useful as a robust computational substrate.
+Reservoir computing uses a fixed recurrent dynamical system to project input histories into a high-dimensional state space, after which only a readout is trained \parencite{jaeger_echo_state_2001,maass_lsm_2002}. This makes reservoir models useful for studying how recurrent architecture shapes computation, but it also means behavior can vary strongly with hyperparameters such as spectral radius, input scaling, leak rate, and neuronal bias \parencite{Lukosevicius2012PracticalESN,Matzner2022HyperparameterTuningESN}.
 
-Most reservoir-computing theory and practice treats random recurrent networks as a strong generic baseline. Random reservoirs can provide diverse, weakly correlated nonlinear features and can be tuned near dynamical regimes that support memory and separability \parencite{Lukosevicius2012PracticalESN}. From that perspective, a small, sparse, structured, signed biological circuit should not be expected to maximize generic task-agnostic capacity. \raul{you can make this transition a bit more smooth. Like: The C. elegans connectome provides a concrete instance of this. As a mapped nervous system, it has been shaped by evolutionary demands that tightly constrain its size, sparsity etc...} The \textit{C.\ elegans} connectome was shaped by developmental, metabolic, behavioral, and stability constraints, not by the objective of serving as an optimized random feature map. Its value here is therefore not as a presumed best reservoir, but as a structured biological prior for asking which constraints change the relationship between performance and sensitivity.
+Most reservoir-computing theory and practice treats random recurrent networks as a strong generic baseline because they can provide diverse, weakly correlated nonlinear features and be tuned near dynamical regimes that support memory and separability \parencite{Lukosevicius2012PracticalESN}. The \textit{C.\ elegans} connectome is a useful example: it is shaped by developmental, metabolic, behavioral, and stability constraints rather than by the goal of serving as an optimized random feature map.
 
-This distinction matters because biological neural systems often remain functional across variable internal and environmental conditions, whereas artificial systems can be brittle outside the regime in which they were tuned or trained \parencite{recht2019,geirhos_jacobsen_michaelis_zemel_brendel_bethge_wichmann_2020}. In reservoir computing terms, this suggests a question that is different from peak-performance optimization: which structural properties make computational statistics stable across hyperparameter variation? The present study addresses that question by treating hyperparameter invariance as a metric of reservoir architectures.
+This motivates a different question from peak-performance optimization: which structural properties make reservoir statistics stable across hyperparameter variation? The present study treats hyperparameter invariance as a metric of reservoir architecture.
 
 Prior work has also used biological networks themselves as reservoirs or reservoir-like substrates. Kawai and colleagues evaluated echo-state networks with small-world structure and compared them to models with real human cortical connectivity \parencite{KAWAI201915}. Morra and Daley replaced the reservoir layer of an ESN with a fruit-fly connectome-derived topology, and later Morra and colleagues used a fruit-fly lateral-horn connectome to study multifunctionality in a connectome-based reservoir computer \parencite{morra_daley_2022,morra_fly_rc_2023}. In that later study, the fruit-fly connectome-based reservoir showed a broader window of \([\rho,\gamma]\)-space with multifunctionality and a larger magnitude of multifunctionality than the Erd\H{o}s--R\'enyi control \parencite{morra_fly_rc_2023}. More recently, Iannello and colleagues described biological reservoir computing with cultured cortical neurons as the reservoir substrate \parencite{iannello_brc_2025}. Taken together, these studies show that both anatomical connectomes and living neuronal networks have been used as reservoirs, although they differ in whether the biological network is treated as a fixed graph or as an active physical substrate.
 
-We use the signed chemical-synapse \textit{C.\ elegans} connectome as a biologically grounded reservoir and compare it with controlled perturbations that isolate topology, excitatory/inhibitory sign structure, weight-magnitude distribution, magnitude placement, and sign placement. Reservoir behavior is evaluated with four task-agnostic metrics: memory capacity (MC), information processing capacity (IPC), kernel rank (KR), and generalization rank (GR). Hyperparameter invariance is quantified as the coefficient of variation of these metrics across a full factorial sweep of spectral radius, input scaling, leak rate, and neuron-bias range.
+We use the signed chemical-synapse \textit{C.\ elegans} connectome and controlled perturbations that isolate topology, excitatory/inhibitory sign structure, weight-magnitude distribution, magnitude placement, and sign placement. Reservoir behavior is evaluated with task-agnostic metrics, and hyperparameter invariance is quantified across sweeps of spectral radius, input scaling, leak rate, and neuron-bias range.
 
-The results identify a performance--invariance tradeoff rather than a biological optimum for reservoir performance. Perturbations that increase task-agnostic capacity often also increase sensitivity to hyperparameter choice. Global excitatory/inhibitory sign imbalance strongly influences the low-variance regime observed in the \textit{C.\ elegans} model studied here, but it is not a universal determinant acting alone. Its effect depends on topology, local sign placement, weight-magnitude distribution, and magnitude placement because these structural features change the raw spectral radius that is subsequently normalized during reservoir evaluation.
+The results identify a performance--invariance tradeoff rather than a biological optimum. Perturbations that increase task-agnostic capacity often also increase sensitivity to hyperparameter choice, and the strongest effects appear to act through the raw spectral radius before normalization.
 
 \section{Methods}
 \label{sec:methods}
 \subsection{Reservoir model}
-We use echo state networks, a discrete-time reservoir-computing model in which recurrent weights are fixed and only linear readouts are fit when a metric requires reconstruction \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}. Let \(u_t \in \mathbb{R}^{d}\) be the input, \(x_t \in \mathbb{R}^{N}\) the reservoir state, and \(y_t \in \mathbb{R}^{p}\) the readout. With leak rate \(\alpha \in (0,1]\), the state update is
+We use echo state networks, a discrete-time reservoir-computing model in which recurrent weights are fixed and only linear readouts are fit when a metric requires reconstruction \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}. With leak rate \(\alpha \in (0,1]\), the state update is
 \begin{align}
 \tilde{x}_{t+1} &= \tanh\!\left(W^{\mathrm{res}} x_t + s_{\mathrm{in}}W^{\mathrm{in}} u_{t+1} + b + \xi_t\right), \\
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
 y_t &= W^{\mathrm{out}}\,x_t.
 \end{align}
-Here \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\xi_t\) denotes optional noise. Noise is not included in the experiments. The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).
-
-Only \(W^{\mathrm{out}}\) is fit during metric calculations. The recurrent matrix is fixed after the architecture is instantiated, so the experiments isolate how reservoir structure and global hyperparameters shape the state matrix available to the readout. Architectures are rescaled to a target spectral radius before each trial is evaluated, as described below. This keeps the comparison focused on relative structure rather than raw matrix scale.
+Here \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\xi_t\) denotes optional noise. Noise is not included in the experiments. The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\). Only \(W^{\mathrm{out}}\) is fit during metric calculations, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
 
 \subsection{Reservoir hyperparameters}
-The experiments sweep four hyperparameters that control the reservoir's operating regime. The spectral radius \(\rho(W^{\mathrm{res}})\) controls the strength of recurrent feedback, where
+The experiments sweep four hyperparameters: spectral radius, leak rate, input scaling, and neuron-bias half-range. The spectral radius \(\rho(W^{\mathrm{res}})\) controls recurrent feedback, where
 \[
 \rho(W) = \max_{1 \le i \le N} |\lambda_i|.
 \]
-This target is imposed after each architecture or perturbation has been instantiated. Let \(W'\) denote the signed recurrent matrix after all topology, sign, and magnitude manipulations have been applied. For a target spectral radius \(\rho_{\mathrm{target}}\), the matrix used during the trial is
+Let \(W'\) denote the signed recurrent matrix after all topology, sign, and magnitude manipulations have been applied. For a target spectral radius \(\rho_{\mathrm{target}}\), the matrix used during the trial is
 \[
 W^{\mathrm{res}}
 =
@@ -114,26 +112,14 @@ W^{\mathrm{res}}
 \qquad
 \rho(W')=\max_i |\lambda_i(W')|.
 \]
-Thus, spectral-radius scaling is the final matrix operation before the reservoir is driven by the input sequence.
-
-This normalization is important because otherwise architecture comparisons could be dominated by raw weight scale rather than by topology, sign balance, or magnitude placement. Matching every instantiated matrix to the same target spectral radius makes the hyperparameter sweep compare reservoirs at matched recurrent gain values. Normalization does not erase the effect of structure: topology and sign placement determine the raw spectrum of \(W'\), and therefore determine the scale factor required to reach \(\rho_{\mathrm{target}}\). For example, sign-balanced matrices can cancel reinforcing loops and change the leading eigenvalue structure, while strongly sign-imbalanced matrices tend to preserve more coherent positive feedback. The resulting normalization factor changes the effective scale of recurrent weights used during trials.
-
-The leak rate \(\alpha\) controls the effective timescale of the reservoir by interpolating between the previous state and the newly computed activation. Input scaling \(s_{\mathrm{in}}\) controls the strength of the external drive relative to recurrent feedback. The neuron-bias half-range \(\beta\) controls each neuron's baseline operating point: when \(\beta=0\), \(b=0\); when \(\beta>0\), each neuron is sampled independently as \(b_i\sim\mathcal{U}(-\beta,\beta)\) and then held fixed during trials. Positive bias values raise a neuron's baseline activation tendency, while negative values lower it.
-
-These parameters do not alter the trained readout directly; they change the dynamics of the reservoir whose stability is evaluated by the invariance analysis.
+The leak rate \(\alpha\) sets the effective timescale of the reservoir, input scaling \(s_{\mathrm{in}}\) sets the external drive, and the neuron-bias half-range \(\beta\) controls fixed per-neuron baseline offsets. Normalization preserves structural differences because topology and sign placement change the raw spectrum of \(W'\), and therefore the rescaling factor needed to reach \(\rho_{\mathrm{target}}\).
 
 \subsection{Connectome data and preprocessing}
 \label{sec:connectome_dataset}
-A connectome is a description of the neural wiring of an organism. It encodes which neurons are connected, the direction of each connection, and often additional biological metadata such as the number of synaptic terminals and the neurotransmitter associated with each connection.
-
-In this work, we treat the connectome as the foundation for a graph: each neuron is represented as a node, and each synapse as a directed, weighted edge. Two \textit{C.\ elegans} connectome sources are used. The main experiments use the signed chemical-synapse connectome derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. We analyze two preprocessing versions of this dataset. In the signed-only version, unknown or complex-sign connections are removed, leaving 297 nodes and 1740 directed signed edges. In the augmented random-sign version, the 1864 unknown or complex-sign edges are retained and assigned signs randomly with a 4:1 excitatory-to-inhibitory ratio. The older c302-derived connectome \parencite{c302} is retained only for the supplemental architecture visualizations and legacy schematic controls; it is not the source of the main results figures.
-
-The signed-only graph contains 1740 directed chemical-synapse edges over 297 neurons after preprocessing. These signs are treated as the empirical excitatory/inhibitory partition for the invariance experiments. Throughout this paper, excitatory and inhibitory refer to signed connections, not to neuron classes: a 50\% inhibitory condition means that 50\% of modeled edges have negative sign, not that 50\% of neurons are inhibitory. The augmented random-sign graph adds the 1864 unknown or complex-sign connections back into the topology and assigns each such edge a random sign under a 4:1 excitatory-to-inhibitory prior. This assignment is used as a sensitivity analysis rather than as a claim that those individual signs are known. Both versions remain \emph{working abstractions}: they do not attempt to capture receptor-specific, context-dependent, developmental, or neuromodulatory effects. Because this study examines how coarse sign structure and weight statistics influence task-agnostic reservoir metrics across hyperparameter sweeps, incorporating detailed synapse-type dynamics is beyond the scope of the analysis and computationally expensive at the current scope of our experiments.
-
-When edge magnitudes are required, the number of synaptic contacts from neuron \(i\) to neuron \(j\) is used as a weight proxy, \(W_{ij}=c_{ij}\). Treating contact number as a proxy weight is standard in \emph{C.\ elegans} modeling \parencite{c302,Casal2020,churchland_garcia-ojalvo_2026} and provides the biologically informed magnitude prior for the reservoir.
+We use the signed chemical-synapse \textit{C.\ elegans} connectome derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. In the signed-only version, unknown or complex-sign connections are removed, leaving 297 nodes and 1740 directed signed edges; in the augmented random-sign version, the 1864 ambiguous edges are retained and assigned signs under a 4:1 excitatory-to-inhibitory prior. When edge magnitudes are required, the number of synaptic contacts from neuron \(i\) to neuron \(j\) is used as a weight proxy, \(W_{ij}=c_{ij}\) \parencite{c302,Casal2020,churchland_garcia-ojalvo_2026}.
 
 \subsection{Task-agnostic reservoir metrics}
-Task-agnostic reservoir statistics measure computational properties of the reservoir before training it on a specific downstream task. This study uses four such metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and information processing capacity (IPC), following prior work on reservoir/neural-microcircuit diagnostics and benchmarking \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}. For each architecture and hyperparameter setting, the reservoir is driven by an i.i.d. input sequence and the resulting state matrix is used to compute these metrics. Higher MC, IPC, and KR indicate greater task-agnostic computational capability. GR measures sensitivity to small input perturbations; throughout the results it is analyzed alongside the other metrics as a reservoir response statistic.
+We measure four task-agnostic reservoir metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and information processing capacity (IPC) \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
 
 \subsubsection{Kernel Rank}
 Kernel rank measures how many effectively independent reservoir activity dimensions are produced by the input drive \parencite{maass_comp_power_2004}. We collect the post-washout state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute effective rank:
@@ -142,7 +128,6 @@ Kernel rank measures how many effectively independent reservoir activity dimensi
 =
 \exp\left(-\sum_i p_i\ln p_i\right).
 \]
-This effective-rank formulation captures the spread of activity across orthogonal modes rather than exact linear independence alone \parencite{roy_effective_rank_2007}.
 
 \subsubsection{Generalization Rank}
 Generalization rank measures how reservoir states change under small input perturbations \parencite{maass_comp_power_2004}. Let \(u_t\sim\mathcal{U}(-1,1)\) be the clean input and \(u'_t=u_t+\kappa\varepsilon_t\), where \(\varepsilon_t\sim\mathcal{N}(0,1)\) and \(\kappa=0.01\). If \(X\) and \(X'\) are the corresponding post-washout state matrices, then
@@ -160,7 +145,6 @@ Memory capacity measures how well a linear readout can reconstruct past inputs f
 \sum_{d=1}^{D_{\max}}
 r_{\mathrm{score}}(u(t-d),\hat{u}_d(t))^2.
 \]
-We use \(D_{\max}=30\). Validation sweeps over \(D_{\max}\in\{30,50,80\}\) showed that this cutoff preserved essentially the full measured MC in the models tested.
 
 \subsubsection{Information Processing Capacity}
 \label{sec:ipc}
@@ -174,22 +158,22 @@ Information processing capacity measures how well the reservoir can reconstruct 
 r_{\mathrm{score}}\!\left(z_{k,d}(t),\hat{z}_{k,d}(t)\right)^2
 \right).
 \]
-We use \(D_{\max}=30\). Validation against longer delay windows and univariate polynomial orders \(1\) through \(10\) showed that this incomplete single-delay IPC closely matched the larger single-delay computation while reducing runtime. Because cross-delay products are not included, the reported IPC values should be interpreted as an incomplete IPC-style statistic for nonlinear input transformations rather than as an exhaustive estimate of full IPC.
+Because cross-delay products are not included, the reported IPC values should be interpreted as an incomplete IPC-style statistic rather than an exhaustive estimate of full IPC.
 
 
 
 
 
 \subsection{Hyperparameter-invariance metric}
-We quantify hyperparameter invariance by measuring how much each task-agnostic metric changes across the hyperparameter grid. Because MC, IPC, KR, and GR have different numerical scales, we use the coefficient of variation (CV) rather than raw variance:
+We quantify hyperparameter invariance with the coefficient of variation (CV):
 
 \[CV = \frac{\text{std}(a)}{\bar{a}}\]
 
-where \(a\) is the set of values for a metric across the evaluated hyperparameter settings within a trial. Low CV indicates that a metric is stable under hyperparameter variation; it does not by itself imply high absolute performance. The results therefore analyze CV together with mean metric value.
+where \(a\) is the set of values for a metric across the evaluated hyperparameter settings within a trial. Low CV indicates stability under hyperparameter variation.
 
 
 \subsection{Structural perturbations and architecture controls}
-To determine which topological and weight-related features influence robustness, we construct a series of controlled network variants derived from the \emph{C.~elegans} connectome. Each architecture is designed to isolate a specific property of the biological network---such as topology, weight distribution, sign structure, or magnitude placement---while holding other properties fixed. Table~\ref{tab:architecture_groups} summarizes the architecture families used in the ablations; full architecture definitions and visualizations are provided in Supplemental Section~\ref{supp:architectures}. The procedural operators used to instantiate these controls are defined below.
+To determine which topological and weight-related features influence robustness, we construct controlled network variants derived from the \emph{C.~elegans} connectome. Table~\ref{tab:architecture_groups} summarizes the architecture families used in the ablations; full architecture definitions and visualizations are provided in Supplemental Section~\ref{supp:architectures}.
 
 \begin{table}[t]
 \centering
@@ -212,7 +196,7 @@ Random-topology baselines & Use Gaussian-weight \textit{C.\ elegans}-topology, E
 \end{tabular}
 \end{table}
 
-The small-world model belongs to the random-topology baseline family rather than to the perturbation operators below. Small-world networks combine relatively high clustering with short path lengths \parencite{network_science}. They are included because prior reservoir-computing work found that small-world reservoirs can maintain memory performance across a broader range of spectral radii than fully random reservoirs when input and output nodes are spatially segregated \parencite{KAWAI201915,Wssmallworld}. In this study, the small-world network is used only as a topology control: it tests whether a generic clustered-and-short-path architecture reproduces the invariance profile of the \textit{C.\ elegans} reservoir once empirical signs and magnitudes are removed.
+The small-world model belongs to the random-topology baseline family rather than to the perturbation operators below. It serves as a topology control because prior reservoir-computing work found that small-world reservoirs can maintain memory performance across a broader range of spectral radii than fully random reservoirs when input and output nodes are spatially segregated \parencite{network_science,KAWAI201915,Wssmallworld}.
 
 \subsubsection{Connection shuffle}
 \label{Connection-Shuffle}
@@ -223,7 +207,7 @@ W'_{cb}=W_{cd}, \qquad
 W'_{ab}=0, \qquad
 W'_{cd}=0,
 \]
-with all other entries unchanged. In this operation, the weights are carried with the original edges as they are reassigned to new targets. This preserves each node's in-degree and out-degree while shuffling the neighborhood structure.
+with all other entries unchanged. This preserves each node's in-degree and out-degree while shuffling the neighborhood structure.
 \subsubsection{Weight shuffle}
 
 \label{Weight-Shuffle}
@@ -235,14 +219,19 @@ denote the set of nonzero entries in the weight matrix. We extract the correspon
 \[
 w_{NZ}=\{W_{ij}:(i,j)\in NZ\},
 \]
-randomly shuffle this vector using \texttt{numpy.random.shuffle}, and then reassign the shuffled weights back to the same nonzero indices. Thus, the set of existing connections is unchanged, but the weights assigned to those connections are redistributed across the fixed network topology.
+shuffle this vector, and then reassign the shuffled weights back to the same nonzero indices. Thus, the set of existing connections is unchanged, but the weights assigned to those connections are redistributed across the fixed network topology.
 
-For this shuffle, the probability that a given connection changes sign depends on the empirical sign ratio of the graph being shuffled. This operation is therefore not sign-preserving unless explicitly stated otherwise.
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figs/toplogy/new_4to1_four_panel.png}
+    \caption{Representative network visualizations for the shuffle-based architecture controls discussed above. A: the original \textit{C.\ elegans} network with unknown or complex edges assigned signs under the 4:1 excitatory-to-inhibitory prior. B: the unknown/complex-removed network. C: the \textit{C.\ elegans}-matched Erd\H{o}s--R\'enyi random control. D: the 4:1 random-sign network after shuffling the unknown or complex edges.}
+    \label{fig:shuffle_four_panel}
+\end{figure*}
 
 
 \subsection{Experimental setup}
 \label{sec:trial_def}
-Table~\ref{tab:exp_setup} condenses the trial definition, hyperparameter sweep, and evaluation pipeline. Each trial uses one fixed i.i.d.\ input sequence across all hyperparameter combinations; reservoirs are re-instantiated with a fresh seed between trials.
+Table~\ref{tab:exp_setup} condenses the trial definition, hyperparameter sweep, and evaluation pipeline.
 
 \begin{table*}[t]
     \centering
@@ -437,14 +426,14 @@ The main text shows the sign-normalization ablation for the augmented \textit{C.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_er/sign_norm_ablation_combined.png}
+    \includegraphics[width=\linewidth]{supplement/option_8_average_perf_cv_er_matched.png}
     \caption{Sign-balance normalization ablation for the \textit{C.\ elegans}-matched ER topology. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}
     \label{fig:sign_norm_matched_er}
 \end{figure}
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/removed_cel/sign_norm_ablation_combined.png}
+    \includegraphics[width=\linewidth]{supplement/option_8_average_perf_cv_removed.png}
     \caption{Sign-balance normalization ablation for the unknown/complex-removed \textit{C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}
     \label{fig:sign_norm_removed_cel}
 \end{figure}
@@ -455,13 +444,13 @@ This section gives the full architecture definitions summarized in Table~\ref{ta
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\textwidth]{figs/toplogy/model_grid_A_to_H.png}
+    \includegraphics[width=\linewidth]{figs/toplogy/model_grid_A_to_H.png}
     \caption{Network visualizations for architectures A--H. In all panels, nodes represent neurons, orange edges are excitatory synapses, blue edges are inhibitory synapses, and darker edges indicate stronger synaptic weights. A: original \emph{C.~elegans} connectome. B: original connectome with shuffled weights. C: connection-shuffled \emph{C.~elegans} connectome. D: connection-shuffled connectome with an additional weight shuffle. E: original topology with signed binary ($\pm 1$) weights determined by the original edge signs. F: panel E after sign shuffling. G: connection-shuffled version of panel E. H: panel G after sign shuffling.}
 \end{figure}
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\textwidth]{figs/toplogy/model_grid_I_to_O.png}
+    \includegraphics[width=\linewidth]{figs/toplogy/model_grid_I_to_O.png}
     \caption{Additional control architectures I--O. I: \emph{C.~elegans} connectome with binary weights. J: binary-weight \emph{C.~elegans} connectome after connection shuffling. K: \emph{C.~elegans} topology with Gaussian weights. L: \emph{C.~elegans}-matched Erd\H{o}s--R\'enyi network with Gaussian weights. M: small-world network with $p = 0.1$ and Gaussian weights. N: sign-preserving Gaussian model. O: sign-preserving uniform model.}
 \end{figure}
 

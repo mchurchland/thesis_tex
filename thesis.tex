@@ -97,7 +97,7 @@ We use echo state networks, a discrete-time reservoir-computing model in which r
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
 y_t &= W^{\mathrm{out}}\,x_t.
 \end{align}
-Here \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\xi_t\) denotes optional noise. Noise is not included in the experiments. The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\). Only \(W^{\mathrm{out}}\) is fit during metric calculations, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
+Here \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\xi_t\) denotes \st{optional noise. Noise is not included in the experiments.} \raul{the noise term, which was set to zero in the experiments.} The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\). Only \(W^{\mathrm{out}}\) is fit during metric calculations, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
 
 \subsection{Reservoir hyperparameters}
 The experiments sweep four hyperparameters: spectral radius, leak rate, input scaling, and neuron-bias half-range. The spectral radius \(\rho(W^{\mathrm{res}})\) controls recurrent feedback, where
@@ -122,7 +122,7 @@ We use the signed chemical-synapse \textit{C.\ elegans} connectome derived from 
 We measure four task-agnostic reservoir metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and information processing capacity (IPC) \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
 
 \subsubsection{Kernel Rank}
-Kernel rank measures how many effectively independent reservoir activity dimensions are produced by the input drive \parencite{maass_comp_power_2004}. We collect the post-washout state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute effective rank:
+Kernel rank measures how many effectively independent reservoir activity dimensions are produced by the input drive \parencite{maass_comp_power_2004}. We collect the post-washout \raul{define washout/post washout} state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute effective rank \raul{($E_{rank}$)}:
 \[
 \mathrm{KR} = \mathrm{erank}
 =
@@ -130,7 +130,7 @@ Kernel rank measures how many effectively independent reservoir activity dimensi
 \]
 
 \subsubsection{Generalization Rank}
-Generalization rank measures how reservoir states change under small input perturbations \parencite{maass_comp_power_2004}. Let \(u_t\sim\mathcal{U}(-1,1)\) be the clean input and \(u'_t=u_t+\kappa\varepsilon_t\), where \(\varepsilon_t\sim\mathcal{N}(0,1)\) and \(\kappa=0.01\). If \(X\) and \(X'\) are the corresponding post-washout state matrices, then
+Generalization rank \raul{GR} measures how reservoir states change under small input perturbations \parencite{maass_comp_power_2004} \raul{are you sure about this reference?}. Let \(u_t\sim\mathcal{U}(-1,1)\) be the clean input and \(u'_t=u_t+\kappa\varepsilon_t\), where \(\varepsilon_t\sim\mathcal{N}(0,1)\) and \(\kappa=0.01\). If \(X\) and \(X'\) are the corresponding post-washout state matrices, then
 \[
 \mathrm{GR}
 =
@@ -138,7 +138,7 @@ Generalization rank measures how reservoir states change under small input pertu
 \]
 
 \subsubsection{Memory Capacity}
-Memory capacity measures how well a linear readout can reconstruct past inputs from the current reservoir state \parencite{Jaeger2002STMESN}. For each delay \(d\), a ridge-regression readout is trained to predict \(u(t-d)\) from \(x(t)\), and the squared Pearson correlation between predicted and true delayed input is recorded. We approximate total memory capacity by summing over delays:
+Memory capacity measures how well a linear readout can reconstruct past inputs from the current reservoir state \parencite{Jaeger2002STMESN}. For each delay \(d\), a ridge-regression readout is trained to predict \(u(t-d)\) from \(x(t)\), and the squared Pearson correlation between predicted and true delayed input is recorded. We approximate \raul{the} total memory capacity \raul{MC} by summing over delays:
 \[
 \mathrm{MC}
 =
@@ -148,7 +148,7 @@ r_{\mathrm{score}}(u(t-d),\hat{u}_d(t))^2.
 
 \subsubsection{Information Processing Capacity}
 \label{sec:ipc}
-Information processing capacity measures how well the reservoir can reconstruct nonlinear functions of delayed inputs \parencite{dambre_ipc_2012}. We use an incomplete, truncated single-delay IPC diagnostic rather than the full IPC decomposition. Specifically, we evaluate univariate Legendre polynomial targets of one delayed input at a time and omit pairwise and higher-order cross-delay product terms. This still measures the reservoir's ability to generate nonlinear transformations of input history, but it does not estimate the full capacity over all nonlinear input combinations. For Legendre polynomial orders \(K=\{1,2,3,4,5\}\), let \(z_{k,d}(t)=P_k(u(t-d))\). We compute
+Information processing capacity \raul{(IPC)} measures how well the reservoir can reconstruct nonlinear functions of delayed inputs \parencite{dambre_ipc_2012}. We use an incomplete, truncated single-delay IPC diagnostic rather than the full IPC decomposition. Specifically, we evaluate univariate Legendre polynomial targets of one delayed input at a time and omit pairwise and higher-order cross-delay product terms. This still measures the reservoir's ability to generate nonlinear transformations of input history, but it does not estimate the full capacity over all nonlinear input combinations. For Legendre polynomial orders \(K=\{1,2,3,4,5\}\), let \(z_{k,d}(t)=P_k(u(t-d))\). We compute
 \[
 \mathrm{IPC}
 =
@@ -160,16 +160,11 @@ r_{\mathrm{score}}\!\left(z_{k,d}(t),\hat{z}_{k,d}(t)\right)^2
 \]
 Because cross-delay products are not included, the reported IPC values should be interpreted as an incomplete IPC-style statistic rather than an exhaustive estimate of full IPC.
 
-
-
-
-
 \subsection{Hyperparameter-invariance metric}
+
 We quantify hyperparameter invariance with the coefficient of variation (CV):
-
 \[CV = \frac{\text{std}(a)}{\bar{a}}\]
-
-where \(a\) is the set of values for a metric across the evaluated hyperparameter settings within a trial. Low CV indicates stability under hyperparameter variation.
+where \(a\) is the set of values for a metric across the evaluated hyperparameter settings within a trial. Low CV indicates stability under hyperparameter variation \raul{missing references, could expand a bit this part since we use CV a lot.}.
 
 
 \subsection{Structural perturbations and architecture controls}

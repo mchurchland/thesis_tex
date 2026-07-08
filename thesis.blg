@@ -3,51 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 The style file: style_neural_networks/cas-model2-names.bst
 Database file #1: bibliography.bib
-Warning--string name "july" is undefined
---line 75 of file bibliography.bib
-Warning--entry type for "elegansign_web" isn't style-file defined
---line 316 of file bibliography.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty pages in gallicchio_chasing_2019
 Warning--empty pages in Sheffler2023Neurotransmitters
-You've used 30 entries,
+You've used 33 entries,
             2990 wiz_defined-function locations,
-            963 strings with 13600 characters,
-and the built_in function-call counts, 20694 in all, are:
-= -- 1577
-> -- 842
-< -- 19
-+ -- 332
-- -- 292
-* -- 2330
-:= -- 2988
-add.period$ -- 109
-call.type$ -- 30
-change.case$ -- 250
-chr.to.int$ -- 30
-cite$ -- 31
-duplicate$ -- 1551
-empty$ -- 1466
-format.name$ -- 381
-if$ -- 3860
+            982 strings with 14305 characters,
+and the built_in function-call counts, 22410 in all, are:
+= -- 1723
+> -- 904
+< -- 21
++ -- 356
+- -- 313
+* -- 2519
+:= -- 3245
+add.period$ -- 118
+call.type$ -- 33
+change.case$ -- 273
+chr.to.int$ -- 33
+cite$ -- 35
+duplicate$ -- 1686
+empty$ -- 1585
+format.name$ -- 411
+if$ -- 4183
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 300
-newline$ -- 184
-num.names$ -- 124
-pop$ -- 517
+missing$ -- 324
+newline$ -- 199
+num.names$ -- 136
+pop$ -- 566
 preamble$ -- 1
-purify$ -- 216
+purify$ -- 235
 quote$ -- 0
-skip$ -- 476
+skip$ -- 517
 stack$ -- 0
-substring$ -- 749
-swap$ -- 1168
+substring$ -- 784
+swap$ -- 1257
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 264
-warning$ -- 1
-while$ -- 115
+type$ -- 291
+warning$ -- 2
+while$ -- 124
 width$ -- 0
-write$ -- 483
-(There were 3 warnings)
+write$ -- 528
+(There were 2 warnings)

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1783591028.93443 "thesis.aux" "thesis.bbl" "thesis" 1783591180.58489 0
+["bibtex thesis"] 1783601717.513 "thesis.aux" "thesis.bbl" "thesis" 1783602783.97379 0
   "./bibliography.bib" 1783510048.29925 23275 06c770bd3e74ce58829697b387593593 ""
   "./style_neural_networks/cas-model2-names.bst" 1782742284.17007 31802 28b630660245c09f173aac55be552b29 ""
-  "thesis.aux" 1783591180.27843 28134 788df4abedfa387a520d6c603434f149 "pdflatex"
+  "thesis.aux" 1783602783.63681 27498 fc7ee00b198389eba310fb3c0663b51a "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1783591172.41405 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1783591180.58506 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1783591172.10047 67890 4c599c0e66d9ac95a543ca7fbf1eb756 ""
+["pdflatex"] 1783602775.84977 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1783602783.97408 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1783602775.44225 60628 f3441c5d7a9c3a781f1cb41524bcfad1 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
@@ -207,9 +207,9 @@
   "New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex" 1782818263.67723 1071 e019a1a489057eb5ac1c223edda8d0a9 ""
   "New_figs/shuf/shuf_all.png" 1783086076.92118 331588 bf8d140969f9b88a32b7390faf200a91 ""
   "New_figs/sign_norm_abalation/matched_cel/sign_norm.png" 1783089474.597 336649 141b17dd54853d3b16eb139b36e54b1e ""
-  "New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png" 1782466261.00546 873844 dee8ef8833109adcfc1a9f864e9fc1ed ""
-  "New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png" 1783085354.58066 419631 b2ae8f5c39d43f54ca170517020c5065 ""
-  "New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png" 1782466261.00827 860994 318d488c884e07c547fdf2f348d1af30 ""
+  "New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png" 1783600250.4848 513594 fa8dd2a041fb70019162f558a8b68962 ""
+  "New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png" 1783594728.23339 532365 fbd7e6a0ae14b6605bfa68318005fc80 ""
+  "New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png" 1783600258.85825 475832 a97d150fb76c5a63c39d128f33bfa639 ""
   "cas-common.sty" 1782742934.83499 55 4be74f04db1f5944c5b1cef8e32d3ff5 ""
   "figs/toplogy/model_grid_A_to_H.png" 1783083542.98656 7584033 77d5ae35c9d4a79b76b54a633b1da773 ""
   "figs/toplogy/model_grid_I_to_O.png" 1783083542.99062 7885068 93a9f34d7359942972f131785cae634d ""
@@ -219,11 +219,11 @@
   "supplement/option_8_average_perf_cv_er_matched.png" 1783089474.58905 320689 1f7d10e6d19078a4fc55f89ec1f25282 ""
   "supplement/option_8_average_perf_cv_removed.png" 1783089474.59464 337634 15d5385b92d239a42f02f263348d3567 ""
   "supplement/sign_sweep_quicklook.png" 1783086129.85914 181354 0c2aacd908e98bc4b6811df686d9db3a ""
-  "thesis.abs" 1783591173.3181 2252 421f44d2b73e52aea4784cccf9205595 "pdflatex"
-  "thesis.aux" 1783591180.27843 28134 788df4abedfa387a520d6c603434f149 "pdflatex"
-  "thesis.bbl" 1783591029.02114 16960 2fb4bd435cd1c39e4b8df6367d91d055 "bibtex thesis"
-  "thesis.out" 1783591173.27039 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.tex" 1783591172.10047 67890 4c599c0e66d9ac95a543ca7fbf1eb756 ""
+  "thesis.abs" 1783602776.57826 2252 421f44d2b73e52aea4784cccf9205595 "pdflatex"
+  "thesis.aux" 1783602783.63681 27498 fc7ee00b198389eba310fb3c0663b51a "pdflatex"
+  "thesis.bbl" 1783601717.62451 16354 48a9116b17e4fb4186ac7fc9259a85f5 "bibtex thesis"
+  "thesis.out" 1783602776.55111 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.tex" 1783602775.44225 60628 f3441c5d7a9c3a781f1cb41524bcfad1 ""
   (generated)
   "thesis.abs"
   "thesis.aux"

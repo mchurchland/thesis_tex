@@ -1132,7 +1132,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/ts1-stixgeneral.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-italic.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-italic.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
@@ -1255,6 +1254,7 @@ INPUT ./thesis.abs
 INPUT thesis.abs
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneralsc.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-italic.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/stix-mathrm.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/stix-mathrm.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/stix-mathit.tfm

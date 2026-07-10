@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{34}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -80,6 +80,12 @@
 \newblock \bibinfo{title}{Decreased spinal inhibition leads to undiversified locomotor patterns}.
 \newblock \bibinfo{journal}{Biological Cybernetics} \bibinfo{volume}{119}, \bibinfo{pages}{12}.
 \newblock \DOIprefix\doi{10.1007/s00422-025-01011-7}.
+%Type = Misc
+\bibitem[{Hadaeghi et~al.(2025)Hadaeghi, Fakhar, Khajehnejad and Hilgetag}]{hadaeghi_no_strong_loops_2025}
+\bibinfo{author}{Hadaeghi, F.}, \bibinfo{author}{Fakhar, K.}, \bibinfo{author}{Khajehnejad, M.}, \bibinfo{author}{Hilgetag, C.C.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{A computational perspective on the no-strong-loops principle in brain networks}.
+\newblock \bibinfo{howpublished}{bioRxiv preprint}.
+\newblock \URLprefix \url{https://www.biorxiv.org/content/10.1101/2025.09.24.678310v1}, \DOIprefix\doi{10.1101/2025.09.24.678310}. \bibinfo{note}{posted September 25, 2025}.
 %Type = Book
 \bibitem[{Henley(2021)}]{Henley_2021}
 \bibinfo{author}{Henley, C.}, \bibinfo{year}{2021}.
@@ -155,6 +161,11 @@
 \newblock \bibinfo{title}{Rcbench: a unified framework for benchmarking reservoir computing systems}.
 \newblock \bibinfo{journal}{Neuromorphic Computing and Engineering} \bibinfo{volume}{6}, \bibinfo{pages}{014012}.
 \newblock \DOIprefix\doi{https://doi.org/10.1088/2634-4386/ae441f}.
+%Type = Misc
+\bibitem[{Platt et~al.(2022)Platt, Penny, Smith, Chen and Abarbanel}]{platt_systematic_2022}
+\bibinfo{author}{Platt, J.A.}, \bibinfo{author}{Penny, S.G.}, \bibinfo{author}{Smith, T.A.}, \bibinfo{author}{Chen, T.C.}, \bibinfo{author}{Abarbanel, H.D.I.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{A systematic exploration of reservoir computing for forecasting complex spatiotemporal dynamics}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2201.08910}, \DOIprefix\doi{10.48550/arXiv.2201.08910}, \href{http://arxiv.org/abs/2201.08910}{\tt arXiv:2201.08910}.
 %Type = Incollection
 \bibitem[{Sheffler et~al.(2025)Sheffler, Reddy and Pillarisetty}]{Sheffler2023Neurotransmitters}
 \bibinfo{author}{Sheffler, Z.M.}, \bibinfo{author}{Reddy, V.}, \bibinfo{author}{Pillarisetty, L.S.}, \bibinfo{year}{2025}.

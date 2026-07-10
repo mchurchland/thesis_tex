@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  9 JUL 2026 15:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  10 JUL 2026 16:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -929,11 +929,6 @@ Overfull \hbox (123.62721pt too wide) detected at line 79
 Package hyperref Warning: Ignoring empty anchor on input line 79.
 
 
-Overfull \hbox (2.35527pt too wide) in paragraph at lines 86--87
-[]\T1/stix/m/n/10 (-20) This mo-ti-vates a dif-fer-ent ques-tion from peak-performance
- []
-
-
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <7.5> not available
 (Font)              size <7> substituted on input line 88.
 
@@ -947,278 +942,292 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
  [1
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 186--186
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+Overfull \hbox (8.22789pt too wide) in paragraph at lines 92--93
+[]\T1/stix/m/n/10 (-20) The re-sults iden-tify an architecture-dependent performance--
+ []
+
+[2] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
 []|\T1/cmss/m/n/9 (+20) Architecture
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--188
-[]|\T1/cmss/m/n/9 (+20) Predicted-
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+[]|\T1/cmss/m/n/9 (+20) Ambiguous-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--188
-\T1/cmss/m/n/9 (+20) polarity
+Underfull \hbox (badness 1337) in paragraph at lines 189--189
+[]|\T1/cmss/m/it/9 (+20) C. el-e-gans \T1/cmss/m/n/9 (+20) topol-ogy,
  []
 
 
-Underfull \hbox (badness 5203) in paragraph at lines 188--188
-[]|\T1/cmss/m/n/9 (+20) Original \T1/cmss/m/it/9 (+20) C. el-e-gans
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+\T1/cmss/m/n/9 (+20) contact-count
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--188
-\T1/cmss/m/n/9 (+20) inferred signs,
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+\T1/cmss/m/n/9 (+20) mag-ni-tudes,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--188
-\T1/cmss/m/n/9 (+20) and contact-count
- []
-
-
-Underfull \hbox (badness 2772) in paragraph at lines 188--189
-[]|\T1/cmss/m/n/9 (+20) Defines the low-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-[]|\T1/cmss/m/n/9 (+20) Sign-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-\T1/cmss/m/n/9 (+20) preserving
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-[]|\T1/cmss/m/n/9 (+20) Replace mag-ni-tudes
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-\T1/cmss/m/n/9 (+20) with signed unit,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-\T1/cmss/m/n/9 (+20) half-Gaussian, or
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-\T1/cmss/m/n/9 (+20) uni-form mag-ni-tudes
- []
-
-
-Underfull \hbox (badness 1874) in paragraph at lines 190--190
-\T1/cmss/m/n/9 (+20) while pre-serv-ing the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
 \T1/cmss/m/n/9 (+20) EleganSign-inferred
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 190--191
-\T1/cmss/m/n/9 (+20) in-ferred chem-i-cal
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+\T1/cmss/m/n/9 (+20) am-bigu-ous chem-i-cal
  []
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 192--192
-[]|\T1/cmss/m/n/9 (+20) Collapse all nonzero
+Underfull \hbox (badness 2772) in paragraph at lines 189--190
+[]|\T1/cmss/m/n/9 (+20) Defines the low-
  []
 
 
-Underfull \hbox (badness 4353) in paragraph at lines 192--193
-[]|\T1/cmss/m/n/9 (+20) Tests the ef-fect
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+[]|\T1/cmss/m/n/9 (+20) Sign-
  []
 
 
-Underfull \hbox (badness 7796) in paragraph at lines 192--193
-\T1/cmss/m/n/9 (+20) of re-mov-ing in-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
-[]|\T1/cmss/m/n/9 (+20) Degree-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
 \T1/cmss/m/n/9 (+20) preserving
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+[]|\T1/cmss/m/n/9 (+20) Replace mag-ni-tudes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+\T1/cmss/m/n/9 (+20) with signed unit,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+\T1/cmss/m/n/9 (+20) half-Gaussian, or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+\T1/cmss/m/n/9 (+20) uni-form mag-ni-tudes
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 191--191
+\T1/cmss/m/n/9 (+20) while pre-serv-ing the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+\T1/cmss/m/n/9 (+20) EleganSign-inferred
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 191--192
+\T1/cmss/m/n/9 (+20) in-ferred chem-i-cal
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 193--193
+[]|\T1/cmss/m/n/9 (+20) Collapse all nonzero
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 193--194
+[]|\T1/cmss/m/n/9 (+20) Tests the ef-fect
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 193--194
+\T1/cmss/m/n/9 (+20) of re-mov-ing in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+[]|\T1/cmss/m/n/9 (+20) Degree-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+\T1/cmss/m/n/9 (+20) preserving
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
 \T1/cmss/m/n/9 (+20) topol-ogy
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 194--194
+Underfull \hbox (badness 4886) in paragraph at lines 195--195
 []|\T1/cmss/m/n/9 (+20) Rewire edges us-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
 \T1/cmss/m/n/9 (+20) di-rected degree-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
 \T1/cmss/m/n/9 (+20) shuf-fles, with or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
 \T1/cmss/m/n/9 (+20) with-out mag-ni-tude
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 \T1/cmss/m/n/9 (+20) het-ero-ge-neous
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 []|\T1/cmss/m/n/9 (+20) Random-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 \T1/cmss/m/n/9 (+20) topology
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 []|\T1/cmss/m/n/9 (+20) Tests whether
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 \T1/cmss/m/n/9 (+20) topol-ogy alone
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 \T1/cmss/m/n/9 (+20) ex-plains the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 \T1/cmss/m/n/9 (+20) low-variance
  []
 
 
-Overfull \hbox (12.17673pt too wide) in paragraph at lines 184--199
+Overfull \hbox (12.17673pt too wide) in paragraph at lines 185--200
  [][] 
  []
 
-<figs/toplogy/new_4to1_four_panel.png, id=156, 794.97pt x 664.884pt>
+[5]
+<figs/toplogy/new_4to1_four_panel.png, id=184, 794.97pt x 664.884pt>
 File: figs/toplogy/new_4to1_four_panel.png Graphic file (type png)
 <use figs/toplogy/new_4to1_four_panel.png>
-Package pdftex.def Info: figs/toplogy/new_4to1_four_panel.png  used on input line 228.
+Package pdftex.def Info: figs/toplogy/new_4to1_four_panel.png  used on input line 229.
 (pdftex.def)             Requested size: 494.50888pt x 413.60359pt.
-[5]
-Overfull \hbox (4.2154pt too wide) in paragraph at lines 245--262
+
+Overfull \hbox (4.2154pt too wide) in paragraph at lines 246--263
  [][] 
  []
 
-[6 <./figs/toplogy/new_4to1_four_panel.png>]
-<New_figs/fullv2/50per.png, id=185, 520.344pt x 372.1905pt>
+[6] [7 <./figs/toplogy/new_4to1_four_panel.png>]
+<New_figs/fullv2/50per.png, id=207, 520.344pt x 372.1905pt>
 File: New_figs/fullv2/50per.png Graphic file (type png)
 <use New_figs/fullv2/50per.png>
 Package pdftex.def Info: New_figs/fullv2/50per.png  used on input line 279.
 (pdftex.def)             Requested size: 238.25444pt x 170.4203pt.
- [7 <./New_figs/fullv2/50per.png>]
-<New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png, id=199, 298.83646pt x 278.2395pt>
+
+Underfull \hbox (badness 1694) in paragraph at lines 288--289
+[]\T1/stix/m/n/10 (+20) Figure [][]3[][] shows these sign-fraction sweeps for the
+ []
+
+<New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png, id=211, 298.83646pt x 278.2395pt>
 File: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>
 Package pdftex.def Info: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png  used on input line 292.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<New_figs/sign_norm_abalation/matched_cel/sign_norm.png, id=203, 525.4029pt x 496.254pt>
+[8 <./New_figs/fullv2/50per.png> <./New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>]
+<New_figs/sign_norm_abalation/matched_cel/sign_norm.png, id=227, 525.4029pt x 496.254pt>
 File: New_figs/sign_norm_abalation/matched_cel/sign_norm.png Graphic file (type png)
 <use New_figs/sign_norm_abalation/matched_cel/sign_norm.png>
-Package pdftex.def Info: New_figs/sign_norm_abalation/matched_cel/sign_norm.png  used on input line 305.
+Package pdftex.def Info: New_figs/sign_norm_abalation/matched_cel/sign_norm.png  used on input line 304.
 (pdftex.def)             Requested size: 238.25444pt x 225.0387pt.
 
-Overfull \hbox (10.2063pt too wide) in paragraph at lines 314--315
+Overfull \hbox (10.2063pt too wide) in paragraph at lines 313--314
 []\T1/stix/m/n/10 (-20) Figure [][]5[][] shows these con-trols in the same mean-performance
  []
 
-[8 <./New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>]
-Underfull \hbox (badness 1067) in paragraph at lines 316--317
+
+Underfull \hbox (badness 1067) in paragraph at lines 315--316
 \T1/stix/m/n/10 (+20) from the un-shuf-fled predicted-polarity reser-voir to-ward
  []
 
-<New_figs/shuf/shuf_all.png, id=221, 531.1845pt x 473.3685pt>
+<New_figs/shuf/shuf_all.png, id=231, 531.1845pt x 473.3685pt>
 File: New_figs/shuf/shuf_all.png Graphic file (type png)
 <use New_figs/shuf/shuf_all.png>
-Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 320.
+Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 319.
 (pdftex.def)             Requested size: 238.25444pt x 212.32043pt.
-[9 <./New_figs/sign_norm_abalation/matched_cel/sign_norm.png> <./New_figs/shuf/shuf_all.png>]
-<New_figs/raw_rho_performance_summary.png, id=233, 531.1042pt x 372.1102pt>
+[9 <./New_figs/sign_norm_abalation/matched_cel/sign_norm.png>]
+<New_figs/raw_rho_performance_summary.png, id=246, 531.1042pt x 372.1102pt>
 File: New_figs/raw_rho_performance_summary.png Graphic file (type png)
 <use New_figs/raw_rho_performance_summary.png>
-Package pdftex.def Info: New_figs/raw_rho_performance_summary.png  used on input line 334.
+Package pdftex.def Info: New_figs/raw_rho_performance_summary.png  used on input line 333.
 (pdftex.def)             Requested size: 238.25444pt x 166.93134pt.
- [10 <./New_figs/raw_rho_performance_summary.png>] [11]
-<New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png, id=273, 298.83646pt x 278.2395pt>
+ [10 <./New_figs/shuf/shuf_all.png> <./New_figs/raw_rho_performance_summary.png>] [11] [12] [13]
+<New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png, id=316, 298.83646pt x 278.2395pt>
 File: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png  used on input line 387.
+Package pdftex.def Info: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png  used on input line 408.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png, id=274, 298.83646pt x 278.2395pt>
+<New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png, id=317, 298.83646pt x 278.2395pt>
 File: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png  used on input line 394.
+Package pdftex.def Info: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png  used on input line 415.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<supplement/sign_sweep_quicklook.png, id=275, 598.1547pt x 347.3778pt>
+<supplement/sign_sweep_quicklook.png, id=318, 598.1547pt x 347.3778pt>
 File: supplement/sign_sweep_quicklook.png Graphic file (type png)
 <use supplement/sign_sweep_quicklook.png>
-Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 401.
+Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 422.
 (pdftex.def)             Requested size: 238.25444pt x 138.36559pt.
-<supplement/option_8_average_perf_cv_er_matched.png, id=276, 520.5849pt x 496.254pt>
+ [14] [15 <./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png> <./New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>]
+<supplement/option_8_average_perf_cv_er_matched.png, id=340, 520.5849pt x 496.254pt>
 File: supplement/option_8_average_perf_cv_er_matched.png Graphic file (type png)
 <use supplement/option_8_average_perf_cv_er_matched.png>
-Package pdftex.def Info: supplement/option_8_average_perf_cv_er_matched.png  used on input line 412.
+Package pdftex.def Info: supplement/option_8_average_perf_cv_er_matched.png  used on input line 445.
 (pdftex.def)             Requested size: 238.25444pt x 227.12105pt.
- [12]
-<supplement/option_8_average_perf_cv_removed.png, id=290, 525.4029pt x 496.254pt>
+<supplement/option_8_average_perf_cv_removed.png, id=341, 525.4029pt x 496.254pt>
 File: supplement/option_8_average_perf_cv_removed.png Graphic file (type png)
 <use supplement/option_8_average_perf_cv_removed.png>
-Package pdftex.def Info: supplement/option_8_average_perf_cv_removed.png  used on input line 419.
+Package pdftex.def Info: supplement/option_8_average_perf_cv_removed.png  used on input line 452.
 (pdftex.def)             Requested size: 238.25444pt x 225.0387pt.
-
-Underfull \hbox (badness 1953) in paragraph at lines 420--420
-[][]\T1/cmss/bx/n/9 (+20) Figure 11:[] []\T1/cmss/m/n/9 (+20) Sign-balance nor-mal-iza-tion ab-la-tion for the
- []
-
 File: New_figs/shuf/shuf_all.png Graphic file (type png)
 <use New_figs/shuf/shuf_all.png>
-Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 426.
+Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 459.
 (pdftex.def)             Requested size: 238.25444pt x 212.32043pt.
-<figs/toplogy/model_grid_A_to_H.png, id=295, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_A_to_H.png, id=346, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_A_to_H.png Graphic file (type png)
 <use figs/toplogy/model_grid_A_to_H.png>
-Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 438.
+Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 471.
 (pdftex.def)             Requested size: 238.25444pt x 346.0253pt.
-<figs/toplogy/model_grid_I_to_O.png, id=296, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_I_to_O.png, id=347, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_I_to_O.png Graphic file (type png)
 <use figs/toplogy/model_grid_I_to_O.png>
-Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 445.
+Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 478.
 (pdftex.def)             Requested size: 238.25444pt x 346.0253pt.
-[13 <./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png> <./New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 467.
 
+Underfull \hbox (badness 1742) in paragraph at lines 495--496
+[]\T1/stix/m/n/10 (+20) Starting from the ambiguous-edge \T1/stix/m/it/10 (+20) C. el-e-gans \T1/stix/m/n/10 (+20) con-
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 500.
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 467.
+(Font)              size <10.95> substituted on input line 500.
 
-[14] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [15] (./thesis.bbl
+[16] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [17] (./thesis.bbl
 LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 19.
  (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
@@ -1244,7 +1253,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--21
 \T1/zi4/m/n/8 subjects / physics / statistical-[]physics / network-[]science ? format = HB &
  []
 
-[16{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]) [17] [18 <./supplement/sign_sweep_quicklook.png> <./supplement/option_8_average_perf_cv_er_matched.png> <./supplement/option_8_average_perf_cv_removed.png>] [19 <./figs/toplogy/model_grid_A_to_H.png> <./figs/toplogy/model_grid_I_to_O.png>] (./thesis.aux)
+[18{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] [19]) [20 <./supplement/sign_sweep_quicklook.png> <./supplement/option_8_average_perf_cv_er_matched.png>] [21 <./supplement/option_8_average_perf_cv_removed.png> <./figs/toplogy/model_grid_A_to_H.png>] [22
+
+ <./figs/toplogy/model_grid_I_to_O.png>] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1253,18 +1264,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23399 strings out of 476041
- 372343 string characters out of 5793175
- 1890388 words of memory out of 6000000
- 42968 multiletter control sequences out of 15000+600000
- 670006 words of font info for 376 fonts, out of 8000000 for 9000
+ 23444 strings out of 476041
+ 373126 string characters out of 5793175
+ 1888388 words of memory out of 6000000
+ 42977 multiletter control sequences out of 15000+600000
+ 671877 words of font info for 390 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 90i,13n,93p,1814b,701s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,93p,1469b,725s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on thesis.pdf (20 pages, 22507438 bytes).
+Output written on thesis.pdf (23 pages, 22521404 bytes).
 PDF statistics:
- 535 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 124 named destinations out of 1000 (max. 500000)
+ 591 PDF objects out of 1000 (max. 8388607)
+ 503 compressed objects within 6 object streams
+ 132 named destinations out of 1000 (max. 500000)
  51778 words of extra memory for PDF output out of 61914 (max. 10000000)
 

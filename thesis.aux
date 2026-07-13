@@ -24,22 +24,22 @@
 \citation{jaeger_echo_state_2001,maass_lsm_2002}
 \citation{Lukosevicius2012PracticalESN,Matzner2022HyperparameterTuningESN}
 \citation{Lukosevicius2012PracticalESN}
-\citation{KAWAI201915}
-\citation{morra_daley_2022,morra_fly_rc_2023}
+\citation{KAWAI201915,morra_daley_2022}
 \citation{morra_fly_rc_2023}
 \citation{iannello_brc_2025}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}
 \citation{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}
 \citation{gallicchio_chasing_2019}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{2}{section.2}\protected@file@percent }
 \newlabel{sec:methods}{{2}{2}{Methods}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Reservoir model}{2}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Reservoir hyperparameters}{2}{subsection.2.2}\protected@file@percent }
-\citation{Lukosevicius2012PracticalESN,Matzner2022HyperparameterTuningESN}
+\newlabel{sec:hyperparameters}{{2.2}{2}{Reservoir hyperparameters}{subsection.2.2}{}}
 \citation{Lukosevicius2012PracticalESN,gallicchio_chasing_2019}
-\citation{Lukosevicius2012PracticalESN,platt_systematic_2022}
+\citation{Lukosevicius2012PracticalESN,platt_systematic_2022,Matzner2022HyperparameterTuningESN}
 \citation{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}
-\citation{c302,Casal2020,churchland_garcia-ojalvo_2026}
+\citation{Varshney2011,Cook2019,Casal2020,churchland_garcia-ojalvo_2026}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Connectome data and preprocessing}{3}{subsection.2.3}\protected@file@percent }
 \newlabel{sec:connectome_dataset}{{2.3}{3}{Connectome data and preprocessing}{subsection.2.3}{}}
 \citation{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}
@@ -53,14 +53,16 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Memory Capacity}{4}{subsubsection.2.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}Information Processing Capacity}{4}{subsubsection.2.4.4}\protected@file@percent }
 \newlabel{sec:ipc}{{2.4.4}{4}{Information Processing Capacity}{subsubsection.2.4.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Hyperparameter-invariance metric}{4}{subsection.2.5}\protected@file@percent }
 \citation{KAWAI201915,jaurigue_timescale_2023,freddi_robust_spiking_2026,srinivasan_ei_balance_2025}
 \citation{network_science,KAWAI201915,Wssmallworld}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Hyperparameter-invariance metric}{5}{subsection.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Structural perturbations and architecture controls}{5}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Connection shuffle}{5}{subsubsection.2.6.1}\protected@file@percent }
+\newlabel{Connection-Shuffle}{{2.6.1}{5}{Connection shuffle}{subsubsection.2.6.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Architecture families used in the reservoir ablations.}}{5}{table.1}\protected@file@percent }
 \newlabel{tab:architecture_groups}{{1}{5}{Architecture families used in the reservoir ablations}{table.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Connection shuffle}{6}{subsubsection.2.6.1}\protected@file@percent }
-\newlabel{Connection-Shuffle}{{2.6.1}{6}{Connection shuffle}{subsubsection.2.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline.}}{6}{table.2}\protected@file@percent }
+\newlabel{tab:exp_setup}{{2}{6}{Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline}{table.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Weight shuffle}{6}{subsubsection.2.6.2}\protected@file@percent }
 \newlabel{Weight-Shuffle}{{2.6.2}{6}{Weight shuffle}{subsubsection.2.6.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Experimental setup}{6}{subsection.2.7}\protected@file@percent }
@@ -70,16 +72,14 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Architecture comparison plot}{6}{subsection.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Representative network visualizations for the preprocessing and random-sign controls used in the architecture analyses. A: ambiguous-edge \textit  {C.\ elegans} connectome, with predicted chemical polarity labels where available and unknown or complex-sign chemical edges assigned signs according to a 4:1 excitatory-to-inhibitory prior. B: predicted-polarity-only chemical connectome after removing unknown or complex-sign edges. C: \textit  {C.\ elegans}-matched Erd\H {o}s--R\'enyi random topology control with the same 4:1 sign prior. D: A after a connection shuffle. Orange edges denote positive weights and blue edges denote negative weights; saturated colors indicate larger weight magnitudes. The disconnected component visible in these panels corresponds to pharyngeal nervous system neurons.}}{7}{figure.1}\protected@file@percent }
 \newlabel{fig:shuffle_four_panel}{{1}{7}{Representative network visualizations for the preprocessing and random-sign controls used in the architecture analyses. A: ambiguous-edge \textit {C.\ elegans} connectome, with predicted chemical polarity labels where available and unknown or complex-sign chemical edges assigned signs according to a 4:1 excitatory-to-inhibitory prior. B: predicted-polarity-only chemical connectome after removing unknown or complex-sign edges. C: \textit {C.\ elegans}-matched Erd\H {o}s--R\'enyi random topology control with the same 4:1 sign prior. D: A after a connection shuffle. Orange edges denote positive weights and blue edges denote negative weights; saturated colors indicate larger weight magnitudes. The disconnected component visible in these panels corresponds to pharyngeal nervous system neurons}{figure.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline.}}{7}{table.2}\protected@file@percent }
-\newlabel{tab:exp_setup}{{2}{7}{Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Global sign-balance sweep}{7}{subsection.3.2}\protected@file@percent }
+\newlabel{balance}{{3.2}{7}{Global sign-balance sweep}{subsection.3.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit  {C.\ elegans} connectome.}}{8}{figure.2}\protected@file@percent }
 \newlabel{fig:arch}{{2}{8}{Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit {C.\ elegans} connectome}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Global sign-balance sweep}{8}{subsection.3.2}\protected@file@percent }
-\newlabel{balance}{{3.2}{8}{Global sign-balance sweep}{subsection.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Mean performance and mean hyperparameter CV as a function of negative sign percentage for the ambiguous-edge \textit  {C.\ elegans} topology with real weights, in which complex or unknown neurotransmitter signs are assigned under a 4:1 excitatory-to-inhibitory prior. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Points show averages across 200 trials for each fraction. The black dot denotes the negative sign percentage of the ambiguous-edge connectome.}}{8}{figure.3}\protected@file@percent }
-\newlabel{fig:bin_cel_frac_curves}{{3}{8}{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the ambiguous-edge \textit {C.\ elegans} topology with real weights, in which complex or unknown neurotransmitter signs are assigned under a 4:1 excitatory-to-inhibitory prior. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Points show averages across 200 trials for each fraction. The black dot denotes the negative sign percentage of the ambiguous-edge connectome}{figure.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Sign-normalization sweep}{8}{subsection.3.3}\protected@file@percent }
 \newlabel{sec:sign_norm_ablation}{{3.3}{8}{Sign-normalization sweep}{subsection.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Mean performance and mean hyperparameter CV as a function of negative sign percentage for the ambiguous-edge \textit  {C.\ elegans} topology with real weights, in which complex or unknown neurotransmitter signs are assigned under a 4:1 excitatory-to-inhibitory prior. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Points show averages across 200 trials for each fraction. The black dot denotes the negative sign percentage of the ambiguous-edge connectome.}}{8}{figure.3}\protected@file@percent }
+\newlabel{fig:ambig_cel_frac_curves}{{3}{8}{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the ambiguous-edge \textit {C.\ elegans} topology with real weights, in which complex or unknown neurotransmitter signs are assigned under a 4:1 excitatory-to-inhibitory prior. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Points show averages across 200 trials for each fraction. The black dot denotes the negative sign percentage of the ambiguous-edge connectome}{figure.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Ambiguous-edge \textit  {C.\ elegans} sign-normalization sweep. Solid curves scale each perturbed matrix by \(\rho (W)\), and dashed curves scale by the original matrix radius, \(\rho (W_{\mathrm  {orig}})\). The panels show normalized raw spectral radius, mean performance, and mean CV across the negative-edge fraction sweep.}}{9}{figure.4}\protected@file@percent }
 \newlabel{fig:sign_norm_matched_cel}{{4}{9}{Ambiguous-edge \textit {C.\ elegans} sign-normalization sweep. Solid curves scale each perturbed matrix by \(\rho (W)\), and dashed curves scale by the original matrix radius, \(\rho (W_{\mathrm {orig}})\). The panels show normalized raw spectral radius, mean performance, and mean CV across the negative-edge fraction sweep}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Shuffle controls}{9}{subsection.3.4}\protected@file@percent }
@@ -88,34 +88,37 @@
 \newlabel{sec:raw_rho_summary}{{3.5}{9}{Raw spectral radius summarizes the performance--invariance tradeoff}{subsection.3.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Performance--CV islands for the shuffle controls, shown with 50\% density contours. Columns correspond to GR, IPC, KR, and MC. Rows show all-positive binary controls, sign-preserving signed-unit controls, and real-valued \textit  {C.\ elegans} controls. Contour color shows the percent change in raw spectral radius relative to the row baseline, \(\Delta \rho _{\mathrm  {raw}}\); blue indicates lower raw spectral radius and red indicates higher raw spectral radius.}}{10}{figure.5}\protected@file@percent }
 \newlabel{fig:shuf_all}{{5}{10}{Performance--CV islands for the shuffle controls, shown with 50\% density contours. Columns correspond to GR, IPC, KR, and MC. Rows show all-positive binary controls, sign-preserving signed-unit controls, and real-valued \textit {C.\ elegans} controls. Contour color shows the percent change in raw spectral radius relative to the row baseline, \(\Delta \rho _{\mathrm {raw}}\); blue indicates lower raw spectral radius and red indicates higher raw spectral radius}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Relationship between raw spectral radius and reservoir behavior across sign-sweep and shuffle-control families. The top row shows mean task-agnostic performance as a function of raw spectral radius before normalization, \(\rho _{\mathrm  {raw}}\), on a log scale. The bottom row shows the corresponding hyperparameter CV. Columns correspond to GR, IPC, KR, and MC. Lines connect points within experimental families and are not global fitted curves. Across families, lower \(\rho _{\mathrm  {raw}}\) generally coincides with higher performance and higher CV, while higher \(\rho _{\mathrm  {raw}}\) coincides with lower performance and lower CV.}}{10}{figure.6}\protected@file@percent }
-\newlabel{fig:raw_rho_summary}{{6}{10}{Relationship between raw spectral radius and reservoir behavior across sign-sweep and shuffle-control families. The top row shows mean task-agnostic performance as a function of raw spectral radius before normalization, \(\rho _{\mathrm {raw}}\), on a log scale. The bottom row shows the corresponding hyperparameter CV. Columns correspond to GR, IPC, KR, and MC. Lines connect points within experimental families and are not global fitted curves. Across families, lower \(\rho _{\mathrm {raw}}\) generally coincides with higher performance and higher CV, while higher \(\rho _{\mathrm {raw}}\) coincides with lower performance and lower CV}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Relationship between raw spectral radius and reservoir behavior across sign-sweep and shuffle-control families. The top row shows mean task-agnostic performance as a function of raw spectral radius before normalization, \(\rho _{\mathrm  {raw}}\), on a log scale. The bottom row shows the corresponding hyperparameter CV. Columns correspond to GR, IPC, KR, and MC. Lines connect points within experimental families.}}{10}{figure.6}\protected@file@percent }
+\newlabel{fig:raw_rho_summary}{{6}{10}{Relationship between raw spectral radius and reservoir behavior across sign-sweep and shuffle-control families. The top row shows mean task-agnostic performance as a function of raw spectral radius before normalization, \(\rho _{\mathrm {raw}}\), on a log scale. The bottom row shows the corresponding hyperparameter CV. Columns correspond to GR, IPC, KR, and MC. Lines connect points within experimental families}{figure.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Discussion}{10}{section.4}\protected@file@percent }
 \citation{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}
+\citation{hadaeghi_no_strong_loops_2025}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The ambiguous-edge connectome occupies a low-variance reservoir regime}{11}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Spectral radius: the mechanism supporting the performance--invariance tradeoff}{11}{subsection.4.2}\protected@file@percent }
-\citation{hadaeghi_no_strong_loops_2025}
 \citation{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Residual architecture effects}{12}{subsection.4.3}\protected@file@percent }
-\citation{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}
 \citation{wirak_florman_alkema_connor_gabel_2022,tanis_bellemer_moresco_forbush_koelle_2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Residual architecture effects}{12}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Biological and modeling interpretation}{12}{subsection.4.4}\protected@file@percent }
+\citation{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}
 \citation{srinivasan_ei_balance_2025}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Biological and modeling interpretation}{13}{subsection.4.4}\protected@file@percent }
 \citation{churchland_garcia-ojalvo_2026}
+\citation{hansen_cmaes_2016}
+\citation{salimans_evolution_2017}
 \citation{KAWAI201915,yu_bpu_2025}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Future directions}{14}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}E/I curve shape results from symmetric reservoir}{13}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Future directions}{13}{subsection.4.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {A}Supplemental Information}{14}{appendix.A}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Additional sign-fraction controls}{14}{subsection.A.1}\protected@file@percent }
 \newlabel{supp:sign_fraction_controls}{{A.1}{14}{Additional sign-fraction controls}{subsection.A.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Additional sign-normalization controls}{14}{subsection.A.2}\protected@file@percent }
+\newlabel{supp:sign_norm_controls}{{A.2}{14}{Additional sign-normalization controls}{subsection.A.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit  {C.\ elegans}-matched ER topology. IPC is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance can act as a primary control parameter within this matched random-topology setting. A total of 50 trials were performed for each fraction.}}{15}{figure.7}\protected@file@percent }
 \newlabel{fig:er_frac_curves}{{7}{15}{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit {C.\ elegans}-matched ER topology. IPC is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance can act as a primary control parameter within this matched random-topology setting. A total of 50 trials were performed for each fraction}{figure.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Mean performance and mean hyperparameter CV as a function of negative sign percentage for the predicted-polarity-only \textit  {C.\ elegans} contact-count magnitude pattern after removing connections with unknown or complex signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with contact-count magnitudes held in place. A total of 200 trials were performed for each fraction.}}{15}{figure.8}\protected@file@percent }
 \newlabel{fig:og_cel_frac_curves}{{8}{15}{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the predicted-polarity-only \textit {C.\ elegans} contact-count magnitude pattern after removing connections with unknown or complex signs. IPC is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with contact-count magnitudes held in place. A total of 200 trials were performed for each fraction}{figure.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Additional sign-normalization controls}{15}{subsection.A.2}\protected@file@percent }
-\newlabel{supp:sign_norm_controls}{{A.2}{15}{Additional sign-normalization controls}{subsection.A.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Architecture details}{16}{subsection.A.3}\protected@file@percent }
-\newlabel{supp:architectures}{{A.3}{16}{Architecture details}{subsection.A.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.1}C. elegans connectome}{16}{subsubsection.A.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Architecture details}{15}{subsection.A.3}\protected@file@percent }
+\newlabel{supp:architectures}{{A.3}{15}{Architecture details}{subsection.A.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.1}C. elegans connectome}{15}{subsubsection.A.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.2}Ambiguous-edge \textit  {C.\ elegans} connectome with weight shuffle}{16}{subsubsection.A.3.2}\protected@file@percent }
 \newlabel{sec:original_weight_shuffle}{{A.3.2}{16}{Ambiguous-edge \textit {C.\ elegans} connectome with weight shuffle}{subsubsection.A.3.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.3}Ambiguous-edge \textit  {C.\ elegans} connectome with connection shuffle}{16}{subsubsection.A.3.3}\protected@file@percent }
@@ -125,19 +128,24 @@
 \newlabel{sec:plus1minus1network}{{A.3.5}{16}{C. elegans architecture with signed unit weights using ambiguous-edge signs}{subsubsection.A.3.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.6}C. elegans architecture with signed unit weights and shuffled signs preserving sign balance}{16}{subsubsection.A.3.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.7}C. elegans architecture with signed unit weights under connection shuffling}{16}{subsubsection.A.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.8}C. elegans architecture with signed unit weights under connection and weight shuffling}{16}{subsubsection.A.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.9}C. elegans architecture with binary weights}{16}{subsubsection.A.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.10}C. elegans architecture with binary weights and connection shuffle}{16}{subsubsection.A.3.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.11}C.~elegans topology with Gaussian weights}{16}{subsubsection.A.3.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.12}C.~elegans--matched Erd\H {o}s--R\'enyi model with Gaussian weights}{16}{subsubsection.A.3.12}\protected@file@percent }
 \citation{Sheffler2023Neurotransmitters}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.8}C. elegans architecture with signed unit weights under connection and weight shuffling}{17}{subsubsection.A.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.9}C. elegans architecture with binary weights}{17}{subsubsection.A.3.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.10}C. elegans architecture with binary weights and connection shuffle}{17}{subsubsection.A.3.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.11}C.~elegans topology with Gaussian weights}{17}{subsubsection.A.3.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.12}C.~elegans--matched Erd\H {o}s--R\'enyi model with Gaussian weights}{17}{subsubsection.A.3.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.13}Watts--Strogatz Gaussian control}{17}{subsubsection.A.3.13}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Mean CV differences for real-valued shuffle controls}}{17}{table.3}\protected@file@percent }
-\newlabel{tab:shuffle_cv_real}{{3}{17}{Mean CV differences for real-valued shuffle controls}{table.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.14}C. elegans architecture with half Gaussian weights using ambiguous-edge signs}{17}{subsubsection.A.3.14}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.15}C. elegans architecture with uniform weights using ambiguous-edge signs}{17}{subsubsection.A.3.15}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Shuffle experiment CV summaries}{17}{subsection.A.4}\protected@file@percent }
 \newlabel{supp:shuffle_cv}{{A.4}{17}{Shuffle experiment CV summaries}{subsection.A.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Mean CV differences for real-valued shuffle controls}}{17}{table.3}\protected@file@percent }
+\newlabel{tab:shuffle_cv_real}{{3}{17}{Mean CV differences for real-valued shuffle controls}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Mean CV differences for signed-unit shuffle controls}}{17}{table.4}\protected@file@percent }
+\newlabel{tab:shuffle_cv_pm1}{{4}{17}{Mean CV differences for signed-unit shuffle controls}{table.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Mean CV differences for the all-positive binary topology shuffle}}{17}{table.5}\protected@file@percent }
+\newlabel{tab:shuffle_cv_binary}{{5}{17}{Mean CV differences for the all-positive binary topology shuffle}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Glossary}{17}{subsection.A.5}\protected@file@percent }
 \citation{Henley_2021}
 \citation{Bassett2007,latora2001}
 \citation{broido_clauset_2019}
@@ -148,51 +156,49 @@
 \bibcite{broido_clauset_2019}{{3}{2019}{{Broido and Clauset}}{{}}}
 \bibcite{Casal2020}{{4}{2020}{{Casal et~al.}}{{Casal, Galella, Vilarroya and Garcia-Ojalvo}}}
 \bibcite{churchland_garcia-ojalvo_2026}{{5}{2026}{{Churchland and Garcia-Ojalvo}}{{}}}
-\bibcite{dambre_ipc_2012}{{6}{2012}{{Dambre et~al.}}{{Dambre, Verstraeten, Schrauwen and Massar}}}
-\bibcite{elegansign_web}{{7}{2026}{{EleganSign}}{{}}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Mean CV differences for signed-unit shuffle controls}}{18}{table.4}\protected@file@percent }
-\newlabel{tab:shuffle_cv_pm1}{{4}{18}{Mean CV differences for signed-unit shuffle controls}{table.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Mean CV differences for the all-positive binary topology shuffle}}{18}{table.5}\protected@file@percent }
-\newlabel{tab:shuffle_cv_binary}{{5}{18}{Mean CV differences for the all-positive binary topology shuffle}{table.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.5}Glossary}{18}{subsection.A.5}\protected@file@percent }
-\bibcite{fenyves_szilágyi_zsolt_vassy_csaba_2020}{{8}{2020}{{Fenyves et~al.}}{{Fenyves, Szilágyi, Vassy, Sőti and Csermely}}}
-\bibcite{freddi_robust_spiking_2026}{{9}{2026}{{Freddi et~al.}}{{Freddi, Seseri, Nigrisoli and Basti}}}
-\bibcite{gallicchio_chasing_2019}{{10}{2019}{{Gallicchio}}{{}}}
-\bibcite{c302}{{11}{2018}{{Gleeson et~al.}}{{Gleeson, Lung, Grosu, Hasani and Larson}}}
+\bibcite{Cook2019}{{6}{2019}{{Cook et~al.}}{{Cook, Jarrell, Brittin, Wang, Bloniarz, Yakovlev, Nguyen, Tang, Bayer, Duerr, B{\"u}low, Hobert, Hall and Emmons}}}
+\bibcite{dambre_ipc_2012}{{7}{2012}{{Dambre et~al.}}{{Dambre, Verstraeten, Schrauwen and Massar}}}
+\bibcite{elegansign_web}{{8}{2026}{{EleganSign}}{{}}}
+\bibcite{fenyves_szilágyi_zsolt_vassy_csaba_2020}{{9}{2020}{{Fenyves et~al.}}{{Fenyves, Szilágyi, Vassy, Sőti and Csermely}}}
+\bibcite{freddi_robust_spiking_2026}{{10}{2026}{{Freddi et~al.}}{{Freddi, Seseri, Nigrisoli and Basti}}}
+\bibcite{gallicchio_chasing_2019}{{11}{2019}{{Gallicchio}}{{}}}
 \bibcite{de_graaf_spinal_inhibition_2025}{{12}{2025}{{de~Graaf et~al.}}{{de~Graaf, Wagner, Mochizuki and Le~Mouel}}}
 \bibcite{hadaeghi_no_strong_loops_2025}{{13}{2025}{{Hadaeghi et~al.}}{{Hadaeghi, Fakhar, Khajehnejad and Hilgetag}}}
-\bibcite{Henley_2021}{{14}{2021}{{Henley}}{{}}}
-\bibcite{iannello_brc_2025}{{15}{2025}{{Iannello et~al.}}{{Iannello, Ciampi, Lagani, Tonelli, Crocco, Calcagnile, Di~Garbo, Cremisi and Amato}}}
-\bibcite{jaeger_echo_state_2001}{{16}{2001}{{Jaeger}}{{}}}
-\bibcite{Jaeger2002STMESN}{{17}{2002}{{Jaeger}}{{}}}
-\bibcite{jaurigue_timescale_2023}{{18}{2023}{{Jaurigue and L{\"u}dge}}{{}}}
-\bibcite{KAWAI201915}{{19}{2019}{{Kawai et~al.}}{{Kawai, Park and Asada}}}
-\bibcite{latora2001}{{20}{2001}{{Latora and Marchiori}}{{}}}
-\bibcite{Lukosevicius2012PracticalESN}{{21}{2012}{{Luko{\v {s}}evi{\v {c}}ius}}{{}}}
-\bibcite{maass_comp_power_2004}{{22}{2004}{{Maass et~al.}}{{Maass, Legenstein and Bertschinger}}}
-\bibcite{maass_lsm_2002}{{23}{2002}{{Maass et~al.}}{{Maass, Natschl{\"a}ger and Markram}}}
-\bibcite{Matzner2022HyperparameterTuningESN}{{24}{2022}{{Matzner}}{{}}}
-\bibcite{morra_daley_2022}{{25}{2022}{{Morra and Daley}}{{}}}
-\bibcite{morra_fly_rc_2023}{{26}{2023}{{Morra et~al.}}{{Morra, Flynn, Amann and Daley}}}
-\bibcite{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}{{27}{2026}{{Pilati et~al.}}{{Pilati, Ceni, Michieletti, Gallicchio, Ricciardi and Milano}}}
-\bibcite{platt_systematic_2022}{{28}{2022}{{Platt et~al.}}{{Platt, Penny, Smith, Chen and Abarbanel}}}
-\bibcite{Sheffler2023Neurotransmitters}{{29}{2025}{{Sheffler et~al.}}{{Sheffler, Reddy and Pillarisetty}}}
-\bibcite{srinivasan_ei_balance_2025}{{30}{2025}{{Srinivasan et~al.}}{{Srinivasan, Plenz and Girvan}}}
-\bibcite{tanis_bellemer_moresco_forbush_koelle_2009}{{31}{2009}{{Tanis et~al.}}{{Tanis, Bellemer, Moresco, Forbush and Koelle}}}
-\bibcite{Wssmallworld}{{32}{1998}{{Watts and Strogatz}}{{}}}
-\bibcite{wirak_florman_alkema_connor_gabel_2022}{{33}{2022}{{Wirak et~al.}}{{Wirak, Florman, Alkema, Connor and Gabel}}}
-\bibcite{yu_bpu_2025}{{34}{2025}{{Yu et~al.}}{{Yu, Qin, Liu, Xu, Vogelstein, Brown and Vogelstein}}}
-\csxdef{lastpage}{20}
+\bibcite{hansen_cmaes_2016}{{14}{2016}{{Hansen}}{{}}}
+\bibcite{Henley_2021}{{15}{2021}{{Henley}}{{}}}
+\bibcite{iannello_brc_2025}{{16}{2025}{{Iannello et~al.}}{{Iannello, Ciampi, Lagani, Tonelli, Crocco, Calcagnile, Di~Garbo, Cremisi and Amato}}}
+\bibcite{jaeger_echo_state_2001}{{17}{2001}{{Jaeger}}{{}}}
+\bibcite{Jaeger2002STMESN}{{18}{2002}{{Jaeger}}{{}}}
+\bibcite{jaurigue_timescale_2023}{{19}{2023}{{Jaurigue and L{\"u}dge}}{{}}}
+\bibcite{KAWAI201915}{{20}{2019}{{Kawai et~al.}}{{Kawai, Park and Asada}}}
+\bibcite{latora2001}{{21}{2001}{{Latora and Marchiori}}{{}}}
+\bibcite{Lukosevicius2012PracticalESN}{{22}{2012}{{Luko{\v {s}}evi{\v {c}}ius}}{{}}}
+\bibcite{maass_comp_power_2004}{{23}{2004}{{Maass et~al.}}{{Maass, Legenstein and Bertschinger}}}
+\bibcite{maass_lsm_2002}{{24}{2002}{{Maass et~al.}}{{Maass, Natschl{\"a}ger and Markram}}}
+\bibcite{Matzner2022HyperparameterTuningESN}{{25}{2022}{{Matzner}}{{}}}
+\bibcite{morra_daley_2022}{{26}{2022}{{Morra and Daley}}{{}}}
+\bibcite{morra_fly_rc_2023}{{27}{2023}{{Morra et~al.}}{{Morra, Flynn, Amann and Daley}}}
+\bibcite{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}{{28}{2026}{{Pilati et~al.}}{{Pilati, Ceni, Michieletti, Gallicchio, Ricciardi and Milano}}}
+\bibcite{platt_systematic_2022}{{29}{2022}{{Platt et~al.}}{{Platt, Penny, Smith, Chen and Abarbanel}}}
+\bibcite{salimans_evolution_2017}{{30}{2017}{{Salimans et~al.}}{{Salimans, Ho, Chen, Sidor and Sutskever}}}
+\bibcite{Sheffler2023Neurotransmitters}{{31}{2025}{{Sheffler et~al.}}{{Sheffler, Reddy and Pillarisetty}}}
+\bibcite{srinivasan_ei_balance_2025}{{32}{2025}{{Srinivasan et~al.}}{{Srinivasan, Plenz and Girvan}}}
+\bibcite{tanis_bellemer_moresco_forbush_koelle_2009}{{33}{2009}{{Tanis et~al.}}{{Tanis, Bellemer, Moresco, Forbush and Koelle}}}
+\bibcite{Varshney2011}{{34}{2011}{{Varshney et~al.}}{{Varshney, Chen, Paniagua, Hall and Chklovskii}}}
+\bibcite{Wssmallworld}{{35}{1998}{{Watts and Strogatz}}{{}}}
+\bibcite{wirak_florman_alkema_connor_gabel_2022}{{36}{2022}{{Wirak et~al.}}{{Wirak, Florman, Alkema, Connor and Gabel}}}
+\bibcite{yu_bpu_2025}{{37}{2025}{{Yu et~al.}}{{Yu, Qin, Liu, Xu, Vogelstein, Brown and Vogelstein}}}
+\csxdef{lastpage}{19}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Quick look at the sign-sweep comparison between the \textit  {C.\ elegans} and \textit  {C.\ elegans}-matched ER topologies. The vertical dashed line marks the EleganSign-inferred negative-edge fraction. In the \textit  {C.\ elegans} sweep, the raw spectral radius can dip below the original baseline slightly before that fraction is reached because sign placement is simultaneously being randomized. The ER-matched sweep shows a smaller offset, consistent with signs already being effectively random relative to topology.}}{20}{figure.9}\protected@file@percent }
 \newlabel{fig:sign_sweep_quicklook}{{9}{20}{Quick look at the sign-sweep comparison between the \textit {C.\ elegans} and \textit {C.\ elegans}-matched ER topologies. The vertical dashed line marks the EleganSign-inferred negative-edge fraction. In the \textit {C.\ elegans} sweep, the raw spectral radius can dip below the original baseline slightly before that fraction is reached because sign placement is simultaneously being randomized. The ER-matched sweep shows a smaller offset, consistent with signs already being effectively random relative to topology}{figure.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Sign-balance normalization ablation for the \textit  {C.\ elegans}-matched ER topology. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}}{20}{figure.10}\protected@file@percent }
 \newlabel{fig:sign_norm_matched_er}{{10}{20}{Sign-balance normalization ablation for the \textit {C.\ elegans}-matched ER topology. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction}{figure.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Sign-balance normalization ablation for the predicted-polarity-only \textit  {C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}}{21}{figure.11}\protected@file@percent }
-\newlabel{fig:sign_norm_removed_cel}{{11}{21}{Sign-balance normalization ablation for the predicted-polarity-only \textit {C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction}{figure.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Supplemental performance--CV islands for shuffle controls}}{21}{figure.12}\protected@file@percent }
-\newlabel{fig:shuf_all_supp}{{12}{21}{Supplemental performance--CV islands for shuffle controls}{figure.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Sign-balance normalization ablation for the predicted-polarity-only \textit  {C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction.}}{20}{figure.11}\protected@file@percent }
+\newlabel{fig:sign_norm_removed_cel}{{11}{20}{Sign-balance normalization ablation for the predicted-polarity-only \textit {C.\ elegans} magnitude pattern after removing the original signs. Scaling by the original spectral radius weakens the performance increase associated with changing the negative edge fraction}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Supplemental performance--CV islands for shuffle controls}}{20}{figure.12}\protected@file@percent }
+\newlabel{fig:shuf_all_supp}{{12}{20}{Supplemental performance--CV islands for shuffle controls}{figure.12}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Network visualizations for architectures A--H}}{21}{figure.13}\protected@file@percent }
 \newlabel{fig:a_to_h}{{13}{21}{Network visualizations for architectures A--H}{figure.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Additional control architectures I--O}}{22}{figure.14}\protected@file@percent }
-\newlabel{fig:i_to_o}{{14}{22}{Additional control architectures I--O}{figure.14}{}}
-\gdef \@abspage@last{23}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Additional control architectures I--O}}{21}{figure.14}\protected@file@percent }
+\newlabel{fig:i_to_o}{{14}{21}{Additional control architectures I--O}{figure.14}{}}
+\gdef \@abspage@last{22}

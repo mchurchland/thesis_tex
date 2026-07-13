@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{37}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -42,6 +42,12 @@
 \newblock \bibinfo{journal}{iScience} \bibinfo{volume}{29}, \bibinfo{pages}{114436}.
 \newblock \DOIprefix\doi{https://doi.org/10.1016/j.isci.2025.114436}.
 %Type = Article
+\bibitem[{Cook et~al.(2019)Cook, Jarrell, Brittin, Wang, Bloniarz, Yakovlev, Nguyen, Tang, Bayer, Duerr, B{\"u}low, Hobert, Hall and Emmons}]{Cook2019}
+\bibinfo{author}{Cook, S.J.}, \bibinfo{author}{Jarrell, T.A.}, \bibinfo{author}{Brittin, C.A.}, \bibinfo{author}{Wang, Y.}, \bibinfo{author}{Bloniarz, A.E.}, \bibinfo{author}{Yakovlev, M.A.}, \bibinfo{author}{Nguyen, K.C.Q.}, \bibinfo{author}{Tang, L.T.H.}, \bibinfo{author}{Bayer, E.A.}, \bibinfo{author}{Duerr, J.S.}, \bibinfo{author}{B{\"u}low, H.E.}, \bibinfo{author}{Hobert, O.}, \bibinfo{author}{Hall, D.H.}, \bibinfo{author}{Emmons, S.W.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Whole-animal connectomes of both \emph{Caenorhabditis elegans} sexes}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{571}, \bibinfo{pages}{63--71}.
+\newblock \DOIprefix\doi{10.1038/s41586-019-1352-7}.
+%Type = Article
 \bibitem[{Dambre et~al.(2012)Dambre, Verstraeten, Schrauwen and Massar}]{dambre_ipc_2012}
 \bibinfo{author}{Dambre, J.}, \bibinfo{author}{Verstraeten, D.}, \bibinfo{author}{Schrauwen, B.}, \bibinfo{author}{Massar, S.}, \bibinfo{year}{2012}.
 \newblock \bibinfo{title}{Information processing capacity of dynamical systems}.
@@ -69,12 +75,6 @@
 \newblock \bibinfo{title}{Chasing the echo state property}, in: \bibinfo{booktitle}{ESANN 2019 Proceedings, European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning}, \bibinfo{publisher}{i6doc.com}, \bibinfo{address}{Bruges, Belgium}.
 \newblock \bibinfo{note}{Preprint available at \url{https://arxiv.org/abs/1811.10892}}.
 %Type = Article
-\bibitem[{Gleeson et~al.(2018)Gleeson, Lung, Grosu, Hasani and Larson}]{c302}
-\bibinfo{author}{Gleeson, P.}, \bibinfo{author}{Lung, D.}, \bibinfo{author}{Grosu, R.}, \bibinfo{author}{Hasani, R.}, \bibinfo{author}{Larson, S.D.}, \bibinfo{year}{2018}.
-\newblock \bibinfo{title}{c302: a multiscale framework for modelling the nervous system of \emph{Caenorhabditis elegans}}.
-\newblock \bibinfo{journal}{Philosophical Transactions of the Royal Society B} \bibinfo{volume}{373}, \bibinfo{pages}{20170379}.
-\newblock \DOIprefix\doi{10.1098/rstb.2017.0379}.
-%Type = Article
 \bibitem[{de~Graaf et~al.(2025)de~Graaf, Wagner, Mochizuki and Le~Mouel}]{de_graaf_spinal_inhibition_2025}
 \bibinfo{author}{de~Graaf, M.L.}, \bibinfo{author}{Wagner, H.}, \bibinfo{author}{Mochizuki, L.}, \bibinfo{author}{Le~Mouel, C.}, \bibinfo{year}{2025}.
 \newblock \bibinfo{title}{Decreased spinal inhibition leads to undiversified locomotor patterns}.
@@ -86,6 +86,11 @@
 \newblock \bibinfo{title}{A computational perspective on the no-strong-loops principle in brain networks}.
 \newblock \bibinfo{howpublished}{bioRxiv preprint}.
 \newblock \URLprefix \url{https://www.biorxiv.org/content/10.1101/2025.09.24.678310v1}, \DOIprefix\doi{10.1101/2025.09.24.678310}. \bibinfo{note}{posted September 25, 2025}.
+%Type = Article
+\bibitem[{Hansen(2016)}]{hansen_cmaes_2016}
+\bibinfo{author}{Hansen, N.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{The {CMA} evolution strategy: A tutorial}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1604.00772} \DOIprefix\doi{10.48550/arXiv.1604.00772}.
 %Type = Book
 \bibitem[{Henley(2021)}]{Henley_2021}
 \bibinfo{author}{Henley, C.}, \bibinfo{year}{2021}.
@@ -166,6 +171,11 @@
 \bibinfo{author}{Platt, J.A.}, \bibinfo{author}{Penny, S.G.}, \bibinfo{author}{Smith, T.A.}, \bibinfo{author}{Chen, T.C.}, \bibinfo{author}{Abarbanel, H.D.I.}, \bibinfo{year}{2022}.
 \newblock \bibinfo{title}{A systematic exploration of reservoir computing for forecasting complex spatiotemporal dynamics}.
 \newblock \URLprefix \url{https://arxiv.org/abs/2201.08910}, \DOIprefix\doi{10.48550/arXiv.2201.08910}, \href{http://arxiv.org/abs/2201.08910}{\tt arXiv:2201.08910}.
+%Type = Article
+\bibitem[{Salimans et~al.(2017)Salimans, Ho, Chen, Sidor and Sutskever}]{salimans_evolution_2017}
+\bibinfo{author}{Salimans, T.}, \bibinfo{author}{Ho, J.}, \bibinfo{author}{Chen, X.}, \bibinfo{author}{Sidor, S.}, \bibinfo{author}{Sutskever, I.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Evolution strategies as a scalable alternative to reinforcement learning}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1703.03864} \DOIprefix\doi{10.48550/arXiv.1703.03864}.
 %Type = Incollection
 \bibitem[{Sheffler et~al.(2025)Sheffler, Reddy and Pillarisetty}]{Sheffler2023Neurotransmitters}
 \bibinfo{author}{Sheffler, Z.M.}, \bibinfo{author}{Reddy, V.}, \bibinfo{author}{Pillarisetty, L.S.}, \bibinfo{year}{2025}.
@@ -183,6 +193,12 @@
 \newblock \bibinfo{title}{The potassium chloride cotransporter kcc-2 coordinates development of inhibitory neurotransmission and synapse structure in caenorhabditis elegans}.
 \newblock \bibinfo{journal}{Journal of Neuroscience} \bibinfo{volume}{29}, \bibinfo{pages}{9943–9954}.
 \newblock \DOIprefix\doi{https://doi.org/10.1523/jneurosci.1989-09.2009}.
+%Type = Article
+\bibitem[{Varshney et~al.(2011)Varshney, Chen, Paniagua, Hall and Chklovskii}]{Varshney2011}
+\bibinfo{author}{Varshney, L.R.}, \bibinfo{author}{Chen, B.L.}, \bibinfo{author}{Paniagua, E.}, \bibinfo{author}{Hall, D.H.}, \bibinfo{author}{Chklovskii, D.B.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Structural properties of the \emph{Caenorhabditis elegans} neuronal network}.
+\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{7}, \bibinfo{pages}{e1001066}.
+\newblock \DOIprefix\doi{10.1371/journal.pcbi.1001066}.
 %Type = Article
 \bibitem[{Watts and Strogatz(1998)}]{Wssmallworld}
 \bibinfo{author}{Watts, D.J.}, \bibinfo{author}{Strogatz, S.H.}, \bibinfo{year}{1998}.

@@ -6,45 +6,45 @@ Database file #1: bibliography.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty pages in gallicchio_chasing_2019
 Warning--empty pages in Sheffler2023Neurotransmitters
-You've used 34 entries,
+You've used 37 entries,
             2990 wiz_defined-function locations,
-            988 strings with 14593 characters,
-and the built_in function-call counts, 23109 in all, are:
-= -- 1778
-> -- 946
-< -- 21
-+ -- 374
-- -- 328
-* -- 2605
-:= -- 3353
-add.period$ -- 121
-call.type$ -- 34
-change.case$ -- 283
-chr.to.int$ -- 34
-cite$ -- 36
-duplicate$ -- 1732
-empty$ -- 1622
-format.name$ -- 429
-if$ -- 4308
+            1005 strings with 15328 characters,
+and the built_in function-call counts, 25584 in all, are:
+= -- 1941
+> -- 1112
+< -- 22
++ -- 439
+- -- 388
+* -- 2911
+:= -- 3729
+add.period$ -- 131
+call.type$ -- 37
+change.case$ -- 318
+chr.to.int$ -- 37
+cite$ -- 39
+duplicate$ -- 1895
+empty$ -- 1762
+format.name$ -- 496
+if$ -- 4744
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 333
-newline$ -- 204
-num.names$ -- 140
-pop$ -- 583
+missing$ -- 370
+newline$ -- 220
+num.names$ -- 152
+pop$ -- 646
 preamble$ -- 1
-purify$ -- 244
+purify$ -- 276
 quote$ -- 0
-skip$ -- 530
+skip$ -- 575
 stack$ -- 0
-substring$ -- 797
-swap$ -- 1293
+substring$ -- 851
+swap$ -- 1430
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 300
+type$ -- 327
 warning$ -- 2
-while$ -- 127
+while$ -- 138
 width$ -- 0
-write$ -- 543
+write$ -- 587
 (There were 2 warnings)

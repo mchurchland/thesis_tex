@@ -1361,6 +1361,11 @@ INPUT ./New_figs/raw_rho_performance_summary.png
 INPUT New_figs/raw_rho_performance_summary.png
 INPUT ./New_figs/raw_rho_performance_summary.png
 INPUT ./New_figs/raw_rho_performance_summary.png
+INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
 INPUT ./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png
 INPUT ./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png
 INPUT New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png
@@ -1376,6 +1381,7 @@ INPUT ./supplement/sign_sweep_quicklook.png
 INPUT supplement/sign_sweep_quicklook.png
 INPUT ./supplement/sign_sweep_quicklook.png
 INPUT ./supplement/sign_sweep_quicklook.png
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc
 INPUT ./supplement/option_8_average_perf_cv_er_matched.png
 INPUT ./supplement/option_8_average_perf_cv_er_matched.png
 INPUT supplement/option_8_average_perf_cv_er_matched.png
@@ -1461,12 +1467,7 @@ INPUT ./thesis.bbl
 INPUT thesis.bbl
 INPUT ./thesis.bbl
 INPUT thesis.bbl
-INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc
 INPUT thesis.aux
 INPUT ./thesis.out
 INPUT ./thesis.out

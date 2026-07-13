@@ -44,16 +44,32 @@
 \author[1]{Miles Walter Churchland}
 \credit{Conceptualization, methodology, software, formal analysis, visualization, writing - original draft, writing - review and editing}
 \author[2]{Raul de Palma Aristides}
-\credit{}
-\author[3]{Miguel Soriano}
-\credit{}
-\author[4]{Anna Ritz}
-\credit{}
-\author[5]{Greg Anderson}
-\credit{}
-\author[6]{Jordi Garcia-Ojalvo}
+\credit{Review, assistance with plotting}
+\author[2]{Miguel Soriano}
+\credit{Review}
+\author[3]{Anna Ritz}
+\credit{Review, Codebase improvements }
+\author[4]{Greg Anderson}
+\credit{Review}
+\author[1]{Jordi Garcia-Ojalvo}
+\credit{Review}
 
-\affiliation[1]{organization={Department of Computer Science, Reed College},
+\affiliation[1]{organization={Department of Medicine and Life Sciences, Universitat Pompeu Fabra},
+                city={Barcelona},
+                country={Spain}}
+
+
+\affiliation[2]{organization={Institute for Cross-Disciplinary Physics and Complex Systems (IFISC), CSIC--UIB},
+                city={Palma},
+                state={Mallorca},
+                country={Spain}}
+
+\affiliation[3]{organization={Biology Department, Reed College},
+                city={Portland},
+                state={OR},
+                country={United States}}
+
+\affiliation[4]{organization={Department of Computer Science, Reed College},
                 city={Portland},
                 state={OR},
                 country={United States}}
@@ -89,7 +105,7 @@ Biologically inspired networks have also been used directly as reservoirs or res
 
 We use the ambiguous-edge version of an anatomical \textit{C.\ elegans} chemical-synapse connectome as a structured recurrent weight matrix, then apply controlled perturbations that isolate topology, inferred excitatory/inhibitory sign structure, weight-magnitude distribution, magnitude placement, and sign placement. Throughout this paper, E/I balance refers to the ratio or fraction of excitatory to inhibitory synaptic signs in the modeled reservoir; it is an edge-level quantity, not a count of excitatory or inhibitory neurons. Reservoir behavior is evaluated with task-agnostic metrics, and hyperparameter invariance is quantified across sweeps of spectral radius, input scaling, leak rate, and neuron-bias range.
 
-The results identify an architecture-dependent performance--invariance tradeoff. Perturbations that enhance computational performance often also increase sensitivity to hyperparameter choice, and the strongest effects appear to act through the raw spectral radius before normalization.
+The results identify an architecture-dependent performance--invariance tradeoff. Perturbations that enhance computational performance often also increase sensitivity to hyperparameter choice, and the strongest effects appear to act through the raw spectral radius before normalization. The contribution of this study is to separate global E/I sign ratio, local sign placement, topology, and weight placement in controlled connectome-derived reservoir ablations, and to test whether their effects on task-agnostic performance and hyperparameter invariance persist when spectral-radius normalization is held fixed.
 \section{Methods}
 \label{sec:methods}
 \subsection{Reservoir model}
@@ -178,11 +194,12 @@ where \(a\) is the set of values for a given task-agnostic performance metric ac
 \subsection{Structural perturbations and architecture controls}
 To determine which topological and weight-related features influence robustness, we construct controlled network perturbations derived from the \emph{C.~elegans} connectome. Table~\ref{tab:architecture_groups} summarizes the architecture families used in the ablations; full architecture definitions and visualizations are provided in Supplemental Section~\ref{supp:architectures}. Figures~\ref{fig:shuffle_four_panel}, \ref{fig:a_to_h}, and \ref{fig:i_to_o} show graphical representations of the network perturbations and architecture controls used in this work.
 
-\begin{table}[t]
+\begin{table*}[!t]
 \centering
+\small
 \caption{Architecture families used in the reservoir ablations.}
 \label{tab:architecture_groups}
-\begin{tabular}{p{0.18\columnwidth}p{0.25\columnwidth}p{0.25\columnwidth}p{0.18\columnwidth}}
+\begin{tabular}{p{0.18\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.18\textwidth}}
 \toprule
 Architecture family & Manipulation & Preserved properties & Role \\
 \midrule
@@ -199,7 +216,7 @@ Weight-placement controls & Shuffle signed contact-count weights across existing
 Random-topology baselines & Use Gaussian-weight \textit{C.\ elegans}-topology, Erd\H{o}s--R\'enyi, and Watts--Strogatz small-world controls \parencite{network_science,KAWAI201915,Wssmallworld} & Node count and the designated weight/sign regime & Tests the contribution of broad topology class \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 Raw spectral radius is not held fixed by these constructions; its variation is an outcome of the structural manipulations and is analyzed explicitly below.
 
@@ -315,7 +332,7 @@ Figure~\ref{fig:shuf_all} shows these controls in the same mean-performance and 
 
 In the real-valued row, the shuffle controls move away from the unshuffled predicted-polarity reservoir toward higher mean performance and higher CV. These contours are blue, indicating lower raw spectral radius relative to the row baseline. In the signed-unit row, the sign- and topology-shuffled controls lie at lower performance and lower CV than the signed-unit baseline, and their contours are red indicating a higher raw spectral radius relative to the baseline. In the all-positive binary row, the shuffled controls remain closer to the row baseline and show smaller shifts in the performance--CV plane. The paired CV differences for these rows are reported in Supplemental Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary}.
 
-Supplemental Figure~\ref{fig:shuf_all_supp} repeats these controls while scaling every ablation by the spectral radius of its row baseline rather than by its own post-ablation spectral radius. The shifts produced by weight placement and topology persist under this fixed-baseline-radius control, showing that these manipulations have effects beyond those induced by own-radius rescaling. However, the shifts in the performance--CV plane are more pronounced under own-radius normalization (Figure~\ref{fig:shuf_all}), consistent with the updated raw spectral radius amplifying their observable effect.
+Supplemental Figure~\ref{fig:shuf_all_supp} repeats these controls while scaling every ablation by the spectral radius of its row baseline rather than by its own post-ablation spectral radius. The shifts produced by weight placement and topology persist under this fixed-baseline-radius control, showing that these manipulations have effects beyond those induced by own-radius rescaling. However, the shifts in the performance--CV plane are more pronounced under own-radius normalization (Figure~\ref{fig:shuf_all}), suggesting that the updated raw spectral radius amplifies their observable effect.
 
 \begin{figure}
     \centering
@@ -329,7 +346,7 @@ Supplemental Figure~\ref{fig:shuf_all_supp} repeats these controls while scaling
 \label{sec:raw_rho_summary}
 The sign-normalization and shuffle results support a common spectral-radius pathway: structural perturbations change the raw spectral radius before spectral-radius normalization, which changes the scale of $W$ after normalization. Figure~\ref{fig:raw_rho_summary} summarizes this relationship across the sign-fraction sweeps and the shuffle controls. Across metrics, lower \(\rho_{\mathrm{raw}}\) coincides with higher mean performance and higher CV, while higher \(\rho_{\mathrm{raw}}\) is associated with lower performance and lower CV. The plotted families show that the same direction appears in multiple experimental settings: balanced sign sweeps, signed-unit controls, binary topology controls, and real-weight shuffles.
 
-Thus, the synthesis is not simply that the global E/I ratio matters. A purely sign-balance explanation would predict that controls with the same negative-edge fraction should behave similarly. Instead, the shuffle and normalization experiments show that topology, local sign placement, weight-magnitude distribution and placement can move reservoirs with the same global sign ratio into different performance--CV regimes. Together, the controls are consistent with raw spectral radius as an important, but not exclusive, pathway linking these structural factors to reservoir behavior.
+Thus, the synthesis is not simply that the global E/I ratio matters. A purely sign-balance explanation would predict that controls with the same negative-edge fraction should behave similarly. Instead, the shuffle and normalization experiments show that topology, local sign placement, weight-magnitude distribution and placement can move reservoirs with the same global sign ratio into different performance--CV regimes. Together, the controls are consistent with raw spectral radius as an important, but not exclusive, pathway linking these structural factors to reservoir dynamics.
 
 \begin{figure}
     \centering
@@ -395,7 +412,7 @@ Finally, future work should investigate how to lower \(\rho_{\mathrm{raw}}\) aft
 
 \section*{Code and Data Availability}
 
-Code, analysis materials, and manuscript sources are available at \url{https://github.com/mchurchland/thesis_tex}.
+Code, analysis materials, and manuscript sources are available at \url{https://github.com/mchurchland/thesis}.
 
 \section*{AI Usage Disclosure}
 

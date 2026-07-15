@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  13 JUL 2026 15:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  15 JUL 2026 13:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -988,7 +988,7 @@ Underfull \hbox (badness 1735) in paragraph at lines 216--216
  []
 
 [5]
-<figs/toplogy/new_4to1_four_panel.png, id=186, 794.97pt x 664.884pt>
+<figs/toplogy/new_4to1_four_panel.png, id=185, 794.97pt x 664.884pt>
 File: figs/toplogy/new_4to1_four_panel.png Graphic file (type png)
 <use figs/toplogy/new_4to1_four_panel.png>
 Package pdftex.def Info: figs/toplogy/new_4to1_four_panel.png  used on input line 248.
@@ -999,26 +999,26 @@ Overfull \hbox (4.2154pt too wide) in paragraph at lines 265--282
  []
 
 [6] [7 <./figs/toplogy/new_4to1_four_panel.png>]
-<New_figs/fullv2/50per.png, id=210, 520.344pt x 372.1905pt>
-File: New_figs/fullv2/50per.png Graphic file (type png)
-<use New_figs/fullv2/50per.png>
-Package pdftex.def Info: New_figs/fullv2/50per.png  used on input line 297.
-(pdftex.def)             Requested size: 238.25444pt x 170.4203pt.
+<thesis/architecture/50per.png, id=209, 531.1845pt x 419.166pt>
+File: thesis/architecture/50per.png Graphic file (type png)
+<use thesis/architecture/50per.png>
+Package pdftex.def Info: thesis/architecture/50per.png  used on input line 297.
+(pdftex.def)             Requested size: 238.25444pt x 188.00894pt.
 
 Underfull \hbox (badness 1694) in paragraph at lines 306--307
 []\T1/stix/m/n/10 (+20) Figure [][]3[][] shows these sign-fraction sweeps for the
  []
 
-<New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png, id=217, 298.83646pt x 278.2395pt>
-File: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png Graphic file (type png)
-<use New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png  used on input line 310.
+<thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png, id=216, 298.83646pt x 278.2395pt>
+File: thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png Graphic file (type png)
+<use thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png>
+Package pdftex.def Info: thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png  used on input line 310.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-[8 <./New_figs/fullv2/50per.png>]
-<New_figs/sign_norm_abalation/matched_cel/sign_norm.png, id=235, 525.4029pt x 496.254pt>
-File: New_figs/sign_norm_abalation/matched_cel/sign_norm.png Graphic file (type png)
-<use New_figs/sign_norm_abalation/matched_cel/sign_norm.png>
-Package pdftex.def Info: New_figs/sign_norm_abalation/matched_cel/sign_norm.png  used on input line 322.
+[8 <./thesis/architecture/50per.png>]
+<thesis/sign_normalization/option_8_average_perf_cv.png, id=234, 525.4029pt x 496.254pt>
+File: thesis/sign_normalization/option_8_average_perf_cv.png Graphic file (type png)
+<use thesis/sign_normalization/option_8_average_perf_cv.png>
+Package pdftex.def Info: thesis/sign_normalization/option_8_average_perf_cv.png  used on input line 322.
 (pdftex.def)             Requested size: 238.25444pt x 225.0387pt.
 
 Overfull \hbox (10.2063pt too wide) in paragraph at lines 331--332
@@ -1030,91 +1030,92 @@ Underfull \hbox (badness 1067) in paragraph at lines 333--334
 \T1/stix/m/n/10 (+20) from the un-shuf-fled predicted-polarity reser-voir to-ward
  []
 
-[9 <./New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png> <./New_figs/sign_norm_abalation/matched_cel/sign_norm.png>]
-<New_figs/shuf/shuf_all.png, id=252, 2213.26875pt x 1972.36874pt>
-File: New_figs/shuf/shuf_all.png Graphic file (type png)
-<use New_figs/shuf/shuf_all.png>
-Package pdftex.def Info: New_figs/shuf/shuf_all.png  used on input line 339.
-(pdftex.def)             Requested size: 238.25444pt x 212.29637pt.
-<New_figs/raw_rho_performance_summary.png, id=254, 780.516pt x 549.252pt>
-File: New_figs/raw_rho_performance_summary.png Graphic file (type png)
-<use New_figs/raw_rho_performance_summary.png>
-Package pdftex.def Info: New_figs/raw_rho_performance_summary.png  used on input line 353.
+[9 <./thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png> <./thesis/sign_normalization/option_8_average_perf_cv.png>]
+<thesis/topology_shuffles/shuf_all.png, id=251, 531.1845pt x 473.3685pt>
+File: thesis/topology_shuffles/shuf_all.png Graphic file (type png)
+<use thesis/topology_shuffles/shuf_all.png>
+Package pdftex.def Info: thesis/topology_shuffles/shuf_all.png  used on input line 339.
+(pdftex.def)             Requested size: 238.25444pt x 212.32043pt.
+<thesis/raw_rho/raw_rho_performance_summary.png, id=253, 780.516pt x 549.252pt>
+File: thesis/raw_rho/raw_rho_performance_summary.png Graphic file (type png)
+<use thesis/raw_rho/raw_rho_performance_summary.png>
+Package pdftex.def Info: thesis/raw_rho/raw_rho_performance_summary.png  used on input line 353.
 (pdftex.def)             Requested size: 238.25444pt x 167.6599pt.
- [10 <./New_figs/shuf/shuf_all.png (PNG copy)>] [11 <./New_figs/raw_rho_performance_summary.png>] [12]
-Overfull \hbox (11.4063pt too wide) in paragraph at lines 399--400
+ [10 <./thesis/topology_shuffles/shuf_all.png>] [11 <./thesis/raw_rho/raw_rho_performance_summary.png>] [12]
+Overfull \hbox (11.4063pt too wide) in paragraph at lines 385--386
 \T1/stix/m/n/10 (-20) im-por-tant de-sign pa-ram-e-ter, com-ple-ment-ing re-cent performance-
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 399--400
+Underfull \hbox (badness 1052) in paragraph at lines 385--386
 \T1/stix/m/n/10 (+20) sign place-ment, mag-ni-tude dis-tri-bu-tion, and mag-ni-tude
  []
 
-[13]
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 415.
- (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 398.
+(/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 415.
+(Font)              scaled to size 8.50006pt on input line 398.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png, id=344, 298.83646pt x 278.2395pt>
-File: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png Graphic file (type png)
-<use New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png  used on input line 439.
+ [13{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+<thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png, id=338, 298.83646pt x 278.2395pt>
+File: thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png Graphic file (type png)
+<use thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png>
+Package pdftex.def Info: thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png  used on input line 422.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png, id=345, 298.83646pt x 278.2395pt>
-File: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png Graphic file (type png)
-<use New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png  used on input line 446.
+<thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png, id=339, 298.83646pt x 278.2395pt>
+File: thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png Graphic file (type png)
+<use thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png>
+Package pdftex.def Info: thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png  used on input line 429.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<supplement/sign_sweep_quicklook.png, id=346, 598.1547pt x 347.3778pt>
+<supplement/sign_sweep_quicklook.png, id=340, 598.1547pt x 347.3778pt>
 File: supplement/sign_sweep_quicklook.png Graphic file (type png)
 <use supplement/sign_sweep_quicklook.png>
-Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 453.
+Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 436.
 (pdftex.def)             Requested size: 238.25444pt x 138.36559pt.
- [14{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
-<supplement/option_8_average_perf_cv_er_matched.png, id=358, 520.5849pt x 496.254pt>
+ [14 <./thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png> <./thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png>]
+<supplement/option_8_average_perf_cv_er_matched.png, id=351, 520.5849pt x 496.254pt>
 File: supplement/option_8_average_perf_cv_er_matched.png Graphic file (type png)
 <use supplement/option_8_average_perf_cv_er_matched.png>
-Package pdftex.def Info: supplement/option_8_average_perf_cv_er_matched.png  used on input line 476.
+Package pdftex.def Info: supplement/option_8_average_perf_cv_er_matched.png  used on input line 459.
 (pdftex.def)             Requested size: 238.25444pt x 227.12105pt.
-<supplement/option_8_average_perf_cv_removed.png, id=359, 525.4029pt x 496.254pt>
+<supplement/option_8_average_perf_cv_removed.png, id=352, 532.1481pt x 496.254pt>
 File: supplement/option_8_average_perf_cv_removed.png Graphic file (type png)
 <use supplement/option_8_average_perf_cv_removed.png>
-Package pdftex.def Info: supplement/option_8_average_perf_cv_removed.png  used on input line 483.
-(pdftex.def)             Requested size: 238.25444pt x 225.0387pt.
-<supplement/cv_performance_density_contours_triptych.png, id=360, 531.1845pt x 473.3685pt>
+Package pdftex.def Info: supplement/option_8_average_perf_cv_removed.png  used on input line 466.
+(pdftex.def)             Requested size: 238.25444pt x 222.18396pt.
+<supplement/cv_performance_density_contours_triptych.png, id=353, 531.1845pt x 473.3685pt>
 File: supplement/cv_performance_density_contours_triptych.png Graphic file (type png)
 <use supplement/cv_performance_density_contours_triptych.png>
-Package pdftex.def Info: supplement/cv_performance_density_contours_triptych.png  used on input line 490.
+Package pdftex.def Info: supplement/cv_performance_density_contours_triptych.png  used on input line 473.
 (pdftex.def)             Requested size: 238.25444pt x 212.32043pt.
- [15 <./New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png> <./New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png>]
-<figs/toplogy/model_grid_A_to_H.png, id=372, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_A_to_H.png, id=358, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_A_to_H.png Graphic file (type png)
 <use figs/toplogy/model_grid_A_to_H.png>
-Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 502.
+Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 485.
 (pdftex.def)             Requested size: 238.25444pt x 346.0253pt.
-<figs/toplogy/model_grid_I_to_O.png, id=373, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_I_to_O.png, id=359, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_I_to_O.png Graphic file (type png)
 <use figs/toplogy/model_grid_I_to_O.png>
-Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 509.
+Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 492.
 (pdftex.def)             Requested size: 238.25444pt x 346.0253pt.
 
-Underfull \hbox (badness 1742) in paragraph at lines 526--527
+Underfull \hbox (badness 1742) in paragraph at lines 509--510
 []\T1/stix/m/n/10 (+20) Starting from the ambiguous-edge \T1/stix/m/it/10 (+20) C. el-e-gans \T1/stix/m/n/10 (+20) con-
  []
 
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 531.
+[15]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 514.
+
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 531.
+(Font)              size <10.95> substituted on input line 514.
 
-[16] (./New_figs/shuf/cv_mean_differences_table_vs_real.tex) (./New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex) (./New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex) [17] (./thesis.bbl
+[16] (./thesis/topology_shuffles/cv_mean_differences_table_vs_real.tex) (./thesis/topology_shuffles/cv_mean_differences_vs_local_sign_binary_table.tex) (./thesis/topology_shuffles/cv_mean_differences_vs_binary_base_table.tex) [17] (./thesis.bbl
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 6.80005pt on input line 19.
 
@@ -1132,9 +1133,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--21
 \T1/zi4/m/n/8 subjects / physics / statistical-[]physics / network-[]science ? format = HB &
  []
 
-[18] [19]) [20 <./supplement/sign_sweep_quicklook.png> <./supplement/option_8_average_perf_cv_er_matched.png>] [21 <./supplement/option_8_average_perf_cv_removed.png> <./supplement/cv_performance_density_contours_triptych.png> <./figs/toplogy/model_grid_A_to_H.png>] [22
-
- <./figs/toplogy/model_grid_I_to_O.png>] (./thesis.aux)
+[18]) [19] [20 <./supplement/sign_sweep_quicklook.png> <./supplement/option_8_average_perf_cv_er_matched.png> <./supplement/option_8_average_perf_cv_removed.png> <./supplement/cv_performance_density_contours_triptych.png>] [21 <./figs/toplogy/model_grid_A_to_H.png> <./figs/toplogy/model_grid_I_to_O.png>] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1143,18 +1142,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23483 strings out of 476041
- 374244 string characters out of 5793175
- 1888388 words of memory out of 6000000
+ 23473 strings out of 476041
+ 374246 string characters out of 5793175
+ 1893388 words of memory out of 6000000
  43001 multiletter control sequences out of 15000+600000
- 673176 words of font info for 395 fonts, out of 8000000 for 9000
+ 672970 words of font info for 394 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 90i,13n,93p,1524b,727s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,93p,1533b,704s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on thesis.pdf (23 pages, 23087386 bytes).
+Output written on thesis.pdf (22 pages, 22977150 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 138 named destinations out of 1000 (max. 500000)
+ 607 PDF objects out of 1000 (max. 8388607)
+ 518 compressed objects within 6 object streams
+ 130 named destinations out of 1000 (max. 500000)
  52295 words of extra memory for PDF output out of 61914 (max. 10000000)
 

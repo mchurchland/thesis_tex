@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis copy.aux
+The style file: style_neural_networks/cas-model2-names.bst
+Database file #1: bibliography.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty pages in gallicchio_chasing_2019
+Warning--empty pages in Sheffler2023Neurotransmitters
+You've used 37 entries,
+            2990 wiz_defined-function locations,
+            1005 strings with 15338 characters,
+and the built_in function-call counts, 25584 in all, are:
+= -- 1941
+> -- 1112
+< -- 22
++ -- 439
+- -- 388
+* -- 2911
+:= -- 3729
+add.period$ -- 131
+call.type$ -- 37
+change.case$ -- 318
+chr.to.int$ -- 37
+cite$ -- 39
+duplicate$ -- 1895
+empty$ -- 1762
+format.name$ -- 496
+if$ -- 4744
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 370
+newline$ -- 220
+num.names$ -- 152
+pop$ -- 646
+preamble$ -- 1
+purify$ -- 276
+quote$ -- 0
+skip$ -- 575
+stack$ -- 0
+substring$ -- 851
+swap$ -- 1430
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 327
+warning$ -- 2
+while$ -- 138
+width$ -- 0
+write$ -- 587
+(There were 2 warnings)

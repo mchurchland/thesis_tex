@@ -108,16 +108,15 @@ We use the ambiguous-edge version of an anatomical \textit{C.\ elegans} chemical
 The results identify an architecture-dependent performance--invariance tradeoff. Perturbations that enhance computational performance often also increase sensitivity to hyperparameter choice, and the strongest effects appear to act through the raw spectral radius before normalization. The contribution of this study is to separate global E/I sign ratio, local sign placement, topology, and weight placement in controlled connectome-derived reservoir ablations, and to test whether their effects on task-agnostic performance and hyperparameter invariance persist when spectral-radius normalization is held fixed.
 \section{Methods}
 \label{sec:methods}
-\subsection{Reservoir model}
+\subsection{Reservoir model and hyperparameters}
 We use echo state networks, a discrete-time reservoir-computing model in which recurrent weights are fixed and only linear readouts trained using linear regression \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}. With leak rate \(\alpha \in (0,1]\), the state update is
 \begin{align}
 \tilde{x}_{t+1} &= \tanh\!\left(W^{\mathrm{res}} x_t + s_{\mathrm{in}}W^{\mathrm{in}} u_{t+1} + b \right), \\
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
 y_t &= W^{\mathrm{out}}\,x_t.
 \end{align}
-Here \(x_t\in\mathbb{R}^{N}\) is the reservoir state at time \(t\), \(\tilde{x}_{t+1}\) is the state before leaky integration, \(y_t\) is the linear readout, \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, and \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector. \footnote{The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).} Only \(W^{\mathrm{out}}\) is fit during metric calculations, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
+Here \(x_t\in\mathbb{R}^{N}\) is the reservoir state at time \(t\), \(\tilde{x}_{t+1}\) is the state before leaky integration, \(y_t\) is the linear readout, \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\) is the sparse recurrent reservoir matrix, \(W^{\mathrm{in}}\) is the input matrix, \(s_{\mathrm{in}}\) scales the input drive, and \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector. The \(\tanh\) activation is applied elementwise. \footnote{The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).} Only \(W^{\mathrm{out}}\) is fit during metric calculations, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
 
-\subsection{Reservoir hyperparameters}
 \label{sec:hyperparameters}
 The experiments sweep four hyperparameters: spectral radius, leak rate, input scaling, and neuron-bias. The spectral radius \(\rho(W^{\mathrm{res}})\) roughly sets the strength of recurrent feedback, where
 \[
@@ -138,7 +137,7 @@ The sweep values were chosen as a compact sensitivity grid. Every architecture i
 
 \subsection{Connectome data and preprocessing}
 \label{sec:connectome_dataset}
-We use an anatomical \textit{C.\ elegans} chemical-synapse connectome with predicted chemical polarity labels derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. In our reservoir model, each neuron in the connectome is represented as one reservoir unit, and the directed chemical synapses define the recurrent matrix \(W^{\mathrm{res}}\). A chemical connection from neuron \(i\) to neuron \(j\) adds a directed edge with magnitude equal the number of synaptic contacts from \(i\) to \(j\) \parencite{Varshney2011,Cook2019,Casal2020,churchland_garcia-ojalvo_2026}. For chemical edges with an EleganSign-inferred polarity label, we multiply this contact-count magnitude by the inferred sign, so predicted excitatory chemical synapses enter the matrix with positive weights and predicted inhibitory chemical synapses enter with negative weights. Ambiguous (unpredicted/complex) chemical edges are handled by the preprocessing versions described below. The resulting signed, weighted adjacency matrix is the fixed recurrent reservoir used in the reservoir update above: inputs drive the reservoir through \(W^{\mathrm{in}}\), recurrent activity propagates through the connectome-derived \(W^{\mathrm{res}}\), and only the output readout \(W^{\mathrm{out}}\) is trained. Before evaluation, each reservoir instance is rescaled to the target spectral radius described in ~\ref{sec:hyperparameters}.
+We use an anatomical \textit{C.\ elegans} chemical-synapse connectome with predicted chemical polarity labels derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. In our reservoir model, each neuron in the connectome is represented as one reservoir unit, and the directed chemical synapses define the recurrent matrix \(W^{\mathrm{res}}\). A chemical connection from neuron \(i\) to neuron \(j\) adds a directed edge with magnitude equal the number of synaptic contacts from \(i\) to \(j\) \parencite{Varshney2011,Cook2019,Casal2020,churchland_garcia-ojalvo_2026}. For chemical edges with a predicted polarity we multiply this contact-count magnitude by the inferred sign, so predicted excitatory chemical synapses enter the matrix with positive weights and predicted inhibitory chemical synapses enter with negative weights. Ambiguous (unpredicted/complex) chemical edges are handled by the preprocessing versions described below. The resulting signed, weighted adjacency matrix is the fixed recurrent reservoir used in the reservoir update above: inputs drive the reservoir through \(W^{\mathrm{in}}\), recurrent activity propagates through the connectome-derived \(W^{\mathrm{res}}\), and only the output readout \(W^{\mathrm{out}}\) is trained. Before evaluation, each reservoir instance is rescaled to the target spectral radius described in ~\ref{sec:hyperparameters}.
 
 These polarity labels are chemical-only. We follow the EleganSign chemical-edge export as the source database for the recurrent matrix. EleganSign predicts excitatory or inhibitory polarity for chemical synapses, so its database does not include electrical synapses. The labels are also predictions rather than direct functional measurements, because they are inferred from gene-expression and neurotransmitter logic rather than from voltage- or calcium-response measurements. EleganSign predicts signs for 1740 synapses, while 1864 synapses have unknown or complex sign predictions. To make the analysis less dependent on a single treatment of these ambiguous edges, we construct two reservoir versions. In the predicted-polarity-only version, unknown or complex-sign chemical connections are removed. In the ambiguous-edge version, the 1864 ambiguous chemical edges are retained and assigned signs under a 4:1 excitatory-to-inhibitory prior \miles{needs citation + justification+ saying that this sucks}. The main results use the ambiguous-edge version, while selected experiments include the predicted-polarity-only version.
 
@@ -172,7 +171,7 @@ r_{\mathrm{score}}(u(t-d),\hat{u}_d(t))^2.
 
 \subsubsection{Truncated information-processing-capacity diagnostic}
 \label{sec:ipc}
-Information processing capacity (IPC) measures how well the reservoir can reconstruct nonlinear functions of delayed inputs \parencite{dambre_ipc_2012}. Here, IPC denotes a truncated single-delay diagnostic rather than the full IPC decomposition. Specifically, we evaluate univariate Legendre polynomial targets of one delayed input at a time and omit pairwise and higher-order cross-delay product terms. This still measures the reservoir's ability to generate nonlinear transformations of input history, but it does not estimate the full capacity over all nonlinear input combinations. For Legendre polynomial orders \(K=\{1,2,3,4,5\}\), let \(z_{k,d}(t)=P_k(u(t-d))\). We compute
+Information processing capacity (IPC) measures how well the reservoir can reconstruct nonlinear functions of delayed inputs \parencite{dambre_ipc_2012}. Here, IPC denotes a truncated single-delay diagnostic rather than the full IPC. Specifically, we evaluate univariate Legendre polynomial targets of one delayed input at a time and omit pairwise and higher-order cross-delay product terms. This still measures the reservoir's ability to generate nonlinear transformations of input history, but it does not estimate the full capacity over all nonlinear input combinations. For Legendre polynomial orders \(K=\{1,2,3,4,5\}\) and delays \(d\in\{1,\ldots,D_{\max}\}\), with \(D_{\max}=30\), let \(z_{k,d}(t)=P_k(u(t-d))\). We compute
 \[
 \mathrm{IPC}
 =
@@ -188,7 +187,8 @@ Because cross-delay products are not included, the reported IPC values should be
 To investigate stability under hyperparameter variation, we examine how each performance metric changes across the hyperparameter grid.
 We quantify hyperparameter invariance with the coefficient of variation (CV):
 \[CV = \frac{\text{std}(a)}{\bar{a}}\]
-where \(a\) is the set of values for a given task-agnostic performance metric across all evaluated hyperparameter settings within a trial. CV is a measure of relative dispersion, which makes it useful for comparing variability across models with different performance scales. In reservoir computing, hyperparameter sensitivity is commonly analyzed through area-under-curve, performance curves, or robustness intervals rather than through a single standard statistic \parencite{KAWAI201915,jaurigue_timescale_2023,freddi_robust_spiking_2026,srinivasan_ei_balance_2025}. Our use of CV compresses sensitivity into one value per metric: low CV indicates that a metric remains stable across spectral radius, leak rate, input scaling, and neuron bias, whereas high CV indicates stronger dependence on hyperparameter choice.
+where \(a\) is the set of values for a given task-agnostic performance metric across all evaluated hyperparameter settings within a trial. CV is a measure of relative dispersion, which makes it useful for comparing variability across models with different performance scales.
+In reservoir computing, hyperparameter sensitivity is commonly analyzed through area-under-curve, performance curves, or robustness intervals rather than through a single standard statistic \parencite{KAWAI201915,jaurigue_timescale_2023,freddi_robust_spiking_2026,srinivasan_ei_balance_2025}. Our use of CV compresses sensitivity into one value per metric: low CV indicates that a metric remains stable across spectral radius, leak rate, input scaling, and neuron bias, whereas high CV indicates stronger dependence on hyperparameter choice.
 
 
 \subsection{Structural perturbations and architecture controls}
@@ -288,18 +288,18 @@ Table~\ref{tab:exp_setup} condenses the trial definition, hyperparameter sweep, 
 \label{sec:results}
 The experiments are organized as a sequence of architecture ablations around the connectome-derived reservoir. The main results use the ambiguous-edge version of the \textit{C.\ elegans} reservoir, in which predicted-polarity chemical edges retain their EleganSign labels and ambiguous chemical edges are retained with 4:1 signs randomly assigned. We first compare this reservoir against random-topology, binary-weight, and sign-preserving controls. We then isolate the global chemical E/I ratio by sweeping the fraction of negative edges in the ambiguous-edge connectome, the predicted-polarity-only connectome, and a matched Erd\H{o}s--R\'enyi topology. Next, we test the contribution of spectral-radius normalization to the sign-sweep effects by comparing own-radius scaling with scaling by the original matrix radius. Finally, we use degree-preserving connection, sign, and weight shuffles to distinguish the effects of topology, local sign placement, and contact-count magnitude placement.
 
-\subsection[Architecture comparison plot]{Architecture comparison plot}
+\subsection{The ambiguous-edge connectome occupies a low-variance reservoir regime}
 Figure~\ref{fig:arch} compares architecture families by mean task-agnostic performance and hyperparameter CV. Each panel shows one metric: GR, truncated IPC, KR, or MC. The vertical axis gives the mean metric value across trials, and the horizontal axis gives the coefficient of variation across the spectral-radius, leak-rate, input-scaling, and neuron-bias sweep. Contours show the 50\% density region for each architecture family, and markers show the corresponding condition means. Color indicates the percentage of edges with negative weights. The 50\% negative-edge models, shown in yellow, appear at higher mean performance and higher CV. Models at the ambiguous-edge connectome's negative-edge fraction, shown in purple, appear at lower mean performance and lower CV. The all-positive binary-weight model, shown in blue at 0\% negative edges, appears in the low-performance, low-CV region. These comparisons motivate the central claim tested in the following sections: global E/I sign imbalance appears to contribute strongly to the connectome's low-variance behavior under the present topology and magnitude regimes, while sign placement and weight magnitudes have smaller, yet non-negligible effects.
 
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{New_figs/fullv2/50per.png}
+    \includegraphics[width=\linewidth]{thesis/architecture/50per.png}
     \caption{Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit{C.\ elegans} connectome.}
     \label{fig:arch}
 \end{figure}
 
-\subsection[Global sign-balance sweep]{Global sign-balance sweep}
+\subsection{Global sign-balance sweep reveals a performance--invariance tradeoff}
 \label{balance}
 To isolate global sign balance, we randomly flipped synapse signs while leaving the connectivity pattern and weight magnitudes fixed. This changes the fraction of negative edges in the recurrent matrix without assigning neurons to excitatory or inhibitory classes.\footnote{Note: this also changes the ordering of the signs which has a minimal but real effect on the invariance and performance tradeoff. See sign pres real weight in figure ~\ref{fig:arch}, and supplementary ~\ref{supp:sign_norm_controls} for a discussion of this} For each negative-edge fraction, we computed the mean value and hyperparameter CV of the four task-agnostic metrics.
 
@@ -307,11 +307,11 @@ Figure~\ref{fig:ambig_cel_frac_curves} shows these sign-fraction sweeps for the 
 
 \begin{figure} 
     \centering
-    \includegraphics[width=1\linewidth]{New_figs/signtest_final_new/new_4to1/meanpoint_frac_cv_lines.png}
+    \includegraphics[width=1\linewidth]{thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png}
     \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the ambiguous-edge \textit{C.\ elegans} topology with real weights, in which complex or unknown neurotransmitter signs are assigned under a 4:1 excitatory-to-inhibitory prior. The truncated IPC diagnostic is denoted in orange, GR in red, MC in blue, and KR in green. Points show averages across 200 trials for each fraction. The black dot denotes the negative sign percentage of the ambiguous-edge connectome.}
     \label{fig:ambig_cel_frac_curves}
 \end{figure}
-\subsection[Sign-normalization sweep]{Sign-normalization sweep}
+\subsection{Sign-normalization links sign balance to spectral radius scaling}
 \label{sec:sign_norm_ablation}
 The sign-normalization sweep compares two ways of scaling the recurrent matrix after the sign-fraction manipulation. In the own-radius condition, each matrix is scaled by its own spectral radius, \(W/\rho(W)\). In the original-radius condition, the same matrices are scaled by the spectral radius of the original matrix, \(W/\rho(W_{\mathrm{orig}})\).
 
@@ -319,12 +319,12 @@ Figure~\ref{fig:sign_norm_matched_cel} shows this comparison for the ambiguous-e
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{New_figs/sign_norm_abalation/matched_cel/sign_norm.png}
+    \includegraphics[width=\linewidth]{thesis/sign_normalization/option_8_average_perf_cv.png}
     \caption{Ambiguous-edge \textit{C.\ elegans} sign-normalization sweep. Solid curves scale each perturbed matrix by \(\rho(W)\), and dashed curves scale by the original matrix radius, \(\rho(W_{\mathrm{orig}})\). The panels show normalized raw spectral radius, mean performance, and mean CV across the negative-edge fraction sweep.}
     \label{fig:sign_norm_matched_cel}
 \end{figure}
 
-\subsection{Shuffle controls}
+\subsection{Topology and weight-placement effects on the performance--invariance tradeoff}
 \label{sec:shuf}
 The shuffle controls change where edges, signs, or magnitudes are placed. Connection shuffles rewire directed edges while preserving in-degree and out-degree. Weight shuffles keep the connectivity fixed but permute the nonzero magnitudes. Connection-plus-weight shuffles apply both operations.
 
@@ -336,13 +336,13 @@ Supplemental Figure~\ref{fig:shuf_all_supp} repeats these controls while scaling
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{New_figs/shuf/shuf_all.png}
+    \includegraphics[width=\linewidth]{thesis/topology_shuffles/shuf_all.png}
     \caption{
     Performance--CV islands for the shuffle controls, shown with 50\% density contours. Columns correspond to GR, truncated IPC, KR, and MC. Rows show real-valued \textit{C.\ elegans} controls, sign-preserving signed-unit controls, and all-positive binary controls. Contour color shows the percent change in raw spectral radius relative to the row baseline, \(\Delta\rho_{\mathrm{raw}}\); blue indicates lower raw spectral radius and red indicates higher raw spectral radius.}
     \label{fig:shuf_all}
 \end{figure}
 
-\subsection{Raw spectral radius summarizes the performance--invariance tradeoff}
+\subsection{Spectral radius as an important mediator of the performance--invariance tradeoff}
 \label{sec:raw_rho_summary}
 The sign-normalization and shuffle results support a common spectral-radius pathway: structural perturbations change the raw spectral radius before spectral-radius normalization, which changes the scale of $W$ after normalization. Figure~\ref{fig:raw_rho_summary} summarizes this relationship across the sign-fraction sweeps and the shuffle controls. Across metrics, lower \(\rho_{\mathrm{raw}}\) coincides with higher mean performance and higher CV, while higher \(\rho_{\mathrm{raw}}\) is associated with lower performance and lower CV. The plotted families show that the same direction appears in multiple experimental settings: balanced sign sweeps, signed-unit controls, binary topology controls, and real-weight shuffles.
 
@@ -350,46 +350,32 @@ Thus, the synthesis is not simply that the global E/I ratio matters. A purely si
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{New_figs/raw_rho_performance_summary.png}
+    \includegraphics[width=\linewidth]{thesis/raw_rho/raw_rho_performance_summary.png}
     \caption{Relationship between raw spectral radius and reservoir behavior across sign-sweep and shuffle-control families. The top row shows mean task-agnostic performance as a function of raw spectral radius before normalization, \(\rho_{\mathrm{raw}}\), on a log scale. The bottom row shows the corresponding hyperparameter CV. Columns correspond to GR, truncated IPC, KR, and MC. Lines connect points within experimental families.}
     \label{fig:raw_rho_summary}
 \end{figure}
 
 
 \section{Discussion}
-This study uses a connectome-derived reservoir as a structured recurrent neural network model for asking how architecture controls hyperparameter sensitivity. The ambiguous-edge \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime. However, the ablations do not support a simple list of equally important or independent causes. In the present model, global E/I sign imbalance is the strongest single control identified: preserving the chemical sign ratio recovers much of the connectome's invariance across task-agnostic metrics, even when exact sign placement or contact-count magnitudes are altered. This result should not be read as a universal claim about E/I balance alone. The effect of sign imbalance depends on the surrounding architecture, including topology, sign placement, weight-magnitude distribution, and magnitude placement.
+This study uses a connectome-derived reservoir as a structured recurrent neural network model for asking how architecture controls hyperparameter sensitivity. The ambiguous-edge \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime. However, the ablations indicate that the factors determining a reservoir's position along this performance--invariance tradeoff are neither equally influential nor independent. In the present model, global E/I sign imbalance is the strongest single control identified: preserving the chemical sign ratio recovers much of the connectome's invariance across task-agnostic metrics, even when exact sign placement or edge magnitudes are altered. This result should not be read as a universal claim about E/I balance alone. The effect of sign imbalance depends on the surrounding architecture, including topology, sign placement, weight-magnitude distribution, and magnitude placement.
 
 
-\subsection{The ambiguous-edge connectome occupies a low-variance reservoir regime}
-Figure~\ref{fig:arch} demonstrates that, across sweeps of spectral radius, leak rate, input scaling, and neuron bias, the ambiguous-edge \textit{C.\ elegans} reservoir lies in a low-CV regime for the four task-agnostic metrics considered here. Within the sign-matched group, the ambiguous-edge \textit{C.\ elegans} model has the lowest mean CV for all metrics except MC. Furthermore, weight shuffling, connection shuffling, and connection-plus-weight shuffling all move the reservoir toward higher mean performance and higher CV (Figure~\ref{fig:shuf_all}, top row). Thus, in this reservoir abstraction, the local topology, sign and weight placement of the ambiguous-edge \textit{C.\ elegans} model appear to favor invariance over peak performance. These results suggest that weight magnitudes, magnitude placement, and sign placement all contribute to invariance in the \textit{C.\ elegans} reservoir model, but their effects are smaller than the effect of preserving the E/I sign structure.
-
-\subsection{Spectral radius as an important mediator of the performance--invariance tradeoff}
+Figure~\ref{fig:arch} demonstrates that the ambiguous-edge \textit{C.\ elegans} model has the lowest mean CV for all metrics except MC. Furthermore, weight shuffling, connection shuffling, and connection-plus-weight shuffling all move the reservoir toward higher mean performance and higher CV (Figure~\ref{fig:shuf_all}, top row). Thus, in this reservoir abstraction, the local topology, sign and weight placement of the ambiguous-edge \textit{C.\ elegans} model appear to favor invariance over peak performance.
 
 The sign-fraction sweeps show the core performance--invariance tradeoff. Figures~\ref{fig:arch},~\ref{fig:er_frac_curves} and~\ref{fig:og_cel_frac_curves} show that moving from strongly sign-imbalanced networks toward more balanced edge signs generally increases mean task-agnostic performance, but also increases CV. The same qualitative trend appears in the ambiguous-edge \textit{C.\ elegans} graph, the \textit{C.\ elegans}-matched ER topology, and the predicted-polarity-only \textit{C.\ elegans} magnitude pattern. Under the present modeling choices, the ambiguous-edge \textit{C.\ elegans} instantiation therefore lies on the low-variance side of this curve rather than near the peak-performance region. The approximately 4:1 excitatory-to-inhibitory balance associated with many biological networks does not prioritize peak reservoir performance in this abstraction; instead, it helps produce a more hyperparameter-invariant, lower-performance operating point.
 
 The sign-normalization ablations test this proposed pathway by comparing the usual own-radius normalization, \(W/\rho(W)\), with normalization by the original matrix's spectral radius, \(W/\rho(W_{\mathrm{orig}})\). Under own-radius normalization, performance increases strongly as the negative-edge fraction moves toward the balanced regime, and CV increases at the same time (Figure~\ref{fig:sign_norm_matched_cel}). When the same perturbed matrices are instead scaled by the original spectral radius, the performance curves are much flatter through the middle of the sign-fraction sweep. The ER-matched and predicted-polarity-only controls show the same qualitative separation between normalization conventions (Supplemental Figures~\ref{fig:sign_norm_matched_er} and~\ref{fig:sign_norm_removed_cel}). In these sweeps, more balanced signs are associated with lower \(\rho_{\mathrm{raw}}\), and own-radius normalization then produces larger effective recurrent weight magnitudes. The data are therefore consistent with this rescaling pathway contributing to higher task-agnostic performance and greater hyperparameter sensitivity.
-\miles{maybe this last bit is not needed, I discuss it later}
-This performance trend is consistent with recent reservoir studies in which balanced or slightly inhibition-dominated regimes outperform excitation-dominated regimes on memory, prediction, and locomotor-pattern tasks \parencite{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}.
 
-This interpretation also connects the present results to recent reservoir work on the no-strong-loops principle. Hadaeghi and colleagues show that stronger reciprocal loops inflate \(\rho(W)\), forcing spectral-radius normalization to downscale recurrent weights more strongly and reducing memory capacity and kernel rank \parencite{hadaeghi_no_strong_loops_2025}. Although their manipulation targets reciprocity rather than E/I edge signs, it is consistent with the spectral-radius account developed above.
-
-\subsection{Residual architecture effects}
+This interpretation also connects the present results to recent reservoir work on the no-strong-loops principle. Hadaeghi and colleagues show that stronger reciprocal loops inflate \(\rho(W)\), forcing spectral-radius normalization to downscale recurrent weights more strongly and reducing memory capacity and kernel rank \parencite{hadaeghi_no_strong_loops_2025}.
 
 Topology, sign placement, and weight placement have detectable effects when all ablations are scaled by the fixed spectral radius of their row baseline, but these effects are amplified when each ablation is normalized by its updated spectral radius. The fixed-baseline-radius control (Supplemental Figure~\ref{fig:shuf_all_supp}) therefore shows that the shuffle effects are not solely consequences of normalization; the stronger separation under own-radius normalization (Figure~\ref{fig:shuf_all}) is consistent with the spectral-radius account developed above.
 
 The sign-balance result explains the main architecture-level separation, but it does not explain differences among controls that share the same global sign ratio. The degree-preserving shuffle experiments reveal residual differences: controls with lower \(\rho_{\mathrm{raw}}\) tend to move toward higher mean performance and higher CV, whereas controls with higher \(\rho_{\mathrm{raw}}\) tend to move in the opposite direction (Figure~\ref{fig:shuf_all}).
 
-Within these controls, topology and magnitude placement have measurable effects. Weight shuffling, connection shuffling, and connection-plus-weight shuffling move the real-valued reservoir toward higher mean performance and CV. The signed-unit and all-positive binary controls indicate that the observed effects depend on the weight regime: sign and topology shuffling lower performance and CV in the signed-unit case, whereas topological shuffling produces smaller shifts once every nonzero edge has the same positive sign and magnitude.
+These effects also depend on the weight regime. Weight shuffling, connection shuffling, and connection-plus-weight shuffling move the real-valued reservoir toward higher mean performance and CV. The signed-unit and all-positive binary controls indicate that the observed effects depend on the weight regime: sign and topology shuffling lower performance and CV in the signed-unit case, whereas topological shuffling produces smaller shifts once every nonzero edge has the same positive sign and magnitude.
 
-Global E/I sign imbalance, local sign placement, topology, and heterogeneous magnitude placement are interacting structural features rather than independent explanations for the performance--invariance tradeoff.
+Direct biological interpretation should be cautious because the connectome model compresses substantial uncertainty into a static network with predicted chemical polarity labels. The main analyses use the ambiguous-edge version of the \textit{C.\ elegans} reservoir. Predicted-polarity chemical edges retain their EleganSign-derived labels, but those labels are inferred rather than directly measured: they come from gene-expression and neurotransmitter logic, not from voltage- or calcium-response measurements \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. The model includes chemical synapses only and omits electrical synapses, making it a less complete representation of the biological circuit and limiting direct biological interpretation. Coverage is incomplete as well: many chemical synapses have complex or unpredicted labels, and the inferred inhibitory edge fraction depends on how those ambiguous cases are handled. Furthermore, \textit{C.\ elegans} E/I balance varies across development and aging \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}, and our model delivers inputs to all neurons rather than to biologically separated populations, such as sending inputs to sensory neurons and taking outputs from motor neurons or muscles. Thus, this work should be read as a structural reservoir analysis, not a faithful dynamical simulation of the animal.
 
-\subsection{Biological and modeling interpretation}
-
-Direct biological interpretation should be cautious because the connectome model compresses substantial uncertainty into a static network with predicted chemical polarity labels. The main analyses use the ambiguous-edge version of the \textit{C.\ elegans} reservoir. Predicted-polarity chemical edges retain their EleganSign-derived labels, but those labels are inferred rather than directly measured: they come from gene-expression and neurotransmitter logic, not from voltage- or calcium-response measurements \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. The model includes chemical synapses only and omits electrical synapses, making it a less complete representation of the biological circuit and limiting direct biological interpretation. Coverage is incomplete as well: many chemical synapses have complex or unpredicted labels, and the inferred inhibitory edge fraction depends on how those ambiguous cases are handled.
-
-Furthermore, \textit{C.\ elegans} E/I balance varies across development and aging \parencite{wirak_florman_alkema_connor_gabel_2022, tanis_bellemer_moresco_forbush_koelle_2009}, and our model delivers inputs to all neurons rather than to biologically separated populations, such as sending inputs to sensory neurons and taking outputs from motor neurons or muscles. Thus, this work should be read as a structural reservoir analysis, not a faithful dynamical simulation of the animal.
-
-\subsection{E/I curve shape results from symmetric reservoir}
 The shape of the sign-balance curves should also be interpreted through the reservoir abstraction. The state nonlinearity is \(\tanh\), which is odd-symmetric, and the readout is linear. Under these choices, exchanging positive recurrent weights for negative recurrent weights changes the sign structure of the recurrent drive, but the linear readout can absorb corresponding sign changes in the state features. This makes the sign-flip experiment approximately symmetric by construction.
 
 This helps explain why the present curves differ from studies in which the best operating point is slightly inhibition-dominated. Srinivasan, Plenz, and Girvan as well as de Graaf and colleagues report performance benefits from balanced or slightly inhibition-dominated adaptive E/I regimes \parencite{srinivasan_ei_balance_2025,de_graaf_spinal_inhibition_2025}. We hypothesize that the difference may partly reflect the activation functions used across these models: Srinivasan, Plenz, and Girvan use a sigmoid activation, whereas de Graaf and colleagues use a rectified \(\tanh\) activation. In such models, the activation function is not fully sign-symmetric. Positive and negative inputs are transformed differently, so the optimal E/I ratio can shift away from exactly 50:50.
@@ -397,8 +383,6 @@ This helps explain why the present curves differ from studies in which the best 
 
 
 For reservoir computing and recurrent neural network design, raw spectral radius before normalization should be treated as a key mediator between architecture and performance--invariance behavior. E/I sign ratio remains an important design parameter, complementing recent performance-focused work on adaptive E/I control in reservoirs \parencite{srinivasan_ei_balance_2025}, but it should be evaluated alongside topology, sign placement, magnitude distribution, and magnitude placement.
-
-\subsection{Future directions}
 
 First, the same framework could also be used to investigate how recurrent-network optimization algorithms alter task-agnostic statistics, and whether task-driven optimization moves structured reservoirs along the same performance--invariance axes identified here. Relevant comparisons include reward-modulated reinforcement learning in densely recurrent biological networks \parencite{churchland_garcia-ojalvo_2026}, covariance-matrix-adaptation evolution strategies (CMA-ES) \parencite{hansen_cmaes_2016}, and scalable, derivative-free evolution strategies such as OpenAI-ES \parencite{salimans_evolution_2017}.
 
@@ -408,7 +392,6 @@ Third, the uncertainty in synaptic-sign assignment should be treated as an exper
 
 Fourth, repeating the analyses with full information-processing-capacity (IPC) measurements would provide a more complete account of the reservoirs' computational properties. This was not feasible for the present ablation grid because of its computational cost.
 
-Finally, future work should investigate how to lower \(\rho_{\mathrm{raw}}\) after fixing the E/I balance, particularly when a smaller raw spectral radius is needed to improve task performance. The central challenge will be to identify structural interventions that achieve this reduction without collapsing the reservoir's dynamical diversity. \miles{maybe cut this}
 
 \section*{Code and Data Availability}
 
@@ -436,14 +419,14 @@ The main text shows the sign-fraction sweep for the ambiguous-edge \textit{C.\ e
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\linewidth]{New_figs/signtest_final_new/er_matched/meanpoint_frac_cv_lines.png}
+    \includegraphics[width=\linewidth]{thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png}
     \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the \textit{C.\ elegans}-matched ER topology. The truncated IPC diagnostic is denoted in orange, GR in red, MC in blue, and KR in green. The same performance--invariance tradeoff appears without the biological topology, indicating that global sign balance can act as a primary control parameter within this matched random-topology setting. A total of 50 trials were performed for each fraction.}
     \label{fig:er_frac_curves}
 \end{figure}
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\linewidth]{New_figs/signtest_final_new/new_removed/meanpoint_frac_cv_lines.png}
+    \includegraphics[width=\linewidth]{thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png}
     \caption{Mean performance and mean hyperparameter CV as a function of negative sign percentage for the predicted-polarity-only \textit{C.\ elegans} contact-count magnitude pattern after removing connections with unknown or complex signs. The truncated IPC diagnostic is denoted in orange, GR in red, MC in blue, and KR in green. Reintroducing inhibitory signs again traces the performance--invariance tradeoff, now with contact-count magnitudes held in place. A total of 200 trials were performed for each fraction.}
     \label{fig:og_cel_frac_curves}
 \end{figure}
@@ -606,7 +589,7 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
     \scriptsize
     \caption[Mean CV differences for real-valued shuffle controls]{Mean CV differences for real-valued shuffle controls relative to the ambiguous-edge \textit{C.\ elegans} reservoir. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
     \label{tab:shuffle_cv_real}
-    \resizebox{\columnwidth}{!}{\input{New_figs/shuf/cv_mean_differences_table_vs_real.tex}}
+    \resizebox{\columnwidth}{!}{\input{thesis/topology_shuffles/cv_mean_differences_table_vs_real.tex}}
 \end{table}
 
 \begin{table}[p]
@@ -614,7 +597,7 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
     \scriptsize
     \caption[Mean CV differences for signed-unit shuffle controls]{Mean CV differences for signed-unit shuffle controls relative to the ambiguous-edge local sign-preserving signed-unit reservoir. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
     \label{tab:shuffle_cv_pm1}
-    \resizebox{\columnwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_local_sign_binary_table.tex}}
+    \resizebox{\columnwidth}{!}{\input{thesis/topology_shuffles/cv_mean_differences_vs_local_sign_binary_table.tex}}
 \end{table}
 
 \begin{table}[p]
@@ -622,7 +605,7 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
     \scriptsize
     \caption[Mean CV differences for the all-positive binary topology shuffle]{Mean CV differences for the all-positive binary topology shuffle relative to the all-positive binary \textit{C.\ elegans} topology. Baseline CV and control CV are mean coefficients of variation across the 96-point hyperparameter sweep. \(\Delta\)CV is control minus baseline.}
     \label{tab:shuffle_cv_binary}
-    \resizebox{\columnwidth}{!}{\input{New_figs/shuf/cv_mean_differences_vs_binary_base_table.tex}}
+    \resizebox{\columnwidth}{!}{\input{thesis/topology_shuffles/cv_mean_differences_vs_binary_base_table.tex}}
 \end{table}
 
 

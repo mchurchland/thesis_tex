@@ -114,7 +114,7 @@ We use echo state networks, a discrete-time reservoir-computing model in which r
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
 y_t &= W^{\mathrm{out}}\,x_t.
 \end{align}
-Here \(t\) is the discrete time index; \(N\) is the number of reservoir units; \(x_t,\tilde{x}_{t+1}\in\mathbb{R}^{N}\) are the states after and before leaky integration, respectively; and \(u_t\in\mathbb{R}^{m}\) and \(y_t\in\mathbb{R}^{p}\) are the input and linear readout. The experiments use scalar inputs, so \(m=1\). The matrices \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\), \(W^{\mathrm{in}}\in\mathbb{R}^{N\times m}\), and \(W^{\mathrm{out}}\in\mathbb{R}^{p\times N}\) are the recurrent, input, and readout weight matrices, respectively. The scalar \(s_{\mathrm{in}}\) sets the input scale, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\alpha\in(0,1]\) is the leak rate. The \(\tanh\) activation is applied elementwise.\footnote{The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).} Only \(W^{\mathrm{out}}\) is fit during metric calculations, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
+Here \(t\) is the discrete time index; \(N\) is the number of reservoir units; \(x_t,\tilde{x}_{t+1}\in\mathbb{R}^{N}\) are the states after and before leaky integration, respectively; and \(u_t\in\mathbb{R}^{m}\) and \(y_t\in\mathbb{R}^{p}\) are the input and linear readout. The experiments use scalar inputs, so \(m=1\). The matrices \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\), \(W^{\mathrm{in}}\in\mathbb{R}^{N\times m}\), and \(W^{\mathrm{out}}\in\mathbb{R}^{p\times N}\) are the recurrent, input, and readout weight matrices, respectively. The scalar \(s_{\mathrm{in}}\) sets the input scale, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\alpha\in(0,1]\) is the leak rate. The \(\tanh\) activation is applied elementwise.\footnote{The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).} Only \(W^{\mathrm{out}}\) is trained, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
 
 \label{sec:hyperparameters}
 The experiments sweep four hyperparameters: spectral radius, leak rate, input scaling, and neuron-bias. The spectral radius \(\rho(W^{\mathrm{res}})\) roughly sets the strength of recurrent feedback, where
@@ -144,6 +144,64 @@ The sweep values were chosen as a compact sensitivity grid. Every architecture i
 We use an anatomical \textit{C.\ elegans} chemical-synapse connectome with predicted chemical polarity labels derived from EleganSign \parencite{fenyves_szilágyi_zsolt_vassy_csaba_2020,elegansign_web}. Here, a polarity label specifies whether a chemical connection is predicted to have an excitatory (positive) or inhibitory (negative) effect. In our reservoir model, each neuron in the connectome is represented as one reservoir unit, and the directed chemical synapses define the recurrent matrix \(W^{\mathrm{res}}\). A chemical connection from neuron \(i\) to neuron \(j\) adds a directed edge with magnitude equal to the number of synaptic contacts from \(i\) to neuron \(j\) \parencite{Varshney2011,Cook2019,Casal2020,churchland_garcia-ojalvo_2026}. Self-loops, for which \(i=j\), are removed during preprocessing. For chemical edges with a predicted polarity label, we multiply this contact-count magnitude by the inferred sign, so predicted excitatory chemical synapses enter the matrix with positive weights and predicted inhibitory chemical synapses enter with negative weights. Ambiguous (unpredicted/complex) chemical edges are handled by the preprocessing versions described below. The resulting signed, weighted adjacency matrix is the fixed recurrent reservoir used in the reservoir update above: inputs drive the reservoir through \(W^{\mathrm{in}}\), recurrent activity propagates through the connectome-derived \(W^{\mathrm{res}}\), and only the output readout \(W^{\mathrm{out}}\) is trained. Before evaluation, each reservoir instance is rescaled to the target spectral radius described in ~\ref{sec:hyperparameters}.
 
 These polarity labels apply only to chemical synapses. We follow the EleganSign chemical-edge export as the source database for the recurrent matrix. EleganSign predicts excitatory or inhibitory effects for chemical synapses, so its database does not include electrical synapses. The labels are also predictions rather than direct functional measurements, because they are inferred from gene-expression and neurotransmitter logic rather than from voltage- or calcium-response measurements. EleganSign predicts signs for 1740 synapses, while 1864 synapses have unknown or complex sign predictions. To make the analysis less dependent on a single treatment of these ambiguous edges, we construct two reservoir versions. In the predicted-polarity-only version, unknown or complex-sign connections are removed. In the ambiguous-edge version, the 1864 ambiguous edges are retained. For each repeat, these edges are randomly permuted, exactly 452 are assigned negative signs, and the remaining 1412 are assigned positive signs. This fixed count matches the negative fraction among non-ambiguous connections, \(p_-=0.2425287356\). The main results use the ambiguous-edge version, while selected experiments include the predicted-polarity-only version.
+
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{figs/toplogy/new_4to1_four_panel.png}
+    \caption{Representative network visualizations for the preprocessing and random-sign controls used in the architecture analyses. A: ambiguous-edge \textit{C.\ elegans} connectome, with predicted chemical polarity labels where available and unknown or complex-sign chemical edges assigned using fixed counts that match the positive- and negative-edge proportions among labeled connections. B: predicted-polarity-only chemical connectome after removing unknown or complex-sign edges. C: \textit{C.\ elegans}-matched Erd\H{o}s--R\'enyi random topology control with the same data-derived sign proportions. D: A after a connection shuffle. Orange edges denote positive weights and blue edges denote negative weights; saturated colors indicate larger weight magnitudes. The disconnected component visible in these panels corresponds to pharyngeal nervous system neurons.}
+    \label{fig:shuffle_four_panel}
+\end{figure*}
+
+\begin{table*}[!t]
+\centering
+\small
+\caption{Architecture families used in the reservoir ablations.}
+\label{tab:architecture_groups}
+\begin{tabular}{p{0.18\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.18\textwidth}}
+\toprule
+Architecture family & Manipulation & Preserved properties & Role \\
+\midrule
+Ambiguous-edge baseline & \textit{C.\ elegans} topology, contact-count magnitudes, EleganSign-inferred signs where available, and fixed-count ambiguous-edge signs matching the labeled-edge sign proportions & All properties of the selected ambiguous-edge preprocessing & Defines the low-variance reference regime \\
+\addlinespace
+Sign-preserving simplifications & Replace magnitudes with signed unit, half-Gaussian, or uniform magnitudes & Topology, edge set, sign placement, and global sign ratio & Tests how much invariance is recovered by preserving inferred chemical E/I sign imbalance \\
+\addlinespace
+Binary weights & Collapse all nonzero weights to positive binary values & Topology and edge set & Tests the effect of removing inhibitory signs and weight magnitudes  \\
+\addlinespace
+Degree-preserving topology controls & Rewire edges using directed degree-preserving connection shuffles & Node count, edge count, directed in- and out-degree sequences, and signed-weight distribution & Tests the contribution of local topology \\
+\addlinespace
+Weight-placement controls & Shuffle signed contact-count weights across existing edges & Topology, edge set, and signed-weight distribution & Tests the contribution of local weight placement \\
+\addlinespace
+Random-topology baselines & Use Gaussian-weight \textit{C.\ elegans}-topology, Erd\H{o}s--R\'enyi, and Watts--Strogatz small-world controls \parencite{network_science,KAWAI201915,Wssmallworld} & Node count and the designated weight/sign regime & Tests the contribution of broad topology class \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[!t]
+    \centering
+    \scriptsize
+    \caption{Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline.}
+    \label{tab:exp_setup}
+    \renewcommand{\arraystretch}{1.15}
+    \setlength{\tabcolsep}{4pt}
+    \begin{tabular}{p{0.18\textwidth}p{0.53\textwidth}p{0.24\textwidth}}
+        \toprule
+        Component & Setting & Notes \\
+        \midrule
+        Trial unit & One reservoir instantiation evaluated across the full hyperparameter grid & Reservoir reset between trials; shared input sequence within a trial \\
+        \addlinespace
+        Sequence split & 2500 total steps: 500 washout, 1500 train, 500 test & GR uses perturbation s.d.\ 0.01 \\
+        \addlinespace
+        Readout and metrics & MC max delay 30; truncated IPC max delay 30; IPC targets are Legendre orders \(1\)--\(5\); ridge alpha \(=10^{-4}\) & Pairwise and cross-delay products are omitted from truncated IPC \\
+        \addlinespace
+        Hyperparameter sweep & Spectral radius \(\{0.6,0.8,0.95,1.05\}\); leak \(\{0.6,0.8,1.0\}\); input scaling \(\{0.1,0.5,1.0,1.5\}\); bias \(\{0.0,0.1\}\) & 96 combinations per trial \\
+        \addlinespace
+        Pipeline & Instantiate reservoir \(\rightarrow\) assign weights/signs \(\rightarrow\) scale to target spectral radius \(\rightarrow\) drive i.i.d.\ input \(\rightarrow\) split washout/train/test \(\rightarrow\) compute KR, GR, truncated IPC, MC \(\rightarrow\) aggregate CV & CV is computed within each trial before averaging over trials \\
+        \addlinespace
+        Replicates & Architecture comparison: 200 trials/model & Totals: 19,200 evaluations per condition \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
 
 \subsection{Task-agnostic reservoir metrics}
 We measure four task-agnostic reservoir metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and a truncated single-delay information-processing-capacity (IPC) diagnostic \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
@@ -198,30 +256,6 @@ In reservoir computing, hyperparameter sensitivity is commonly analyzed through 
 \subsection{Structural perturbations and architecture controls}
 To determine which topological and weight-related features influence robustness, we construct controlled network perturbations derived from the \emph{C.~elegans} connectome. Table~\ref{tab:architecture_groups} summarizes the architecture families used in the ablations; full architecture definitions and visualizations are provided in Supplemental Section~\ref{supp:architectures}. Figures~\ref{fig:shuffle_four_panel}, \ref{fig:a_to_h}, and \ref{fig:i_to_o} show graphical representations of the network perturbations and architecture controls used in this work.
 
-\begin{table*}[!t]
-\centering
-\small
-\caption{Architecture families used in the reservoir ablations.}
-\label{tab:architecture_groups}
-\begin{tabular}{p{0.18\textwidth}p{0.25\textwidth}p{0.25\textwidth}p{0.18\textwidth}}
-\toprule
-Architecture family & Manipulation & Preserved properties & Role \\
-\midrule
-Ambiguous-edge baseline & \textit{C.\ elegans} topology, contact-count magnitudes, EleganSign-inferred signs where available, and fixed-count ambiguous-edge signs matching the labeled-edge sign proportions & All properties of the selected ambiguous-edge preprocessing & Defines the low-variance reference regime \\
-\addlinespace
-Sign-preserving simplifications & Replace magnitudes with signed unit, half-Gaussian, or uniform magnitudes & Topology, edge set, sign placement, and global sign ratio & Tests how much invariance is recovered by preserving inferred chemical E/I sign imbalance \\
-\addlinespace
-Binary weights & Collapse all nonzero weights to positive binary values & Topology and edge set & Tests the effect of removing inhibitory signs and weight magnitudes  \\
-\addlinespace
-Degree-preserving topology controls & Rewire edges using directed degree-preserving connection shuffles & Node count, edge count, directed in- and out-degree sequences, and signed-weight distribution & Tests the contribution of local topology \\
-\addlinespace
-Weight-placement controls & Shuffle signed contact-count weights across existing edges & Topology, edge set, and signed-weight distribution & Tests the contribution of local weight placement \\
-\addlinespace
-Random-topology baselines & Use Gaussian-weight \textit{C.\ elegans}-topology, Erd\H{o}s--R\'enyi, and Watts--Strogatz small-world controls \parencite{network_science,KAWAI201915,Wssmallworld} & Node count and the designated weight/sign regime & Tests the contribution of broad topology class \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
 Raw spectral radius is not held fixed by these constructions; its variation is an outcome of the structural manipulations and is analyzed explicitly below.
 
 \subsubsection{Connection shuffle}
@@ -247,46 +281,9 @@ w_{NZ}=\{W_{ij}:(i,j)\in NZ\},
 \]
 shuffle this vector, and then reassign the shuffled weights back to the same nonzero indices. Thus, the set of existing connections is unchanged, but the weights assigned to those connections are redistributed across the fixed network topology.
 
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=\textwidth]{figs/toplogy/new_4to1_four_panel.png}
-    \caption{Representative network visualizations for the preprocessing and random-sign controls used in the architecture analyses. A: ambiguous-edge \textit{C.\ elegans} connectome, with predicted chemical polarity labels where available and unknown or complex-sign chemical edges assigned using fixed counts that match the positive- and negative-edge proportions among labeled connections. B: predicted-polarity-only chemical connectome after removing unknown or complex-sign edges. C: \textit{C.\ elegans}-matched Erd\H{o}s--R\'enyi random topology control with the same data-derived sign proportions. D: A after a connection shuffle. Orange edges denote positive weights and blue edges denote negative weights; saturated colors indicate larger weight magnitudes. The disconnected component visible in these panels corresponds to pharyngeal nervous system neurons.}
-    \label{fig:shuffle_four_panel}
-\end{figure*}
-
-
 \subsection{Experimental setup}
 \label{sec:trial_def}
 Table~\ref{tab:exp_setup} condenses the trial definition, hyperparameter sweep, and evaluation pipeline.
-
-\begin{table*}[t]
-    \centering
-    \scriptsize
-    \caption{Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline.}
-    \label{tab:exp_setup}
-    \renewcommand{\arraystretch}{1.15}
-    \setlength{\tabcolsep}{4pt}
-    \begin{tabular}{p{0.18\textwidth}p{0.53\textwidth}p{0.24\textwidth}}
-        \toprule
-        Component & Setting & Notes \\
-        \midrule
-        Trial unit & One reservoir instantiation evaluated across the full hyperparameter grid & Reservoir reset between trials; shared input sequence within a trial \\
-        \addlinespace
-        Sequence split & 2500 total steps: 500 washout, 1500 train, 500 test & GR uses perturbation s.d.\ 0.01 \\
-        \addlinespace
-        Readout and metrics & MC max delay 30; truncated IPC max delay 30; IPC targets are Legendre orders \(1\)--\(5\); ridge alpha \(=10^{-4}\) & Pairwise and cross-delay products are omitted from truncated IPC \\
-        \addlinespace
-        Hyperparameter sweep & Spectral radius \(\{0.6,0.8,0.95,1.05\}\); leak \(\{0.6,0.8,1.0\}\); input scaling \(\{0.1,0.5,1.0,1.5\}\); bias \(\{0.0,0.1\}\) & 96 combinations per trial \\
-        \addlinespace
-        Pipeline & Instantiate reservoir \(\rightarrow\) assign weights/signs \(\rightarrow\) scale to target spectral radius \(\rightarrow\) drive i.i.d.\ input \(\rightarrow\) split washout/train/test \(\rightarrow\) compute KR, GR, truncated IPC, MC \(\rightarrow\) aggregate CV & CV is computed within each trial before averaging over trials \\
-        \addlinespace
-        Replicates & Architecture comparison: 200 trials/model & Totals: 19,200 evaluations per condition \\
-        \bottomrule
-    \end{tabular}
-\end{table*}
-
-
-
 
 \section{Results}
 \label{sec:results}

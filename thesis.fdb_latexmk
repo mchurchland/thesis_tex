@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1784115445.93369 "thesis.aux" "thesis.bbl" "thesis" 1784115493.6234 0
-  "./bibliography.bib" 1783938241.95214 25161 ea777ac761a617b933b4aba9e2f0a305 ""
+["bibtex thesis"] 1784126203.2631 "thesis.aux" "thesis.bbl" "thesis" 1784126209.71727 0
+  "./bibliography.bib" 1784118983.40616 25161 ea777ac761a617b933b4aba9e2f0a305 ""
   "./style_neural_networks/cas-model2-names.bst" 1782742284.17007 31802 28b630660245c09f173aac55be552b29 ""
-  "thesis.aux" 1784115493.33326 28329 e11d5ad3959d80bf5a4fe4f1b6ec2cea "pdflatex"
+  "thesis.aux" 1784126209.49252 32355 f25a7c37f708bb3f6335c32e03539437 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1784115486.12826 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1784115493.62361 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1784115485.87279 68510 d875f4b8e2f94a50a3491906a9cc6716 ""
+["pdflatex"] 1784126203.33861 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1784126209.7174 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1784126196.77306 71239 cfa2fa1856ec7e19580159d5d990a1d8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
@@ -171,7 +171,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty" 1137110595 3366 d938ad2440edc1ea1c9042843580ec42 ""
   "/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
-  "/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty" 1670275497 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stix.fd" 1525875814 1801 77f24a4de2d640f19d644cf489bab946 ""
   "/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd" 1525875814 1773 e9ba3b0984306a374d47149e34079f58 ""
   "/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd" 1525875814 1665 c8d9f4701ba9c1de147e39bd5ba24690 ""
@@ -210,11 +209,13 @@
   "supplement/option_8_average_perf_cv_er_matched.png" 1784109790.38846 319547 ccb2bed2629f9880d726ec65dd7720b0 ""
   "supplement/option_8_average_perf_cv_removed.png" 1784109790.38896 346957 0ea2223eb5aaa1def30c766742c82dbe ""
   "supplement/sign_sweep_quicklook.png" 1784109790.38946 181416 2e11e2704921499266f83d97be7110b6 ""
-  "thesis.abs" 1784115486.65939 2254 d26f209a126fbf3d2c05fd8e389a129f "pdflatex"
-  "thesis.aux" 1784115493.33326 28329 e11d5ad3959d80bf5a4fe4f1b6ec2cea "pdflatex"
-  "thesis.bbl" 1784115446.01022 19172 1dc484bc99ef75a876c6fab4f8bd7c54 "bibtex thesis"
-  "thesis.out" 1784115486.59546 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.tex" 1784115485.87279 68510 d875f4b8e2f94a50a3491906a9cc6716 ""
+  "supplement/triad_activation_comparison_0_vs_50.png" 1784125316.13131 333340 d33c6e964b468131fc3ea97483f5fe35 ""
+  "supplement/triad_sign_fraction.png" 1784125316.16573 273405 27d84c7f3bd22c80941950cf36c94bb6 ""
+  "thesis.abs" 1784126203.76013 2254 d26f209a126fbf3d2c05fd8e389a129f "pdflatex"
+  "thesis.aux" 1784126209.49252 32355 f25a7c37f708bb3f6335c32e03539437 "pdflatex"
+  "thesis.bbl" 1784126203.33505 17201 0e4056117d690cb3f9ca3931afa1353d "bibtex thesis"
+  "thesis.out" 1784126203.73453 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.tex" 1784126196.77306 71239 cfa2fa1856ec7e19580159d5d990a1d8 ""
   "thesis/architecture/50per.png" 1784109790.38256 358252 930ad4dbf7241ad12d56baf4ed1ded96 ""
   "thesis/raw_rho/raw_rho_performance_summary.png" 1784109790.38383 690125 c65f5d55edc762be7adfea276c6333f4 ""
   "thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png" 1784109790.38417 536191 5223447d566e640ee4949b43b7cf7e77 ""

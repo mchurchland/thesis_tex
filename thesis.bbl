@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{32}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -17,18 +17,6 @@
 \newblock \bibinfo{title}{Network science}.
 \newblock \bibinfo{publisher}{Cambridge University Press}, \bibinfo{address}{Cambridge}.
 \newblock \URLprefix \url{https://www.cambridge.org/fr/academic/subjects/physics/statistical-physics/network-science?format=HB&isbn=9781107076266}.
-%Type = Article
-\bibitem[{Bassett and Bullmore(2007)}]{Bassett2007}
-\bibinfo{author}{Bassett, D.}, \bibinfo{author}{Bullmore, E.}, \bibinfo{year}{2007}.
-\newblock \bibinfo{title}{Small-world brain networks}.
-\newblock \bibinfo{journal}{The Neuroscientist : a review journal bringing neurobiology, neurology and psychiatry} \bibinfo{volume}{12}, \bibinfo{pages}{512--23}.
-\newblock \DOIprefix\doi{10.1177/1073858406293182}.
-%Type = Article
-\bibitem[{Broido and Clauset(2019)}]{broido_clauset_2019}
-\bibinfo{author}{Broido, A.D.}, \bibinfo{author}{Clauset, A.}, \bibinfo{year}{2019}.
-\newblock \bibinfo{title}{Scale-free networks are rare}.
-\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{10}.
-\newblock \DOIprefix\doi{https://doi.org/10.1038/s41467-019-08746-5}.
 %Type = Article
 \bibitem[{Casal et~al.(2020)Casal, Galella, Vilarroya and Garcia-Ojalvo}]{Casal2020}
 \bibinfo{author}{Casal, M.A.}, \bibinfo{author}{Galella, S.}, \bibinfo{author}{Vilarroya, O.}, \bibinfo{author}{Garcia-Ojalvo, J.}, \bibinfo{year}{2020}.
@@ -91,11 +79,6 @@
 \bibinfo{author}{Hansen, N.}, \bibinfo{year}{2016}.
 \newblock \bibinfo{title}{The {CMA} evolution strategy: A tutorial}.
 \newblock \bibinfo{journal}{arXiv preprint arXiv:1604.00772} \DOIprefix\doi{10.48550/arXiv.1604.00772}.
-%Type = Book
-\bibitem[{Henley(2021)}]{Henley_2021}
-\bibinfo{author}{Henley, C.}, \bibinfo{year}{2021}.
-\newblock \bibinfo{title}{Foundations of neuroscience Casey Henley}.
-\newblock \bibinfo{publisher}{Michigan State University}.
 %Type = Misc
 \bibitem[{Iannello et~al.(2025)Iannello, Ciampi, Lagani, Tonelli, Crocco, Calcagnile, Di~Garbo, Cremisi and Amato}]{iannello_brc_2025}
 \bibinfo{author}{Iannello, L.}, \bibinfo{author}{Ciampi, L.}, \bibinfo{author}{Lagani, G.}, \bibinfo{author}{Tonelli, F.}, \bibinfo{author}{Crocco, E.}, \bibinfo{author}{Calcagnile, L.M.}, \bibinfo{author}{Di~Garbo, A.}, \bibinfo{author}{Cremisi, F.}, \bibinfo{author}{Amato, G.}, \bibinfo{year}{2025}.
@@ -124,12 +107,6 @@
 \newblock \bibinfo{title}{A small-world topology enhances the echo state property and signal propagation in reservoir computing}.
 \newblock \bibinfo{journal}{Neural Networks} \bibinfo{volume}{112}, \bibinfo{pages}{15--23}.
 \newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0893608019300115}, \DOIprefix\doi{https://doi.org/10.1016/j.neunet.2019.01.002}.
-%Type = Article
-\bibitem[{Latora and Marchiori(2001)}]{latora2001}
-\bibinfo{author}{Latora, V.}, \bibinfo{author}{Marchiori, M.}, \bibinfo{year}{2001}.
-\newblock \bibinfo{title}{Efficient behavior of small-world networks}.
-\newblock \bibinfo{journal}{Physical review letters} \bibinfo{volume}{87}, \bibinfo{pages}{198701}.
-\newblock \DOIprefix\doi{10.1103/PhysRevLett.87.198701}.
 %Type = Incollection
 \bibitem[{Luko{\v{s}}evi{\v{c}}ius(2012)}]{Lukosevicius2012PracticalESN}
 \bibinfo{author}{Luko{\v{s}}evi{\v{c}}ius, M.}, \bibinfo{year}{2012}.
@@ -176,11 +153,6 @@
 \bibinfo{author}{Salimans, T.}, \bibinfo{author}{Ho, J.}, \bibinfo{author}{Chen, X.}, \bibinfo{author}{Sidor, S.}, \bibinfo{author}{Sutskever, I.}, \bibinfo{year}{2017}.
 \newblock \bibinfo{title}{Evolution strategies as a scalable alternative to reinforcement learning}.
 \newblock \bibinfo{journal}{arXiv preprint arXiv:1703.03864} \DOIprefix\doi{10.48550/arXiv.1703.03864}.
-%Type = Incollection
-\bibitem[{Sheffler et~al.(2025)Sheffler, Reddy and Pillarisetty}]{Sheffler2023Neurotransmitters}
-\bibinfo{author}{Sheffler, Z.M.}, \bibinfo{author}{Reddy, V.}, \bibinfo{author}{Pillarisetty, L.S.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{Physiology, neurotransmitters}, in: \bibinfo{editor}{{StatPearls Publishing}} (Ed.), \bibinfo{booktitle}{StatPearls}. \bibinfo{publisher}{StatPearls Publishing}, \bibinfo{address}{Treasure Island, FL}.
-\newblock \URLprefix \url{https://www.ncbi.nlm.nih.gov/books/NBK539894/}. \bibinfo{note}{updated 2023 May 1}.
 %Type = Article
 \bibitem[{Srinivasan et~al.(2025)Srinivasan, Plenz and Girvan}]{srinivasan_ei_balance_2025}
 \bibinfo{author}{Srinivasan, K.}, \bibinfo{author}{Plenz, D.}, \bibinfo{author}{Girvan, M.}, \bibinfo{year}{2025}.

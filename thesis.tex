@@ -230,6 +230,7 @@ Memory capacity (MC) measures how well a linear readout can reconstruct past inp
 \sum_{d=1}^{D_{\max}}
 r_{\mathrm{score}}(u(t-d),\hat{u}_d(t)).
 \]
+The sensitivity of MC to this delay truncation is reported in Supplemental Section~\ref{supp:metric_truncation}.
 
 \subsubsection{Truncated information-processing-capacity diagnostic}
 \label{sec:ipc}
@@ -243,7 +244,7 @@ Information processing capacity (IPC) measures how well the reservoir can recons
 r_{\mathrm{score}}\!\left(z_{k,d}(t),\hat{z}_{k,d}(t)\right)
 \right).
 \]
-Because cross-delay products are not included, the reported IPC values should be interpreted as an incomplete IPC-style statistic rather than an exhaustive estimate of full IPC.
+Because cross-delay products are not included, the reported IPC values should be interpreted as an incomplete IPC-style statistic rather than an exhaustive estimate of full IPC. Sensitivity to the selected polynomial orders and maximum delay is reported in Supplemental Section~\ref{supp:metric_truncation}.
 
 \subsection{Hyperparameter-invariance metric}
 To investigate stability under hyperparameter variation, we examine how each performance metric changes across the hyperparameter grid.
@@ -431,6 +432,15 @@ r_{\mathrm{score}}(y,\hat{y})
 \right].
 \]
 Here, \(\bar{y}\) and \(\bar{\hat{y}}\) are the sample means of the target and predicted values, respectively; \(\epsilon=10^{-12}\) prevents division by zero; and \(\operatorname{clip}_{[0,1]}\) restricts numerical output to the interval from 0 to 1. Thus, \(r_{\mathrm{score}}\) is the squared Pearson correlation.
+
+\subsection{Truncation sensitivity of MC and IPC}
+\label{supp:metric_truncation}
+We tested whether the choices \(D_{\max}=30\) and \(K=\{1,2,3,4,5\}\) materially affect comparisons among the ten architecture models. For these checks, capture denotes the truncated capacity as a percentage of the corresponding value from an extended reference calculation, and ranking stability is calculated across architecture-level means.
+
+For the polynomial-order check, the sum over orders 1--5 captured \(92.82\%\pm2.34\%\) of the value obtained using orders 1--10; the minimum capture was \(82.37\%\), and the fifth percentile was \(88.81\%\). Agreement between the two calculations was high (Pearson \(r=0.9993\), Spearman \(r_s=0.9979\)).
+For the IPC delay check, values computed with \(D_{\max}=30\) captured \(91.10\%\)--\(96.33\%\) of the corresponding \(D_{\max}=80\) architecture means. For the ambiguous-edge \textit{C.\ elegans} model, capture was \(92.16\%\pm1.22\%\). Despite the reduction in absolute IPC, the ranking of all ten architectures was unchanged relative to \(D_{\max}=80\) (Pearson \(r=1.0000\), Spearman \(r_s=1.0000\)).
+
+MC was less sensitive to the delay cutoff. At \(D_{\max}=30\), the mean capture across architectures was \(97.86\%\), with architecture means ranging from \(96.90\%\) to \(98.89\%\). Capture for the ambiguous-edge \textit{C.\ elegans} model was \(97.18\%\pm0.66\%\), and the architecture ranking was again identical to that obtained with \(D_{\max}=80\) (Pearson \(r=1.0000\), Spearman \(r_s=1.0000\)). Thus, the selected truncations modestly reduce absolute capacity values, particularly for IPC, but preserve the comparative architecture results.
 
 \subsection{Additional sign-fraction controls}
 \label{supp:sign_fraction_controls}
@@ -649,4 +659,7 @@ Tables~\ref{tab:shuffle_cv_real}--\ref{tab:shuffle_cv_binary} report the paired 
 
 
 \clearpage
+% The CAS class records the page counter after the final float flush.
+% Restore the number of the last typeset page for the footer total.
+\addtocounter{page}{-1}
 \end{document}

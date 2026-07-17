@@ -29,7 +29,7 @@
 \citation{morra_fly_rc_2023}
 \citation{iannello_brc_2025}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\citation{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}
+\citation{jaeger_echo_state_2001,Lukosevicius2012PracticalESN,sun_systematic_review_2024}
 \citation{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}
 \citation{gallicchio_chasing_2019}
 \citation{Lukosevicius2012PracticalESN,gallicchio_chasing_2019}
@@ -58,11 +58,11 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Representative network visualizations for the preprocessing and random-sign controls used in the architecture analyses. A: ambiguous-edge \textit  {C.\ elegans} connectome, with predicted chemical polarity labels where available and unknown or complex-sign chemical edges assigned using fixed counts that match the positive- and negative-edge proportions among labeled connections. B: predicted-polarity-only chemical connectome after removing unknown or complex-sign edges. C: \textit  {C.\ elegans}-matched Erd\H {o}s--R\'enyi random topology control with the same data-derived sign proportions. D: A after a connection shuffle. Orange edges denote positive weights and blue edges denote negative weights; saturated colors indicate larger weight magnitudes. The disconnected component visible in these panels corresponds to pharyngeal nervous system neurons.}}{4}{figure.1}\protected@file@percent }
 \newlabel{fig:shuffle_four_panel}{{1}{4}{Representative network visualizations for the preprocessing and random-sign controls used in the architecture analyses. A: ambiguous-edge \textit {C.\ elegans} connectome, with predicted chemical polarity labels where available and unknown or complex-sign chemical edges assigned using fixed counts that match the positive- and negative-edge proportions among labeled connections. B: predicted-polarity-only chemical connectome after removing unknown or complex-sign edges. C: \textit {C.\ elegans}-matched Erd\H {o}s--R\'enyi random topology control with the same data-derived sign proportions. D: A after a connection shuffle. Orange edges denote positive weights and blue edges denote negative weights; saturated colors indicate larger weight magnitudes. The disconnected component visible in these panels corresponds to pharyngeal nervous system neurons}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Hyperparameter-invariance metric}{4}{subsection.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Structural perturbations and architecture controls}{4}{subsection.2.5}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Architecture families used in the reservoir ablations.}}{5}{table.1}\protected@file@percent }
 \newlabel{tab:architecture_groups}{{1}{5}{Architecture families used in the reservoir ablations}{table.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline.}}{5}{table.2}\protected@file@percent }
 \newlabel{tab:exp_setup}{{2}{5}{Compact summary of the trial definition, hyperparameter sweep, and evaluation pipeline}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Structural perturbations and architecture controls}{5}{subsection.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Connection shuffle}{5}{subsubsection.2.5.1}\protected@file@percent }
 \newlabel{Connection-Shuffle}{{2.5.1}{5}{Connection shuffle}{subsubsection.2.5.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Weight shuffle}{6}{subsubsection.2.5.2}\protected@file@percent }
@@ -72,8 +72,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
 \newlabel{sec:results}{{3}{6}{Results}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The ambiguous-edge connectome occupies a low-variance reservoir regime}{6}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit  {C.\ elegans} connectome.}}{6}{figure.2}\protected@file@percent }
-\newlabel{fig:arch}{{2}{6}{Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit {C.\ elegans} connectome}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit  {C.\ elegans} connectome. The colormap encodes the fraction of edges with negative weights: blue denotes 0\%, purple denotes the ambiguous-edge connectome fraction (the ``CE'' tick, approximately 24.25\%), and yellow denotes 50\%.}}{6}{figure.2}\protected@file@percent }
+\newlabel{fig:arch}{{2}{6}{Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit {C.\ elegans} connectome. The colormap encodes the fraction of edges with negative weights: blue denotes 0\%, purple denotes the ambiguous-edge connectome fraction (the ``CE'' tick, approximately 24.25\%), and yellow denotes 50\%}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Global sign-balance sweep reveals a performance--invariance tradeoff}{6}{subsection.3.2}\protected@file@percent }
 \newlabel{balance}{{3.2}{6}{Global sign-balance sweep reveals a performance--invariance tradeoff}{subsection.3.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Mean performance and mean hyperparameter CV as a function of negative sign percentage for the ambiguous-edge \textit  {C.\ elegans} topology with real weights, in which complex or unknown neurotransmitter signs are assigned using fixed counts of 452 negative and 1412 positive edges. The truncated IPC diagnostic is denoted in orange, GR in red, MC in blue, and KR in green. Points show averages across 200 trials for each fraction. The black dot denotes the negative sign percentage of the ambiguous-edge connectome.}}{7}{figure.3}\protected@file@percent }
@@ -128,11 +128,12 @@
 \bibcite{platt_systematic_2022}{{25}{2022}{{Platt et~al.}}{{Platt, Penny, Smith, Chen and Abarbanel}}}
 \bibcite{salimans_evolution_2017}{{26}{2017}{{Salimans et~al.}}{{Salimans, Ho, Chen, Sidor and Sutskever}}}
 \bibcite{srinivasan_ei_balance_2025}{{27}{2025}{{Srinivasan et~al.}}{{Srinivasan, Plenz and Girvan}}}
-\bibcite{tanis_bellemer_moresco_forbush_koelle_2009}{{28}{2009}{{Tanis et~al.}}{{Tanis, Bellemer, Moresco, Forbush and Koelle}}}
-\bibcite{Varshney2011}{{29}{2011}{{Varshney et~al.}}{{Varshney, Chen, Paniagua, Hall and Chklovskii}}}
-\bibcite{Wssmallworld}{{30}{1998}{{Watts and Strogatz}}{{}}}
-\bibcite{wirak_florman_alkema_connor_gabel_2022}{{31}{2022}{{Wirak et~al.}}{{Wirak, Florman, Alkema, Connor and Gabel}}}
-\bibcite{yu_bpu_2025}{{32}{2025}{{Yu et~al.}}{{Yu, Qin, Liu, Xu, Vogelstein, Brown and Vogelstein}}}
+\bibcite{sun_systematic_review_2024}{{28}{2024}{{Sun et~al.}}{{Sun, Song, Cai, Zhang, Hong and Li}}}
+\bibcite{tanis_bellemer_moresco_forbush_koelle_2009}{{29}{2009}{{Tanis et~al.}}{{Tanis, Bellemer, Moresco, Forbush and Koelle}}}
+\bibcite{Varshney2011}{{30}{2011}{{Varshney et~al.}}{{Varshney, Chen, Paniagua, Hall and Chklovskii}}}
+\bibcite{Wssmallworld}{{31}{1998}{{Watts and Strogatz}}{{}}}
+\bibcite{wirak_florman_alkema_connor_gabel_2022}{{32}{2022}{{Wirak et~al.}}{{Wirak, Florman, Alkema, Connor and Gabel}}}
+\bibcite{yu_bpu_2025}{{33}{2025}{{Yu et~al.}}{{Yu, Qin, Liu, Xu, Vogelstein, Brown and Vogelstein}}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Supplemental Information}{12}{appendix.A}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Squared-correlation score}{12}{subsection.A.1}\protected@file@percent }
 \newlabel{supp:r_score}{{A.1}{12}{Squared-correlation score}{subsection.A.1}{}}

@@ -108,20 +108,20 @@ The results identify a tradeoff between performance and hyperparameter invarianc
 \section{Methods}
 \label{sec:methods}
 \subsection{Reservoir model and hyperparameters}
-We use echo state networks, a discrete-time reservoir-computing model in which recurrent weights are fixed and only linear readouts are trained using linear regression \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}. The state update is
+We use echo state networks, a discrete-time reservoir-computing model in which recurrent weights are fixed and only linear readouts are trained using linear regression \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN,sun_systematic_review_2024}. The state update is
 \begin{align}
 \tilde{x}_{t+1} &= \tanh\!\left(W^{\mathrm{res}} x_t + s_{\mathrm{in}}W^{\mathrm{in}} u_{t+1} + b \right), \\
 x_{t+1} &= (1-\alpha)\,x_t + \alpha\,\tilde{x}_{t+1}, \\
 y_t &= W^{\mathrm{out}}\,x_t.
 \end{align}
-Here \(t\) is the discrete time index; \(N\) is the number of reservoir units; \(x_t,\tilde{x}_{t+1}\in\mathbb{R}^{N}\) are the states after and before leaky integration, respectively; and \(u_t\in\mathbb{R}^{m}\) and \(y_t\in\mathbb{R}^{p}\) are the input and linear readout. The experiments use scalar inputs, so \(m=1\). The matrices \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\), \(W^{\mathrm{in}}\in\mathbb{R}^{N\times m}\), and \(W^{\mathrm{out}}\in\mathbb{R}^{p\times N}\) are the recurrent, input, and readout weight matrices, respectively. The scalar \(s_{\mathrm{in}}\) sets the input scale, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\alpha\in(0,1]\) is the leak rate. The \(\tanh\) activation is applied elementwise.\footnote{The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).} Only \(W^{\mathrm{out}}\) is trained, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
+Here \(t\) is the discrete time index and \(N\) is the number of reservoir units. The vector \(x_t\in\mathbb{R}^{N}\) is the reservoir state at time \(t\); \(\tilde{x}_{t+1}\in\mathbb{R}^{N}\) is the next state before leaky integration, and \(x_{t+1}\in\mathbb{R}^{N}\) is the resulting next state. The vectors \(u_t\in\mathbb{R}^{m}\) and \(y_t\in\mathbb{R}^{p}\) are the input and linear readout. The experiments use scalar inputs, so \(m=1\). The matrices \(W^{\mathrm{res}}\in\mathbb{R}^{N\times N}\), \(W^{\mathrm{in}}\in\mathbb{R}^{N\times m}\), and \(W^{\mathrm{out}}\in\mathbb{R}^{p\times N}\) are the recurrent, input, and readout weight matrices, respectively. The scalar \(s_{\mathrm{in}}\) sets the input scale, \(b\in\mathbb{R}^{N}\) is a fixed per-neuron bias vector, and \(\alpha\in(0,1]\) is the leak rate. The \(\tanh\) activation is applied elementwise.\footnote{The readout dimension is \(p=5\) for IPC so that multiple polynomial orders can be solved in a single batch; otherwise \(p=1\).} Only \(W^{\mathrm{out}}\) is trained, and each instantiated reservoir is rescaled to a target spectral radius before evaluation.
 
 \label{sec:hyperparameters}
-The experiments sweep four hyperparameters: spectral radius, leak rate, input scaling, and neuron-bias. The spectral radius \(\rho(W^{\mathrm{res}})\) roughly sets the strength of recurrent feedback, where
+The experiments sweep four hyperparameters: spectral radius, leak rate, input scaling, and neuron-bias. The spectral radius \(\rho(W^{\mathrm{res}})\) sets the strength of recurrent feedback, where
 \[
 \rho(W) = \max_{1 \le i \le N} |\lambda_i|.
 \]
-Here \(W\in\mathbb{R}^{N\times N}\) is a square weight matrix and \(\lambda_i\) is its \(i\)th eigenvalue. In reservoir computing, recurrent matrices are commonly rescaled to a target spectral radius near one to keep the dynamics in a useful operating range\parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}.\footnote{Reservoirs can remain computationally useful for values below or above this range \parencite{gallicchio_chasing_2019}.} In our experiments, we apply network perturbations and then rescale the resulting matrix as
+Here \(W\in\mathbb{R}^{N\times N}\) is a weight matrix and \(\lambda_i\) is its \(i\)th eigenvalue. In reservoir computing, recurrent matrices are commonly rescaled to a target spectral radius near one to keep the dynamics in a useful operating range \parencite{jaeger_echo_state_2001,Lukosevicius2012PracticalESN}, although reservoirs can remain computationally useful at values below or above this range \parencite{gallicchio_chasing_2019}. In our experiments, we apply network perturbations and then rescale the resulting matrix as
 \[
 W^{\mathrm{res}}
 =
@@ -207,9 +207,9 @@ Random-topology baselines & Use Gaussian-weight \textit{C.\ elegans}-topology, E
 We measure four task-agnostic reservoir metrics: kernel rank (KR), generalization rank (GR), memory capacity (MC), and a truncated single-delay information-processing-capacity (IPC) diagnostic \parencite{maass_comp_power_2004,Jaeger2002STMESN,dambre_ipc_2012,pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}.
 
 \subsubsection{Kernel Rank}
-Kernel rank (KR) measures how many effectively independent reservoir activity dimensions are produced by the input drive \parencite{maass_comp_power_2004}. After discarding an initial washout period to remove dependence on the arbitrary initial state, we collect the remaining reservoir states in the post-washout state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute effective rank ($\mathrm{erank}$):
+Kernel rank (KR) measures how many effectively independent reservoir activity dimensions are produced by the input drive \parencite{maass_comp_power_2004}. After discarding an initial washout period to remove dependence on the arbitrary initial state, we collect the remaining reservoir states in the post-washout state matrix \(X\in\mathbb{R}^{T\times N}\), center it over time, compute singular values \(S=\{\sigma_i\}\), normalize them as \(p_i=\sigma_i/\sum_j\sigma_j\), and compute the effective rank, denoted by \(E_{\mathrm{rank}}\):
 \[
-\mathrm{KR} = \mathrm{erank}
+\mathrm{KR} = E_{\mathrm{rank}}(X)
 =
 \exp\left(-\sum_i p_i\ln p_i\right).
 \]
@@ -219,7 +219,7 @@ Generalization rank (GR) measures how reservoir states change under small input 
 \[
 \mathrm{GR}
 =
-\mathrm{erank}(X'-X).
+E_{\mathrm{rank}}(X'-X).
 \]
 
 \subsubsection{Memory Capacity}
@@ -297,7 +297,7 @@ Figure~\ref{fig:arch} compares architecture families by mean task-agnostic perfo
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{thesis/architecture/50per.png}
-    \caption{Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit{C.\ elegans} connectome.}
+    \caption{Performance--CV island plots for the architecture comparison using 50\% density contours. Each panel shows mean performance against hyperparameter CV for one task-agnostic metric. Points mark condition centers; the starred island marks the ambiguous-edge \textit{C.\ elegans} connectome. The colormap encodes the fraction of edges with negative weights: blue denotes 0\%, purple denotes the ambiguous-edge connectome fraction (the ``CE'' tick, approximately 24.25\%), and yellow denotes 50\%.}
     \label{fig:arch}
 \end{figure}
 
@@ -359,7 +359,7 @@ Thus, the synthesis is not simply that the global E/I ratio matters. A purely si
 
 
 \section{Discussion}
-This study uses a connectome-derived reservoir as a structured recurrent neural network model for asking how architecture controls hyperparameter sensitivity. The ambiguous-edge \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime. The ablations reveal a hierarchy of interacting architectural effects. Global E/I sign imbalance is the strongest control identified in the present model: preserving the chemical sign ratio recovers much of the connectome's invariance across task-agnostic metrics, even when exact sign placement or edge magnitudes are altered. Its influence nevertheless depends on topology, sign placement, and the distribution and placement of weight magnitudes. E/I balance therefore acts as an architecture-dependent parameter rather than an independent determinant of reservoir dynamics.
+This study uses a EleganSign-derived reservoir as a structured recurrent neural network model for asking how architecture controls hyperparameter sensitivity. The ambiguous-edge \textit{C.\ elegans} connectome occupies a relatively low-variance reservoir regime. The ablations reveal a hierarchy of interacting architectural effects. Global E/I sign imbalance is the strongest control identified in the present model: preserving the chemical sign ratio recovers much of the connectome's invariance across task-agnostic metrics, even when exact sign placement or edge magnitudes are altered. Its influence nevertheless depends on topology, sign placement, and the distribution and placement of weight magnitudes. E/I balance therefore acts as an architecture-dependent parameter rather than an independent determinant of reservoir dynamics.
 
 
 Figure~\ref{fig:arch} demonstrates that the ambiguous-edge \textit{C.\ elegans} model has the lowest mean CV for all metrics except MC. Furthermore, weight shuffling, connection shuffling, and connection-plus-weight shuffling all move the reservoir toward higher mean performance and higher CV (Figure~\ref{fig:shuf_all}, top row). Thus, in this reservoir abstraction, the local topology, sign and weight placement of the ambiguous-edge \textit{C.\ elegans} model appear to favor invariance over peak performance.
@@ -390,9 +390,7 @@ Second, future experiments should use anatomically motivated input and output po
 
 Third, the uncertainty in synaptic-sign assignment should be treated as an experimental variable in its own right. Comparing alternative neurotransmitter-to-sign mappings, and systematically varying the treatment of ambiguous edges, would reveal whether the observed E/I-balance effects persist across plausible inhibitory fractions and polarity assumptions.
 
-Fourth, repeating the analyses with full information-processing-capacity (IPC) measurements would provide a more complete account of the reservoirs' computational properties. This was not feasible for the present ablation grid because of its computational cost.
-
-Fifth, future work should test whether the performance--invariance profiles of sign-balanced networks can be reproduced through changes in topology and weight magnitudes alone.
+Fourth, repeating the analyses with full information-processing-capacity (IPC) measurements would provide a more complete account of the reservoirs' computational properties. This was not feasible for the present ablation grid because of its computational cost. Future work should test whether the performance--invariance profiles of sign-balanced networks can be reproduced through changes in topology and weight magnitudes alone.
 
 \section*{Code and Data Availability}
 

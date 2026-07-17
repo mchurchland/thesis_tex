@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{33}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -159,6 +159,12 @@
 \newblock \bibinfo{title}{Boosting reservoir computing with brain-inspired adaptive control of {E-I} balance}.
 \newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{16}, \bibinfo{pages}{10212}.
 \newblock \DOIprefix\doi{10.1038/s41467-025-64978-8}.
+%Type = Article
+\bibitem[{Sun et~al.(2024)Sun, Song, Cai, Zhang, Hong and Li}]{sun_systematic_review_2024}
+\bibinfo{author}{Sun, C.}, \bibinfo{author}{Song, M.}, \bibinfo{author}{Cai, D.}, \bibinfo{author}{Zhang, B.}, \bibinfo{author}{Hong, S.}, \bibinfo{author}{Li, H.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{A systematic review of echo state networks from design to application}.
+\newblock \bibinfo{journal}{IEEE Transactions on Artificial Intelligence} \bibinfo{volume}{5}, \bibinfo{pages}{23--37}.
+\newblock \DOIprefix\doi{10.1109/TAI.2022.3225780}.
 %Type = Article
 \bibitem[{Tanis et~al.(2009)Tanis, Bellemer, Moresco, Forbush and Koelle}]{tanis_bellemer_moresco_forbush_koelle_2009}
 \bibinfo{author}{Tanis, J.E.}, \bibinfo{author}{Bellemer, A.}, \bibinfo{author}{Moresco, J.J.}, \bibinfo{author}{Forbush, B.}, \bibinfo{author}{Koelle, M.R.}, \bibinfo{year}{2009}.

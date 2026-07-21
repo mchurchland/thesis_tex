@@ -5,45 +5,45 @@ The style file: style_neural_networks/cas-model2-names.bst
 Database file #1: bibliography.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty pages in gallicchio_chasing_2019
-You've used 33 entries,
+You've used 34 entries,
             2990 wiz_defined-function locations,
-            976 strings with 14692 characters,
-and the built_in function-call counts, 23437 in all, are:
-= -- 1773
-> -- 1068
+            984 strings with 15047 characters,
+and the built_in function-call counts, 24337 in all, are:
+= -- 1836
+> -- 1118
 < -- 18
-+ -- 424
-- -- 375
-* -- 2696
-:= -- 3421
-add.period$ -- 117
-call.type$ -- 33
-change.case$ -- 292
-chr.to.int$ -- 33
-cite$ -- 34
-duplicate$ -- 1706
-empty$ -- 1571
-format.name$ -- 467
-if$ -- 4328
++ -- 443
+- -- 393
+* -- 2809
+:= -- 3552
+add.period$ -- 121
+call.type$ -- 34
+change.case$ -- 303
+chr.to.int$ -- 34
+cite$ -- 35
+duplicate$ -- 1763
+empty$ -- 1629
+format.name$ -- 488
+if$ -- 4491
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 338
-newline$ -- 198
-num.names$ -- 134
-pop$ -- 578
+missing$ -- 351
+newline$ -- 204
+num.names$ -- 138
+pop$ -- 597
 preamble$ -- 1
-purify$ -- 256
+purify$ -- 266
 quote$ -- 0
-skip$ -- 516
+skip$ -- 530
 stack$ -- 0
-substring$ -- 790
-swap$ -- 1316
+substring$ -- 834
+swap$ -- 1366
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 294
+type$ -- 303
 warning$ -- 1
-while$ -- 125
+while$ -- 129
 width$ -- 0
-write$ -- 526
+write$ -- 542
 (There was 1 warning)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{34}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -15,31 +15,56 @@
 \bibitem[{Barab{\'a}si(2016)}]{network_science}
 \bibinfo{author}{Barab{\'a}si, A.L.}, \bibinfo{year}{2016}.
 \newblock \bibinfo{title}{Network science}.
-\newblock \bibinfo{publisher}{Cambridge University Press}, \bibinfo{address}{Cambridge}.
-\newblock \URLprefix \url{https://www.cambridge.org/fr/academic/subjects/physics/statistical-physics/network-science?format=HB&isbn=9781107076266}.
+\newblock \bibinfo{publisher}{Cambridge University Press},
+  \bibinfo{address}{Cambridge}.
+\newblock \URLprefix
+  \url{https://www.cambridge.org/fr/academic/subjects/physics/statistical-physics/network-science?format=HB&isbn=9781107076266}.
 %Type = Article
-\bibitem[{Casal et~al.(2020)Casal, Galella, Vilarroya and Garcia-Ojalvo}]{Casal2020}
-\bibinfo{author}{Casal, M.A.}, \bibinfo{author}{Galella, S.}, \bibinfo{author}{Vilarroya, O.}, \bibinfo{author}{Garcia-Ojalvo, J.}, \bibinfo{year}{2020}.
-\newblock \bibinfo{title}{Soft-wired long-term memory in a natural recurrent neuronal network}.
-\newblock \bibinfo{journal}{Chaos} \bibinfo{volume}{30}, \bibinfo{pages}{061101}.
+\bibitem[{Casal et~al.(2020)Casal, Galella, Vilarroya and
+  Garcia-Ojalvo}]{Casal2020}
+\bibinfo{author}{Casal, M.A.}, \bibinfo{author}{Galella, S.},
+  \bibinfo{author}{Vilarroya, O.}, \bibinfo{author}{Garcia-Ojalvo, J.},
+  \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Soft-wired long-term memory in a natural recurrent
+  neuronal network}.
+\newblock \bibinfo{journal}{Chaos} \bibinfo{volume}{30},
+  \bibinfo{pages}{061101}.
 \newblock \DOIprefix\doi{10.1063/5.0009709}.
 %Type = Article
 \bibitem[{Churchland and Garcia-Ojalvo(2026)}]{churchland_garcia-ojalvo_2026}
-\bibinfo{author}{Churchland, M.W.}, \bibinfo{author}{Garcia-Ojalvo, J.}, \bibinfo{year}{2026}.
-\newblock \bibinfo{title}{Reinforcement learning in densely recurrent biological networks}.
-\newblock \bibinfo{journal}{iScience} \bibinfo{volume}{29}, \bibinfo{pages}{114436}.
+\bibinfo{author}{Churchland, M.W.}, \bibinfo{author}{Garcia-Ojalvo, J.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Reinforcement learning in densely recurrent
+  biological networks}.
+\newblock \bibinfo{journal}{iScience} \bibinfo{volume}{29},
+  \bibinfo{pages}{114436}.
 \newblock \DOIprefix\doi{https://doi.org/10.1016/j.isci.2025.114436}.
 %Type = Article
-\bibitem[{Cook et~al.(2019)Cook, Jarrell, Brittin, Wang, Bloniarz, Yakovlev, Nguyen, Tang, Bayer, Duerr, B{\"u}low, Hobert, Hall and Emmons}]{Cook2019}
-\bibinfo{author}{Cook, S.J.}, \bibinfo{author}{Jarrell, T.A.}, \bibinfo{author}{Brittin, C.A.}, \bibinfo{author}{Wang, Y.}, \bibinfo{author}{Bloniarz, A.E.}, \bibinfo{author}{Yakovlev, M.A.}, \bibinfo{author}{Nguyen, K.C.Q.}, \bibinfo{author}{Tang, L.T.H.}, \bibinfo{author}{Bayer, E.A.}, \bibinfo{author}{Duerr, J.S.}, \bibinfo{author}{B{\"u}low, H.E.}, \bibinfo{author}{Hobert, O.}, \bibinfo{author}{Hall, D.H.}, \bibinfo{author}{Emmons, S.W.}, \bibinfo{year}{2019}.
-\newblock \bibinfo{title}{Whole-animal connectomes of both \emph{Caenorhabditis elegans} sexes}.
-\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{571}, \bibinfo{pages}{63--71}.
+\bibitem[{Cook et~al.(2019)Cook, Jarrell, Brittin, Wang, Bloniarz, Yakovlev,
+  Nguyen, Tang, Bayer, Duerr, B{\"u}low, Hobert, Hall and Emmons}]{Cook2019}
+\bibinfo{author}{Cook, S.J.}, \bibinfo{author}{Jarrell, T.A.},
+  \bibinfo{author}{Brittin, C.A.}, \bibinfo{author}{Wang, Y.},
+  \bibinfo{author}{Bloniarz, A.E.}, \bibinfo{author}{Yakovlev, M.A.},
+  \bibinfo{author}{Nguyen, K.C.Q.}, \bibinfo{author}{Tang, L.T.H.},
+  \bibinfo{author}{Bayer, E.A.}, \bibinfo{author}{Duerr, J.S.},
+  \bibinfo{author}{B{\"u}low, H.E.}, \bibinfo{author}{Hobert, O.},
+  \bibinfo{author}{Hall, D.H.}, \bibinfo{author}{Emmons, S.W.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Whole-animal connectomes of both \emph{Caenorhabditis
+  elegans} sexes}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{571},
+  \bibinfo{pages}{63--71}.
 \newblock \DOIprefix\doi{10.1038/s41586-019-1352-7}.
 %Type = Article
-\bibitem[{Dambre et~al.(2012)Dambre, Verstraeten, Schrauwen and Massar}]{dambre_ipc_2012}
-\bibinfo{author}{Dambre, J.}, \bibinfo{author}{Verstraeten, D.}, \bibinfo{author}{Schrauwen, B.}, \bibinfo{author}{Massar, S.}, \bibinfo{year}{2012}.
-\newblock \bibinfo{title}{Information processing capacity of dynamical systems}.
-\newblock \bibinfo{journal}{Scientific Reports} \bibinfo{volume}{2}, \bibinfo{pages}{514}.
+\bibitem[{Dambre et~al.(2012)Dambre, Verstraeten, Schrauwen and
+  Massar}]{dambre_ipc_2012}
+\bibinfo{author}{Dambre, J.}, \bibinfo{author}{Verstraeten, D.},
+  \bibinfo{author}{Schrauwen, B.}, \bibinfo{author}{Massar, S.},
+  \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Information processing capacity of dynamical
+  systems}.
+\newblock \bibinfo{journal}{Scientific Reports} \bibinfo{volume}{2},
+  \bibinfo{pages}{514}.
 \newblock \DOIprefix\doi{10.1038/srep00514}.
 %Type = Misc
 \bibitem[{{EleganSign}(2026)}]{elegansign_web}
@@ -47,152 +72,292 @@
 \newblock \bibinfo{title}{Elegansign}.
 \newblock \URLprefix \url{https://elegansign.linkgroup.hu/}.
 %Type = Article
-\bibitem[{Fenyves et~al.(2020)Fenyves, Szilágyi, Vassy, Sőti and Csermely}]{fenyves_szilágyi_zsolt_vassy_csaba_2020}
-\bibinfo{author}{Fenyves, B.G.}, \bibinfo{author}{Szilágyi, G.S.}, \bibinfo{author}{Vassy, Z.}, \bibinfo{author}{Sőti, C.}, \bibinfo{author}{Csermely, P.}, \bibinfo{year}{2020}.
-\newblock \bibinfo{title}{Synaptic polarity and sign-balance prediction using gene expression data in the caenorhabditis elegans chemical synapse neuronal connectome network}.
-\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{16}, \bibinfo{pages}{e1007974–e1007974}.
+\bibitem[{Fenyves et~al.(2020)Fenyves, Szilágyi, Vassy, Sőti and
+  Csermely}]{fenyves_szilágyi_zsolt_vassy_csaba_2020}
+\bibinfo{author}{Fenyves, B.G.}, \bibinfo{author}{Szilágyi, G.S.},
+  \bibinfo{author}{Vassy, Z.}, \bibinfo{author}{Sőti, C.},
+  \bibinfo{author}{Csermely, P.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Synaptic polarity and sign-balance prediction using
+  gene expression data in the caenorhabditis elegans chemical synapse neuronal
+  connectome network}.
+\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{16},
+  \bibinfo{pages}{e1007974–e1007974}.
 \newblock \DOIprefix\doi{https://doi.org/10.1371/journal.pcbi.1007974}.
 %Type = Misc
-\bibitem[{Freddi et~al.(2026)Freddi, Seseri, Nigrisoli and Basti}]{freddi_robust_spiking_2026}
-\bibinfo{author}{Freddi, R.}, \bibinfo{author}{Seseri, N.}, \bibinfo{author}{Nigrisoli, D.}, \bibinfo{author}{Basti, A.}, \bibinfo{year}{2026}.
-\newblock \bibinfo{title}{Bridging theory and practice in crafting robust spiking reservoirs}.
-\newblock \URLprefix \url{https://arxiv.org/abs/2604.06395}, \DOIprefix\doi{10.48550/arXiv.2604.06395}, \href{http://arxiv.org/abs/2604.06395}{\tt arXiv:2604.06395}.
+\bibitem[{Freddi et~al.(2026)Freddi, Seseri, Nigrisoli and
+  Basti}]{freddi_robust_spiking_2026}
+\bibinfo{author}{Freddi, R.}, \bibinfo{author}{Seseri, N.},
+  \bibinfo{author}{Nigrisoli, D.}, \bibinfo{author}{Basti, A.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Bridging theory and practice in crafting robust
+  spiking reservoirs}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2604.06395},
+  \DOIprefix\doi{10.48550/arXiv.2604.06395},
+  \href{http://arxiv.org/abs/2604.06395}{\tt arXiv:2604.06395}.
 %Type = Inproceedings
 \bibitem[{Gallicchio(2019)}]{gallicchio_chasing_2019}
 \bibinfo{author}{Gallicchio, C.}, \bibinfo{year}{2019}.
-\newblock \bibinfo{title}{Chasing the echo state property}, in: \bibinfo{booktitle}{ESANN 2019 Proceedings, European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning}, \bibinfo{publisher}{i6doc.com}, \bibinfo{address}{Bruges, Belgium}.
-\newblock \bibinfo{note}{Preprint available at \url{https://arxiv.org/abs/1811.10892}}.
+\newblock \bibinfo{title}{Chasing the echo state property}, in:
+  \bibinfo{booktitle}{ESANN 2019 Proceedings, European Symposium on Artificial
+  Neural Networks, Computational Intelligence and Machine Learning},
+  \bibinfo{publisher}{i6doc.com}, \bibinfo{address}{Bruges, Belgium}.
+\newblock \bibinfo{note}{Preprint available at
+  \url{https://arxiv.org/abs/1811.10892}}.
 %Type = Article
-\bibitem[{de~Graaf et~al.(2025)de~Graaf, Wagner, Mochizuki and Le~Mouel}]{de_graaf_spinal_inhibition_2025}
-\bibinfo{author}{de~Graaf, M.L.}, \bibinfo{author}{Wagner, H.}, \bibinfo{author}{Mochizuki, L.}, \bibinfo{author}{Le~Mouel, C.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{Decreased spinal inhibition leads to undiversified locomotor patterns}.
-\newblock \bibinfo{journal}{Biological Cybernetics} \bibinfo{volume}{119}, \bibinfo{pages}{12}.
+\bibitem[{de~Graaf et~al.(2025)de~Graaf, Wagner, Mochizuki and
+  Le~Mouel}]{de_graaf_spinal_inhibition_2025}
+\bibinfo{author}{de~Graaf, M.L.}, \bibinfo{author}{Wagner, H.},
+  \bibinfo{author}{Mochizuki, L.}, \bibinfo{author}{Le~Mouel, C.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Decreased spinal inhibition leads to undiversified
+  locomotor patterns}.
+\newblock \bibinfo{journal}{Biological Cybernetics} \bibinfo{volume}{119},
+  \bibinfo{pages}{12}.
 \newblock \DOIprefix\doi{10.1007/s00422-025-01011-7}.
 %Type = Misc
-\bibitem[{Hadaeghi et~al.(2025)Hadaeghi, Fakhar, Khajehnejad and Hilgetag}]{hadaeghi_no_strong_loops_2025}
-\bibinfo{author}{Hadaeghi, F.}, \bibinfo{author}{Fakhar, K.}, \bibinfo{author}{Khajehnejad, M.}, \bibinfo{author}{Hilgetag, C.C.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{A computational perspective on the no-strong-loops principle in brain networks}.
+\bibitem[{Hadaeghi et~al.(2025)Hadaeghi, Fakhar, Khajehnejad and
+  Hilgetag}]{hadaeghi_no_strong_loops_2025}
+\bibinfo{author}{Hadaeghi, F.}, \bibinfo{author}{Fakhar, K.},
+  \bibinfo{author}{Khajehnejad, M.}, \bibinfo{author}{Hilgetag, C.C.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{A computational perspective on the no-strong-loops
+  principle in brain networks}.
 \newblock \bibinfo{howpublished}{bioRxiv preprint}.
-\newblock \URLprefix \url{https://www.biorxiv.org/content/10.1101/2025.09.24.678310v1}, \DOIprefix\doi{10.1101/2025.09.24.678310}. \bibinfo{note}{posted September 25, 2025}.
+\newblock \URLprefix
+  \url{https://www.biorxiv.org/content/10.1101/2025.09.24.678310v1},
+  \DOIprefix\doi{10.1101/2025.09.24.678310}. \bibinfo{note}{posted September
+  25, 2025}.
 %Type = Article
 \bibitem[{Hansen(2016)}]{hansen_cmaes_2016}
 \bibinfo{author}{Hansen, N.}, \bibinfo{year}{2016}.
 \newblock \bibinfo{title}{The {CMA} evolution strategy: A tutorial}.
-\newblock \bibinfo{journal}{arXiv preprint arXiv:1604.00772} \DOIprefix\doi{10.48550/arXiv.1604.00772}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1604.00772}
+  \DOIprefix\doi{10.48550/arXiv.1604.00772}.
 %Type = Misc
-\bibitem[{Iannello et~al.(2025)Iannello, Ciampi, Lagani, Tonelli, Crocco, Calcagnile, Di~Garbo, Cremisi and Amato}]{iannello_brc_2025}
-\bibinfo{author}{Iannello, L.}, \bibinfo{author}{Ciampi, L.}, \bibinfo{author}{Lagani, G.}, \bibinfo{author}{Tonelli, F.}, \bibinfo{author}{Crocco, E.}, \bibinfo{author}{Calcagnile, L.M.}, \bibinfo{author}{Di~Garbo, A.}, \bibinfo{author}{Cremisi, F.}, \bibinfo{author}{Amato, G.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{From neurons to computation: Biological reservoir computing for pattern recognition}.
-\newblock \URLprefix \url{https://arxiv.org/abs/2505.03510}, \href{http://arxiv.org/abs/2505.03510}{\tt arXiv:2505.03510}.
+\bibitem[{Iannello et~al.(2025)Iannello, Ciampi, Lagani, Tonelli, Crocco,
+  Calcagnile, Di~Garbo, Cremisi and Amato}]{iannello_brc_2025}
+\bibinfo{author}{Iannello, L.}, \bibinfo{author}{Ciampi, L.},
+  \bibinfo{author}{Lagani, G.}, \bibinfo{author}{Tonelli, F.},
+  \bibinfo{author}{Crocco, E.}, \bibinfo{author}{Calcagnile, L.M.},
+  \bibinfo{author}{Di~Garbo, A.}, \bibinfo{author}{Cremisi, F.},
+  \bibinfo{author}{Amato, G.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{From neurons to computation: Biological reservoir
+  computing for pattern recognition}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2505.03510},
+  \href{http://arxiv.org/abs/2505.03510}{\tt arXiv:2505.03510}.
 %Type = Techreport
 \bibitem[{Jaeger(2001)}]{jaeger_echo_state_2001}
 \bibinfo{author}{Jaeger, H.}, \bibinfo{year}{2001}.
-\newblock \bibinfo{title}{The ``echo state'' approach to analysing and training recurrent neural networks}.
-\newblock \bibinfo{type}{Technical Report} \bibinfo{number}{148}. GMD -- German National Research Center for Information Technology.
-\newblock \bibinfo{note}{Corrected version (2010) available at \url{https://www.ai.rug.nl/minds/uploads/EchoStatesTechRep.pdf}}.
+\newblock \bibinfo{title}{The ``echo state'' approach to analysing and training
+  recurrent neural networks}.
+\newblock \bibinfo{type}{Technical Report} \bibinfo{number}{148}. GMD -- German
+  National Research Center for Information Technology.
+\newblock \bibinfo{note}{Corrected version (2010) available at
+  \url{https://www.ai.rug.nl/minds/uploads/EchoStatesTechRep.pdf}}.
 %Type = Techreport
 \bibitem[{Jaeger(2002)}]{Jaeger2002STMESN}
 \bibinfo{author}{Jaeger, H.}, \bibinfo{year}{2002}.
 \newblock \bibinfo{title}{Short Term Memory in Echo State Networks}.
-\newblock \bibinfo{type}{GMD-Report} \bibinfo{number}{152}. GMD -- German National Research Institute for Computer Science.
-\newblock \URLprefix \url{https://www.ai.rug.nl/minds/uploads/STMEchoStatesTechRep.pdf}.
+\newblock \bibinfo{type}{GMD-Report} \bibinfo{number}{152}. GMD -- German
+  National Research Institute for Computer Science.
+\newblock \URLprefix
+  \url{https://www.ai.rug.nl/minds/uploads/STMEchoStatesTechRep.pdf}.
 %Type = Misc
 \bibitem[{Jaurigue and L{\"u}dge(2023)}]{jaurigue_timescale_2023}
-\bibinfo{author}{Jaurigue, L.C.}, \bibinfo{author}{L{\"u}dge, K.}, \bibinfo{year}{2023}.
-\newblock \bibinfo{title}{Reducing hyperparameter dependence by external timescale tailoring}.
-\newblock \URLprefix \url{https://arxiv.org/abs/2307.08603}, \DOIprefix\doi{10.48550/arXiv.2307.08603}, \href{http://arxiv.org/abs/2307.08603}{\tt arXiv:2307.08603}.
+\bibinfo{author}{Jaurigue, L.C.}, \bibinfo{author}{L{\"u}dge, K.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Reducing hyperparameter dependence by external
+  timescale tailoring}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2307.08603},
+  \DOIprefix\doi{10.48550/arXiv.2307.08603},
+  \href{http://arxiv.org/abs/2307.08603}{\tt arXiv:2307.08603}.
 %Type = Article
 \bibitem[{Kawai et~al.(2019)Kawai, Park and Asada}]{KAWAI201915}
-\bibinfo{author}{Kawai, Y.}, \bibinfo{author}{Park, J.}, \bibinfo{author}{Asada, M.}, \bibinfo{year}{2019}.
-\newblock \bibinfo{title}{A small-world topology enhances the echo state property and signal propagation in reservoir computing}.
-\newblock \bibinfo{journal}{Neural Networks} \bibinfo{volume}{112}, \bibinfo{pages}{15--23}.
-\newblock \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0893608019300115}, \DOIprefix\doi{https://doi.org/10.1016/j.neunet.2019.01.002}.
+\bibinfo{author}{Kawai, Y.}, \bibinfo{author}{Park, J.},
+  \bibinfo{author}{Asada, M.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{A small-world topology enhances the echo state
+  property and signal propagation in reservoir computing}.
+\newblock \bibinfo{journal}{Neural Networks} \bibinfo{volume}{112},
+  \bibinfo{pages}{15--23}.
+\newblock \URLprefix
+  \url{https://www.sciencedirect.com/science/article/pii/S0893608019300115},
+  \DOIprefix\doi{https://doi.org/10.1016/j.neunet.2019.01.002}.
 %Type = Incollection
 \bibitem[{Luko{\v{s}}evi{\v{c}}ius(2012)}]{Lukosevicius2012PracticalESN}
 \bibinfo{author}{Luko{\v{s}}evi{\v{c}}ius, M.}, \bibinfo{year}{2012}.
-\newblock \bibinfo{title}{A practical guide to applying echo state networks}, in: \bibinfo{editor}{Montavon, G.}, \bibinfo{editor}{Orr, G.B.}, \bibinfo{editor}{M{\"u}ller, K.R.} (Eds.), \bibinfo{booktitle}{Neural Networks: Tricks of the Trade}. \bibinfo{publisher}{Springer}, \bibinfo{address}{Berlin, Heidelberg}. volume \bibinfo{volume}{7700} of \textit{\bibinfo{series}{Lecture Notes in Computer Science}}, pp. \bibinfo{pages}{659--686}.
+\newblock \bibinfo{title}{A practical guide to applying echo state networks},
+  in: \bibinfo{editor}{Montavon, G.}, \bibinfo{editor}{Orr, G.B.},
+  \bibinfo{editor}{M{\"u}ller, K.R.} (Eds.), \bibinfo{booktitle}{Neural
+  Networks: Tricks of the Trade}. \bibinfo{publisher}{Springer},
+  \bibinfo{address}{Berlin, Heidelberg}. volume \bibinfo{volume}{7700} of
+  \textit{\bibinfo{series}{Lecture Notes in Computer Science}}, pp.
+  \bibinfo{pages}{659--686}.
 \newblock \DOIprefix\doi{10.1007/978-3-642-35289-8_36}.
 %Type = Inproceedings
-\bibitem[{Maass et~al.(2004)Maass, Legenstein and Bertschinger}]{maass_comp_power_2004}
-\bibinfo{author}{Maass, W.}, \bibinfo{author}{Legenstein, R.}, \bibinfo{author}{Bertschinger, N.}, \bibinfo{year}{2004}.
-\newblock \bibinfo{title}{Methods for estimating the computational power and generalization capability of neural microcircuits}, in: \bibinfo{booktitle}{Advances in Neural Information Processing Systems 17 (NIPS 2004)}, \bibinfo{publisher}{MIT Press}, \bibinfo{address}{Vancouver, British Columbia, Canada}. pp. \bibinfo{pages}{865--872}.
+\bibitem[{Maass et~al.(2004)Maass, Legenstein and
+  Bertschinger}]{maass_comp_power_2004}
+\bibinfo{author}{Maass, W.}, \bibinfo{author}{Legenstein, R.},
+  \bibinfo{author}{Bertschinger, N.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Methods for estimating the computational power and
+  generalization capability of neural microcircuits}, in:
+  \bibinfo{booktitle}{Advances in Neural Information Processing Systems 17
+  (NIPS 2004)}, \bibinfo{publisher}{MIT Press}, \bibinfo{address}{Vancouver,
+  British Columbia, Canada}. pp. \bibinfo{pages}{865--872}.
 %Type = Article
-\bibitem[{Maass et~al.(2002)Maass, Natschl{\"a}ger and Markram}]{maass_lsm_2002}
-\bibinfo{author}{Maass, W.}, \bibinfo{author}{Natschl{\"a}ger, T.}, \bibinfo{author}{Markram, H.}, \bibinfo{year}{2002}.
-\newblock \bibinfo{title}{Real-time computing without stable states: A new framework for neural computation based on perturbations}.
-\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{14}, \bibinfo{pages}{2531--2560}.
+\bibitem[{Maass et~al.(2002)Maass, Natschl{\"a}ger and
+  Markram}]{maass_lsm_2002}
+\bibinfo{author}{Maass, W.}, \bibinfo{author}{Natschl{\"a}ger, T.},
+  \bibinfo{author}{Markram, H.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Real-time computing without stable states: A new
+  framework for neural computation based on perturbations}.
+\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{14},
+  \bibinfo{pages}{2531--2560}.
 \newblock \DOIprefix\doi{10.1162/089976602760407955}.
 %Type = Inproceedings
 \bibitem[{Matzner(2022)}]{Matzner2022HyperparameterTuningESN}
 \bibinfo{author}{Matzner, F.}, \bibinfo{year}{2022}.
-\newblock \bibinfo{title}{Hyperparameter tuning in echo state networks}, in: \bibinfo{booktitle}{Proceedings of the Genetic and Evolutionary Computation Conference}, \bibinfo{publisher}{ACM}. p. \bibinfo{pages}{404–412}.
-\newblock \URLprefix \url{http://dx.doi.org/10.1145/3512290.3528721}, \DOIprefix\doi{10.1145/3512290.3528721}.
+\newblock \bibinfo{title}{Hyperparameter tuning in echo state networks}, in:
+  \bibinfo{booktitle}{Proceedings of the Genetic and Evolutionary Computation
+  Conference}, \bibinfo{publisher}{ACM}. p. \bibinfo{pages}{404–412}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1145/3512290.3528721},
+  \DOIprefix\doi{10.1145/3512290.3528721}.
 %Type = Misc
 \bibitem[{Morra and Daley(2022)}]{morra_daley_2022}
 \bibinfo{author}{Morra, J.}, \bibinfo{author}{Daley, M.}, \bibinfo{year}{2022}.
-\newblock \bibinfo{title}{Imposing connectome-derived topology on an echo state network}.
-\newblock \URLprefix \url{https://arxiv.org/abs/2201.09359}, \href{http://arxiv.org/abs/2201.09359}{\tt arXiv:2201.09359}.
+\newblock \bibinfo{title}{Imposing connectome-derived topology on an echo state
+  network}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2201.09359},
+  \href{http://arxiv.org/abs/2201.09359}{\tt arXiv:2201.09359}.
 %Type = Misc
 \bibitem[{Morra et~al.(2023)Morra, Flynn, Amann and Daley}]{morra_fly_rc_2023}
-\bibinfo{author}{Morra, J.}, \bibinfo{author}{Flynn, A.}, \bibinfo{author}{Amann, A.}, \bibinfo{author}{Daley, M.}, \bibinfo{year}{2023}.
-\newblock \bibinfo{title}{Multifunctionality in a connectome-based reservoir computer}.
-\newblock \URLprefix \url{https://arxiv.org/abs/2306.01885}, \href{http://arxiv.org/abs/2306.01885}{\tt arXiv:2306.01885}.
+\bibinfo{author}{Morra, J.}, \bibinfo{author}{Flynn, A.},
+  \bibinfo{author}{Amann, A.}, \bibinfo{author}{Daley, M.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Multifunctionality in a connectome-based reservoir
+  computer}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2306.01885},
+  \href{http://arxiv.org/abs/2306.01885}{\tt arXiv:2306.01885}.
 %Type = Article
-\bibitem[{Pilati et~al.(2026)Pilati, Ceni, Michieletti, Gallicchio, Ricciardi and Milano}]{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}
-\bibinfo{author}{Pilati, D.}, \bibinfo{author}{Ceni, A.}, \bibinfo{author}{Michieletti, F.}, \bibinfo{author}{Gallicchio, C.}, \bibinfo{author}{Ricciardi, C.}, \bibinfo{author}{Milano, G.}, \bibinfo{year}{2026}.
-\newblock \bibinfo{title}{Rcbench: a unified framework for benchmarking reservoir computing systems}.
-\newblock \bibinfo{journal}{Neuromorphic Computing and Engineering} \bibinfo{volume}{6}, \bibinfo{pages}{014012}.
+\bibitem[{Pilati et~al.(2026)Pilati, Ceni, Michieletti, Gallicchio, Ricciardi
+  and Milano}]{pilati_ceni_michieletti_gallicchio_ricciardi_milano_2026}
+\bibinfo{author}{Pilati, D.}, \bibinfo{author}{Ceni, A.},
+  \bibinfo{author}{Michieletti, F.}, \bibinfo{author}{Gallicchio, C.},
+  \bibinfo{author}{Ricciardi, C.}, \bibinfo{author}{Milano, G.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Rcbench: a unified framework for benchmarking
+  reservoir computing systems}.
+\newblock \bibinfo{journal}{Neuromorphic Computing and Engineering}
+  \bibinfo{volume}{6}, \bibinfo{pages}{014012}.
 \newblock \DOIprefix\doi{https://doi.org/10.1088/2634-4386/ae441f}.
 %Type = Misc
-\bibitem[{Platt et~al.(2022)Platt, Penny, Smith, Chen and Abarbanel}]{platt_systematic_2022}
-\bibinfo{author}{Platt, J.A.}, \bibinfo{author}{Penny, S.G.}, \bibinfo{author}{Smith, T.A.}, \bibinfo{author}{Chen, T.C.}, \bibinfo{author}{Abarbanel, H.D.I.}, \bibinfo{year}{2022}.
-\newblock \bibinfo{title}{A systematic exploration of reservoir computing for forecasting complex spatiotemporal dynamics}.
-\newblock \URLprefix \url{https://arxiv.org/abs/2201.08910}, \DOIprefix\doi{10.48550/arXiv.2201.08910}, \href{http://arxiv.org/abs/2201.08910}{\tt arXiv:2201.08910}.
+\bibitem[{Platt et~al.(2022)Platt, Penny, Smith, Chen and
+  Abarbanel}]{platt_systematic_2022}
+\bibinfo{author}{Platt, J.A.}, \bibinfo{author}{Penny, S.G.},
+  \bibinfo{author}{Smith, T.A.}, \bibinfo{author}{Chen, T.C.},
+  \bibinfo{author}{Abarbanel, H.D.I.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{A systematic exploration of reservoir computing for
+  forecasting complex spatiotemporal dynamics}.
+\newblock \URLprefix \url{https://arxiv.org/abs/2201.08910},
+  \DOIprefix\doi{10.48550/arXiv.2201.08910},
+  \href{http://arxiv.org/abs/2201.08910}{\tt arXiv:2201.08910}.
 %Type = Article
-\bibitem[{Salimans et~al.(2017)Salimans, Ho, Chen, Sidor and Sutskever}]{salimans_evolution_2017}
-\bibinfo{author}{Salimans, T.}, \bibinfo{author}{Ho, J.}, \bibinfo{author}{Chen, X.}, \bibinfo{author}{Sidor, S.}, \bibinfo{author}{Sutskever, I.}, \bibinfo{year}{2017}.
-\newblock \bibinfo{title}{Evolution strategies as a scalable alternative to reinforcement learning}.
-\newblock \bibinfo{journal}{arXiv preprint arXiv:1703.03864} \DOIprefix\doi{10.48550/arXiv.1703.03864}.
+\bibitem[{Salimans et~al.(2017)Salimans, Ho, Chen, Sidor and
+  Sutskever}]{salimans_evolution_2017}
+\bibinfo{author}{Salimans, T.}, \bibinfo{author}{Ho, J.},
+  \bibinfo{author}{Chen, X.}, \bibinfo{author}{Sidor, S.},
+  \bibinfo{author}{Sutskever, I.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Evolution strategies as a scalable alternative to
+  reinforcement learning}.
+\newblock \bibinfo{journal}{arXiv preprint arXiv:1703.03864}
+  \DOIprefix\doi{10.48550/arXiv.1703.03864}.
 %Type = Article
-\bibitem[{Srinivasan et~al.(2025)Srinivasan, Plenz and Girvan}]{srinivasan_ei_balance_2025}
-\bibinfo{author}{Srinivasan, K.}, \bibinfo{author}{Plenz, D.}, \bibinfo{author}{Girvan, M.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{Boosting reservoir computing with brain-inspired adaptive control of {E-I} balance}.
-\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{16}, \bibinfo{pages}{10212}.
+\bibitem[{Srinivasan et~al.(2025)Srinivasan, Plenz and
+  Girvan}]{srinivasan_ei_balance_2025}
+\bibinfo{author}{Srinivasan, K.}, \bibinfo{author}{Plenz, D.},
+  \bibinfo{author}{Girvan, M.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Boosting reservoir computing with brain-inspired
+  adaptive control of {E-I} balance}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{16},
+  \bibinfo{pages}{10212}.
 \newblock \DOIprefix\doi{10.1038/s41467-025-64978-8}.
 %Type = Article
-\bibitem[{Sun et~al.(2024)Sun, Song, Cai, Zhang, Hong and Li}]{sun_systematic_review_2024}
-\bibinfo{author}{Sun, C.}, \bibinfo{author}{Song, M.}, \bibinfo{author}{Cai, D.}, \bibinfo{author}{Zhang, B.}, \bibinfo{author}{Hong, S.}, \bibinfo{author}{Li, H.}, \bibinfo{year}{2024}.
-\newblock \bibinfo{title}{A systematic review of echo state networks from design to application}.
-\newblock \bibinfo{journal}{IEEE Transactions on Artificial Intelligence} \bibinfo{volume}{5}, \bibinfo{pages}{23--37}.
+\bibitem[{Sukenik et~al.(2021)Sukenik, Vinogradov, Weinreb, Segal, Levina and
+  Moses}]{sukenik_connection_numbers_2021}
+\bibinfo{author}{Sukenik, N.}, \bibinfo{author}{Vinogradov, O.},
+  \bibinfo{author}{Weinreb, E.}, \bibinfo{author}{Segal, M.},
+  \bibinfo{author}{Levina, A.}, \bibinfo{author}{Moses, E.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Neuronal circuits overcome imbalance in excitation
+  and inhibition by adjusting connection numbers}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences of
+  the United States of America} \bibinfo{volume}{118},
+  \bibinfo{pages}{e2018459118}.
+\newblock \DOIprefix\doi{10.1073/pnas.2018459118}.
+%Type = Article
+\bibitem[{Sun et~al.(2024)Sun, Song, Cai, Zhang, Hong and
+  Li}]{sun_systematic_review_2024}
+\bibinfo{author}{Sun, C.}, \bibinfo{author}{Song, M.}, \bibinfo{author}{Cai,
+  D.}, \bibinfo{author}{Zhang, B.}, \bibinfo{author}{Hong, S.},
+  \bibinfo{author}{Li, H.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{A systematic review of echo state networks from
+  design to application}.
+\newblock \bibinfo{journal}{IEEE Transactions on Artificial Intelligence}
+  \bibinfo{volume}{5}, \bibinfo{pages}{23--37}.
 \newblock \DOIprefix\doi{10.1109/TAI.2022.3225780}.
 %Type = Article
-\bibitem[{Tanis et~al.(2009)Tanis, Bellemer, Moresco, Forbush and Koelle}]{tanis_bellemer_moresco_forbush_koelle_2009}
-\bibinfo{author}{Tanis, J.E.}, \bibinfo{author}{Bellemer, A.}, \bibinfo{author}{Moresco, J.J.}, \bibinfo{author}{Forbush, B.}, \bibinfo{author}{Koelle, M.R.}, \bibinfo{year}{2009}.
-\newblock \bibinfo{title}{The potassium chloride cotransporter kcc-2 coordinates development of inhibitory neurotransmission and synapse structure in caenorhabditis elegans}.
-\newblock \bibinfo{journal}{Journal of Neuroscience} \bibinfo{volume}{29}, \bibinfo{pages}{9943–9954}.
+\bibitem[{Tanis et~al.(2009)Tanis, Bellemer, Moresco, Forbush and
+  Koelle}]{tanis_bellemer_moresco_forbush_koelle_2009}
+\bibinfo{author}{Tanis, J.E.}, \bibinfo{author}{Bellemer, A.},
+  \bibinfo{author}{Moresco, J.J.}, \bibinfo{author}{Forbush, B.},
+  \bibinfo{author}{Koelle, M.R.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{The potassium chloride cotransporter kcc-2
+  coordinates development of inhibitory neurotransmission and synapse structure
+  in caenorhabditis elegans}.
+\newblock \bibinfo{journal}{Journal of Neuroscience} \bibinfo{volume}{29},
+  \bibinfo{pages}{9943–9954}.
 \newblock \DOIprefix\doi{https://doi.org/10.1523/jneurosci.1989-09.2009}.
 %Type = Article
-\bibitem[{Varshney et~al.(2011)Varshney, Chen, Paniagua, Hall and Chklovskii}]{Varshney2011}
-\bibinfo{author}{Varshney, L.R.}, \bibinfo{author}{Chen, B.L.}, \bibinfo{author}{Paniagua, E.}, \bibinfo{author}{Hall, D.H.}, \bibinfo{author}{Chklovskii, D.B.}, \bibinfo{year}{2011}.
-\newblock \bibinfo{title}{Structural properties of the \emph{Caenorhabditis elegans} neuronal network}.
-\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{7}, \bibinfo{pages}{e1001066}.
+\bibitem[{Varshney et~al.(2011)Varshney, Chen, Paniagua, Hall and
+  Chklovskii}]{Varshney2011}
+\bibinfo{author}{Varshney, L.R.}, \bibinfo{author}{Chen, B.L.},
+  \bibinfo{author}{Paniagua, E.}, \bibinfo{author}{Hall, D.H.},
+  \bibinfo{author}{Chklovskii, D.B.}, \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Structural properties of the \emph{Caenorhabditis
+  elegans} neuronal network}.
+\newblock \bibinfo{journal}{PLoS Computational Biology} \bibinfo{volume}{7},
+  \bibinfo{pages}{e1001066}.
 \newblock \DOIprefix\doi{10.1371/journal.pcbi.1001066}.
 %Type = Article
 \bibitem[{Watts and Strogatz(1998)}]{Wssmallworld}
-\bibinfo{author}{Watts, D.J.}, \bibinfo{author}{Strogatz, S.H.}, \bibinfo{year}{1998}.
+\bibinfo{author}{Watts, D.J.}, \bibinfo{author}{Strogatz, S.H.},
+  \bibinfo{year}{1998}.
 \newblock \bibinfo{title}{Collective dynamics of 'small-world' networks}.
-\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{393}, \bibinfo{pages}{440--442}.
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{393},
+  \bibinfo{pages}{440--442}.
 \newblock \URLprefix \url{https://doi.org/10.1038/30918}.
 %Type = Article
-\bibitem[{Wirak et~al.(2022)Wirak, Florman, Alkema, Connor and Gabel}]{wirak_florman_alkema_connor_gabel_2022}
-\bibinfo{author}{Wirak, G.S.}, \bibinfo{author}{Florman, J.}, \bibinfo{author}{Alkema, M.J.}, \bibinfo{author}{Connor, C.W.}, \bibinfo{author}{Gabel, C.V.}, \bibinfo{year}{2022}.
-\newblock \bibinfo{title}{Age-associated changes to neuronal dynamics involve a disruption of excitatory/inhibitory balance in c. elegans}.
-\newblock \bibinfo{journal}{eLife} \bibinfo{volume}{11}, \bibinfo{pages}{e72135}.
-\newblock \URLprefix \url{https://elifesciences.org/articles/72135}, \DOIprefix\doi{https://doi.org/10.7554/eLife.72135}.
+\bibitem[{Wirak et~al.(2022)Wirak, Florman, Alkema, Connor and
+  Gabel}]{wirak_florman_alkema_connor_gabel_2022}
+\bibinfo{author}{Wirak, G.S.}, \bibinfo{author}{Florman, J.},
+  \bibinfo{author}{Alkema, M.J.}, \bibinfo{author}{Connor, C.W.},
+  \bibinfo{author}{Gabel, C.V.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Age-associated changes to neuronal dynamics involve a
+  disruption of excitatory/inhibitory balance in c. elegans}.
+\newblock \bibinfo{journal}{eLife} \bibinfo{volume}{11},
+  \bibinfo{pages}{e72135}.
+\newblock \URLprefix \url{https://elifesciences.org/articles/72135},
+  \DOIprefix\doi{https://doi.org/10.7554/eLife.72135}.
 %Type = Misc
-\bibitem[{Yu et~al.(2025)Yu, Qin, Liu, Xu, Vogelstein, Brown and Vogelstein}]{yu_bpu_2025}
-\bibinfo{author}{Yu, S.}, \bibinfo{author}{Qin, Z.}, \bibinfo{author}{Liu, T.}, \bibinfo{author}{Xu, B.}, \bibinfo{author}{Vogelstein, R.J.}, \bibinfo{author}{Brown, J.}, \bibinfo{author}{Vogelstein, J.T.}, \bibinfo{year}{2025}.
-\newblock \bibinfo{title}{Biological processing units: Leveraging an insect connectome to pioneer biofidelic neural architectures}.
-\newblock \DOIprefix\doi{10.48550/arXiv.2507.10951}, \href{http://arxiv.org/abs/2507.10951}{\tt arXiv:2507.10951}. \bibinfo{note}{accepted to AGI 2025}.
+\bibitem[{Yu et~al.(2025)Yu, Qin, Liu, Xu, Vogelstein, Brown and
+  Vogelstein}]{yu_bpu_2025}
+\bibinfo{author}{Yu, S.}, \bibinfo{author}{Qin, Z.}, \bibinfo{author}{Liu, T.},
+  \bibinfo{author}{Xu, B.}, \bibinfo{author}{Vogelstein, R.J.},
+  \bibinfo{author}{Brown, J.}, \bibinfo{author}{Vogelstein, J.T.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Biological processing units: Leveraging an insect
+  connectome to pioneer biofidelic neural architectures}.
+\newblock \DOIprefix\doi{10.48550/arXiv.2507.10951},
+  \href{http://arxiv.org/abs/2507.10951}{\tt arXiv:2507.10951}.
+  \bibinfo{note}{accepted to AGI 2025}.
 
 \end{thebibliography}

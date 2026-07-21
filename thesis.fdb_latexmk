@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1784632743.25006 "thesis.aux" "thesis.bbl" "thesis" 1784632749.26801 0
-  "./bibliography.bib" 1784287289.70011 25558 ea66c16d119b47f2b661aa7ccdd8db91 ""
+["bibtex thesis"] 1784636229.68665 "thesis.aux" "thesis.bbl" "thesis" 1784644657.53731 0
+  "./bibliography.bib" 1784634230.789 26056 01ed5b5ecef73a46b6b66fe0e067e12d ""
   "./style_neural_networks/cas-model2-names.bst" 1782742284.17007 31802 28b630660245c09f173aac55be552b29 ""
-  "thesis.aux" 1784632749.06291 34439 28a74ef361ec8f75bc3c3c0561c30288 "pdflatex"
+  "thesis.aux" 1784644657.2907 34611 69fa0c961c793d168067ca0ec08bfaca "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1784632743.32603 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1784632749.26815 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1784632736.65784 78438 6c79dbb9a24c14cc15ab545a5d74b9ba ""
+["pdflatex"] 1784644650.32126 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1784644657.53746 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1784644649.9987 78666 4fe47e065e28132af58ab010b61b2757 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
@@ -212,11 +212,11 @@
   "supplement/sign_sweep_quicklook.png" 1784109790.38946 181416 2e11e2704921499266f83d97be7110b6 ""
   "supplement/triad_activation_comparison_0_vs_50.png" 1784125316.13131 333340 d33c6e964b468131fc3ea97483f5fe35 ""
   "supplement/triad_sign_fraction.png" 1784125316.16573 273405 27d84c7f3bd22c80941950cf36c94bb6 ""
-  "thesis.abs" 1784632743.7323 2239 e71e22f2c14137b37998a1a4576efe26 "pdflatex"
-  "thesis.aux" 1784632749.06291 34439 28a74ef361ec8f75bc3c3c0561c30288 "pdflatex"
-  "thesis.bbl" 1784632743.32218 17765 e0ed3d6b6f1af8d716de619a3060dcc7 "bibtex thesis"
-  "thesis.out" 1784632743.70951 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.tex" 1784632736.65784 78438 6c79dbb9a24c14cc15ab545a5d74b9ba ""
+  "thesis.abs" 1784644650.9237 2239 e71e22f2c14137b37998a1a4576efe26 "pdflatex"
+  "thesis.aux" 1784644657.2907 34611 69fa0c961c793d168067ca0ec08bfaca "pdflatex"
+  "thesis.bbl" 1784636229.74066 18445 b796c44ab4f6e314827ffc73610d68cb "bibtex thesis"
+  "thesis.out" 1784644650.89658 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.tex" 1784644649.9987 78666 4fe47e065e28132af58ab010b61b2757 ""
   "thesis/architecture/50per.png" 1784109790.38256 358252 930ad4dbf7241ad12d56baf4ed1ded96 ""
   "thesis/raw_rho/raw_rho_performance_summary.png" 1784287677.98865 592033 9a5630ebd34eaa98fca5d4f3782711c8 ""
   "thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png" 1784109790.38417 536191 5223447d566e640ee4949b43b7cf7e77 ""

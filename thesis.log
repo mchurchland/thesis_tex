@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  21 JUL 2026 16:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.5.6)  24 JUL 2026 12:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -868,65 +868,65 @@ File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 \verbatim@out=\write4
 \openout4 = `thesis.abs'.
 
-LaTeX Font Info:    Trying to load font information for TS1+stix on input line 85.
+LaTeX Font Info:    Trying to load font information for TS1+stix on input line 88.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 ) [0
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}]
-LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 94.
+LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 94.
+LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 94.
+LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 94.
+LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 94.
+LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 94.
+LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 )
-LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 94.
+LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 94.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 97.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (123.62721pt too wide) detected at line 94
+Overfull \hbox (123.62721pt too wide) detected at line 97
 []
  []
 
 (./thesis.abs)
 
-Package hyperref Warning: Ignoring empty anchor on input line 94.
+Package hyperref Warning: Ignoring empty anchor on input line 97.
 
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 105.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 108.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -939,98 +939,127 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 112.
+(Font)              size <7> substituted on input line 117.
 
 [2]
-<figs/toplogy/new_4to1_four_panel.png, id=110, 794.97pt x 664.884pt>
+<figs/toplogy/new_4to1_four_panel.png, id=108, 794.97pt x 664.884pt>
 File: figs/toplogy/new_4to1_four_panel.png Graphic file (type png)
 <use figs/toplogy/new_4to1_four_panel.png>
-Package pdftex.def Info: figs/toplogy/new_4to1_four_panel.png  used on input line 157.
+Package pdftex.def Info: figs/toplogy/new_4to1_four_panel.png  used on input line 162.
 (pdftex.def)             Requested size: 494.50888pt x 413.60359pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 []|\T1/cmss/m/n/9 (+20) Defines the low-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 \T1/cmss/m/n/9 (+20) variance ref-er-ence
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+[]|\T1/cmss/m/n/9 (+20) Assesses whether
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+\T1/cmss/m/n/9 (+20) the low-variance
+ []
+
+
+Underfull \hbox (badness 1348) in paragraph at lines 178--179
+\T1/cmss/m/n/9 (+20) regime per-sists when
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+\T1/cmss/m/n/9 (+20) in-ferred chem-i-cal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+\T1/cmss/m/n/9 (+20) signs are pre-served
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 178--179
+\T1/cmss/m/n/9 (+20) but mag-ni-tudes are
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
 []|\T1/cmss/m/n/9 (+20) Degree-preserving
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 177--177
+Underfull \hbox (badness 3302) in paragraph at lines 182--182
 []|\T1/cmss/m/n/9 (+20) Rewire edges us-ing di-rected
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--177
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
 \T1/cmss/m/n/9 (+20) degree-preserving con-nec-tion
  []
 
 
-Underfull \hbox (badness 5274) in paragraph at lines 179--179
+Underfull \hbox (badness 5274) in paragraph at lines 184--184
 []|\T1/cmss/m/n/9 (+20) Shuffle signed contact-count
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 181--181
+Underfull \hbox (badness 3568) in paragraph at lines 186--186
 []|\T1/cmss/m/n/9 (+20) Use Gaussian-weight \T1/cmss/m/it/9 (+20) C. el-e-
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 181--181
+Underfull \hbox (badness 1735) in paragraph at lines 186--186
 \T1/cmss/m/n/9 (+20) trols ([][]Barabási[][], [][]2016[][]; [][]Kawai
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+[]|\T1/cmss/m/n/9 (+20) Compares be-hav-ior
+ []
+
 [3] [4 <./figs/toplogy/new_4to1_four_panel.png>] [5]
-<thesis/architecture/50per.png, id=204, 531.1845pt x 419.166pt>
+<thesis/architecture/50per.png, id=199, 531.1845pt x 419.166pt>
 File: thesis/architecture/50per.png Graphic file (type png)
 <use thesis/architecture/50per.png>
-Package pdftex.def Info: thesis/architecture/50per.png  used on input line 306.
+Package pdftex.def Info: thesis/architecture/50per.png  used on input line 311.
 (pdftex.def)             Requested size: 238.25444pt x 188.00894pt.
- [6 <./thesis/architecture/50per.png>]
-Underfull \hbox (badness 1694) in paragraph at lines 315--316
+ [6]
+Underfull \hbox (badness 1694) in paragraph at lines 320--321
 []\T1/stix/m/n/10 (+20) Figure [][]3[][] shows these sign-fraction sweeps for the
  []
 
 <thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png, id=228, 298.83646pt x 278.2395pt>
 File: thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png  used on input line 319.
+Package pdftex.def Info: thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png  used on input line 324.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<thesis/sign_normalization/option_8_average_perf_cv.png, id=232, 525.4029pt x 496.254pt>
-File: thesis/sign_normalization/option_8_average_perf_cv.png Graphic file (type png)
-<use thesis/sign_normalization/option_8_average_perf_cv.png>
-Package pdftex.def Info: thesis/sign_normalization/option_8_average_perf_cv.png  used on input line 331.
-(pdftex.def)             Requested size: 238.25444pt x 225.0387pt.
-
-Underfull \hbox (badness 1067) in paragraph at lines 342--343
+[7 <./thesis/architecture/50per.png> <./thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png>]
+Underfull \hbox (badness 1067) in paragraph at lines 340--341
 \T1/stix/m/n/10 (+20) from the un-shuf-fled predicted-polarity reser-voir to-ward
  []
 
-[7 <./thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png>]
-<thesis/topology_shuffles/shuf_all.png, id=254, 531.1845pt x 473.3685pt>
+<thesis/topology_shuffles/shuf_all.png, id=247, 531.1845pt x 473.3685pt>
 File: thesis/topology_shuffles/shuf_all.png Graphic file (type png)
 <use thesis/topology_shuffles/shuf_all.png>
-Package pdftex.def Info: thesis/topology_shuffles/shuf_all.png  used on input line 348.
+Package pdftex.def Info: thesis/topology_shuffles/shuf_all.png  used on input line 344.
 (pdftex.def)             Requested size: 238.25444pt x 212.32043pt.
-<thesis/raw_rho/raw_rho_performance_summary.png, id=258, 516.6502pt x 621.522pt>
+<thesis/raw_rho/raw_rho_performance_summary.png, id=251, 516.6502pt x 621.522pt>
 File: thesis/raw_rho/raw_rho_performance_summary.png Graphic file (type png)
 <use thesis/raw_rho/raw_rho_performance_summary.png>
-Package pdftex.def Info: thesis/raw_rho/raw_rho_performance_summary.png  used on input line 362.
+Package pdftex.def Info: thesis/raw_rho/raw_rho_performance_summary.png  used on input line 358.
 (pdftex.def)             Requested size: 238.25444pt x 286.61487pt.
- [8 <./thesis/sign_normalization/option_8_average_perf_cv.png> <./thesis/topology_shuffles/shuf_all.png>] [9 <./thesis/raw_rho/raw_rho_performance_summary.png>]
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 403.
+[8 <./thesis/topology_shuffles/shuf_all.png> <./thesis/raw_rho/raw_rho_performance_summary.png>] [9]
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 398.
  (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 403.
+(Font)              scaled to size 8.50006pt on input line 398.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1056,71 +1085,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--21
 ) [11
 
 ]
-<figs/toplogy/model_grid_A_to_H.png, id=411, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_A_to_H.png, id=397, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_A_to_H.png Graphic file (type png)
 <use figs/toplogy/model_grid_A_to_H.png>
-Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 457.
+Package pdftex.def Info: figs/toplogy/model_grid_A_to_H.png  used on input line 452.
 (pdftex.def)             Requested size: 238.25444pt x 346.0253pt.
-<figs/toplogy/model_grid_I_to_O.png, id=412, 607.068pt x 881.694pt>
+<figs/toplogy/model_grid_I_to_O.png, id=398, 607.068pt x 881.694pt>
 File: figs/toplogy/model_grid_I_to_O.png Graphic file (type png)
 <use figs/toplogy/model_grid_I_to_O.png>
-Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 464.
+Package pdftex.def Info: figs/toplogy/model_grid_I_to_O.png  used on input line 459.
 (pdftex.def)             Requested size: 238.25444pt x 346.0253pt.
  [12
 
  <./figs/toplogy/model_grid_A_to_H.png>]
-Underfull \hbox (badness 2165) in paragraph at lines 483--485
+Underfull \hbox (badness 2165) in paragraph at lines 478--480
 \T1/stix/m/n/10 (+20) degree-preserving connection-shuffle pro-ce-dure in Sec-
  []
 
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 490.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 485.
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 490.
+(Font)              size <10.95> substituted on input line 485.
 
 [13 <./figs/toplogy/model_grid_I_to_O.png>]
-<thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png, id=467, 298.83646pt x 278.2395pt>
+<thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png, id=453, 298.83646pt x 278.2395pt>
 File: thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png  used on input line 596.
+Package pdftex.def Info: thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png  used on input line 591.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png, id=468, 298.83646pt x 278.2395pt>
+<thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png, id=454, 298.83646pt x 278.2395pt>
 File: thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png Graphic file (type png)
 <use thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png>
-Package pdftex.def Info: thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png  used on input line 603.
+Package pdftex.def Info: thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png  used on input line 598.
 (pdftex.def)             Requested size: 238.25444pt x 221.83618pt.
-<supplement/sign_sweep_quicklook.png, id=469, 598.1547pt x 347.3778pt>
+<supplement/sign_sweep_quicklook.png, id=455, 598.1547pt x 347.3778pt>
 File: supplement/sign_sweep_quicklook.png Graphic file (type png)
 <use supplement/sign_sweep_quicklook.png>
-Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 610.
+Package pdftex.def Info: supplement/sign_sweep_quicklook.png  used on input line 605.
 (pdftex.def)             Requested size: 238.25444pt x 138.36559pt.
-<supplement/option_8_average_perf_cv_er_matched.png, id=472, 520.5849pt x 496.254pt>
-File: supplement/option_8_average_perf_cv_er_matched.png Graphic file (type png)
-<use supplement/option_8_average_perf_cv_er_matched.png>
-Package pdftex.def Info: supplement/option_8_average_perf_cv_er_matched.png  used on input line 633.
-(pdftex.def)             Requested size: 238.25444pt x 227.12105pt.
-<supplement/option_8_average_perf_cv_removed.png, id=473, 532.1481pt x 496.254pt>
-File: supplement/option_8_average_perf_cv_removed.png Graphic file (type png)
-<use supplement/option_8_average_perf_cv_removed.png>
-Package pdftex.def Info: supplement/option_8_average_perf_cv_removed.png  used on input line 640.
-(pdftex.def)             Requested size: 238.25444pt x 222.18396pt.
-<supplement/cv_performance_density_contours_triptych.png, id=474, 531.1845pt x 473.3685pt>
-File: supplement/cv_performance_density_contours_triptych.png Graphic file (type png)
-<use supplement/cv_performance_density_contours_triptych.png>
-Package pdftex.def Info: supplement/cv_performance_density_contours_triptych.png  used on input line 647.
-(pdftex.def)             Requested size: 238.25444pt x 212.32043pt.
- (./thesis/topology_shuffles/cv_mean_differences_table_vs_real.tex) (./thesis/topology_shuffles/cv_mean_differences_vs_local_sign_binary_table.tex) (./thesis/topology_shuffles/cv_mean_differences_vs_binary_base_table.tex) [14]
-<supplement/triad_activation_comparison_0_vs_50.png, id=495, 436.1896pt x 581.5326pt>
+ (./thesis/topology_shuffles/cv_mean_differences_table_vs_real.tex) (./thesis/topology_shuffles/cv_mean_differences_vs_local_sign_binary_table.tex) (./thesis/topology_shuffles/cv_mean_differences_vs_binary_base_table.tex)
+<supplement/triad_activation_comparison_0_vs_50.png, id=459, 436.1896pt x 581.5326pt>
 File: supplement/triad_activation_comparison_0_vs_50.png Graphic file (type png)
 <use supplement/triad_activation_comparison_0_vs_50.png>
-Package pdftex.def Info: supplement/triad_activation_comparison_0_vs_50.png  used on input line 686.
+Package pdftex.def Info: supplement/triad_activation_comparison_0_vs_50.png  used on input line 643.
 (pdftex.def)             Requested size: 238.25444pt x 317.6433pt.
-<supplement/triad_sign_fraction.png, id=496, 478.4274pt x 557.2017pt>
+<supplement/triad_sign_fraction.png, id=460, 478.4274pt x 557.2017pt>
 File: supplement/triad_sign_fraction.png Graphic file (type png)
 <use supplement/triad_sign_fraction.png>
-Package pdftex.def Info: supplement/triad_sign_fraction.png  used on input line 693.
+Package pdftex.def Info: supplement/triad_sign_fraction.png  used on input line 650.
 (pdftex.def)             Requested size: 238.25444pt x 277.47787pt.
- [15 <./thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png> <./thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png>] [16 <./supplement/sign_sweep_quicklook.png> <./supplement/option_8_average_perf_cv_er_matched.png> <./supplement/option_8_average_perf_cv_removed.png> <./supplement/cv_performance_density_contours_triptych.png>] [17 <./supplement/triad_activation_comparison_0_vs_50.png> <./supplement/triad_sign_fraction.png>] (./thesis.aux)
+ [14] [15 <./thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png> <./thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png> <./supplement/sign_sweep_quicklook.png>] [16 <./supplement/triad_activation_comparison_0_vs_50.png> <./supplement/triad_sign_fraction.png>] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -1129,18 +1143,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23450 strings out of 476041
- 374066 string characters out of 5793175
- 1900388 words of memory out of 6000000
- 42964 multiletter control sequences out of 15000+600000
- 674057 words of font info for 404 fonts, out of 8000000 for 9000
+ 23395 strings out of 476041
+ 372174 string characters out of 5793175
+ 1903388 words of memory out of 6000000
+ 42934 multiletter control sequences out of 15000+600000
+ 673220 words of font info for 397 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 90i,13n,93p,1786b,528s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,13n,93p,1786b,532s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsi0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathfrak.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on thesis.pdf (18 pages, 24137622 bytes).
+Output written on thesis.pdf (17 pages, 23098534 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
- 528 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 500000)
- 52305 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 592 PDF objects out of 1000 (max. 8388607)
+ 508 compressed objects within 6 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 52285 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -4,5 +4,3 @@ To examine architectural contributors to invariance, we construct controlled per
 
 The central result is a performance--invariance tradeoff: architecture variants with higher task-agnostic computational capacity also tend to show greater dependence on reservoir hyperparameters. Across the sign-fraction sweeps and shuffle controls, this tradeoff is closely associated with the raw spectral radius before normalization. Because every perturbed matrix is subsequently rescaled to the same target radius, matrices with lower raw spectral radius receive greater global amplification of their recurrent weights. The observed differences among architectures therefore characterize the joint effects of structural variation and architecture-specific global rescaling under spectral-radius normalization.
 
-The connectome-derived reservoir therefore occupies a relatively robust, lower-performance regime rather than representing an optimum for reservoir performance.
-

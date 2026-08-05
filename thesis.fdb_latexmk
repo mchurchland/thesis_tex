@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1785329359.82721 "thesis.aux" "thesis.bbl" "thesis" 1785329957.88152 0
+["bibtex thesis"] 1785329359.82721 "thesis.aux" "thesis.bbl" "thesis" 1785928810.25615 0
   "./bibliography.bib" 1784634230.789 26056 01ed5b5ecef73a46b6b66fe0e067e12d ""
   "./style_neural_networks/cas-model2-names.bst" 1782742284.17007 31802 28b630660245c09f173aac55be552b29 ""
-  "thesis.aux" 1785329957.64407 31876 7eca54744e2fc43e95e4cb17ba8944d4 "pdflatex"
+  "thesis.aux" 1785928810.05225 31876 7eca54744e2fc43e95e4cb17ba8944d4 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1785329951.28311 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1785329957.88169 0
-  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1785329950.99708 73155 b2fb7a044eab1750abadf8721c8d3289 ""
+["pdflatex"] 1785928807.64596 "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" "thesis.pdf" "thesis" 1785928810.25631 0
+  "/home/saki/Desktop/Reed/thesis_tex/thesis.tex" 1785928794.28519 73155 ec504d9b2ba5e8a38ef1cd7dc06d2075 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
@@ -202,20 +202,20 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778058170.49132 4602601 5d02a5c5d52d7237566d144856366042 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778057916 7753932 575fe8d2404ccb209e671619e17d0c52 ""
   "cas-common.sty" 1782742934.83499 55 4be74f04db1f5944c5b1cef8e32d3ff5 ""
-  "figs/toplogy/model_grid_A_to_H.png" 1783083542.98656 7584033 77d5ae35c9d4a79b76b54a633b1da773 ""
-  "figs/toplogy/model_grid_I_to_O.png" 1783083542.99062 7885068 93a9f34d7359942972f131785cae634d ""
-  "figs/toplogy/new_4to1_four_panel.png" 1785328287.22016 7058452 0edbb20940c5443aac7cfe6709617d48 ""
+  "figs/toplogy/model_grid_A_to_H.png" 1785928807.2168 1402712 28ece1213631a55991876c31ea9d0f88 ""
+  "figs/toplogy/model_grid_I_to_O.png" 1785928807.21972 1369920 2785a5ce66c4f2fed94c6a5c53916884 ""
+  "figs/toplogy/new_4to1_four_panel.png" 1785928807.21375 2781021 e87ad2ff9dbcc40b13fc762e6bc78718 ""
   "style_neural_networks/cas-common.sty" 1782742284.15522 76688 c602be3da196cb506acc84d1fa26b134 ""
   "style_neural_networks/cas-dc.cls" 1782742284.15734 4395 40b8ed97981966f9bde1c9d1561f114f ""
   "supplement/triad_activation_comparison_0_vs_50.png" 1785244452.65595 325163 57dea40ac670096f2b0d3c1b22e26b47 ""
   "supplement/triad_sign_fraction.png" 1784125316.16573 273405 27d84c7f3bd22c80941950cf36c94bb6 ""
-  "thesis.abs" 1785329951.76408 2086 8902ee245205d77312e2c57fc35db08f "pdflatex"
-  "thesis.aux" 1785329957.64407 31876 7eca54744e2fc43e95e4cb17ba8944d4 "pdflatex"
+  "thesis.abs" 1785928807.9502 2086 8902ee245205d77312e2c57fc35db08f "pdflatex"
+  "thesis.aux" 1785928810.05225 31876 7eca54744e2fc43e95e4cb17ba8944d4 "pdflatex"
   "thesis.bbl" 1785329359.91332 18763 e75d7db05e05bd2c51a240446b35d074 "bibtex thesis"
-  "thesis.out" 1785329951.73891 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "thesis.tex" 1785329950.99708 73155 b2fb7a044eab1750abadf8721c8d3289 ""
+  "thesis.out" 1785928807.93265 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.tex" 1785928794.28519 73155 ec504d9b2ba5e8a38ef1cd7dc06d2075 ""
   "thesis/architecture/50per.png" 1784109790.38256 358252 930ad4dbf7241ad12d56baf4ed1ded96 ""
-  "thesis/raw_rho/raw_rho_performance_summary.png" 1784287677.98865 592033 9a5630ebd34eaa98fca5d4f3782711c8 ""
+  "thesis/raw_rho/raw_rho_performance_summary.pdf" 1784109790.38371 42626 24db4ebdf558b84327c88a0ea71c2491 ""
   "thesis/sign_fraction/cel_matched/meanpoint_frac_cv_lines.png" 1785243141.9021 633756 80929ce620195bb644769e0a355294c4 ""
   "thesis/sign_fraction/cel_removed/meanpoint_frac_cv_lines.png" 1785243141.90385 583377 1999434ef3386beb3a52fe45e91b742e ""
   "thesis/sign_fraction/matched_er/meanpoint_frac_cv_lines.png" 1785243141.90563 573551 af4f816a37f9a71dfca8ad6bf229d067 ""

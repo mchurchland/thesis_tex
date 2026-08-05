@@ -1351,11 +1351,11 @@ INPUT ./thesis/topology_shuffles/shuf_all.png
 INPUT thesis/topology_shuffles/shuf_all.png
 INPUT ./thesis/topology_shuffles/shuf_all.png
 INPUT ./thesis/topology_shuffles/shuf_all.png
-INPUT ./thesis/raw_rho/raw_rho_performance_summary.png
-INPUT ./thesis/raw_rho/raw_rho_performance_summary.png
-INPUT thesis/raw_rho/raw_rho_performance_summary.png
-INPUT ./thesis/raw_rho/raw_rho_performance_summary.png
-INPUT ./thesis/raw_rho/raw_rho_performance_summary.png
+INPUT ./thesis/raw_rho/raw_rho_performance_summary.pdf
+INPUT ./thesis/raw_rho/raw_rho_performance_summary.pdf
+INPUT thesis/raw_rho/raw_rho_performance_summary.pdf
+INPUT ./thesis/raw_rho/raw_rho_performance_summary.pdf
+INPUT ./thesis/raw_rho/raw_rho_performance_summary.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd

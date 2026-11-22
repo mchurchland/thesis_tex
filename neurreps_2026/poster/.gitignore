@@ -1,0 +1,8 @@
+# Build intermediates; preserve final poster and source assets.
+*.aux
+*.log
+*.out
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+archive/

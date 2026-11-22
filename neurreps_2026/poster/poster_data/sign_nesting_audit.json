@@ -1,0 +1,3320 @@
+{
+  "source_run": "results/architecture_mc_narma_ipc_full/architecture_full_ipc_271871",
+  "snapshot_source": "results/architecture_mc_narma_ipc_full/architecture_full_ipc_271871/snapshot/network_stats/architecture_sweep.py",
+  "snapshot_sha256": "555c8005f2792db5aa52dfc41575a4f378331a9a15d5b5d44802893fa54d2c39",
+  "fractions": [
+    0.2,
+    0.5
+  ],
+  "realizations": 100,
+  "families": [
+    "ce_empirical",
+    "er_binary",
+    "ws_signed_empirical"
+  ],
+  "checks": 300,
+  "all_nested": true,
+  "total_previously_inhibitory_edges_lost": 0,
+  "records": [
+    {
+      "repeat": 0,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7ec7b988a9af52f2aac3f65875f027323e6e9f5b2c471780fbb28f32ca0c9e0d",
+        "534716275f2d7106f33363a19f8e3715b504a665f336161fb9870498db9a4b6e"
+      ]
+    },
+    {
+      "repeat": 0,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "fddb550f478ca162e84557b01f0290089665791956fa976ba79a951421fb77f5",
+        "73fe6aba0822ca9acb559c785c3efe49335994100ec14b81cd373290bc51aef5"
+      ]
+    },
+    {
+      "repeat": 0,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a3f529ec77b6ab9e8722da9ce9bb8e9fd1fc861ce267d782c55737da4c18ccae",
+        "a7242e5f72b2c9e2b5485ce38d892f719e428d98cf8c29cc61347dc44de1c5f8"
+      ]
+    },
+    {
+      "repeat": 1,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ff641b5e97d466a304f59ccd3589d76b335d0522d14038830443dc9f38a4bf0a",
+        "faedaef1cf9e7f1fa9d1a5d89e376f16134a6d091018f7b95bc6933dfa8a232f"
+      ]
+    },
+    {
+      "repeat": 1,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9c9b9c6b9bac7e5dfd0af649e5cdab636745251899ce5397ae2c8abe2e582a8e",
+        "ea0e389b2b93f24a92ce2e5f3047be4d5c8f9dcedb22ae8e778816f7fa7b32b8"
+      ]
+    },
+    {
+      "repeat": 1,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8ec27b06d7872b0c067eb392954f5abfec12e2447b6b1ed4de19eb4557a75467",
+        "f89f4dc9e4684d16cb3f78079b1726d7aa07f7c90d33203ec4fb12bfd99f854b"
+      ]
+    },
+    {
+      "repeat": 2,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "41da93e8bdb1623d202d8176947f32f02eb1a835a19320a8e1d03f2b18f27d6c",
+        "591459cb9a3bb335ff125c4e8b82c93bc33e06277b484febee5e84e836123044"
+      ]
+    },
+    {
+      "repeat": 2,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "04505840ab083b368ecb0a19dd8fe1a54760eff258f101c5fad59e2900b8e52a",
+        "cdf76a99957558c041f03ae54e0b089a3d5ba4022aa462a2082bdc1e39a0b829"
+      ]
+    },
+    {
+      "repeat": 2,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "874fe750a50b135c1cfd72b72fee693fcddd9bd3ce150e35f0efbd266b6362de",
+        "50c05e027be551dc8ff90be204d13df54d6d9f61518f71abf920dd6df36f5a31"
+      ]
+    },
+    {
+      "repeat": 3,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6142750db96d11f5d10f0597a2b911f6399795fe50babf3b00336506767c6b38",
+        "d5fbc7aae540fd320f46ab7f41dc4faf23eb660d305a6cf9b3caeea2293dd2fe"
+      ]
+    },
+    {
+      "repeat": 3,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "846528f7be11d50f01117d0f7a3b345f25bd867020cd55188c82ce33dfbc0fdc",
+        "f1a031b6fe4e14762848e0056219a840ededc745b79e91f8f1226d919098126f"
+      ]
+    },
+    {
+      "repeat": 3,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "340d6b3f47839fc4d749e385b17e0962fbbd508d55591cceb74e685c0a3041b4",
+        "8314674526c3dd1ca7c333766aa70d60bab3e790e86afdd5ae9ac21bbe29b5c2"
+      ]
+    },
+    {
+      "repeat": 4,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6659d9d32916bd6bf87ebebd42c688ecda6d87fd1348496e0af172f62c7cdb03",
+        "6b0dfcf3fd5a2ce45bf285c7453ae73fdd7ffba98ec7a8711ba9bb523ce16dd0"
+      ]
+    },
+    {
+      "repeat": 4,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "bb8570592718741a08f15b6f4074d1b2f5b10ab601784beb2ae9d1cc4221e2db",
+        "8e12792c4c0bbafdc9f5881bc27a56b73144d40b94ae388c36d67b5f0c0f6fcf"
+      ]
+    },
+    {
+      "repeat": 4,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "2d6ccbff927fb083603349a9b1c62c7faa086dfeb4e24e7b8f8216c5caef50cb",
+        "e4a35035cc6ea08ffead1ec35c98294e0f86d7c9a5aaac534b2cc0f8ba7f080d"
+      ]
+    },
+    {
+      "repeat": 5,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "63661a3ea3c782ddfdd7cca1a2f6df931b0deabf09615035e4379af626eb5084",
+        "6166dff925172e357bbc17fd91fc2f3de6b868d06cd29daa1aea59831f055ee3"
+      ]
+    },
+    {
+      "repeat": 5,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "29330132a869de4dc852716f38ea1d52066ea6bb2c73288fa653ec2a15443b70",
+        "f74da0a54278ecae45746c466c58b0637e2fdae276b13a7b48085d49fe63b32a"
+      ]
+    },
+    {
+      "repeat": 5,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ed835f877e19ef0c2221e2a3ca0558017fc1cc32ef89450132675a0802d4b39b",
+        "5523eb8a0eb7f4d281ec49e1d4500bc698d663097aeb098fb654f9a6fac9535f"
+      ]
+    },
+    {
+      "repeat": 6,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "316697f9b23d2295013947ec4b46bfd9f18984ffe012b289bbf27938f88d1c5f",
+        "4f19c6719c03e1f8ff56725056ff84a0c390f693e8641f5d22b307c15a918060"
+      ]
+    },
+    {
+      "repeat": 6,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d6e0d6c72f3f91de0c06b904a3c631c0e2c1e63e940dc2e4902772fd0804cbdf",
+        "814195afcea216b6f41c7b1456f9f063cf0e80146806a8da9a64f7f396d16d1c"
+      ]
+    },
+    {
+      "repeat": 6,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e283f3613019d5f10c8f89f7568ffdb38df0fdfb0e08db047820b07a5462e297",
+        "aeca98d57e5494d84a2ba6fa58aa5ded09a0f488e266d9ead02b56433abe5266"
+      ]
+    },
+    {
+      "repeat": 7,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4ef84c5654be4ab75c7131afefa44142cc94124957419d2daceb602a6a1bee0f",
+        "df6cd59c0713cd60669ae6130d54acf37ed6645953a025bb9b3976b104cde0f5"
+      ]
+    },
+    {
+      "repeat": 7,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c96bfb671c9674d79bc48d7f06daf1b81e279a261046857b2e1673e6a42b0510",
+        "af0e0d7d451d1332651846ad7959e4eb1351f5bbd0297b4cdae259e8b7215556"
+      ]
+    },
+    {
+      "repeat": 7,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7a6dde18d67f610fc7450f75b5526e9d099e5d70a57999e77f1bae77c51bbdc9",
+        "5af61fb8163725bf0d371e4ef01d718436ff6b7745a9aeb9f7bbd0b267d07733"
+      ]
+    },
+    {
+      "repeat": 8,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "df03625095da338bf2bf9dc8bb81a90b5d6ac2467a30a0b0f2950027af81f445",
+        "027c9de01e23ae2b031bd144c0b38432cd7999aa2346bbeb8bf3fdbf64551875"
+      ]
+    },
+    {
+      "repeat": 8,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6fdbb9088e076180c1b1939b83030a243dd8a9cba34a64b6bb2166f966ccbb41",
+        "8477fc60b5f2f63e93a3d4817b42325bf1af9c5cb0a1905107769b75d2060da5"
+      ]
+    },
+    {
+      "repeat": 8,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "389f275810e07c975a058391fbc1cc9926c7329508e8c2c013bba0ef7fcbdd39",
+        "9a6846f3d06135fc612d2875da124a9ccbd14b1e4990704bf7ccde8a971f1b43"
+      ]
+    },
+    {
+      "repeat": 9,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3ecc7b157ee7fcba80c31d8a2cc1c2a93a85861fd4f1f8df32f7de138a7bf95f",
+        "541a23a5c483ab64daa77d01036cf2bdcd2b685a487c8b0383b0b0ebe1509bd0"
+      ]
+    },
+    {
+      "repeat": 9,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "86919fd897e41a5a9e3d7a01e4cd6e7caf1c3399068c447409592c29246dab6d",
+        "60e7a569811f8a634ccf468d3ba5cf2a23e38f084585867c28d99072d01d5e64"
+      ]
+    },
+    {
+      "repeat": 9,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d83650e5b3a148f6b561684f8764db6e3209f50a37650cdefe7abd0b010ec0c1",
+        "a2e8d7f26cea20367e44bbef17995b742d56d6f8c076549c78368c5bab7e6de1"
+      ]
+    },
+    {
+      "repeat": 10,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3dea232b96b66a5429a615a53c097edba03093f24d7d73157d973bfe81fe4c87",
+        "7611ad5eec88a46d6af47c1889b65fc1e7ac80a607a02ce5fa0b57c9af56cefe"
+      ]
+    },
+    {
+      "repeat": 10,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "05312382a3e069af97212c9bac27b4f12a37e423aadc9209958253b6debc82fb",
+        "925e3b8cf984653bb9e45d8cd0a40490b52138821be284419d5bbcfffd393633"
+      ]
+    },
+    {
+      "repeat": 10,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9ec27434ad8de77aa23861ce49d8d1392768445a9ddf59cdcd5dec7b4bb26bef",
+        "e14bd831fbfbb6d9f03e07f24a63e4e1b95bb2fa6b9dc2094a2453cb3d2ab17b"
+      ]
+    },
+    {
+      "repeat": 11,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "68d23e851c3a8b7d6f53f33d34342875454e9c239f1fa9d7de5820df586c3856",
+        "15ed515a7e54977e2c212658eff63f318dfaa17cbc9308894252a631cc7315cf"
+      ]
+    },
+    {
+      "repeat": 11,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f3be33a63a259e4cd18ecf0be0d1c8f2ea72916a434a754dabef1a72dc307a0b",
+        "55ebf50e472863d246ebcb2350d91b3ffed463790627cbfb8537704c5417bb96"
+      ]
+    },
+    {
+      "repeat": 11,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8a76ee1172976eac13afb8c6d567c3a4e2fcb873be50f2dc578173bc5e17cf50",
+        "b20e74bf48ab7c5b185539dc4601360502029acbb17f38684c3591a9b164fff2"
+      ]
+    },
+    {
+      "repeat": 12,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "74ac5e0ad0897fd1e47e4433abdea72ece58838b46f74218b831f841190564ef",
+        "733ccec6d1924b051757d4a880574d02260f14331d85b77fd9d0c455869936d2"
+      ]
+    },
+    {
+      "repeat": 12,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "93322bc33414198c698bcab3fb4c05abd87842992c763f0b56e86499cd12b3e0",
+        "fff9d0fa5fe97687bf55926790a831d7067f71bd60fb3775a451f94d49fbda0f"
+      ]
+    },
+    {
+      "repeat": 12,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d844364f0ebace9478c40f102f08df0ce9606f819da5c21f2338e7ab8bb121ea",
+        "76b933859889f69e838dc1cfef1c64d1c5f35178ea24acabae2c2cfe74df3527"
+      ]
+    },
+    {
+      "repeat": 13,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "066ab337953b3963f2b131ef836f4c1413aee9986c66c1f932b66b47f0f35dbf",
+        "539f3e98a50061b898aa4065b1316cc59507fe9ea152462ba49ff1a5b08e1040"
+      ]
+    },
+    {
+      "repeat": 13,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "96fc8cd69a33c769dee41fb17c939a64148610ccbc09c94e7cc417f2871f463c",
+        "65d6121b39cb9c0c47436818febf7e7863f781cfb007c2d0dfb4c47de9b8a79c"
+      ]
+    },
+    {
+      "repeat": 13,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "486155b746229abd3b901748b239dae3b76cd87b4b71f7ba00d4349675eae2fe",
+        "3d29b2af634d6bc08158de1cbf079d1d7785a1ed162ca45cedf95b15418d4275"
+      ]
+    },
+    {
+      "repeat": 14,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "db01fed2c0841157512dd8c6be6cc70736a7c28cba879571fd199bdb90ce19a9",
+        "dfba7fab6c6a34d1e4d951e6db8184f32f6bee53389f97bc9371947acca4f76c"
+      ]
+    },
+    {
+      "repeat": 14,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3d90c7a9445935eb4548d9a15e73bb831f4fdacde92e7f78f73870b6dfd460c8",
+        "b4df9408fbee1dc0ae5a63c89091e968e705f5be495ef878b9686e6080eae739"
+      ]
+    },
+    {
+      "repeat": 14,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "2832ed18780644de67e52c9dadbee9909281b85121f25d93ea905ede05fc9b8e",
+        "454786c38d29bd47d27dabfa4829b15d0333d8daebcfc920b774cbde12ae8a67"
+      ]
+    },
+    {
+      "repeat": 15,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e6c0cc949efd1c05cc071812fd3c6048b8b41b1f416f10f82673beaa6a05ad29",
+        "859e708654228f859be80dd1daad142fa6a23ab673914e27eb7e9dacea932081"
+      ]
+    },
+    {
+      "repeat": 15,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "012c925750844d661a6bb1399ee8b5d799387fcfa24f20e69a57ee2780d834d6",
+        "bbdd833b5aa5b30a7e363ef12d4158e39f27790ef9141b96aaa72d7dade4868a"
+      ]
+    },
+    {
+      "repeat": 15,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8ce0bfebed00328b79d660ba8947844ca9b896df8c44c08e5fa43f86f5be2fa4",
+        "23753445149744de9e42c398137e2aec6d6a6a0a4fbf9a666a8eff4cd3cc8797"
+      ]
+    },
+    {
+      "repeat": 16,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c13845935ba1aaeb08813bf47991f897a1413377c9013ebc2cb1e0d0ba19c92c",
+        "4eecacd1845099adb3057a997ea3879a92d5f5466e68f6ae6f426d94de63c36f"
+      ]
+    },
+    {
+      "repeat": 16,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e1e38e088b9f9d456651beaad56493c989c80badede14bcb79603a8770e49f90",
+        "7b0549bed3690ca74cd94a7fe13632921579defc55737ca86c35f3d783b135a8"
+      ]
+    },
+    {
+      "repeat": 16,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c604e423f3a2349f4b8bcb4a35030b79b735466345ff43922db7856ff8550bcc",
+        "129436cc189118cf30ada77c53c20a0690a55c62e8bc60ca0eb7d8d41b2d4283"
+      ]
+    },
+    {
+      "repeat": 17,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "469eded48999993531fe22360aa9da955915dbed41541c684847689b3baa32eb",
+        "f66044428ed61dfb79b869d5560e79716e4985d4ef232f9f89c7d04d1470c4b9"
+      ]
+    },
+    {
+      "repeat": 17,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "16991b3dac9c7b0933f70bd7d6c7735c596b8a69fcce7444fd1d8266047a1f76",
+        "8ad2a9ff26b31b825a31edb185472c89085bc9b265e2472e1da13c6d115816d6"
+      ]
+    },
+    {
+      "repeat": 17,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b3e6fb61c57d72e1043d4c0872d680645aa6d24b7f4d02b9dd73c92eb6b9d0a4",
+        "d7013426c3ac7dea0eda508bed20a778bb822bf33e4d94837e408f558d9b8b55"
+      ]
+    },
+    {
+      "repeat": 18,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0305868dd28dc0e710748db6f3d3ad8ac6355b8a5239d87ee40b90584ced47fb",
+        "3c7ac151b4bf46a68f8d707afce95c993d46e0320af6c27a22213faa9ae5d926"
+      ]
+    },
+    {
+      "repeat": 18,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6b32eae7235316d9b38b2d56182d137bf30ad64ff453b8fd5e1f46c7f2fb492e",
+        "abec5a330aa1647210a1fab04240bef54c5f774f0a11fb0f8d297c885f70d16f"
+      ]
+    },
+    {
+      "repeat": 18,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "2ad2c829d708610fdc7c232690c80c50a73548edc6f3e77ced1b9a0ba7144442",
+        "e725e4d5d67c524c86c31e01b28aa62226dd5a6d6710bb46a8dbefdd9f6244b6"
+      ]
+    },
+    {
+      "repeat": 19,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "09acb59f52a848c6807c1066ae1cba164be9cacbe14fa39955282774584f39e0",
+        "842609dd59516ba712894759dcac69405afe5a9b4363160433a63722ae35eac2"
+      ]
+    },
+    {
+      "repeat": 19,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "aa1be1e2db25c3e0d233926da1cb74b0b7833ce5cb1e4856572d479939ffc947",
+        "a0ef49f1c7185d428e634234ddd76a18bdac6781a6c91408fa8cbf83984b2ce8"
+      ]
+    },
+    {
+      "repeat": 19,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9684b98845b27df110814d035574bc7e1ef25379349290ffa7cbc78d03b8777f",
+        "f7a78d3add3e8fd6076c8e471ee3d308ba4bc2864c2e912cb3d233389dbde662"
+      ]
+    },
+    {
+      "repeat": 20,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "fbb2234d105a580aca5a18f1adbe3385b76112a458acd829c21c2a8f079a6dd9",
+        "abfab9ff5ea0db7a3aa7a3f1339dbe7c5fb64c2086a0c5d99e0664884f33f90d"
+      ]
+    },
+    {
+      "repeat": 20,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9824428e76bab35f8601dd21825b42a88b0032014c763e64cf44c56a4c0b0fda",
+        "3971da5b3ce9bc27d20530661be6115a0c869f2d0dd2ee68f1ccf038a06b1cdc"
+      ]
+    },
+    {
+      "repeat": 20,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4ea340bc9a0b169ea78145d46fba590a25b35cdc456ef1cf8ca5124eac079a2e",
+        "497ce27a6139e60f3fa2a1d11badffdcc8c918747e433b1562cfbe26d91a782e"
+      ]
+    },
+    {
+      "repeat": 21,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d34936e43d00cdab7bd3cb254283b7e592c99acb5b0e7f6682e4595fd9364a94",
+        "407b26483a3c7821214570d3c32378c68a1cae73634063aad1412fda1d91d7f3"
+      ]
+    },
+    {
+      "repeat": 21,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3c94894f81f449449b6a931ddc1fdfdce4744c1d4a5dabbddd63a424772d0565",
+        "64a3ee3f5ce7bd5330cc5225b45ac9d647ebdd5c175cfbdd2e77dfc9e6f366dc"
+      ]
+    },
+    {
+      "repeat": 21,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e39b7d5671f697dedf3301f1b9f32b287c773f4f08e51502df8660264f788d86",
+        "f8f1765de0f47fe0c30c6adb8c03fa6947ee4d8b998a257096ef7f4698703a4f"
+      ]
+    },
+    {
+      "repeat": 22,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7db46e13fe9082ae9098b1766b905756b5cc8d83ad613ea3f4c75a8783d1b433",
+        "3037164a1f04491b0f6e57246234a3ad182e0477f06fd64a9996960a6024ddb8"
+      ]
+    },
+    {
+      "repeat": 22,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "32271624a14729bf7013b70e039c1ebfcf85d6847967c130c0241ef474a67c14",
+        "e626b29cdd5b46d7bda5a211f8c30467850a25b1a42036c2afa3185f3d86a78a"
+      ]
+    },
+    {
+      "repeat": 22,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c492b6138bb47de00b7871d3b78cb641022abb3ff41313180aa65573fea0ff0c",
+        "e143a2ebeea3eba30def0c626c92d602b9464bc54c7cbbab2e7a5aba0e779441"
+      ]
+    },
+    {
+      "repeat": 23,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7b5a2f09e82e612e47bffc37be4907e8487b218c1c03f0ede99fbdae10c99964",
+        "9bd127f4b7b97474dc32f0cbbe44f0a5adda54ae46678fbac041822e04c0efbd"
+      ]
+    },
+    {
+      "repeat": 23,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1e93f98331ec212e340b533305300cdcc0b823549b5ef688e8c5696fca5da84e",
+        "b2f0f9a30844bebbfe9b1b730c4fff9410ad78a7eabf804a8547153a97b5fb4f"
+      ]
+    },
+    {
+      "repeat": 23,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "729344402072f38aadb75c9d1f8d05ab5eef8683cdb4f1d6ba01a9768bd4ccd7",
+        "23cb6095e64dd3f1e7ea858a3fdffcf80ab411a05639bd519eae5daf23448844"
+      ]
+    },
+    {
+      "repeat": 24,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ce7e12c3e2658c260624e5badb74a2974b909c689edd1cfdee523a8dac6cfab0",
+        "9fb7b42f62e5936a9a37b2520a8fa0587e3a03d6b4d6df93c0ab23b4a5f23239"
+      ]
+    },
+    {
+      "repeat": 24,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "94e8d336c8658f70c03c21d3eb5bca30bd32a63db9e4f3c317948bf1a6dfe4a7",
+        "317c7af39ed31d5e62301f41fd83d5234595f4dc8d71ee9e465a0366d69a6a79"
+      ]
+    },
+    {
+      "repeat": 24,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "bf05e400e3ebefdc3edc10391cca42654be57e7fb7c2b67b8aa8c566c0d836d1",
+        "c0ac2408442b4efdfae04bf20691281cc9d1435671b1a0f16f3ec13bd689b76e"
+      ]
+    },
+    {
+      "repeat": 25,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ebb8a53aeb73a95725e780f5213d2101e11aa299f72364fb023ee6e989b2733b",
+        "47312ec1e11a9a56f00c7e5043f52ab9c126b2b49c132f6cc5ffcc54e054474e"
+      ]
+    },
+    {
+      "repeat": 25,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ce4c1024c34a4bae6d7b4784af447b0d21b7a0db4a9f2a392be518eb3faae3d0",
+        "5fc0be78a422125eebb011660d4e48f78fd5369312a571254ad6bc97f06973bf"
+      ]
+    },
+    {
+      "repeat": 25,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "582fa74e1db689722070f42337d8343fffcc50e147de26d5368c6a885cad523a",
+        "3ed8679a6fedb14c5003010a3966f3324b4de8783f0a0b6ee8e2e228f0503a1f"
+      ]
+    },
+    {
+      "repeat": 26,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "941157e2a217034aaf2a07128fd3572eefb0eb36f59386808be745f3e2c947df",
+        "637e901149ed55e922b9ad9218d5089ca70fffc7dbf09f0697653f600e3a7276"
+      ]
+    },
+    {
+      "repeat": 26,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "901ff18d195eb833975487b6d92d61df82cf1c100235fe55ba96e8711d733747",
+        "7f6e50e9a6c7c107b78e0df25012c9f5bd1e469154d19227b705e377c70b2ad4"
+      ]
+    },
+    {
+      "repeat": 26,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "20af5dceda327f3feb6b76b2b270f078b647432b442ca50fb21f1ff406e90310",
+        "09408e59bb42ef1b211cd8bfc127a95983eb09137faa694f619836382b4b2cf6"
+      ]
+    },
+    {
+      "repeat": 27,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f02586257c5dfe74ff147553abe0d9987110e8df7bb3975fbe0f03e1271c5447",
+        "161b00d0d87834fd851b2ece349ac46faae8e4508dfc52373d9c1011c21f8e0f"
+      ]
+    },
+    {
+      "repeat": 27,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8dfb173108f361b60f83e533f87e00c08a5785a5e2cdbafa8e9f63fb7b7caf08",
+        "042d94492d31a6f0fe0421214dca80e2147d27c4e3d9bd99e72c92d438488f29"
+      ]
+    },
+    {
+      "repeat": 27,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "cfcccb29d6efc218d401438f802749fe87ff5949fe93f20f124b542af973cf45",
+        "b059432415897fbef5263fbb85ce4f683ad051cf578154798eafaaa22ef40875"
+      ]
+    },
+    {
+      "repeat": 28,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4e0f0229d9a1b7c8516e11dc3565c8874d35976104cd221192a9bc9eb9c73829",
+        "0338bf43978906c55ddcb443e54aceb1c8c1325c72cf23d020e205571e11ad87"
+      ]
+    },
+    {
+      "repeat": 28,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d8d88a45ea48076b217f1ddecb6e3b60c40cbd78183ebcf1d5f6cab7dfea91cf",
+        "4c6939420b3569f9e1d1a4b953ee430edd7e6800747f0e5e3b3f4be96327270a"
+      ]
+    },
+    {
+      "repeat": 28,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "942140dca089ed8cb9302119ee2bc72ce12de97066599e4a6e550401a3c7d6ea",
+        "60deb4d6d91e63fc376468eac6a5d9d10ce251e8d395bc48caa576d9ac660388"
+      ]
+    },
+    {
+      "repeat": 29,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "794ee351389135cd627ed3adce838e767d1a87f3c5dfd5afe721e50b4a940bb4",
+        "c3fd23374dd3eaa14eb786b434f879305e90e2f77acde6be9d92b80d7b6bdb23"
+      ]
+    },
+    {
+      "repeat": 29,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e7cf82b9173c98f6007eb620710fd9f7962aefd3ddeb47b2965ba4513e9863f9",
+        "65ac861ded7802de7a64b59bf82a35596e251f0e46a18fe03c9cf0e865b32c71"
+      ]
+    },
+    {
+      "repeat": 29,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7c719f1471e2c8857f42311eb8c94d29625121ce9c38d8e298474c8484c9095c",
+        "362e00b3a18cc56abf4573dc1aa9eea08e00a823e426287b1d0cb8f4a7371bcb"
+      ]
+    },
+    {
+      "repeat": 30,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3ce346828e0aca2e4cbc944670b0daffe7f12c4a01fc3c377c2543bfdbcee25a",
+        "210d65d445845f633a8568efc644fc428f0205e7f70ad1dac70345ff9adbbfe8"
+      ]
+    },
+    {
+      "repeat": 30,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0f197b287110f935f95528d2d5421897f39d5ba9dd0cf0cd6754295f77b3d736",
+        "72d95400c0c8f9fb901c9fa4715789b360552620e2fe0b92bd5d1812201791cb"
+      ]
+    },
+    {
+      "repeat": 30,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ecd7f3a479b5086fa9f399d743c51b46378a8e7da788505924b0611ad79a9b67",
+        "f81c014442521b0e06a14556320fa0c5ab50249d2397c0e6f8b7d14fdaee9577"
+      ]
+    },
+    {
+      "repeat": 31,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "851ee3910ec677e2cee7018415f89d3d32aeba35b3c5127169d3b953deef55b9",
+        "e3d1c1a1f97e5d1c8c3fb41832fb551bd512c145e8e806c0cf19e5c0c7bf4332"
+      ]
+    },
+    {
+      "repeat": 31,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "854ef7c1302e2217a1e9932c8e5b738556487a2c08c9fdd3476d7c4633f3d274",
+        "77719a5da63e4d2cd3c39d7fa79fb3dd21bce9a8931d7b5133ccf552d1117930"
+      ]
+    },
+    {
+      "repeat": 31,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6c0f44457ba9a73d1017ed212ddfd320d729f95e3080c685aba56e8a49a5bfa8",
+        "434257ac496ef8828fb82e6d1c93dcecb5d2c2947e477fc1ff88dd8fdc5685b7"
+      ]
+    },
+    {
+      "repeat": 32,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "2ddd5a485c60760c31209c09cc9906af0a217a6b2b2b0b7f9c6155657bacdc1d",
+        "5853f4950063e617f9c7d50a13d69e27872cbc0edcf4a0e61541ebee988e5a5c"
+      ]
+    },
+    {
+      "repeat": 32,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "fa329dba9fc17fc636f1580c0e98c81e19d108158d99d96a0633ab5e514301a1",
+        "ac3dc276f1f342d2f969685fc1f22a8f87f33ecdf2125db4d2e12c7d148bf085"
+      ]
+    },
+    {
+      "repeat": 32,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "762e9aaeaff81d37709d326dd49550b1976cd58f4d7657f4144ed1435b0c383b",
+        "45a0e9a2993a297b23a3d75a8da3f39db471c5e4f11b99b5b44205ce584ec284"
+      ]
+    },
+    {
+      "repeat": 33,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "10eed63ad4106d6b65c7e550028a214ec9386aed41dc5c359db5895c8e3372d4",
+        "695079cda66614c215af2b508442d94fd19d991b8874317ed45fd6be87cc2067"
+      ]
+    },
+    {
+      "repeat": 33,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b5a17714013239476ca04d599d8cb0e032fd0c70ca119af9e340984ecf9016a8",
+        "77f2b722345708f510401c77eeab7802b1d92ab3a151b896ba24fd0ecfeb6c0e"
+      ]
+    },
+    {
+      "repeat": 33,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "cc922b202d52521877c64ac6da166f38343b025ae5f7cdb1afd344ce2007cead",
+        "373dc63d1f9ed12bf14a22cc15d47c7a0f9c91b011924dda4312b2e8e7cad289"
+      ]
+    },
+    {
+      "repeat": 34,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "86c6df40e7d550a2e59643e8ef2129db2d5c1c338838d3c10e72cf6ea931a046",
+        "73b7c553694ba80f0827ed07e837d2cee81696c85e66f85e1b92e3c2705c151f"
+      ]
+    },
+    {
+      "repeat": 34,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4eea0be33c89cf8f1c0eac1fa4d648d37bd020a691aec8a8a87145eddc4c3062",
+        "d6f681942ead32380b95d2a3ec0f9080320aa0b933c0592220edc19be6f099fa"
+      ]
+    },
+    {
+      "repeat": 34,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "92131e9c7d4a25579fade67a41e9ce1ae10b85db9f106043b22bb98d37241a37",
+        "a1d2aa90f263453a3c04183f10007cb8b7d79e561a8e958d6f0cc717a71e1284"
+      ]
+    },
+    {
+      "repeat": 35,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0daa620d1ab2c67fbcdf0298b763f0163fc526919a2e7ffdc06afb89c4cd16c1",
+        "af1661ebfc53b82bf8e3585008ecce549f91b7b9fd46fc8ca1f9226235d937c9"
+      ]
+    },
+    {
+      "repeat": 35,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "81d38e8d1ff4af8b4675d8acd3e602b59e8819d4913662c6c53005e201589eb2",
+        "63c4e238d786ed84bac4ebc8f1356b19b00b7b38d5aba32a060eb8eba137ebcc"
+      ]
+    },
+    {
+      "repeat": 35,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ace75e64c60b0bcd19e72cc18214260d49387699e47af2c9a12e200bbbf60cac",
+        "0d95c92e0dcc6f89b832676f590b8f213a6001798d52c037949e359fcb3864bf"
+      ]
+    },
+    {
+      "repeat": 36,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ee47461b1d2e82bce961b64eee119128c44d93cc7deb5128718286da37057be6",
+        "884cc9fef55620003ea21989343c722e0bb4cc52caebef161784f2b32d599ef2"
+      ]
+    },
+    {
+      "repeat": 36,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ad0ec867bf7ec95954e3a491169314956a111f4c8fae3acd1c5ddd2c5eb97841",
+        "6f0ce52f98fce4e9e4ee04fe85ab73622f4652a9811f7432b613fc8735a520d6"
+      ]
+    },
+    {
+      "repeat": 36,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "577f96e904587b45652b222718db0570f38b6a2b581bd6213bb10c0b847eedb7",
+        "53dde9a75316393a14e31a72d990d197c394269c31db7fac0d96446b116c56ff"
+      ]
+    },
+    {
+      "repeat": 37,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3f0c33d33d76754136ea639b2527884f3f3d4b0f87cb3d45930ed97ac4bf7987",
+        "551243134e5834b4cd6f487c7b101ac0cb79c558bddd64876eec05f57f601dbc"
+      ]
+    },
+    {
+      "repeat": 37,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ad6600c9a3c31314db563732989c41f7f51281818d0093d13129b0293585b791",
+        "a40b46017c3ba02bfd591a8ba9a661fb85b872c11a684d6bc9c0943ec1592cee"
+      ]
+    },
+    {
+      "repeat": 37,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0f0505eacd59c044ea5e0e1c4a3fa94bb5d98fc29d7deb1172b3dedbcee5e399",
+        "41581cbff312d2820454a9e5148a3cab014cc4d5a070068b91ed837792d89fad"
+      ]
+    },
+    {
+      "repeat": 38,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a9eb03dbb495a4f5d5d3d5c52b17c1ae5c3889cc3160ad811a032f9ee61ce6d4",
+        "cb4344d4e5c61ba4d9c223f23978cace9d99686852330d2d38288de5a7eaf822"
+      ]
+    },
+    {
+      "repeat": 38,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "17aec4f7c5d3b4f9170ffd0bc25dfe86b9438290df07c9303b72b036e23d3538",
+        "0eef281cd132ac0a63d2567610e79f07eadb4a502f3fc5f970b81ce9194bb8b8"
+      ]
+    },
+    {
+      "repeat": 38,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d6aa7fa5c87c42c6318d3975b44031faa278b82e9e01954adb2cd2e2cb5b498f",
+        "0ad715e1cd4f29510997114b1bffca5941b8accef6f5b1ca3b0cc78820261029"
+      ]
+    },
+    {
+      "repeat": 39,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "24bdcd2d37b46ae465c9c7cad660e0f01773e7cc77ca086d8b57caf817eb7b4b",
+        "9880e3b2b5d6e593383d5d5e614c97aeac256095edda879269cb7f5ac3d835e9"
+      ]
+    },
+    {
+      "repeat": 39,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "531f7b827d75f7d04e2455ad47e53c6a322edef1590adf2ac62c77bdb5c95ff3",
+        "7e68d2e1e29ca71b97cec31a7a038372e7274ed6ef6ac25f82e6479ef6090d9e"
+      ]
+    },
+    {
+      "repeat": 39,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "38455fa3e701ad3a3cb6137f11050fc26aaebd554d8acef7455d2149178895b9",
+        "e2a056133c43eaabb5f884002967f044250cf274b329814797d4b640174ebf3c"
+      ]
+    },
+    {
+      "repeat": 40,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e9e29ccbbbf08a41ccbe452d47e42b00a694734729be2225fb03ccd5f999eab2",
+        "31e41e52a1448de03b804b3af7e1914151cca83efa78776f55e8b9370975d2ec"
+      ]
+    },
+    {
+      "repeat": 40,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b5b3605a22da93709d0324807279214ab5e54647ffe666a65d0f1590793ead89",
+        "7f5cdcf1f479eb5aac49c60f317c6c3352a6f810cb551e8dd22423f62eed63af"
+      ]
+    },
+    {
+      "repeat": 40,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f407f377894a0f2bfa528b250307f904c37b908876a76154f90d549781d850de",
+        "30317fc59b3cd1364e92dbde095534301542767ac80eecf6cd2b2e7504b7bb6c"
+      ]
+    },
+    {
+      "repeat": 41,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1b746526a2f2a57842af42ba0fed4edd013beeeea25bd1056315ed9f05152c3f",
+        "41994e08fc8b19cedae95f4730f7a6e63bb47a1d17e8f05646024db6f01175a4"
+      ]
+    },
+    {
+      "repeat": 41,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1bba6c9f73eb84b08fb0fee4410c430033da6434f48e37b5c8d87051ebaae508",
+        "b49982d0fad419de38f68a51a808f82f9246fd85fbef75667c53db5ffe5c84c9"
+      ]
+    },
+    {
+      "repeat": 41,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5356b49c7ab68d78dac5cfb1f23e75dca0a9e7ec817d869dcd9eb8ddeb9e1c77",
+        "7fbf4ec0639198864ce2d4b30aa0ceb982b36ded207ed056af20234f3cbc28bf"
+      ]
+    },
+    {
+      "repeat": 42,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f483dee158cd6122e135a6f1ff38b014978c2cad38c7455eebc23f8723efe8a6",
+        "b41249dd0842a2c640ceda2e531169bc24683458498b253a883cde0b770db2fd"
+      ]
+    },
+    {
+      "repeat": 42,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "17d046e604efcd746951d182686b69fb1fd07edfbe3f3b3e3247a626046840b6",
+        "29d7d7d04832b335c40055343c5a0d81c341cc89f5af36df36e74a89e173026e"
+      ]
+    },
+    {
+      "repeat": 42,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0c3e072038348f2b5326ab1a23b9bb67816a2051245e96a378c3ffdbae195c33",
+        "34c51384edff2c4330fd34b9371eab9604ab38b14bd0b5e78b3966d4b5ac3956"
+      ]
+    },
+    {
+      "repeat": 43,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "57628cf584fc9a2a84567a2e54f0c94e38d62703f0c21e1595d1eea610ba2774",
+        "7d936ada03450d4f38bfd6da631a46bcf1a7fb55e38ca87e87cc630e4a4cd123"
+      ]
+    },
+    {
+      "repeat": 43,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ec6e834662da6eb478f9e5d0c6fe9403d20a68a34984cfc2ae2c8e7a7f457c77",
+        "da8d6b8f2286b9320b3e667b379563ec6c04cda9177dcffaabcac3ab1ba0cf74"
+      ]
+    },
+    {
+      "repeat": 43,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6c13437e3bd7aeff2a14bea29ef3b973c6f671b9af847aec51368fa1b4fd8653",
+        "fcf05636543978fdf6876bbe9ac08a4e8b5a3cf1e202bbbd12411d57a7466f17"
+      ]
+    },
+    {
+      "repeat": 44,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3b383599e4b511b7ddc1c7876222ed77d22f9882dcae1966a3a164a0e98b3a20",
+        "f262f015f63e2d0abe07852d2f023eeb2d581589449e159d296cb5a2cae7c60b"
+      ]
+    },
+    {
+      "repeat": 44,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0d106ce037580af14695d121eb7363f306ec01f84d870eb05e72764ab3eb1d89",
+        "0b21861590fb96bc831797b71695311cd7123ce7a4785ce9b86ff131c8231f97"
+      ]
+    },
+    {
+      "repeat": 44,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1562f142efe17264f01c92361479e884bd1c77293ccd273b2626c3e78161f954",
+        "0930718ba3729b434d3f2594457f4a66442d6beda8a8168aa982882a2fbf85fd"
+      ]
+    },
+    {
+      "repeat": 45,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5e259ccd7e3fccb4a6a9946970d039f4d4f3cca0f715382192bc13b5793a43e5",
+        "4d9b73bca9035ae1feda6b52000f13b9f012e7a6b3211d3b02d2d557485486fe"
+      ]
+    },
+    {
+      "repeat": 45,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d38ea78da0f10523e39116e89c628fda06af8874cfaea936c273d2a5bd747581",
+        "d94712fd252c58f7f5e8d7e15c0f662dd3ba3d7a4c726c05723104d4b7942e39"
+      ]
+    },
+    {
+      "repeat": 45,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "78ab8aeb660abe406fed18cf65fc2088853f53972bd4f646dcc2f06f2d22f969",
+        "b196c699af34119f0d372a282e6a160b3515e8d21843aeccf843371fc2ad8483"
+      ]
+    },
+    {
+      "repeat": 46,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "01ac2b5e0cb04c41970ffe0ab2c6d5307fa0d0794e3e1ac4ba5846efa80a0ce2",
+        "c3ae688c14cc241d3a290f2cc3d59128f03065c87f852efc4fe37cff275d271f"
+      ]
+    },
+    {
+      "repeat": 46,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e47e73b6128b24979df884249657db5c1a1b8f5106119067896d0778ca86cc8c",
+        "178bea93c6a92467f4c55a5acdfe29da633dd2691c0ed82f1c3b3e6139158b7f"
+      ]
+    },
+    {
+      "repeat": 46,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "99be6a5d06cfa7a67aa7e35af7826c6ac1aa1c50737d3d3158de24306b4be2f7",
+        "5f36b6718a9c1c873a24cce95cefee2624f6f23e8a76af0a5a38ac59fb044529"
+      ]
+    },
+    {
+      "repeat": 47,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9004fd6b4ae45d5d0354058b0b033e83188ae4a9bf3957f499cc010a3a36c7ec",
+        "99af3d00090b30558444a7085327422bce130ae036a3b850b42b3210f29871c3"
+      ]
+    },
+    {
+      "repeat": 47,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f0038dcf65a350672cc4def77221c6f487058d69d86ceb1b1c0048cb81ed5506",
+        "af2e2354f9de9b34d5851021caee51897f3c1171a7bd81d34f923759efb19201"
+      ]
+    },
+    {
+      "repeat": 47,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5c9c06483538992ece4a0457188f24a8f72125f772877508827ca7c8cca84c01",
+        "a801c24fb9208288c82569ebc01dbe068c4bd2ade21be22d86a175a07f15df83"
+      ]
+    },
+    {
+      "repeat": 48,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "22f7639812af6da255e3a5e2d5cbf9618c5029af6e6b0c3a6d16ff46ef1f38d9",
+        "f378b592ef00f1847ff33443b8669f38a291837f026b1e8278e32d3da0870391"
+      ]
+    },
+    {
+      "repeat": 48,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b82bb086c219a0534b24e49d09a1f326741c7c423de4da27736ca3e3871bfc90",
+        "eacdea8e9ce1833c9d8ff84802063c67cbff43f2fe1c66ee0eec8b8a90ac9908"
+      ]
+    },
+    {
+      "repeat": 48,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a1e8aed8e290c579c505f3076f53831c8a6fde040e39f877c6dda86f49b2f66a",
+        "cfb3315ac2addf877156bb7fcc466b7d6699bc3096d1df12af95d8bdd34a62dc"
+      ]
+    },
+    {
+      "repeat": 49,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3ae51696b3faedbea2ea533267f04ab2794f553d0afac7cc23b46916da0f7e54",
+        "c87967f6b37782f6dc3c0e536144d256d0e6cafe095b99638cdaed280a471958"
+      ]
+    },
+    {
+      "repeat": 49,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "499919141a3efc5c5b56219a10bff23c2812b9f59401a39bdc0726317f5ffd6f",
+        "00c125617e262adea9d89d1e47c50a8f83a5623f0fccb96078e65aca42e1d28e"
+      ]
+    },
+    {
+      "repeat": 49,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3972e1575a2ac5052bc1a8673311543940744e27452b904ef74cd4a51d90eea2",
+        "a91b0d01ca100412c96138a8a25980f090c488b8d0902d6e152557737f4bbb37"
+      ]
+    },
+    {
+      "repeat": 50,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8ce3a4f49da39abc9f9d4df6b9750286877368d68bcbf1daae8882e63fafd9f8",
+        "883083b47b602d4dec215dcd21533b6fb0cd42c3f7884f56f3e1ee9b7d04ce72"
+      ]
+    },
+    {
+      "repeat": 50,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "867e3216a2c6bfef8a122eca869c4fd71abb34cfb62e34470394044854be61d5",
+        "ec6c72ca8fb9c02704c928a759a653111a202480e7b0fff1fb31c11fc74a7ad3"
+      ]
+    },
+    {
+      "repeat": 50,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "cb89d89f9d48a899e78199a6d33f531fc5b90e58c34332619a5c5508538b41d5",
+        "7ea399ff02190c879a56e80f2a767fc0ea81de0bcf1c468ed72b0e90da01caf3"
+      ]
+    },
+    {
+      "repeat": 51,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "dec240138edb08d79be3b5471bf7ac7a64a33b27baf7d7b8a24a2405e379666f",
+        "16cb4fe1bee269230199c6d98203e02161b374c8fd846e3a5633fe5c779ac4a0"
+      ]
+    },
+    {
+      "repeat": 51,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4d765677de935baa9aa484a927391817a4128c0c0ae7540293a20af7e80c0d29",
+        "a083b78ff29691ee28ff9e0b4701067e117d7464d7718bdb7061d1e739327085"
+      ]
+    },
+    {
+      "repeat": 51,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7624a41ba983ccdd7a4255b26f197af5f2207ef87e1fdae0988523fcb8c884b3",
+        "dbd4412ae8e0b9b7426503f66e043a93450af157dc8d0683dbfb60d28b11888e"
+      ]
+    },
+    {
+      "repeat": 52,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ce8689f9595040a5265380b64c6363ff60140e1280e9476d5ad3fb0d81e11fce",
+        "b56e218ebdce4a1163dbd453ec6971f9820b646b9526b68b39f5a4b5a2e8df00"
+      ]
+    },
+    {
+      "repeat": 52,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ca44ec0116cdf578535bc66f3b951baef5d364d7ae3dceab660faba7735b3098",
+        "a21e1bbd49ad97d2cf1d049f98963db3eba337ef9843c2230a6ff197e15ed9d8"
+      ]
+    },
+    {
+      "repeat": 52,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "554942ae521f1dead391fae8f0cbab1f16f245f7381a29b199b43aad9eabdf69",
+        "e3746534f3c4fd41c41c58a5a6f6d6ca66d4edfc7c3a11a2accb7cde8b00c9d6"
+      ]
+    },
+    {
+      "repeat": 53,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5ddfffbb6b67dc57983f717b1e1bc9056940ec8d381434db0a120e5a48ae9c0b",
+        "adfd370e660a0cf28eecc204ad84800c062db43c360ba6f4216984cee7b2ad39"
+      ]
+    },
+    {
+      "repeat": 53,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "2e20641d8dc7975f65bfa6d19d3e5303c5565f838e4bd5323e7e65f249eb60b9",
+        "c1ade1fbf93d2ffa426dc36d6109958dcd732dc09e36b565e5cb112aa752a049"
+      ]
+    },
+    {
+      "repeat": 53,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e5f8e0bfb5b78bfbd7ecdb31a7cd5b44d83dcf8a8db5485ce22615ec2c2b583c",
+        "e5718f24cebf24e0fd22524a07c52dbf624b6ec4d4f9b707c1890fa34ceb0e2c"
+      ]
+    },
+    {
+      "repeat": 54,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "616ea48220696b0570f19de26c0641291fd22102ab513839213f77c3bc7f67c8",
+        "d2ec7b5a28d3a0b4edabc1cc44e0084ad8ea203a385e659e18c693c9c16a3951"
+      ]
+    },
+    {
+      "repeat": 54,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a7b255452c59bbaab3341a6509c3b3d21f00fa8bb48d7d0cf590fdf3570c6b13",
+        "f58cb9a87ba8a36fcadbdfaffb343bd61ff81386ee34636873cab94e749607a0"
+      ]
+    },
+    {
+      "repeat": 54,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e66e80ece06520286b2502b48d1582c5861f3658fe613ef59194b43ed540540b",
+        "aea6a7bd7a6b36f803711733b79131443a0d7b983e94c6fd8b2485374085efe0"
+      ]
+    },
+    {
+      "repeat": 55,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "241cd8414468040108b2a1afc742d9a6b6958dcd46063adddfc3f5643212317d",
+        "d6e28df38a72e7829deb0d4e39f85245aa818cadfb2b3fdf748f44dd5b4dfccf"
+      ]
+    },
+    {
+      "repeat": 55,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "28691695ea01628efa986d8f42bf799dbed83bdfe031c94836d04d65629a9623",
+        "3f95f9f8b716b90bdef14c132b1364c742431e4a3d40e984d4589278c5416025"
+      ]
+    },
+    {
+      "repeat": 55,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4f2192a9e02a180eabf8c0f8ea47c0303613310d3a75e2a2342d8d275e6334f1",
+        "4d0356b8a9aa1505a906f1b5efb31fa9c391531fd3d458a7878cd17e5ed5195e"
+      ]
+    },
+    {
+      "repeat": 56,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ea24ed44671891c98238affbc6ae09738bdd335ca70183e8e69422c5faaa0269",
+        "abd15d60313fcb3a2f1b4b0bc85e9cb602b306b596a8879e1bfcc624a8907498"
+      ]
+    },
+    {
+      "repeat": 56,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7df1d9b5fb4df7c6cc7ea3bcf62688fed0fad6321a04b5d4d9a789ab6c77f5b4",
+        "aa0759614a9ea7fadd8534d85f101f6a7a3d81452a25ed2e26feb65ac7fec025"
+      ]
+    },
+    {
+      "repeat": 56,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6147cdee68d15aad1bd120dda70fa43e5b312e96acba5891ee4aae5443164d00",
+        "45d097905228fd3150c095d343a47edb26aaee485126668d6593a60d7269d128"
+      ]
+    },
+    {
+      "repeat": 57,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9a4113218da4ab8b3179bd792c73a7d1ea0d56a34e98b98452eaa10b69218d28",
+        "f2d15ef4ddb5968c1c4bfc7849414ed1f26e9aa1dcefaa01a80dc56078febe4b"
+      ]
+    },
+    {
+      "repeat": 57,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "61d5339c80c2d708010ea58fccec8b61137f2f2c1965c08c335f52daae9bb0f7",
+        "9294a42cf7457641e0905bfe82a5650a291eb1559ee9f6d1dbdef1b4282de350"
+      ]
+    },
+    {
+      "repeat": 57,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f382b559c83e6d171b524470390639a09238fda2b0a512e4a9fc909a837dae47",
+        "221eef6898f797adcf7eec3dea7bda838dbb21999590e5f2e6fa183434926cb7"
+      ]
+    },
+    {
+      "repeat": 58,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "28fd8e397fd4683cb22ab1eaa3b5eac6898a4d2e62260c439fd34306405404f0",
+        "2338a1f6ef1456e79a2491f96618461b5b5eb325066d5963b778607691564692"
+      ]
+    },
+    {
+      "repeat": 58,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "52c0103bc8ed02717c7eb39167086d3e2af3e8f4e52f91aaafce560ae52d9fd4",
+        "4f5c73f105a1c0b2c231b0cefd2803646c9ae388e2754b28f60f6ec7fd1f8698"
+      ]
+    },
+    {
+      "repeat": 58,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e92f4ede82d9d9c41cac81115f7a4d5b1bf62ca639feec6fb8438a74a05ae504",
+        "79728c4ae6c37663ed92e6a930b15c4ea5f2f42a1dd2d89f5f834f90985bcc62"
+      ]
+    },
+    {
+      "repeat": 59,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0ca880714b3145d2a5858ed5c229f277e24e90e931c7ca1ad0b6d0cc3d4dfda1",
+        "8af072b6f870b297ebe02e65a0e1e7d42ce6071e7c9e78d78b7fbd815d183369"
+      ]
+    },
+    {
+      "repeat": 59,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c2ea29362d4f7bc63c2e071b4e53ea86e8884bcbd676de0d5f22719fb284e822",
+        "7594c1d99c251d12767c32095a548bace88d1a3ac04594a3e754fb23537f8a8e"
+      ]
+    },
+    {
+      "repeat": 59,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "43ca9cdda7106d9eb06ccf4eb6ff1f97458de3ae8123f2b17afbbb4c7f11ddb8",
+        "62eb9f7fbe4889fe7521dc93de6630176693b414a988522a0f8b26ae7193a1fa"
+      ]
+    },
+    {
+      "repeat": 60,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "dd194b2500f29447f93a220685c964c59ef1e77e8a29434c00f20ebb4de5fee3",
+        "871aa897865640fb2af80dd4abe1aa50f8be5e390a8b777f85629e2fd4ddf1cf"
+      ]
+    },
+    {
+      "repeat": 60,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "61ae865408f43d207bbc13616e2565880e22d236e07c9ef1d5b723adaea52d12",
+        "9f9cec1262a3e8478a324740fe8147b3ac6f015207ecf97fa9c6a3bd14ad2e34"
+      ]
+    },
+    {
+      "repeat": 60,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "bd6ec3779051971039a1b1ec6df3d62f0312cf34695f3a021fcdf305cde3ee03",
+        "3484574c41bc413d0d7a91034bec93abf4039f4e6f7566316a6cba6bea800549"
+      ]
+    },
+    {
+      "repeat": 61,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "378a073cf3c22701cad6c22e911d978f05c8f225f062ccf84c860092a1dd3c82",
+        "d085fb010ef6135bf85a65bb899544b2281c219482a85f952602baf170c80f00"
+      ]
+    },
+    {
+      "repeat": 61,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "715a8827287345f8c87d8238474308eab96d97e059bb91eb8532bc02638846bb",
+        "828767876496b13774af1b3b54599eed492154a5beb756d46b76b1e87534fc7a"
+      ]
+    },
+    {
+      "repeat": 61,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "849b0e6e652aa0cee99f3b588a29ef624359977f5334d63228983be00e2e93fa",
+        "6fe0232f5ffe1a28dae2e358c1f8327c9a6212167793c8f568e2d3e4e1fcfc1b"
+      ]
+    },
+    {
+      "repeat": 62,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "507f16bef1c66eeac33f028462429666d00a35095a06c29bdda4ab7da47d0b4b",
+        "ff9752a4e94e5c0abb2861dce7f3f503fc38ff28d67bf18711742b71819e3cb5"
+      ]
+    },
+    {
+      "repeat": 62,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f2695a4cf99e663149722aee153f21275c9fc1ca079bc577aab4b1be2f0d1088",
+        "ed7a9fd7b3bacf5d7be78042806d4e62639dc8183d63572a5cc22c770fd66a17"
+      ]
+    },
+    {
+      "repeat": 62,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "aa82c9ded4d013b0d437674c974a0d2366e59dbb95791f65cb4c97187d72c11d",
+        "a3c9fc66588b424ffb557bd4b2a9466a819f2e3fe559d13fb4dbd605089f2c60"
+      ]
+    },
+    {
+      "repeat": 63,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "827705c96e7d0c5990392e7674f5fc2f2571a8f7f72cffab8dc965354e3aff26",
+        "ab0204d5b429a5b77b412ba73709455bd57654536b99c3ceaa9a2ab2fbcc93fd"
+      ]
+    },
+    {
+      "repeat": 63,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "ad26d48f4320ec1f030354d0f199bbc055e04041f6a9f2e663731974df1bfaf3",
+        "081ebf1f69761323056aa5a2b961bb7a7b81afb6ba2d862058f72f762d490d3a"
+      ]
+    },
+    {
+      "repeat": 63,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5922f79f93cb0a15ef7652e5f83382c568a9c537eb521549b0e96996753f5134",
+        "b9e9ce296ec053d0d813714b5ee5d50ec2a4c4586df64818fadd89f2fdced692"
+      ]
+    },
+    {
+      "repeat": 64,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "234bd1e368430b5f7650a7877412c933b85f1384fb075ac38faba700dc89c025",
+        "81f50e9e0f8dc499e41fa50ede9b45f9267047456ee5129d95bf80a834f8cd36"
+      ]
+    },
+    {
+      "repeat": 64,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "645a56d57586c164d655059d5d420ffbe1e4ae0f598a0f826cee5e4c74a9d8c7",
+        "d64c18818f909fdd88d52ee87ba2a91ee7e2a72371f1afab10377fe8114acdf4"
+      ]
+    },
+    {
+      "repeat": 64,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "278411d448c05b62f23622e19dca053ee695a6ad43c5eb83c1f93de5bc983923",
+        "ff4261bb04bbb30289d8cd292b30c7c797d8fe14bc50ad31163f5ca4a3e8c386"
+      ]
+    },
+    {
+      "repeat": 65,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a8852ff064f9766412977a50fff7dffb2d31c0a652d38ed7556388e7795b39e6",
+        "59f553ea963c8b2f2851ccd37e647faa2649b871fc029d558a9715e7014e6e8f"
+      ]
+    },
+    {
+      "repeat": 65,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5a967d8a5a6c8c4b8c2bd4a461d74d2a230da4f7e914c0264f65de12960fca19",
+        "c972e6d710f559ca673c6d552fdf45a254cabec67ac8bb9da4ff3e06509d5e84"
+      ]
+    },
+    {
+      "repeat": 65,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6a507361532d8af17d77dfca580c81ab50b49f0b73104354d2522638bd77b56b",
+        "750a0cc7e712cf1fe41b8ccebaa9a84fce7f8d75ab5089e1447f917535a31d3f"
+      ]
+    },
+    {
+      "repeat": 66,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a3a35417ac6c32ff3e17926ab064e6da06d8574d05c6dab196015dae35160f36",
+        "4e75290f7103f77846286cf7fcd025a83b7e29c546fd7c353f93a7170370d728"
+      ]
+    },
+    {
+      "repeat": 66,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a20788595cfc0672c5a45c9521adaecae41eea6d66ea892f46e79dfe5532b04e",
+        "15e39e543750e3470618192ed1dc2fe8edbfb2a682c67002cbf898bc96710e27"
+      ]
+    },
+    {
+      "repeat": 66,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8e7cb11a8fd167645990340ad2a45422de959126b670a51b54268158f30f8a95",
+        "6b3e11cbf6b238a03217cde93dcb0bac50bbb723cd84e5b832b752f75b5c2f90"
+      ]
+    },
+    {
+      "repeat": 67,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6e96c26f8ed0cc0444c8139b6736a87b832b54e90283bd3143f34e89e3fafbe3",
+        "bb0ed7333ce1cb745d82a6ba151174e42cb5d4e61e72f69e60285a2af1fed3c5"
+      ]
+    },
+    {
+      "repeat": 67,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d33b06af96893d591eee7c5f3222bb0300601070f88dc4264699f0365728d1bd",
+        "1232f94f8348b5037966c2cc3270d5995c247a5d4c0884e4c61a14c30b40733f"
+      ]
+    },
+    {
+      "repeat": 67,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "68279e2bcfaa5b2e839e5a58a2d4d4e0140551bf84bf4dafb54a65c8c2e059e9",
+        "c5ef3f808d9995a46ed484b4a7a7d97aa0774dbea27f4b79cc7406fb7a248d33"
+      ]
+    },
+    {
+      "repeat": 68,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0374392ed9c6a2e59d6b9fae7be554ee178b58cc9ba5d4bbe0b0ee2131eb9738",
+        "2340f2735249135af4525fcfede026e845185e7a4bf41fd4fc37e2a16e81c92f"
+      ]
+    },
+    {
+      "repeat": 68,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c3d2725fa4e1ff50d85d705883ef7e787d9456f841d4af57e9d8496c22b34419",
+        "1712fe051ec64fb92756c442806204163a9b103ce702a2e897d061ca25b03462"
+      ]
+    },
+    {
+      "repeat": 68,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "782a82375ce5e24e5abe4b47aed4322ff72d04fdd7d6b56f4bb123f25b156388",
+        "96d74288bd2b1b6bc78d6f0a569f1024139a6ba33d626421d94f5b09e549dcf6"
+      ]
+    },
+    {
+      "repeat": 69,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b2ae3758f9cc2e90ddd486fd85f5dbdc234681af5cf85fc2feeb312d7535ef0b",
+        "d6596bc516fc488f1ce71d7c48eab42a4bbc69db288a6fc61c88d139f34d7c3e"
+      ]
+    },
+    {
+      "repeat": 69,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d936748314851ae34cf7aa075ebff6565187b5727069653f0a07ab293c1b8df4",
+        "951e1c706762d9e7f370e97772142c51b793f6c0afc862adc9536366bfa5a208"
+      ]
+    },
+    {
+      "repeat": 69,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4984dab0c5bc3337b9591c89ef6c68fd812188571e4f84af9e5072f46112d519",
+        "43d20670fe4d8b0fc2d6291ee1b864021ab12b3405f7631c69a859747b5c1624"
+      ]
+    },
+    {
+      "repeat": 70,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6e1c4f1d430ce8863876ca9bed9d4c9ee65d11a6821072946c772d9e1ef55004",
+        "7e22abc4186712bcf42d598a3941749db1b203502cf288ed963bc6057b876696"
+      ]
+    },
+    {
+      "repeat": 70,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6bee916b52e866c9c532570c637e6964226eb5ad97dda58ec132ebdf56cd8f05",
+        "e239fccfb89703ae1e32452b9231f403d0ecc4451f8e1bad26fb9101c34ce13f"
+      ]
+    },
+    {
+      "repeat": 70,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "10fbeaf45251b1dff26785eb0d3cf3480ed0b1c9dc50769a62d123dc1d82aee9",
+        "a50515601bffe65765940e79daa094a7c61cf0defe469c2a1ce6de10c3c5b64c"
+      ]
+    },
+    {
+      "repeat": 71,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e501e66e6c78b2a77c18ed5f8588a6b3e2d14df1d5742cac21cb353995f2886b",
+        "03cda52bca8ab8a92fb32e80d46b396796f44687e5e3cc1793c42392da518401"
+      ]
+    },
+    {
+      "repeat": 71,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4988a3dcccf297d446cf70392c82426be4b422402fbd91953fa2b265eb70a2e7",
+        "bcfdd7e214cb80f691eb4bc9f21725c3e79d6f2d66f0b7b81784c56a04ffb5dd"
+      ]
+    },
+    {
+      "repeat": 71,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "dd498e30321213aadd83fd06dad700a16ff51de89f2fb405af154c1466f25a6a",
+        "71701e4f8563412bfb6734a2fe34f6094928025a88a241069956fca3e539e859"
+      ]
+    },
+    {
+      "repeat": 72,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "78998fc02566b43642afabfe48a11f70640d077145d5be15701fe7dd18588eca",
+        "7d8f3e5a14db2cb319fb5b1e430f124208ba55dd1d2942b90036a6a5f0b76eb6"
+      ]
+    },
+    {
+      "repeat": 72,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9b718d4b63dc0816ac0d96fa77bade1d319c00dddd63da0626961e1a98235b8b",
+        "b19638adab9492bbb2f6e88f131311600fef58f091f5ee5bd5d4d47c5fbb2cd1"
+      ]
+    },
+    {
+      "repeat": 72,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "37d903bc981b19f980c178e1b819e73c2d84e5f52ac6e78b8734a768c2147449",
+        "6f259b38077f62da40c7f96b38a681e0ed26bdd54db9ac3e610cc6f0bf8c9984"
+      ]
+    },
+    {
+      "repeat": 73,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "29a645174f35434c07fee85ff00242dbb1dfef7be689ad5257300175630c8bfb",
+        "ea038f8822bc99c637c83b04685646ed6b3085dfe513190f8db7e617ffe156a3"
+      ]
+    },
+    {
+      "repeat": 73,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "cbcc9a5abbefe98c4552c9217c3140ce4ee8e287b67b7795fc5576bee56118a3",
+        "2205d9cfe9d2bf1a769b5eccc6cc5514d86a559e9a525b643807cedbfa89063e"
+      ]
+    },
+    {
+      "repeat": 73,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e94411b960b7640f7c4cde8d80b7ed974ab0dd7f8ae078db60e88d610d4250ff",
+        "ac96033b08ddfbc6c9a8a6bdcba591d55f0245e06945c3e635037a5f38e263f0"
+      ]
+    },
+    {
+      "repeat": 74,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c71413112bd298e23ede2a1dca00dedfd6067ea33ad36de1d1e657aaa9f333ff",
+        "157f8e093a35844b62907b42a0a5a0f7e55dafae8ed4d9fdace605a61c31655e"
+      ]
+    },
+    {
+      "repeat": 74,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0f0334324350997204768a85a217e928ef5988198e44af674b49472de259d15e",
+        "0be2bb77b15f74e872152dc5fbf07657bdbc69e0ca4a1b7a04d113e46392aff0"
+      ]
+    },
+    {
+      "repeat": 74,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7568a53a6ba928a5ffa1aeb70642125e7e6d5a522aa1e0c2f76191b807251351",
+        "9b74daf8f80d402c046bb92bc7e47bfe07b2c8e3480a022a54fe1001879c3efd"
+      ]
+    },
+    {
+      "repeat": 75,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "433a20168b861562ddfa51e2865c198d1c5ec25110bea45086c70b92f02f702d",
+        "3ba4d49ca96278a297c022ecd31429b1ab4ce1e6c519f4df865d1791e87ef8bb"
+      ]
+    },
+    {
+      "repeat": 75,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "975327f2e8c64f2af577f079c5f65fac4adda0e7d2fd2549b11e4884c1325283",
+        "e32fe5701018b6a41d8d4d9a007336f355dc65d8dd4ca7ba5f815155a084b7b9"
+      ]
+    },
+    {
+      "repeat": 75,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3001254029ce7229785980eec409b9d87785d32d0f8e3404c462db281b18bfd8",
+        "0e54d5c7e9168eb2908a41eaaef4d9d2360e60235bc650fbaf7f2697603a3fdb"
+      ]
+    },
+    {
+      "repeat": 76,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7fb17696b7a6b8a0a64512078e2fcef3e01d754a04f56e9e3d20de38f1a03f30",
+        "b9bd0d30862164e34d155eea5680f20c62cb565597e0c6c1279b8cdd77229b83"
+      ]
+    },
+    {
+      "repeat": 76,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b152a4a891fae77bf012516547627b9864ef1873f0054db494c8af318839b099",
+        "b9a8a1ed21b3b939a63b0302feec5bd5b3c6739b321dcd4b413bf024f4f17979"
+      ]
+    },
+    {
+      "repeat": 76,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8b62f0acfcb8023065fd5d158dc403b32322f28c858c15148c828481b38c9b0a",
+        "b55f21b60c33b11c1cf63af051f6b2bb3c8ce24b836630d6d3bfd4f95860c6e7"
+      ]
+    },
+    {
+      "repeat": 77,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1a5c3b1cb014ce9390a68710b6cf538f4f8249944c5810ee18b5ed0bc312dad4",
+        "c2921f3854b40f82ed3f1ad0250e14dfd13f50ad5e2154ca44a9d5c37720e24d"
+      ]
+    },
+    {
+      "repeat": 77,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5b9f4db1a0986b3ae77c0d05b81273271458297968603be1636f3e143755f161",
+        "751be43c1ac9aca3ab6acb4f5d9b97f29e8b378f967f012e5bd5324811aff93c"
+      ]
+    },
+    {
+      "repeat": 77,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e0bf64ec615f33aa81a03e70db198bdada76fb74faa542ae10707c3ec9a7bf90",
+        "c49d20e90a49748701e63d9a576c3e404eaeeb467196208b817582847ff81ffe"
+      ]
+    },
+    {
+      "repeat": 78,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "dcd9ff339b2ade2d855fb5a2692a6e8c5cb776af910eb61bbe43f41064d744b1",
+        "e79de36fd03ede98093f254e57fd56274f0592e001136515ec9fe9bf2f036b21"
+      ]
+    },
+    {
+      "repeat": 78,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1c867657c80977018c4ec00c919b93891ae17f973b6c566a6e48c1f79d282f28",
+        "ef6bff15fa182fec00d292be5c92fc54eda3a1d21eeda2ae364aa9edd48e33a5"
+      ]
+    },
+    {
+      "repeat": 78,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f27c362ebb463d251bbb71deb5bcbd5dd6dc71366bced6a6a267d6c78e50775b",
+        "72cf25ffad7b520f824ae718cf1b762894b51ccee44e3ad0879fbb02bf39dd9e"
+      ]
+    },
+    {
+      "repeat": 79,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "dcd89e98d8c60ff991ef7c7cb6f73fa30dfdca72007746a3b6937100a3b3e350",
+        "dfbef4d552a16b2ce29bdd0e63aa6fd4f4c47641ed98a1cd3d5b18626dacb0a2"
+      ]
+    },
+    {
+      "repeat": 79,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a364a4dd06ebd608f809a3c430fcb15ec4ec730e5c498c4edcc5b70fee62ffb3",
+        "e6da92db12ae5ab53a2873e7cdcfc0d3c12033bb544da42915c89ab995cd905d"
+      ]
+    },
+    {
+      "repeat": 79,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8ad9e01c09a071467380031042e3bb1ecb1d1fbe57d46f61adffd1dd130d5f51",
+        "52610486b2e4ac114b8fd94c59cab4bde800e6a18a6176f3c6c3afadbf625002"
+      ]
+    },
+    {
+      "repeat": 80,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a735dd993beb670d858ef33beabaa1d6ceba39c8dd96589f587bb26aa28314bf",
+        "52b402d663def72f7c14ae34bd0f9c3d78a72a51730f38b3835c9021f4677b4a"
+      ]
+    },
+    {
+      "repeat": 80,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3d2e114290a88ef7ab18c99f54b88d1cec306b08df225f8d73fabc00b16addc6",
+        "44f7d652250ad8b1b0164ac2b16fe3bf53955042c12ba900a6532655b43a2abb"
+      ]
+    },
+    {
+      "repeat": 80,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b62cb2608ffb3582ee52f7f028b7e05d399f78f37d48ac6f1382e5b846f137d8",
+        "375f5c69daaa2ec962e20b54ab5420013d0ed7e7e07c6faa0952474d26ebb63f"
+      ]
+    },
+    {
+      "repeat": 81,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "b9b3dfd1a13a07425bbfb960228e49a553ab5961c1e1fbb212bd72ae81c8d878",
+        "5bf2c193ca39f8c15d4d94a8d08c0cf18dec8d1ea38fbe4b88fdcafd910ea26b"
+      ]
+    },
+    {
+      "repeat": 81,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "544621c21a740f883d59634bf5e674fdc0d290b67434140c69cb2dc31f5bfb8a",
+        "e53798527bdcaaee5fbdcbc908e31f3447184f97d0f43b68e18666eb6690cc23"
+      ]
+    },
+    {
+      "repeat": 81,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f892df9932221be39439e48cebaad3613b6ac0160aebaf17089a037206a5b653",
+        "a3d941ec793e4858ce75a36ce6ea62b3d17a5bcbdececdbe01ffd3191a65870d"
+      ]
+    },
+    {
+      "repeat": 82,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "bfaacad05fd98eaae60dc81d65042de191231d3c40b1e31176ba06f5b28406d8",
+        "508a7b24c27cebd10dac581376b9a83f26a2901d4e666334b69c8573bdfda85f"
+      ]
+    },
+    {
+      "repeat": 82,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1bac242a7780462f92d409c67dd25dd7d7c5c0da96fe38fc127b31839afe6158",
+        "1c068a33f5824c820dc25350cb4497192158ef425af86dc591481825a26418c1"
+      ]
+    },
+    {
+      "repeat": 82,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "488358c83c4337c8824260f078fa0cdf67767bbd895ee1da63923c982fe1f952",
+        "fad600610b091ceb190fe06f55ef2ed094f48e1ba858ffcbc527f00f86289e14"
+      ]
+    },
+    {
+      "repeat": 83,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e21db61075cbfb828062d041d185f79aa23b087f4aec2218be49da7843393804",
+        "24711249d4a148d05d1614400a92580f0b8d0732d145c35eb89e0004e061ff77"
+      ]
+    },
+    {
+      "repeat": 83,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f885e1be7f104db1c445a4a1a4322be1a0bb6b8ee3309924553cca35f83eaf3d",
+        "fc92617424c02bde24b73cbd2c8ccbd41a43d0c86477496086d23fda9a0f6d21"
+      ]
+    },
+    {
+      "repeat": 83,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "53e33ec8b6f314691049373c85e21a3def473c2196aa3f519e23ed5832c19318",
+        "0ad8721b5967f7f0688935892114e70098ecc33e49d98ef57408f69426857ca0"
+      ]
+    },
+    {
+      "repeat": 84,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4dcb1533d148cb57f53fe59c4a7c5b7d273a10e4e8384a48b623fa3fb276cc28",
+        "44958505535a24d9882af0a77e109c24c9e698cc5986539a92314a40059e2866"
+      ]
+    },
+    {
+      "repeat": 84,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "c68633c8e0297a5771e1b340300197b44293de8b76d2c21bc498e98f3b98d95d",
+        "ccb308561f3fa70c4bc6487c1a85ef377b461addff42a934f38c9fe9092ad837"
+      ]
+    },
+    {
+      "repeat": 84,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "36d591f8708475464cdcea3d78d33a7368747f7e744870e71865d9a6b04179c8",
+        "7270a3bd7708185657c3e9e4b37fbfe669776a96b6f192185cfa2553935e8eda"
+      ]
+    },
+    {
+      "repeat": 85,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8d6ac83bfcae28ed09b473954481632749ebe74f0096f9d584368dcb32d32d6c",
+        "2f3f8fdb8dc1a743b4974059af171bcb46e9994e291c2e7806752efcbfe3ff23"
+      ]
+    },
+    {
+      "repeat": 85,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "519b4688a5685af7ca2544a060832eafe212ac4c1033bffd3453e3c47f1b5397",
+        "ae2b40a75301ecc4ae62beca2098fe3c4e9e0770bc0eca5889bb241ad1bb44f7"
+      ]
+    },
+    {
+      "repeat": 85,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "01a47f267de117e61c7e692e7cd6f020772bad40b9f14bbef5d60adbe2229cbf",
+        "1e50ff9caa85d199a815d9a53e224a33560de31981002793eafcee9abbf56d29"
+      ]
+    },
+    {
+      "repeat": 86,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "eb1b36fe22fc4f2e5bd7a524004ee0f2292f088f19cd72d86124f89a5ea50610",
+        "700edad2fee7af9b268c8fab78ed29827a3b09c3dee14df8ae6e0a3f525d3f8d"
+      ]
+    },
+    {
+      "repeat": 86,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "10ce75467230bfba67aefd16c3d4a8dc06367e4f5bcd7e1bba73ee171f774809",
+        "63b94d2cd43ec1906365c492e6c252aa674fab8af7f73aa9ab478d0affbd068b"
+      ]
+    },
+    {
+      "repeat": 86,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9acda9d19481038ee6cce6d5048aaec590af7bd1a0368206171fab455aa0da5b",
+        "7c21f53132a409f641db3fd7e4fff2262c6ee1d0c46d482cf63bb10500c221ac"
+      ]
+    },
+    {
+      "repeat": 87,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e10770bf9e1e3e4c2a6f57a296f580dab44c8c363f29bd3dc06a7385e176781e",
+        "b7dcd0dabf8f764a55c848ae5405c14604d886e30ead9fa1a4219197f26a6135"
+      ]
+    },
+    {
+      "repeat": 87,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "6684aa7392c97be28316fa5ade89917b421919779360ad748922b4a3c3cc129b",
+        "38c21f8e435ccb53aa561e060dc0d1bd3ad2a0d23dd07d5b0bdf6c4658cb83ab"
+      ]
+    },
+    {
+      "repeat": 87,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "aa4b86569afc4993671b2cabb31068542cd35cf67a78fa3b099cc1099fb68369",
+        "3b0b2f615b9b38664b4126497249fdfe81bb919dea4bf242e266d9e4180c388f"
+      ]
+    },
+    {
+      "repeat": 88,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "37e9916e77a6d65a819694f4b42182b9b9e9617c151d89c24371575a22c422d2",
+        "be3e0ef003290f5c652ac00d988d2d66e9e56fda13b78cf854506e31aeef38b4"
+      ]
+    },
+    {
+      "repeat": 88,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3fbfcb2a4611f0d48f7017426a41ed052225663df70e28fbd9ef031f0b09af3f",
+        "3822e3d589c31f64bff5eb75d171e0d8cd82820dbe11fe3040c98fb1ff699ed3"
+      ]
+    },
+    {
+      "repeat": 88,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "1af95506ee3a8d8a3daaa449afaebc7afda7c838e71bccac55fc21b2b109d795",
+        "d19f86003a46442f4f31b7d737eafb6960bba440463e7032036f1281259cd13e"
+      ]
+    },
+    {
+      "repeat": 89,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7e21e6f1468a444a2e5698425fe61d0ef6ab07a8c941706458ec97d754921df2",
+        "747b4df7d22648faa8cc1ac48028f80f8acebb96c58b665cca3bd118914c3640"
+      ]
+    },
+    {
+      "repeat": 89,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8050d5037d1f767c344844d5cd4b42971c3ee640c4a95ae3d242d3c73ae8d872",
+        "0a369b7cf75b5508d87ac640c26750838c72c8a76388a1b5f33b330d5d8047db"
+      ]
+    },
+    {
+      "repeat": 89,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3aaa087effaccbd451833420b6bc32c722a149875663f05c3ff773fcb28673a8",
+        "f039bbb3f92e4b5521381681420122c4fdd11d1f4245a08fdcf1413da189e0cd"
+      ]
+    },
+    {
+      "repeat": 90,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "8fe771ecdc23d744a0fb026179fc11473dddf5a48b68610ae98ecec092e02b5d",
+        "bddd824ca8a287bbc1573473d0cbf9168c51e4718f8e676eb1b192544e470b77"
+      ]
+    },
+    {
+      "repeat": 90,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "12624f79010ec54ffb8092e7bf2b0171aa74899143c23c6bd857719cd2224164",
+        "56b0b0b1c28c6717d57b4b6c9175c5592d3aced98204cbc6441dbf73fc1162e0"
+      ]
+    },
+    {
+      "repeat": 90,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d772da8b495f98086539faac2b0dfca3b5d6d95263b27ef96ff95e332b703a60",
+        "204dc7c5630602389a82745428183f9529b6cc9f9ea96c9eaf7579ee7787bb68"
+      ]
+    },
+    {
+      "repeat": 91,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "579e5692196cd7263962a4c8202afccba767d5991d5be66b843d94a94de61102",
+        "354ad8627a39b134e9d56bb9070b9d338ce2a509d7f0d4285559fa47a8d7a67a"
+      ]
+    },
+    {
+      "repeat": 91,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "0e6ca27abb4f7aba97f9d16eaf6d76a7407dd3fd7b53cda3f3401c18ed0bac12",
+        "14d9845ec319f2c7c68634f359709fccebe7e1ad5645e11520b0e1799c9992f6"
+      ]
+    },
+    {
+      "repeat": 91,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "5a3759048c56bb3b5d620d3e5a2d9b823c64555c1c7ca46d05e4f4edc318e25b",
+        "04fc8f9ead00a8eec4c76594dffe97185db3013792325d2f054956e3865ff1f1"
+      ]
+    },
+    {
+      "repeat": 92,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "784b971977eccc6a5d6dbe6125e209304d77235a850eafb573e0c7b261d07726",
+        "5c8db5b9ee777f7e49953a3c4c420fd375ec137b97de492c508be834e2babea8"
+      ]
+    },
+    {
+      "repeat": 92,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "9b18e0eb3604cf314e0fde31f9bbe7913d4350c963452423f36c078898ebf322",
+        "07bbad65843f0e5da402879dcbe086ec7fc874aac8af6a200895fbd578ac8494"
+      ]
+    },
+    {
+      "repeat": 92,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "515b82098f5f0cf1b2baae9d831cab85981e4e0013978f09900102b5aa0ae6f4",
+        "7049b1ac289a0cf1b7bb9caad75eebafe228266843b1ade0475def65ad2b9c47"
+      ]
+    },
+    {
+      "repeat": 93,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "39b9e44a1bd4041f4fb342d91b5b2dc7f4f8977887b672f412ce8d7ee9e56e28",
+        "c5e2de23005c71f45e722071d31b52bb4da37bd5f78f62db083e9c75db75ff2f"
+      ]
+    },
+    {
+      "repeat": 93,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "2df8eeea2e942ae541d1cd160943c302629f678283a607ca4f0160661ce367bb",
+        "47fdbfa5f5099168cd0000f965366a3b204515bf6acc9b43462e8c4cf4471555"
+      ]
+    },
+    {
+      "repeat": 93,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f33bdd8c5b26fc1862a990856627019b3fdb75ff8155c91fa4a24f0fc5426e97",
+        "1707fff3dd6026b055f1e3987a4af8459de1ba3ee6335db57424a7387962bf58"
+      ]
+    },
+    {
+      "repeat": 94,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "a1a48d25a2e7f5ac3ddcf1fcf4a1f05ba5e7cc4f3fb2af8a1758bc525bc0bceb",
+        "556b988df0dd818fc76ffdb39886b08de52e5cdde6e8942a74af43057d1aa2e5"
+      ]
+    },
+    {
+      "repeat": 94,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "82a3448a9e45eb1f8acf0392f00d1f8f7f5ea54a61ff2a58fc9459145b74a6ee",
+        "294e3814a897fb30dd77437ccd13271698fd6516a83b1d0c5d9c330ec4245a87"
+      ]
+    },
+    {
+      "repeat": 94,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d1736d21043d46ec2901cc4f3b77eb9743109a75f7ce5459a2302fcb3aa937e8",
+        "775a13786efdd32cb2b25d0884dd8263ae53844c70b400f5f890332ac610ca6e"
+      ]
+    },
+    {
+      "repeat": 95,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "27c3bb5b495d510d3f6a60bcd2c437c5b0f5347776c8e4c5ab234622901d6989",
+        "b461428530cddc262c770e5c50a595c7398a91b3d41b1b35b1379c777c2a284e"
+      ]
+    },
+    {
+      "repeat": 95,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "4f77c6afaa480ba4df8d98650cbc5226f25fbeba032878ecab08a3b927dc29e4",
+        "023a788fd8fa87da2ede2592d8600e4493bdbc3be189be0299b93c74f42df87e"
+      ]
+    },
+    {
+      "repeat": 95,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "151fced1bc0f886b7c2913b972843445ef44af6152a368883d23802b97c09364",
+        "f2711ffa35a5ca6611b99694d7243a6a919a70369c086a4317432cbe7f7ac58d"
+      ]
+    },
+    {
+      "repeat": 96,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "e5ca29a394491e3740aeca341f9ce0f2dceb0ecf31b1a9a8c764c5b8b7b8d2d7",
+        "7534e11530686f7a15d650ddae302e69364158721657c9b8e1d39835b1fc4996"
+      ]
+    },
+    {
+      "repeat": 96,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d59aa5c3d556016eb470471ec4075f86401942a686fe9dd2babc04b1ac389a3b",
+        "011e98c611344f2389ab82f20b670c81be9076471e8f3ad0b9d85dce9851f761"
+      ]
+    },
+    {
+      "repeat": 96,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "36db63f6456d65ebaf2ef6d380fc510967494065a8846e6fd876a6145bfcd8bc",
+        "4241a6b005c76623fa5b4647dc21aa69f826259fa66df8218a3dbdcd39686cea"
+      ]
+    },
+    {
+      "repeat": 97,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "d0dd00110542463e18298717b8926dad348ea453c97a9a1d51fdcb0ffe558d2d",
+        "dc562d207a87080b3b56d923149494dbf06f93da8edcae954cf696b87df44a69"
+      ]
+    },
+    {
+      "repeat": 97,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "97c09864ce4c875d8d7184f24ac2052d1c1377b3257f95566f3fa67138173910",
+        "c9d85136eb55075fc8750b5d1ab27403d6db232fa857f1ec60393330f131aef9"
+      ]
+    },
+    {
+      "repeat": 97,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "7a889475f1bde53a841242b9c39a0783b5d1582515af4531f73f225dd1e867db",
+        "01fc94f543aa3b58c444de8ec2224b59624c48d8041f335b19426b8e3998f298"
+      ]
+    },
+    {
+      "repeat": 98,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "29b06a60127c1ade1afb80f2025fcfbc3f66060e80f3584cd6870a06e5b39d07",
+        "515369d418c0e6380bc0cd75b68a779c6cf6885c08c2c3bee31faa704d98606d"
+      ]
+    },
+    {
+      "repeat": 98,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "f6e7d7a2ad212ab3b40ce2cb512a99128db035097666687880690463bdb47be8",
+        "061d4e7efc7eaa87636640c0e68427530a6d5cf630ede0b6e6b1a8b6a716dd89"
+      ]
+    },
+    {
+      "repeat": 98,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "3f58045560439611d8c9ad71c17ca470cbc87f82207a21090a45f2c0204338ad",
+        "aecb44c4182817287f795467de70c040f3441275de833b8b5cf2bd68f64b8dd5"
+      ]
+    },
+    {
+      "repeat": 99,
+      "family": "ce_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "23061c50ae103fd8bf20ec3976cfca7c233140b8c793fe56ea8d1fd9d949cf76",
+        "a3714cdc7c7aa849669ca5589d0981cbe447ac8ed1e95faa986f07d0feae8e44"
+      ]
+    },
+    {
+      "repeat": 99,
+      "family": "er_binary",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "81a008be4b59673da122ab5e38e6f2bf8ee524773da34747c5b004a40b793234",
+        "6ade33565bf6b47e175ec94c5a9154a272b05f44b3a3587b135d77f7694ff767"
+      ]
+    },
+    {
+      "repeat": 99,
+      "family": "ws_signed_empirical",
+      "negative_at_20": 720,
+      "negative_at_50": 1802,
+      "lost_from_20_to_50": 0,
+      "cached_array_sha256_20_50": [
+        "848f9e82863a77aa4629785b24af1a71c6ce71b587a853adfced404922840ae7",
+        "972f7028f7740a203176fce7e314ba6c68eefa41e11932014343a08b7edf70b4"
+      ]
+    }
+  ]
+}

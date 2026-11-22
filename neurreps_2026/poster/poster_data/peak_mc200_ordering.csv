@@ -1,0 +1,13 @@
+suite,family,normalization,maximum_seed_mean_MC200,negative_fraction,rho_target,leak,input_scale,selection
+architecture,ws_binary,own_radius,70.87738426427873,0.4,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,er_binary,own_radius,67.61994241267277,0.5,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ws_halfnormal,own_radius,67.19161395997742,0.4,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,er_halfnormal,own_radius,62.69906784157255,0.5,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ws_signed_empirical,own_radius,56.075883781626,0.4,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,er_signed_empirical,own_radius,52.30524882377426,0.4,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ce_binary,own_radius,46.68533575521266,0.5,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ce_halfnormal,own_radius,44.49315630054676,0.5,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ce_degree_rewired,own_radius,38.83121063415669,0.4,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ce_shuffled,own_radius,38.36134144137347,0.6,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ce_empirical,own_radius,24.12637444621685,0.5,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance
+architecture,ce_unknown_removed,own_radius,18.82629137259948,0.6,0.95,1.0,0.01,descriptive maximum over test-scored fixed grid; not independent validation of tuned performance

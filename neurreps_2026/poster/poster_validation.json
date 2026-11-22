@@ -1,0 +1,78 @@
+{
+  "revision": "MC200 sketch; linear MC plot for inputs 0.01/0.5; NARMA curves averaged across all 24 settings",
+  "pages": 1,
+  "size_cm": [
+    61,
+    85
+  ],
+  "layout_blocks": 46,
+  "layout_budget_warnings": 0,
+  "overfull_boxes": 0,
+  "missing_glyphs": 0,
+  "text_bounds_checked": 681,
+  "text_outside_page": 0,
+  "all_fonts_embedded": true,
+  "figure_hashes_verified": 6,
+  "figure_text_clipping": false,
+  "embedded_figure_pixels_match_sources": true,
+  "schematic_realizations": 1,
+  "schematic_nodes": 5,
+  "schematic_edges": 10,
+  "schematic_negative_counts": [
+    0,
+    2,
+    5
+  ],
+  "schematic_layout": "Kamada\u2013Kawai, fixed across fractions; not a ring",
+  "input_strengths": [
+    0.01,
+    0.1,
+    0.5,
+    1.5
+  ],
+  "mc_display_inputs": [
+    0.01,
+    0.5
+  ],
+  "mc_axis_scale": "linear",
+  "mc_inset_auc_matches_curves": true,
+  "narma_curve_points": 22,
+  "narma_aggregation": "all 24 settings",
+  "narma_auc_matches_curves": true,
+  "topology_comparison": "binary CE, ER and WS-like weights under own-radius scaling",
+  "peak_ordering": "top three plus original CE (rank 11); full 12-model ordering retained in CSV",
+  "independent_package_compile": "passed",
+  "independent_package_text_matches": true,
+  "archive_members": [
+    "poster.tex",
+    "README.txt",
+    "SOURCES.md",
+    "poster_sources.json",
+    "build_figures.py",
+    "validate_poster.py",
+    "assets/poster_edge_sign_sweep.png",
+    "assets/poster_mc_input_curves.png",
+    "assets/poster_structural_mc_auc.png",
+    "assets/poster_er_weight_mc_auc.png",
+    "assets/poster_narma.png",
+    "assets/poster_normalization_caveat.png",
+    "poster_data/edge_sign_schematic.json",
+    "poster_data/mc_input_curves.csv",
+    "poster_data/mc_auc_inset.csv",
+    "poster_data/structural_mc_auc.csv",
+    "poster_data/er_weight_mc_auc.csv",
+    "poster_data/narma_auc.csv",
+    "poster_data/normalization_gaps.csv",
+    "poster_data/peak_mc200_ordering.csv",
+    "poster_data/gamma_effect_summary.csv",
+    "poster_data/narma_mean_curves.csv",
+    "poster_data/sign_nesting_audit.json"
+  ],
+  "previous_poster": "archive/before_sketch_mc200_2026-11-22/",
+  "artifacts": {
+    "poster.tex": "6e7b10e93d24ea33bf339d4d597dd2c5706f946be47bfaf28fac0ce208fe25e4",
+    "poster.pdf": "6cdab2b47e00905b75844143f77b8bfbf86e4aea24e2b797a20158173eb7342e",
+    "poster_preview.png": "05f3371eb82415c1ceb0a1c911490cc056cbff19ad21dd950c4fab6943aae54b",
+    "neurreps_overleaf.zip": "25c2e40ee549aa1ccfa0c7fe4f678c45348c720ac014357d4db94bd22900721f"
+  }
+}

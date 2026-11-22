@@ -1,0 +1,222 @@
+{
+  "analysis": "analysis/mc200_recompute/mc200_274500",
+  "experiment_id": "49e6a1c836ec2a7286fa5599d1acecabb63fbe29e78228e167705fafe9f9474b",
+  "inputs": {
+    "analysis/mc200_recompute/mc200_274500/architecture/mean_performance.csv": "31a2bcf8fc2488a0aacda6522f56e14edd82b59d0533dfe64b3f700d3a293a34",
+    "analysis/mc200_recompute/mc200_274500/architecture/performance_auc.csv": "8f6c445047f26a74adbf5572e53f049e00fe14e5f6efab3d3d96a5b9a113f430",
+    "analysis/mc200_recompute/mc200_274500/er/performance_auc.csv": "f986790f64043688f8342157b023fd29a50a358dbe64a170d1bb68725c0e4c2a",
+    "analysis/mc200_recompute/mc200_274500/architecture/performance_auc_per_realization.csv": "1ef6dc81f92802603d796844259144c9f78178fe69530ac57e72264fe477a617",
+    "analysis/mc200_recompute/mc200_274500/descriptive_peak_MC200.csv": "7482fff28c56721d80b444d1dd336dbc36a2a9e8ea95277098ba875be1ed2aae",
+    "analysis/mc200_recompute/mc200_274500/er/gamma_summary.csv": "833b0ec644ab5b91de6e88094e5b332410c768216bcb15f3e0d1a0d8e573e3c7"
+  },
+  "selections": {
+    "poster_edge_sign_sweep.png": {
+      "kind": "five-node, ten-edge illustrative schematic, not a CE subgraph",
+      "fractions": [
+        0.0,
+        0.2,
+        0.5
+      ],
+      "seeds": [
+        20261119
+      ],
+      "layout": "Kamada\u2013Kawai layout of the undirected projection of one fixed directed schematic; not a ring",
+      "rule": "One random order per realization; flip prefix floor(p*M); nested within realization; redraw across realizations",
+      "sign_rule_source": "network_stats/architecture_sweep.py: raw_networks",
+      "nodes": "neutral; signs assigned to edges, not neuron types",
+      "figure_text_bounds_checked": 6,
+      "figure_text_clipped": false
+    },
+    "poster_mc_input_curves.png": {
+      "metric": "MC_200",
+      "normalization": "own_radius",
+      "families": [
+        "ce_empirical",
+        "er_binary"
+      ],
+      "inputs": [
+        0.01,
+        0.5
+      ],
+      "aggregation": "six radius/leak settings per input; 100 paired realizations",
+      "inset": "normal performance AUC for each input over its six radius/leak settings; circles CE, squares ER; not win AUC",
+      "zoom": "linear y axis, limits 7.5\u201339.5 retain every plotted mean; colored fill marks CE advantage",
+      "figure_text_bounds_checked": 7,
+      "figure_text_clipped": false
+    },
+    "poster_structural_mc_auc.png": {
+      "metric": "MC_200",
+      "normalization": "own_radius",
+      "groups": [
+        [
+          "Empirical weight placement",
+          [
+            [
+              "ce_empirical",
+              "CE original"
+            ],
+            [
+              "ce_shuffled",
+              "CE shuffled weights"
+            ]
+          ]
+        ],
+        [
+          "Topology, all binary weights",
+          [
+            [
+              "ce_binary",
+              "CE topology"
+            ],
+            [
+              "er_binary",
+              "ER topology"
+            ],
+            [
+              "ws_binary",
+              "WS-like topology"
+            ]
+          ]
+        ],
+        [
+          "Magnitude distribution on ER",
+          [
+            [
+              "er_binary",
+              "Binary"
+            ],
+            [
+              "er_halfnormal",
+              "Half-normal"
+            ],
+            [
+              "er_signed_empirical",
+              "CE magnitudes"
+            ]
+          ]
+        ]
+      ],
+      "aggregation": "all 24 settings, E/I AUC divided by observed span; 95% paired-realization intervals",
+      "caveat": "Own-radius scaling changes effective magnitude units between matrices; shared-scaling check shown in critics corner",
+      "figure_text_bounds_checked": 4,
+      "figure_text_clipped": false
+    },
+    "poster_er_weight_mc_auc.png": {
+      "metric": "MC_200",
+      "normalization": "own_radius",
+      "families": [
+        "empirical",
+        "binary",
+        "halfnormal",
+        "cap99",
+        "cap95",
+        "cap90",
+        "gamma",
+        "lognormal",
+        "hetero50",
+        "hetero75"
+      ],
+      "aggregation": "all 24 settings, normal performance AUC; 95% paired-realization intervals",
+      "modifications": "caps restore mean magnitude; gamma/lognormal match finite mean/variance and preserve ER ranks; compression w=mu+a*(w-mu)",
+      "figure_text_bounds_checked": 1,
+      "figure_text_clipped": false
+    },
+    "poster_narma.png": {
+      "metric": "NARMA10_test_nmse",
+      "normalization": "own_radius",
+      "models": [
+        [
+          "architecture",
+          "ce_empirical",
+          "CE original"
+        ],
+        [
+          "architecture",
+          "ce_shuffled",
+          "CE shuffled"
+        ],
+        [
+          "architecture",
+          "er_binary",
+          "ER binary"
+        ],
+        [
+          "architecture",
+          "er_signed_empirical",
+          "ER + CE weights"
+        ],
+        [
+          "architecture",
+          "ws_signed_empirical",
+          "WS-like + CE weights"
+        ],
+        [
+          "er",
+          "gamma",
+          "ER + gamma"
+        ],
+        [
+          "er",
+          "lognormal",
+          "ER + lognormal"
+        ]
+      ],
+      "top": "all 24 settings; normal error AUC",
+      "bottom": "two mean-error curves; equal average over all 24 input/radius/leak settings",
+      "source": "archived paired NARMA10; no rerun",
+      "intervals": "95% paired-realization bootstrap",
+      "figure_text_bounds_checked": 6,
+      "figure_text_clipped": false
+    },
+    "poster_normalization_caveat.png": {
+      "metric": "MC_200",
+      "reference": "ce_binary",
+      "controls": [
+        "er_binary",
+        "ws_binary"
+      ],
+      "normalizations": [
+        "own_radius",
+        "fixed_reference",
+        "shared_ce_scale"
+      ],
+      "estimand": "paired control-minus-CE-binary performance AUC; shared multiplier reverses CE/ER binary order",
+      "bootstrap": {
+        "draws": 1000,
+        "seed": 20261122,
+        "unit": "whole paired realization"
+      },
+      "figure_text_bounds_checked": 3,
+      "figure_text_clipped": false
+    }
+  },
+  "figure_script_sha256": "3da27c2176fe089115530d4b4da02a2766d3c2a3b245e7dbcf2746117ba3c3b3",
+  "data_source": "MC200 run 274500; archived paired NARMA10; no simulations",
+  "bootstrap": {
+    "draws": 1000,
+    "seed": 20261122,
+    "unit": "whole paired realization"
+  },
+  "design_reference": "Four user-provided camera sketches dated 2026-11-22",
+  "outputs": {
+    "poster_edge_sign_sweep.png": "cbf8eff319460d7b6d02fd5c95e4a90eb6eedc82b3a5c35eb212e4e293ee3aa0",
+    "poster_mc_input_curves.png": "e745538273ed949172af115546beafe9bfe93ef2f54a09544cd6bbe99850173f",
+    "poster_structural_mc_auc.png": "ee9d5f09d8d2b833a8fbc6ebe1b811680918372411788227b7e09c77e7166ff7",
+    "poster_er_weight_mc_auc.png": "5eee583f4ae21ed301f196b858586d9fa5e00789dc5b08fae0aa802c50996845",
+    "poster_narma.png": "b96220e46445b4f23a8fa210f92141d3ca7853b39d64ed1b29ba1f9498acc065",
+    "poster_normalization_caveat.png": "ca0cd6d05db30c22090a9a544392b23f22eabe8f50e92f8ec02e85787188b557"
+  },
+  "data_outputs": {
+    "poster_data/edge_sign_schematic.json": "831245d9eb146d68506738f33bc50738877cbefd3330bc0862fd16a034c21d46",
+    "poster_data/mc_input_curves.csv": "0f30ef0ba675379763b38b6be1bb5f69ce3895e4f28816b3e639f937edd6430f",
+    "poster_data/mc_auc_inset.csv": "5b40f7f521798bbcaf984015dd9e81f4199e2424502d44ab5b56f5410e073456",
+    "poster_data/structural_mc_auc.csv": "7c07a50fac5d2a26f8fcd22981a3436b0c9c634e14b0ed065515a97d3296acca",
+    "poster_data/er_weight_mc_auc.csv": "6caefd8e9446f73fe2ebaafeb6ef26f70475b4aea9e1ea27622179cdcfe696bf",
+    "poster_data/narma_auc.csv": "2aa4c41c1bb56061afd81948bf38901a2294fb13b2b3511a690dd4824613f073",
+    "poster_data/normalization_gaps.csv": "257b0170e4258e9048777e58880ce735c3e0bd85d39c31964128c72c8bd80d22",
+    "poster_data/peak_mc200_ordering.csv": "30a87a465aff7415287944559c9f29be8e3ddcdbefa76176d5ce7dc5dd4754e9",
+    "poster_data/gamma_effect_summary.csv": "8c83baae3ec0e9160f1e07b802c6fe18b1a72749b46eb18205d834aef1d54147",
+    "poster_data/narma_mean_curves.csv": "53db184629a4ecf490ee08b3b66d9429c468e050037cc8ee3ecc7942e9071dec",
+    "poster_data/sign_nesting_audit.json": "1b1408ad96be1dbb7ac25ea019fbf89353b5b64ee9ac67fbf9513b22e350a68e"
+  }
+}

@@ -1,0 +1,9 @@
+group,label,normalization,metric,input_scale,performance_auc,ci_low,ci_high,family
+Empirical weight placement,CE original,own_radius,MC_200,ALL,11.394266724544432,11.329422200264435,11.457667416158834,ce_empirical
+Empirical weight placement,CE shuffled weights,own_radius,MC_200,ALL,14.001314889265458,13.94461062686892,14.057462235259086,ce_shuffled
+"Topology, all binary weights",CE topology,own_radius,MC_200,ALL,12.763167615957252,12.707381844946,12.821201454750891,ce_binary
+"Topology, all binary weights",ER topology,own_radius,MC_200,ALL,14.926574041229294,14.88136936428353,14.97572688797397,er_binary
+"Topology, all binary weights",WS-like topology,own_radius,MC_200,ALL,17.296069583200328,17.248471077417783,17.344686245024995,ws_binary
+Magnitude distribution on ER,Binary,own_radius,MC_200,ALL,14.926574041229294,14.88136936428353,14.97572688797397,er_binary
+Magnitude distribution on ER,Half-normal,own_radius,MC_200,ALL,16.15413166255633,16.097657017592304,16.2136164049068,er_halfnormal
+Magnitude distribution on ER,CE magnitudes,own_radius,MC_200,ALL,16.488002744670247,16.415196338733683,16.56130191898097,er_signed_empirical

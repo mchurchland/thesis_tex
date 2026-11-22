@@ -1,0 +1,8 @@
+suite,label,family,normalization,metric,input_scale,performance_auc,ci_low,ci_high
+architecture,CE original,ce_empirical,own_radius,NARMA10_test_nmse,ALL,0.196233017673053,0.1921890469054406,0.201406890041423
+architecture,CE shuffled,ce_shuffled,own_radius,NARMA10_test_nmse,ALL,0.1615366371973067,0.1574932541323859,0.1663419401354615
+architecture,ER binary,er_binary,own_radius,NARMA10_test_nmse,ALL,0.1814429841563891,0.1772495120671723,0.1863180314602363
+architecture,ER + CE weights,er_signed_empirical,own_radius,NARMA10_test_nmse,ALL,0.1514449557418999,0.1474781120906297,0.1559121376945009
+architecture,WS-like + CE weights,ws_signed_empirical,own_radius,NARMA10_test_nmse,ALL,0.1476520674379246,0.1437620229952434,0.1519003132327563
+er,ER + gamma,gamma,own_radius,NARMA10_test_nmse,ALL,0.1500930408353429,0.1461456003820772,0.1545359874246346
+er,ER + lognormal,lognormal,own_radius,NARMA10_test_nmse,ALL,0.1540578929219894,0.1499917068357003,0.1586920138337428
